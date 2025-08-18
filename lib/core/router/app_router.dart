@@ -1,7 +1,7 @@
 import 'package:elevate_ecommerce_app/core/router/route_names.dart';
 import 'package:flutter/material.dart';
 
-import '../../presentation/login/views/login_view.dart';
+import '../../presentation/auth/login/views/login_view.dart';
 
 
 abstract class AppRouter {
@@ -13,6 +13,5 @@ abstract class AppRouter {
       default:
         return MaterialPageRoute(builder: (_) => const LoginView());
     }
-    return null;
   }
 }

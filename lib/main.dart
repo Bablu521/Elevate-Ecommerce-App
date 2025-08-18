@@ -1,5 +1,8 @@
+import 'package:elevate_ecommerce_app/core/di/di.dart';
+import 'package:elevate_ecommerce_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'core/app_theme.dart';
@@ -9,8 +12,8 @@ import 'my_bloc_observer.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  configureDependencies();
   Bloc.observer = MyBlocObserver();
-
   runApp(const MyApp());
 }
 
@@ -25,12 +28,19 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) {
         return MaterialApp(
-          title: 'Online Exam',
+          title: 'E-Commerce App',
           debugShowCheckedModeBanner: false,
-          darkTheme: AppTheme.lightTheme,
-          themeMode: ThemeMode.dark,
+          theme: AppTheme.lightTheme,
           onGenerateRoute: AppRouter.onGenerateRoute,
           initialRoute: RouteNames.login,
+          localizationsDelegates: [
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: AppLocalizations.delegate.supportedLocales,
+          locale: const Locale("en"),
         );
       },
     );
