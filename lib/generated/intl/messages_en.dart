@@ -49,6 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "sendTimeout": MessageLookupByLibrary.simpleMessage(
       "Request timed out. Please try again.",
     ),
+    "signUp": MessageLookupByLibrary.simpleMessage("Sign up"),
     "unknown": MessageLookupByLibrary.simpleMessage("Unknown"),
     "unknownError": MessageLookupByLibrary.simpleMessage(
       "An unexpected error occurred:",

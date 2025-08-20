@@ -158,6 +158,11 @@ class AppLocalizations {
   String get unknown {
     return Intl.message('Unknown', name: 'unknown', desc: '', args: []);
   }
+
+  /// `Sign up`
+  String get signUp {
+    return Intl.message('Sign up', name: 'signUp', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppLocalizations> {

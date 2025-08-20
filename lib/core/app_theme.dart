@@ -32,7 +32,7 @@ abstract class AppTheme {
       bodyLarge: TextStyle(
         fontSize: 16.sp,
         fontWeight: FontWeight.w500,
-        color: AppColors.kWhiteBase,
+        // color: AppColors.kWhiteBase,
       ),
       bodyMedium: TextStyle(
         fontSize: 14.sp,
@@ -52,7 +52,7 @@ abstract class AppTheme {
     ),
     appBarTheme: AppBarTheme(
       scrolledUnderElevation: 0,
-      backgroundColor: AppColors.kBaseColor,
+      backgroundColor: AppColors.kWhiteBase,
       titleTextStyle: TextStyle(
         fontSize: 20.sp,
         fontWeight: FontWeight.w500,
