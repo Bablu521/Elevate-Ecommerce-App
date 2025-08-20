@@ -58,6 +58,7 @@ class CustomTextFormField extends StatelessWidget {
           Theme.of(context).textTheme.bodyMedium?.copyWith(
             color: Theme.of(context).colorScheme.onSecondary,
           ),
+
       controller: controller,
       keyboardType: keyboardType,
       obscureText: obscureText,
@@ -66,7 +67,7 @@ class CustomTextFormField extends StatelessWidget {
       decoration: InputDecoration(
         contentPadding: contentPadding ?? REdgeInsets.all(16),
         filled: true,
-        fillColor: Theme.of(context).colorScheme.shadow,
+        fillColor: Theme.of(context).colorScheme.secondary,
         label: Text(
           label,
           style:

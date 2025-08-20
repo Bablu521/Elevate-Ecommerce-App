@@ -34,21 +34,37 @@ class MessageLookup extends MessageLookupByLibrary {
     "connectionTimeout": MessageLookupByLibrary.simpleMessage(
       "Connection timeout. Please try again later.",
     ),
+    "continueAsGuest": MessageLookupByLibrary.simpleMessage(
+      "Continue as guest",
+    ),
     "dioErrorCancel": MessageLookupByLibrary.simpleMessage(
       "Request was cancelled. Please retry.",
     ),
+    "dontHaveAccount": MessageLookupByLibrary.simpleMessage(
+      "Dont\'t have an account?",
+    ),
+    "emailHintText": MessageLookupByLibrary.simpleMessage("Enter your Email"),
+    "emailLabel": MessageLookupByLibrary.simpleMessage("Email"),
     "failedToParseResponse": MessageLookupByLibrary.simpleMessage(
       "Failed to parse error response.",
     ),
+    "forgetPassword": MessageLookupByLibrary.simpleMessage("Forget password?"),
+    "login": MessageLookupByLibrary.simpleMessage("Login"),
     "noResponse": MessageLookupByLibrary.simpleMessage(
       "No response received from server.",
     ),
+    "passwordHintText": MessageLookupByLibrary.simpleMessage(
+      "Enter your Password",
+    ),
+    "passwordLabel": MessageLookupByLibrary.simpleMessage("Password"),
     "receiveTimeout": MessageLookupByLibrary.simpleMessage(
       "Server took too long to respond.",
     ),
+    "rememberMe": MessageLookupByLibrary.simpleMessage("Remember me"),
     "sendTimeout": MessageLookupByLibrary.simpleMessage(
       "Request timed out. Please try again.",
     ),
+    "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
     "unknown": MessageLookupByLibrary.simpleMessage("Unknown"),
     "unknownError": MessageLookupByLibrary.simpleMessage(
       "An unexpected error occurred:",

@@ -9,5 +9,15 @@
   "dioErrorCancel": "Request was cancelled. Please retry.",
   "connectionError": "Network error. Please check your internet connection.",
   "unknownError": "An unexpected error occurred:",
-  "unknown": "Unknown"
+  "unknown": "Unknown",
+  "login": "Login",
+  "emailLabel": "Email",
+  "emailHintText": "Enter your Email",
+  "passwordLabel": "Password",
+  "passwordHintText": "Enter your Password",
+  "rememberMe": "Remember me",
+  "forgetPassword": "Forget password?",
+  "dontHaveAccount": "Dont't have an account?",
+  "continueAsGuest": "Continue as guest",
+  "signUp": "Sign Up"
 }
