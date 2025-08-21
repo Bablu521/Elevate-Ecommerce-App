@@ -40,11 +40,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "dioErrorCancel": MessageLookupByLibrary.simpleMessage(
       "Request was cancelled. Please retry.",
     ),
-    "dontHaveAccount": MessageLookupByLibrary.simpleMessage(
-      "Dont\'t have an account?",
+    "emailIsRequired": MessageLookupByLibrary.simpleMessage(
+      "email is required",
     ),
-    "emailHintText": MessageLookupByLibrary.simpleMessage("Enter your Email"),
-    "emailLabel": MessageLookupByLibrary.simpleMessage("Email"),
+    "enterNumbersOnly": MessageLookupByLibrary.simpleMessage(
+      "Enter numbers only",
+    ),
+    "enterValidEmail": MessageLookupByLibrary.simpleMessage(
+      "enter valid email",
+    ),
+    "enterValidUsername": MessageLookupByLibrary.simpleMessage(
+      "Enter valid username",
+    ),
+    "enterValueMustEqual11Digit": MessageLookupByLibrary.simpleMessage(
+      "Enter value must equal 11 digit",
+    ),
     "failedToParseResponse": MessageLookupByLibrary.simpleMessage(
       "Failed to parse error response.",
     ),
@@ -53,10 +63,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "noResponse": MessageLookupByLibrary.simpleMessage(
       "No response received from server.",
     ),
-    "passwordHintText": MessageLookupByLibrary.simpleMessage(
-      "Enter your Password",
+    "passwordIsRequired": MessageLookupByLibrary.simpleMessage(
+      "password is required",
     ),
-    "passwordLabel": MessageLookupByLibrary.simpleMessage("Password"),
+    "passwordNotMatched": MessageLookupByLibrary.simpleMessage(
+      "password Not Matched",
+    ),
     "receiveTimeout": MessageLookupByLibrary.simpleMessage(
       "Server took too long to respond.",
     ),
@@ -65,6 +77,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Request timed out. Please try again.",
     ),
     "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
+    "thisFieldIsRequired": MessageLookupByLibrary.simpleMessage(
+      "This field is required",
+    ),
     "unknown": MessageLookupByLibrary.simpleMessage("Unknown"),
     "unknownError": MessageLookupByLibrary.simpleMessage(
       "An unexpected error occurred:",

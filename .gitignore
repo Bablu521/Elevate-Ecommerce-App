@@ -3,6 +3,8 @@
 *.log
 *.pyc
 *.swp
+*.jar
+*.dex
 .DS_Store
 .atom/
 .build/
@@ -38,6 +40,9 @@ migrate_working_dir/
 .flutter-plugins-dependencies
 .pub-cache/
 .pub/
+\kotlin
+\zip-cache
+android
 /build/
 
 # Symbolication related
