@@ -6,16 +6,16 @@ import 'package:flutter/material.dart';
 import '../../presentation/auth/login/views/login_view.dart';
 
 abstract class AppRouter {
-  static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
+  static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case RouteNames.login:
-        return MaterialPageRoute(builder: (_) => const LoginView());
+        return MaterialPageRoute(builder: (_) => LoginView());
 
       case RouteNames.register:
         return MaterialPageRoute(builder: (_) => RegisterView());
 
       default:
-        return MaterialPageRoute(builder: (_) => const LoginView());
+        return MaterialPageRoute(builder: (_) => LoginView());
     }
   }
 }

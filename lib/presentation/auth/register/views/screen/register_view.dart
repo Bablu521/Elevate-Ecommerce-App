@@ -1,4 +1,3 @@
-import 'package:elevate_ecommerce_app/core/common_widgets/custom_text_form_field.dart';
 import 'package:elevate_ecommerce_app/core/constants/app_colors.dart';
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +32,7 @@ class RegisterView extends StatelessWidget {
                   children: [
                     Expanded(child: TextFormField(
                       controller: firstNameController,
-                      cursorColor: AppColors.kWight90,
+                      cursorColor: AppColors.white,
                       style: Theme.of(context).textTheme.bodyLarge,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.only(
@@ -43,23 +42,23 @@ class RegisterView extends StatelessWidget {
                         ),
                         labelText: "First name",
                         labelStyle: Theme.of(context).textTheme.bodySmall!.copyWith(
-                          color: AppColors.kWight90
+                          color: AppColors.white
                         ),
                         hintText: "Enter first name",
                         hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                          color: AppColors.kWight70
+                          color: AppColors.white
                         ),
                         
-                        enabledBorder: customOutlineInputBorder(color: AppColors.kWight90,
+                        enabledBorder: customOutlineInputBorder(color: AppColors.white,
                               ),
-                        focusedBorder: customOutlineInputBorder(color: AppColors.kWight90,
+                        focusedBorder: customOutlineInputBorder(color: AppColors.white,
                               ),
-                        errorBorder: customOutlineInputBorder(color: AppColors.kRed)
+                        errorBorder: customOutlineInputBorder(color: AppColors.red)
                       ),
                     )),
                     SizedBox(width: 17.w,),
-                    Expanded(child: CustomTextFormField(label: "Enter first name"),
-                        ),
+                    Expanded(child: SizedBox()),
+                        
                   ],
                 ),
               ],

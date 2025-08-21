@@ -1,70 +1,109 @@
+import 'package:elevate_ecommerce_app/core/constants/const_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'constants/app_colors.dart';
 
 abstract class AppTheme {
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
-    scaffoldBackgroundColor: AppColors.kWightBase,
+    scaffoldBackgroundColor: AppColors.white,
     fontFamily: "Inter",
-    colorScheme: ColorScheme.fromSeed(
-      primary: AppColors.mainColor,
-      secondary: AppColors.kWightBase,
-      onSecondary: AppColors.kBlack,
-      shadow: AppColors.kGray,
-      surface: AppColors.mainColor,
-      primaryContainer: AppColors.error,
-      seedColor: Colors.deepPurple,
+    colorScheme: ColorScheme(
       brightness: Brightness.light,
+      primary: AppColors.mainColor,
+      onPrimary: AppColors.white,
+      secondary: AppColors.black,
+      onSecondary: AppColors.white,
+      error: AppColors.red,
+      onError: AppColors.white,
+      surface: AppColors.white,
+      onSurface: AppColors.mainColor,
     ),
     textTheme: TextTheme(
-      titleLarge: TextStyle(
-        fontSize: 20.sp,
-        fontWeight: FontWeight.w500,
-        color: AppColors.kBlack,
-      ),
-      labelMedium: TextStyle(
-        fontSize: 18.sp,
-        fontWeight: FontWeight.w500,
-        color: AppColors.kBlack,
-      ),
-      bodyLarge: TextStyle(
-        fontSize: 16.sp,
-        fontWeight: FontWeight.w500,
-        // color: AppColors.kWhiteBase,
-      ),
-      bodyMedium: TextStyle(
-        fontSize: 14.sp,
-        fontWeight: FontWeight.w400,
-        color: AppColors.mainColor,
-      ),
-      bodySmall: TextStyle(
-        fontSize: 13.sp,
-        fontWeight: FontWeight.w400,
-        color: AppColors.kBlack,
-      ),
-      labelSmall: TextStyle(
-        fontSize: 12.sp,
-        fontWeight: FontWeight.w400,
-        color: AppColors.error,
-      ),
+      bodySmall: getTextStyle(),
+      bodyMedium: getTextStyle(fontSize: 16.sp, fontWeight: FontWeight.w400),
+      bodyLarge: getTextStyle(fontSize: 20.sp, fontWeight: FontWeight.w600),
+      headlineMedium: getTextStyle(fontSize: 18.sp, fontWeight: FontWeight.w500),
     ),
     appBarTheme: AppBarTheme(
-      scrolledUnderElevation: 0,
-      backgroundColor: AppColors.kWhiteBase,
-      titleTextStyle: TextStyle(
+      backgroundColor: AppColors.white,
+      titleTextStyle: getTextStyle(
         fontSize: 20.sp,
         fontWeight: FontWeight.w500,
-        color: AppColors.kBlack,
       ),
-      centerTitle: false,
-      surfaceTintColor: AppColors.kBlack,
+      iconTheme: IconThemeData(color: AppColors.black),
     ),
-    textSelectionTheme: TextSelectionThemeData(
-      cursorColor: AppColors.mainColor,
-      selectionHandleColor: AppColors.mainColor,
-      selectionColor: AppColors.mainColor.withValues(alpha: 0.2),
+
+    inputDecorationTheme: InputDecorationTheme(
+      filled: true,
+      fillColor: AppColors.white,
+      contentPadding: EdgeInsets.only(left: 16.w, top: 4.h, bottom: 4.h),
+      hintStyle: getTextStyle(
+        color: AppColors.white[70],
+        fontFamily: ConstKeys.robotoFont,
+        fontWeight: FontWeight.w400,
+      ),
+      labelStyle: getTextStyle(
+        color: AppColors.gray,
+        fontFamily: ConstKeys.robotoFont,
+        fontWeight: FontWeight.w400,
+      ),
+      floatingLabelStyle: WidgetStateTextStyle.resolveWith((states) {
+        if (states.contains(WidgetState.error)) {
+          return getTextStyle(color: AppColors.red); // label red in error
+        }
+        return getTextStyle(color: AppColors.gray);
+      }),
+      errorStyle: getTextStyle(color: AppColors.red),
+      border: getOutlineInputBorder(color: AppColors.gray),
+      focusedBorder: getOutlineInputBorder(color: AppColors.gray),
+      enabledBorder: getOutlineInputBorder(color: AppColors.gray),
+      errorBorder: getOutlineInputBorder(color: AppColors.red),
+    ),
+
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: AppColors.mainColor,
+        disabledBackgroundColor: AppColors.black[30],
+        foregroundColor: AppColors.white,
+        textStyle: getTextStyle(
+          fontSize: 16.sp,
+          fontWeight: FontWeight.w500,
+        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
+      ),
+    ),
+
+    dialogTheme: DialogThemeData(
+      titleTextStyle: getTextStyle(
+        fontSize: 22.sp,
+        fontWeight: FontWeight.w600,
+      ),
+      contentTextStyle: getTextStyle(
+        fontSize: 16.sp,
+        fontWeight: FontWeight.w500,
+      ),
     ),
   );
+
+  static InputBorder getOutlineInputBorder({required Color color}) {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(4.r),
+      borderSide: BorderSide(color: color, width: 1.w),
+    );
+  }
+
+  static TextStyle getTextStyle({
+    Color? color,
+    double? fontSize,
+    String? fontFamily,
+    FontWeight? fontWeight,
+  }) {
+    return TextStyle(
+      color: color ?? AppColors.black,
+      fontSize: fontSize ?? 14.sp,
+      fontFamily: fontFamily ?? ConstKeys.interFont,
+      fontWeight: fontWeight ?? FontWeight.w400,
+    );
+  }
 }
