@@ -53,6 +53,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   intl: any
+  shared_preferences: ^2.5.3
 
 dev_dependencies:
   flutter_test:
@@ -98,7 +99,13 @@ flutter:
   fonts:
     - family: Inter
       fonts:
-        - asset: assets/fonts/Inter-VariableFont_opsz,wght.ttf
+        - asset: assets/fonts/inter.ttf
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/roboto.ttf
+    - family: Outfit
+      fonts:
+        - asset: assets/fonts/Outfit.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:

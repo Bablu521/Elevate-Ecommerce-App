@@ -37,17 +37,41 @@ class MessageLookup extends MessageLookupByLibrary {
     "dioErrorCancel": MessageLookupByLibrary.simpleMessage(
       "Request was cancelled. Please retry.",
     ),
+    "emailIsRequired": MessageLookupByLibrary.simpleMessage(
+      "email is required",
+    ),
+    "enterNumbersOnly": MessageLookupByLibrary.simpleMessage(
+      "Enter numbers only",
+    ),
+    "enterValidEmail": MessageLookupByLibrary.simpleMessage(
+      "enter valid email",
+    ),
+    "enterValidUsername": MessageLookupByLibrary.simpleMessage(
+      "Enter valid username",
+    ),
+    "enterValueMustEqual11Digit": MessageLookupByLibrary.simpleMessage(
+      "Enter value must equal 11 digit",
+    ),
     "failedToParseResponse": MessageLookupByLibrary.simpleMessage(
       "Failed to parse error response.",
     ),
     "noResponse": MessageLookupByLibrary.simpleMessage(
       "No response received from server.",
     ),
+    "passwordIsRequired": MessageLookupByLibrary.simpleMessage(
+      "password is required",
+    ),
+    "passwordNotMatched": MessageLookupByLibrary.simpleMessage(
+      "password Not Matched",
+    ),
     "receiveTimeout": MessageLookupByLibrary.simpleMessage(
       "Server took too long to respond.",
     ),
     "sendTimeout": MessageLookupByLibrary.simpleMessage(
       "Request timed out. Please try again.",
+    ),
+    "thisFieldIsRequired": MessageLookupByLibrary.simpleMessage(
+      "This field is required",
     ),
     "unknown": MessageLookupByLibrary.simpleMessage("Unknown"),
     "unknownError": MessageLookupByLibrary.simpleMessage(
