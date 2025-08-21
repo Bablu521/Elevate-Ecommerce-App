@@ -15,6 +15,10 @@ import 'package:injectable/injectable.dart' as _i526;
 
 import '../../api/client/api_client.dart' as _i508;
 import '../../api/client/api_module.dart' as _i272;
+import '../../api/data_source/auth_remote_data_source_impl.dart' as _i222;
+import '../../data/data_source/auth_remote_data_source.dart' as _i697;
+import '../../data/repositories/auth_repo_impl.dart' as _i653;
+import '../../domin/repositories/auth_repo.dart' as _i340;
 
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -26,6 +30,14 @@ extension GetItInjectableX on _i174.GetIt {
     final apiModule = _$ApiModule();
     gh.singleton<_i361.Dio>(() => apiModule.provideDio());
     gh.factory<_i508.ApiClient>(() => _i508.ApiClient(gh<_i361.Dio>()));
+    gh.factory<_i697.AuthRemoteDataSource>(
+      () => _i222.AuthRemoteDataSourceImpl(gh<_i508.ApiClient>()),
+    );
+    gh.factory<_i340.AuthRepo>(
+      () => _i653.AuthRepoImpl(
+        authRemoteDataSource: gh<_i697.AuthRemoteDataSource>(),
+      ),
+    );
     return this;
   }
 }
