@@ -98,14 +98,12 @@ abstract class AppTheme {
     double? fontSize,
     String? fontFamily,
     FontWeight? fontWeight,
-    double? height,
   }) {
     return TextStyle(
       color: color ?? AppColors.black,
       fontSize: fontSize ?? 14.sp,
       fontFamily: fontFamily ?? ConstKeys.interFont,
       fontWeight: fontWeight ?? FontWeight.w400,
-      height: height ?? 1.2,
     );
   }
 }
