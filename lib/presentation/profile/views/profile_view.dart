@@ -1,14 +1,13 @@
+import 'package:elevate_ecommerce_app/generated/l10n.dart';
 import 'package:flutter/cupertino.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class Profile extends StatelessWidget {
+  const Profile({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Center(child:Text("home"),)
-      ],
-    );
+    return
+        Center(child:Text(AppLocalizations.of(context).profile),);
+
   }
 }

@@ -17,5 +17,9 @@
   "thisFieldIsRequired": "This field is required",
   "enterValidUsername": "Enter valid username",
   "enterNumbersOnly": "Enter numbers only",
-  "enterValueMustEqual11Digit": "Enter value must equal 11 digit"
+  "enterValueMustEqual11Digit": "Enter value must equal 11 digit",
+  "home": "Home",
+  "categories": "Categories",
+  "cart": "Cart",
+  "profile": "Profile"
 }
