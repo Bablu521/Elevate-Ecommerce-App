@@ -1,4 +1,6 @@
-class RegisterRequestEntity {
+import 'package:equatable/equatable.dart';
+
+class RegisterRequestEntity extends Equatable {
   final String? firstName;
   final String? lastName;
   final String? email;
@@ -16,4 +18,15 @@ class RegisterRequestEntity {
     this.phone,
     this.gender,
   });
+
+  @override
+  List<Object?> get props => [
+    firstName,
+    lastName,
+    email,
+    password,
+    rePassword,
+    phone,
+    gender,
+  ];
 }
