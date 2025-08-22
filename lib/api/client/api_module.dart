@@ -9,7 +9,7 @@ abstract class ApiModule {
   Dio provideDio() {
     var dio = Dio(
       BaseOptions(
-        baseUrl: "https://exam.elevateegy.com/",
+        baseUrl: "https://flower.elevateegy.com/api/v1/",
         receiveDataWhenStatusError: true,
         receiveTimeout: const Duration(seconds: 20),
         connectTimeout: const Duration(seconds: 20),

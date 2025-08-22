@@ -14,15 +14,18 @@ class SectionCreateNewAccount extends StatelessWidget {
         Text(
           local.dontHaveAccount,
           style: theme.textTheme.bodyMedium?.copyWith(
-            color: theme.colorScheme.onSecondary,
+            color: theme.colorScheme.secondary,
           ),
         ),
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            // Navigate to SignUp screen
+          },
           child: Text(
             local.signUp,
             style: theme.textTheme.bodyMedium?.copyWith(
               decoration: TextDecoration.underline,
+              color: theme.colorScheme.primary,
               decorationColor: theme.colorScheme.primary,
             ),
           ),

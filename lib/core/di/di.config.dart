@@ -10,6 +10,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:dio/dio.dart' as _i361;
+import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i558;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
@@ -19,6 +20,9 @@ import '../../api/data_source/auth_remote_data_source_impl.dart' as _i222;
 import '../../data/data_source/auth_remote_data_source.dart' as _i697;
 import '../../data/repositories/auth_repo_impl.dart' as _i653;
 import '../../domin/repositories/auth_repo.dart' as _i340;
+import '../../domin/use_cases/login_use_case.dart' as _i1073;
+import '../../presentation/auth/login/view_models/login_cubit.dart' as _i441;
+import '../module/secure_storage_module.dart' as _i260;
 
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -27,7 +31,11 @@ extension GetItInjectableX on _i174.GetIt {
     _i526.EnvironmentFilter? environmentFilter,
   }) {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
+    final secureStorageModule = _$SecureStorageModule();
     final apiModule = _$ApiModule();
+    gh.factory<_i558.FlutterSecureStorage>(
+      () => secureStorageModule.secureStorage,
+    );
     gh.singleton<_i361.Dio>(() => apiModule.provideDio());
     gh.factory<_i508.ApiClient>(() => _i508.ApiClient(gh<_i361.Dio>()));
     gh.factory<_i697.AuthRemoteDataSource>(
@@ -38,8 +46,16 @@ extension GetItInjectableX on _i174.GetIt {
         authRemoteDataSource: gh<_i697.AuthRemoteDataSource>(),
       ),
     );
+    gh.lazySingleton<_i1073.LoginUseCase>(
+      () => _i1073.LoginUseCase(gh<_i340.AuthRepo>()),
+    );
+    gh.factory<_i441.LoginCubit>(
+      () => _i441.LoginCubit(gh<_i1073.LoginUseCase>()),
+    );
     return this;
   }
 }
+
+class _$SecureStorageModule extends _i260.SecureStorageModule {}
 
 class _$ApiModule extends _i272.ApiModule {}
