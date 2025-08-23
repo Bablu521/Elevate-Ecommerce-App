@@ -1,67 +1,80 @@
+import 'package:elevate_ecommerce_app/generated/l10n.dart';
 
-import '../constants/app_text.dart';
+class Validations {
+  Validations._();
 
-abstract class Validations {
-  static String? userNameValidation({required String? name}) {
-    if ((name?.isEmpty ?? true) || name?.trim() == "") {
-      return AppText.userNameValidation;
-    }
-    return null;
-  }
-
-  static String? phoneValidation({required String? phoneNumber}) {
-    if (phoneNumber?.trim() == "" ||
-        (phoneNumber?.isEmpty ?? true) ||
-        phoneNumber == null) {
-      return AppText.phoneNumberValidation;
-    } else if (phoneNumber.length < 11) {
-      return AppText.phoneNumberValidation2;
-    }
-    return null;
-  }
-
-  static String? emailValidation({required String? email}) {
-    final emailRegex = RegExp(
-      r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+  static String? validateEmail(String? val) {
+    RegExp emailRegex = RegExp(
+      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
     );
-    if (email?.trim() == "" || (email?.isEmpty ?? true) || email == null) {
-      return AppText.emailValidation;
-    } else if (!emailRegex.hasMatch(email)) {
-      return AppText.emailValidation2;
+    if (val == null) {
+      return AppLocalizations().emailIsRequired;
+    } else if (val.trim().isEmpty) {
+      return AppLocalizations().emailIsRequired;
+    } else if (emailRegex.hasMatch(val) == false) {
+      return AppLocalizations().enterValidEmail;
+    } else {
+      return null;
     }
-    return null;
   }
 
-  static String? passwordValidation({required String? password}) {
-    if ((password?.isEmpty ?? true) ||
-        password?.trim() == "" ||
-        password == null) {
-      return AppText.passwordValidation;
-    } else if (password.length < 8) {
-      return AppText.passwordValidation2;
-    } else if (RegExp(r'\s').hasMatch(password)) {
-      return AppText.passwordValidation3;
-    } else if (!RegExp(r'\d').hasMatch(password)) {
-      return AppText.passwordValidation4;
-    } else if (password.length > 20) {
-      return AppText.passwordValidation5;
+  static String? validatePassword(String? val) {
+    RegExp passwordRegex = RegExp(
+      r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[#?!@$%^&*-]).{8,}$',
+    );
+    if (val == null) {
+      return AppLocalizations().passwordIsRequired;
+    } else if (val.isEmpty) {
+      return AppLocalizations().passwordIsRequired;
+    } else if (val.length < 8 || !passwordRegex.hasMatch(val)) {
+      return AppLocalizations().passwordNotMatched;
+    } else {
+      return null;
     }
-    return null;
   }
 
-  static String? confirmPasswordValidation({
-    required String? conformPassword,
-    required String? password,
-  }) {
-    if ((conformPassword?.isEmpty ?? true) ||
-        conformPassword?.trim() == "" ||
-        conformPassword == null) {
-      return AppText.confirmPasswordValidation;
-    } else if (conformPassword != password) {
-      return AppText.confirmPasswordValidation2;
-    } else if (RegExp(r'\s').hasMatch(conformPassword)) {
-      return AppText.passwordValidation3;
+  static String? validateConfirmPassword(String? val, String? password) {
+    if (val == null || val.isEmpty) {
+      return AppLocalizations().passwordIsRequired;
+    } else if (val != password) {
+      return AppLocalizations().passwordNotMatched;
+    } else {
+      return null;
     }
-    return null;
+  }
+
+  static String? validateUsername(String? val) {
+    RegExp usernameRegex = RegExp(r'^[a-zA-Z0-9,.-]+$');
+    if (val == null) {
+      return AppLocalizations().thisFieldIsRequired;
+    } else if (val.isEmpty) {
+      return AppLocalizations().thisFieldIsRequired;
+    } else if (!usernameRegex.hasMatch(val)) {
+      return AppLocalizations().enterValidUsername;
+    } else {
+      return null;
+    }
+  }
+
+  static String? validateFullName(String? val) {
+    if (val == null || val.isEmpty) {
+      return AppLocalizations().thisFieldIsRequired;
+    } else {
+      return null;
+    }
+  }
+
+  static String? validatePhoneNumber(String? val) {
+    final regex = RegExp(r'^(?:\+2)?01[0125][0-9]{8}$');
+
+    if (val == null || val.trim().isEmpty) {
+      return AppLocalizations().thisFieldIsRequired;
+    } else if (int.tryParse(val.trim()) == null) {
+      return AppLocalizations().enterNumbersOnly;
+    } else if (!regex.hasMatch(val.trim())) {
+      return AppLocalizations().enterValidEgyptianPhoneNumber;
+    } else {
+      return null;
+    }
   }
 }

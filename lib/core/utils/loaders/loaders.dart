@@ -6,7 +6,7 @@ import '../../constants/app_colors.dart';
 
 
 abstract class Loaders {
-  static showSuccessMessage({
+  static void showSuccessMessage({
     Widget? title,
     required String message,
     int secondsDuration = 3,
@@ -18,7 +18,7 @@ abstract class Loaders {
         message,
         style: Theme.of(
           context,
-        ).textTheme.labelMedium?.copyWith(color: AppColors.kWightBase),
+        ).textTheme.labelMedium?.copyWith(color: AppColors.white),
         textAlign: TextAlign.start,
       ),
       icon: Icon(Iconsax.warning_2_copy, color: Colors.white, size: 28.r),
@@ -37,7 +37,7 @@ abstract class Loaders {
     ).show(context);
   }
 
-  static showWarningMessage({
+  static void showWarningMessage({
     Widget? title,
     required String message,
     int secondsDuration = 3,
@@ -49,7 +49,7 @@ abstract class Loaders {
         message,
         style: Theme.of(
           context,
-        ).textTheme.labelMedium?.copyWith(color: AppColors.kWhiteBase),
+        ).textTheme.labelMedium?.copyWith(color: AppColors.white),
         textAlign: TextAlign.start,
       ),
       icon: Icon(Iconsax.warning_2_copy, color: Colors.white, size: 28.r),
@@ -68,7 +68,7 @@ abstract class Loaders {
     ).show(context);
   }
 
-  static showErrorMessage({
+  static void showErrorMessage({
     Widget? title,
     required String message,
     int secondsDuration = 3,
@@ -80,7 +80,7 @@ abstract class Loaders {
         message,
         style: Theme.of(
           context,
-        ).textTheme.labelMedium?.copyWith(color: AppColors.kWightBase),
+        ).textTheme.labelMedium?.copyWith(color: AppColors.white),
         textAlign: TextAlign.start,
       ),
       icon: Icon(Iconsax.warning_2_copy, color: Colors.white, size: 28.r),
