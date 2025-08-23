@@ -1,6 +1,7 @@
 import 'package:elevate_ecommerce_app/api/models/requestes/login_requests/login_request.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/login_response/login_response_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/login_response/user_response_dto.dart';
+import 'package:elevate_ecommerce_app/domin/entities/login_entity.dart';
 
 class LoginTestFixtures {
   static LoginRequestModel fakeLoginRequest({
@@ -8,6 +9,13 @@ class LoginTestFixtures {
     String password = "123456",
   }) {
     return LoginRequestModel(email: email, password: password);
+  }
+
+  static LoginEntity fakeLoginEntity({
+    String fakeMessage = "Fake Message",
+    String fakeToken = "Fake Token",
+  }) {
+    return LoginEntity(message: fakeMessage, userToken: fakeToken);
   }
 
   static LoginResponseDto fakeLoginResponse({String token = "fake_token"}) {

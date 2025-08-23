@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:elevate_ecommerce_app/api/models/requestes/login_requests/login_request.dart';
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/domin/entities/login_entity.dart';
@@ -33,8 +31,7 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   Future<void> _login({required String email, required String password}) async {
-    emit(LoginState.copyWith(loading: true));
-    log(rememberMe.toString());
+    emit(state.copyWith(loading: true));
     final response = await _loginUseCase.call(
       requestModel: LoginRequestModel(
         email: email,
@@ -44,13 +41,10 @@ class LoginCubit extends Cubit<LoginState> {
     );
     switch (response) {
       case ApiSuccessResult<LoginEntity>():
-        emit(LoginState.copyWith(loading: false, loginEntity: response.data));
+        emit(state.copyWith(loading: false, loginEntity: response.data));
       case ApiErrorResult<LoginEntity>():
         emit(
-          LoginState.copyWith(
-            loading: false,
-            errorMessage: response.errorMessage,
-          ),
+          state.copyWith(loading: false, errorMessage: response.errorMessage),
         );
     }
   }

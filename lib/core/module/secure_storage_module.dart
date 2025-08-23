@@ -3,5 +3,6 @@ import 'package:injectable/injectable.dart';
 
 @module
 abstract class SecureStorageModule {
-   FlutterSecureStorage get secureStorage => const FlutterSecureStorage();
+  @lazySingleton
+  FlutterSecureStorage get secureStorage => const FlutterSecureStorage();
 }
