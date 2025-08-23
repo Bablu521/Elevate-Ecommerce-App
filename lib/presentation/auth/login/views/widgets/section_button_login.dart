@@ -55,7 +55,8 @@ class SectionButtonLogin extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  // Navigate to HomeScreen
+                  cubit.doIntent(LoginEventContinueAsGuest());
+                  // Navigate to home
                 },
                 child: Text(
                   local.continueAsGuest,
