@@ -12,10 +12,10 @@ class LoginCubit extends Cubit<LoginState> {
   LoginCubit(this._loginUseCase) : super(LoginState());
   final LoginUseCase _loginUseCase;
   bool rememberMe = false;
-  void doIntent(LoginEvent event) {
+  Future<void> doIntent(LoginEvent event) async {
     switch (event) {
       case LoginEventRequest():
-        _login(email: event.email, password: event.password);
+        await _login(email: event.email, password: event.password);
       case LoginEventContinueAsGuest():
         // TODO: Handle this case.
         throw UnimplementedError();
@@ -27,7 +27,7 @@ class LoginCubit extends Cubit<LoginState> {
 
   void _rememberMeRebuild(bool isRememberMe) {
     rememberMe = isRememberMe;
-    emit(LoginState.initial());
+    emit(state.initial());
   }
 
   Future<void> _login({required String email, required String password}) async {

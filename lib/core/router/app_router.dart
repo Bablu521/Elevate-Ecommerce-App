@@ -1,6 +1,4 @@
-import 'package:elevate_ecommerce_app/core/di/di.dart';
 import 'package:elevate_ecommerce_app/core/router/route_names.dart';
-import 'package:elevate_ecommerce_app/presentation/auth/login/view_models/login_cubit.dart';
 import 'package:flutter/material.dart';
 
 import '../../presentation/auth/login/views/login_view.dart';

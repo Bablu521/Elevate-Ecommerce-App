@@ -7,7 +7,7 @@ class LoginState {
 
   const LoginState({this.errorMessage, this.loginEntity, this.loading = false});
 
-  factory LoginState.initial() => const LoginState();
+  LoginState initial() => LoginState();
 
   LoginState copyWith({
     String? errorMessage,
