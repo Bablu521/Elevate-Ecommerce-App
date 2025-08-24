@@ -6,24 +6,28 @@ import 'package:elevate_ecommerce_app/data/data_source/auth_local_data_source.da
 import 'package:elevate_ecommerce_app/data/data_source/auth_remote_data_source.dart';
 import 'package:elevate_ecommerce_app/data/mapper/login/login_mapper.dart';
 import 'package:elevate_ecommerce_app/domin/entities/login_entity.dart';
+import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
+import 'package:elevate_ecommerce_app/data/data_source/auth_remote_data_source.dart';
+import 'package:elevate_ecommerce_app/domin/entities/auth/response/forget_password_entity.dart';
+import 'package:elevate_ecommerce_app/domin/entities/auth/response/reset_password_entity.dart';
 import 'package:elevate_ecommerce_app/domin/repositories/auth_repo.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: AuthRepo)
 class AuthRepoImpl implements AuthRepo {
-  final AuthRemoteDataSource authRemoteDataSource;
-  final AuthLocalDataSource authLocalDataSource;
-  AuthRepoImpl({
-    required this.authRemoteDataSource,
-    required this.authLocalDataSource,
-  });
+  final AuthRemoteDataSource _authRemoteDataSource;
+  final AuthLocalDataSource _authLocalDataSource;
+  AuthRepoImpl(
+     this._authRemoteDataSource,
+     this._authLocalDataSource,
+  );
 
   @override
   Future<ApiResult<LoginEntity>> login({
     required LoginRequestModel loginRequestModel,
   }) async {
     try {
-      final response = await authRemoteDataSource.login(
+      final response = await _authRemoteDataSource.login(
         loginRequest: loginRequestModel,
       );
       await _handleUserInfo(
@@ -45,9 +49,9 @@ class AuthRepoImpl implements AuthRepo {
     required String userStatus,
   }) async {
     try {
-      await authLocalDataSource.saveUserRememberMe(rememberMe: rememberMe);
-      await authLocalDataSource.saveUserToken(token: token);
-      await authLocalDataSource.saveUserStatus(userStatus: userStatus);
+      await _authLocalDataSource.saveUserRememberMe(rememberMe: rememberMe);
+      await _authLocalDataSource.saveUserToken(token: token);
+      await _authLocalDataSource.saveUserStatus(userStatus: userStatus);
     } catch (e, stack) {
       log("Error saving user info locally: $e", stackTrace: stack);
     }
@@ -61,4 +65,25 @@ class AuthRepoImpl implements AuthRepo {
       userStatus: ConstKeys.kUserGuest,
     );
   }
+  @override
+  Future<ApiResult<ForgetPasswordEntity>> forgetPassword(
+    ForgetPasswordRequestEntity request,
+  ) {
+    return _authLocalDataSource.forgetPassword(request);
+  }
+
+  @override
+  Future<ApiResult<ResetPasswordEntity>> resetPassword(
+    ResetPasswordRequestEntity request,
+  ) {
+    return _authLocalDataSource.resetPassword(request);
+  }
+
+  @override
+  Future<ApiResult<VerifyResetEntity>> verifyResetCode(
+    VerifyResetRequestEntity request,
+  ) {
+    return _authLocalDataSource.verifyResetCode(request);
+  }
+
 }
