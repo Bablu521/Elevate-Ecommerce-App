@@ -25,6 +25,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "alreadyHaveAnAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account? ",
     ),
+    "alreadyHaveAnAccount": MessageLookupByLibrary.simpleMessage(
+      "Already have an account? ",
+    ),
     "badCertificate": MessageLookupByLibrary.simpleMessage(
       "Bad certificate. Please check your device date/time.",
     ),
@@ -68,6 +71,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "enterLastName": MessageLookupByLibrary.simpleMessage("Enter last name"),
     "enterNumbersOnly": MessageLookupByLibrary.simpleMessage(
       "Enter numbers only",
+    ),
+    "enterPassword": MessageLookupByLibrary.simpleMessage("Enter password"),
+    "enterPhoneNumber": MessageLookupByLibrary.simpleMessage(
+      "Enter phone number",
+    ),
+    "enterValidEgyptianPhoneNumber": MessageLookupByLibrary.simpleMessage(
+      "Enter valid Egyptian Phone number",
     ),
     "enterPassword": MessageLookupByLibrary.simpleMessage("Enter password"),
     "enterPhoneNumber": MessageLookupByLibrary.simpleMessage(

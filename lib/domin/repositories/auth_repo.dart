@@ -16,6 +16,9 @@ abstract interface class AuthRepo {
     Future<ApiResult<LoginEntity>> login({
     required LoginRequestModel loginRequestModel,
   });
+    Future<ApiResult<RegisterEntity>> register(
+    RegisterRequestEntity registerRequestEntity,
+  );
   Future<void> guestUserLogin();
   Future<ApiResult<ForgetPasswordEntity>> forgetPassword(
     ForgetPasswordRequestEntity request,

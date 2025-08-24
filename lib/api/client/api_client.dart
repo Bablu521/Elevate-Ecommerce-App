@@ -26,6 +26,11 @@ abstract class ApiClient {
   Future<ForgetPasswordResponse> forgetPassword(
     @Body() ForgetPasswordRequest body,
   );
+  
+  @POST(Endpoints.register)
+  Future<RegisterResponseDto> register(
+    @Body() RegisterRequestDto registerRequestDto,
+  );
 
   @POST(ApiEndPoints.verifyReset)
   Future<VerifyResetResponse> verifyResetCode(@Body() VerifyResetRequest body);

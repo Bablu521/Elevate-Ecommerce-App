@@ -27,6 +27,85 @@ import '../client/api_client_test.mocks.dart';
 
 @GenerateMocks([ApiClient])
 void main() {
+    group('test AuthRemoteDataSourceImpl', () {
+    late MockApiClient mockedApiClient;
+    late AuthRemoteDataSourceImpl authRemoteDataSourceImpl;
+    late RegisterRequestEntity registerRequestEntity;
+    late RegisterRequestDto registerRequestDto;
+
+    setUp(() {
+      mockedApiClient = MockApiClient();
+      authRemoteDataSourceImpl = AuthRemoteDataSourceImpl(mockedApiClient);
+      registerRequestEntity = RegisterRequestEntity(
+        firstName: "fake-firstName",
+        lastName: "fake-lastName",
+        email: "fake-email",
+        password: "fake-password",
+        rePassword: "fake-rePassword",
+        phone: "fake-phone",
+        gender: "fake-gender",
+      );
+      registerRequestDto = RegisterRequestDto.fromDomain(
+        registerRequestEntity,
+      );
+    });
+    test(
+      'when call register it should return RegisterEntity from Api with correct Parameters',
+      () async {
+        //Arrange
+
+        var expectedResult = RegisterResponseDto(
+          message: "fake-message",
+          token: "fake-token",
+          user: RegisterDto(
+            firstName: "fake-firstName",
+            lastName: "fake-lastName",
+            email: "fake-email",
+            gender: "fake-gender",
+            phone: "fake-phone",
+            photo: "fake-photo",
+            role: "fake-role",
+            wishlist: ["fake-wishlist"],
+            id: "fake-id",
+            addresses: ["fake-addresses"],
+          ),
+        );
+        when(
+          mockedApiClient.register(registerRequestDto),
+        ).thenAnswer((_) async => expectedResult);
+
+        //Act
+        var result = await authRemoteDataSourceImpl.register(
+          registerRequestEntity,
+        );
+
+        //Assert
+        verify(mockedApiClient.register(registerRequestDto)).called(1);
+        expect(result, isA<ApiSuccessResult<RegisterEntity>>());
+        result as ApiSuccessResult<RegisterEntity>;
+        expect(result.data, expectedResult.user!.toRegisterEntity());
+      },
+    );
+
+    test("when register failed it should return an error result", () async {
+      //Arrange
+      var expectedError = "Server Error";
+      when(
+        mockedApiClient.register(registerRequestDto),
+      ).thenThrow(Exception(expectedError));
+
+      //Act
+      var result = await authRemoteDataSourceImpl.register(
+        registerRequestEntity,
+      );
+
+      //Assert
+      verify(mockedApiClient.register(registerRequestDto)).called(1);
+      expect(result, isA<ApiErrorResult<RegisterEntity>>());
+      result as ApiErrorResult<RegisterEntity>;
+      expect(result.errorMessage, contains(expectedError));
+    });
+  });
   group("AuthRemoteDataSourceImpl Test", () {
     late MockApiClient mockApiClient;
     late AuthRemoteDataSourceImpl authRemoteDataSourceImpl;

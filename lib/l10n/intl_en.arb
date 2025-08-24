@@ -18,6 +18,7 @@
   "enterValidUsername": "Enter valid username",
   "enterNumbersOnly": "Enter numbers only",
   "enterValueMustEqual11Digit": "Enter value must equal 11 digit",
+    "enterValidEgyptianPhoneNumber": "Enter valid Egyptian Phone number",
   "login": "Login",
   "emailLabel": "Email",
   "emailHintText": "Enter your Email",

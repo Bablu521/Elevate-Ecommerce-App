@@ -1,4 +1,6 @@
 import 'package:elevate_ecommerce_app/core/router/route_names.dart';
+import 'package:elevate_ecommerce_app/presentation/auth/register/views/screen/register_view.dart';
+
 import 'package:flutter/material.dart';
 
 import '../../presentation/auth/forget_password/views/screen/forget_password_screen.dart';
@@ -14,6 +16,8 @@ abstract class AppRouter {
         );
       case RouteNames.forgetPassword:
         return MaterialPageRoute(builder: (_) => ForgetPasswordScreen());
+      case RouteNames.register:
+        return MaterialPageRoute(builder: (_) => RegisterView());
       default:
         return MaterialPageRoute(builder: (_) => const LoginView());
     }

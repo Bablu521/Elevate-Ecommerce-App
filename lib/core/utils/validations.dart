@@ -22,6 +22,9 @@ class Validations {
     RegExp passwordRegex = RegExp(
       r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[#?!@$%^&*-]).{8,}$',
     );
+    RegExp passwordRegex = RegExp(
+      r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[#?!@$%^&*-]).{8,}$',
+    );
     if (val == null) {
       return AppLocalizations().passwordIsRequired;
     } else if (val.isEmpty) {
@@ -71,6 +74,8 @@ class Validations {
       return AppLocalizations().thisFieldIsRequired;
     } else if (int.tryParse(val.trim()) == null) {
       return AppLocalizations().enterNumbersOnly;
+    } else if (!regex.hasMatch(val.trim())) {
+      return AppLocalizations().enterValidEgyptianPhoneNumber;
     } else if (!regex.hasMatch(val.trim())) {
       return AppLocalizations().enterValidEgyptianPhoneNumber;
     } else {

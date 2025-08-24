@@ -88,4 +88,10 @@ class AuthRepoImpl implements AuthRepo {
     return _authRemoteDataSource.verifyResetCode(request);
   }
 
+  @override
+  Future<ApiResult<RegisterEntity>> register(
+    RegisterRequestEntity registerRequestEntity,
+  ) {
+    return _authRemoteDataSource.register(registerRequestEntity);
+  }
 }

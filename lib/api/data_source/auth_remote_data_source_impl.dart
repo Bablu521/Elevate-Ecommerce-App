@@ -27,6 +27,20 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   }) async {
     return await _apiClient.login(loginRequest);
   }
+  
+  @override
+  Future<ApiResult<RegisterEntity>> register(
+    RegisterRequestEntity registerRequestEntity,
+  ) async {
+    try {
+      var response = await _apiClient.register(
+        RegisterRequestDto.fromDomain(registerRequestEntity),
+      );
+      return ApiSuccessResult(response.user!.toRegisterEntity());
+    } catch (e) {
+      return ApiErrorResult(e);
+    }
+  }
   @override
   Future<ApiResult<ForgetPasswordEntity>> forgetPassword(
     ForgetPasswordRequestEntity request,
