@@ -18,6 +18,8 @@ abstract class AppRouter {
         return MaterialPageRoute(builder: (_) => ForgetPasswordScreen());
       case RouteNames.register:
         return MaterialPageRoute(builder: (_) => RegisterView());
+              case RouteNames.home:
+        return MaterialPageRoute(builder: (_) => Home());
       default:
         return MaterialPageRoute(builder: (_) => const LoginView());
     }

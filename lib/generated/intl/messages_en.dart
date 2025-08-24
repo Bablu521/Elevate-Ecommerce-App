@@ -31,6 +31,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "badResponse": MessageLookupByLibrary.simpleMessage(
       "Unexpected error response from server",
     ),
+    "cart": MessageLookupByLibrary.simpleMessage("Cart"),
+    "categories": MessageLookupByLibrary.simpleMessage("Categories"),
     "close": MessageLookupByLibrary.simpleMessage("close"),
     "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm password"),
@@ -93,6 +95,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "failedToParseResponse": MessageLookupByLibrary.simpleMessage(
       "Failed to parse error response.",
     ),
+    "home": MessageLookupByLibrary.simpleMessage("Home"),
     "female": MessageLookupByLibrary.simpleMessage("Female"),
     "firstName": MessageLookupByLibrary.simpleMessage("First name"),
     "forgetPassword": MessageLookupByLibrary.simpleMessage("Forget Password"),
@@ -132,6 +135,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "pleaseEnterYourVerificationCode": MessageLookupByLibrary.simpleMessage(
       "Please enter your code that send to your email address",
     ),
+    "profile": MessageLookupByLibrary.simpleMessage("Profile"),
     "receiveTimeout": MessageLookupByLibrary.simpleMessage(
       "Server took too long to respond.",
     ),

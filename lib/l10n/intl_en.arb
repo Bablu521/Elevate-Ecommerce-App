@@ -18,7 +18,7 @@
   "enterValidUsername": "Enter valid username",
   "enterNumbersOnly": "Enter numbers only",
   "enterValueMustEqual11Digit": "Enter value must equal 11 digit",
-    "enterValidEgyptianPhoneNumber": "Enter valid Egyptian Phone number",
+  "enterValidEgyptianPhoneNumber": "Enter valid Egyptian Phone number",
   "login": "Login",
   "emailLabel": "Email",
   "emailHintText": "Enter your Email",
@@ -38,7 +38,6 @@
   "enterNumbersOnly": "Enter numbers only",
   "enterValueMustEqual11Digit": "Enter value must equal 11 digit",
   "enterValidEgyptianPhoneNumber": "Enter valid Egyptian Phone number",
-
   "firstName": "First name",
   "enterFirstName": "Enter first name",
   "lastName": "Last name",
@@ -78,5 +77,9 @@
   "yes": "Yes",
   "loading": "Loading...",
   "success": "Success",
-  "passwordResetSuccessfully": "Password reset successfully"
+  "passwordResetSuccessfully": "Password reset successfully",
+  "home": "Home",
+  "categories": "Categories",
+  "cart": "Cart",
+  "profile": "Profile"
 }
