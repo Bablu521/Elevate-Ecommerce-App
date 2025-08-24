@@ -15,9 +15,9 @@ class LoginState {
     bool? loading,
   }) {
     return LoginState(
-      errorMessage: errorMessage ?? this.errorMessage,
-      loginEntity: loginEntity ?? this.loginEntity,
-      loading: loading ?? this.loading,
+      errorMessage: errorMessage ?? "",
+      loginEntity: loginEntity,
+      loading: loading ?? false,
     );
   }
 }
