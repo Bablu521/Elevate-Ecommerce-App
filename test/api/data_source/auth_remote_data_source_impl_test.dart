@@ -32,7 +32,7 @@ import '../client/api_client_test.mocks.dart';
 
 @GenerateMocks([ApiClient])
 void main() {
-    group('test AuthRemoteDataSourceImpl', () {
+  group('test register', () {
     late MockApiClient mockedApiClient;
     late AuthRemoteDataSourceImpl authRemoteDataSourceImpl;
     late RegisterRequestEntity registerRequestEntity;
@@ -50,9 +50,7 @@ void main() {
         phone: "fake-phone",
         gender: "fake-gender",
       );
-      registerRequestDto = RegisterRequestDto.fromDomain(
-        registerRequestEntity,
-      );
+      registerRequestDto = RegisterRequestDto.fromDomain(registerRequestEntity);
     });
     test(
       'when call register it should return RegisterEntity from Api with correct Parameters',
@@ -111,7 +109,7 @@ void main() {
       expect(result.errorMessage, contains(expectedError));
     });
   });
-  group("AuthRemoteDataSourceImpl Test", () {
+  group("test login", () {
     late MockApiClient mockApiClient;
     late AuthRemoteDataSourceImpl authRemoteDataSourceImpl;
     setUp(() {
@@ -133,7 +131,7 @@ void main() {
     });
   });
 
-  group("test AuthRemoteDataSourceImpl", () {
+  group("test forget password", () {
     late MockApiClient mockApiClient;
     late AuthRemoteDataSourceImpl authRemoteDataSourceImpl;
 

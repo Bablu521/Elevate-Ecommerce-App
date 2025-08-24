@@ -1,5 +1,6 @@
 import 'package:elevate_ecommerce_app/core/router/route_names.dart';
 import 'package:elevate_ecommerce_app/presentation/auth/register/views/screen/register_view.dart';
+import 'package:elevate_ecommerce_app/presentation/home/pages/home.dart';
 
 import 'package:flutter/material.dart';
 

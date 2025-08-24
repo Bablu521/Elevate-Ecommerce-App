@@ -1,4 +1,5 @@
 import 'package:elevate_ecommerce_app/core/constants/app_colors.dart';
+import 'package:elevate_ecommerce_app/core/router/route_names.dart';
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
 import 'package:elevate_ecommerce_app/presentation/auth/login/view_models/login_cubit.dart';
 import 'package:elevate_ecommerce_app/presentation/auth/login/view_models/login_event.dart';
@@ -54,8 +55,9 @@ class SectionButtonLogin extends StatelessWidget {
                     side: BorderSide(color: AppColors.gray),
                   ),
                 ),
-                onPressed: () {
-                  cubit.doIntent(LoginEventContinueAsGuest());
+                onPressed: () async {
+                  await cubit.doIntent(LoginEventContinueAsGuest());
+                  Navigator.pushReplacementNamed(context, RouteNames.home);
                   // Navigate to home
                 },
                 child: Text(

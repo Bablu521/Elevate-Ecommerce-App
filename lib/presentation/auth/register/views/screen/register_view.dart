@@ -1,3 +1,4 @@
+import 'package:elevate_ecommerce_app/core/custom_widget/custom_dialog.dart';
 import 'package:elevate_ecommerce_app/core/di/di.dart';
 import 'package:elevate_ecommerce_app/core/router/route_names.dart';
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
@@ -14,52 +15,25 @@ class RegisterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final local = AppLocalizations.of(context);
     return BlocListener<RegisterViewModel, RegisterStates>(
       bloc: registerViewModel,
       listener: (context, state) {
         if (state.errorMessage != null) {
           Navigator.of(context).pop();
-          showDialog(
+          CustomDialog.positiveButton(
             context: context,
-            barrierDismissible: false,
-            builder: (_) {
-              return AlertDialog(
-                title: Text(AppLocalizations.of(context).error),
-                content: Text(state.errorMessage!),
-                actions: [
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context, rootNavigator: true).pop();
-                    },
-                    child: Text(AppLocalizations.of(context).close),
-                  ),
-                ],
-              );
-            },
+            title: local.error,
+            message: state.errorMessage,
           );
         } else if (state.data != null) {
           Navigator.of(context).pop();
-          showDialog(
-            context: context,
-            barrierDismissible: false,
-            builder: (_) {
-              return AlertDialog(
-                title: Text(AppLocalizations.of(context).welcome),
-                content: Text(
-                  AppLocalizations.of(context).registeredSuccessfully,
-                ),
-                actions: [
-                ],
-              );
-            },
-          );
+          CustomDialog.positiveButton(context: context, title: local.success );
+          Future.delayed(const Duration(seconds: 1), () {
+            Navigator.pushReplacementNamed(context, RouteNames.login);
+          });
         } else {
-          showDialog(
-            context: context,
-            builder: (_) {
-              return const Center(child: CircularProgressIndicator());
-            },
-          );
+          CustomDialog.loading(context: context, message: local.loading);
         }
       },
       child: Scaffold(
