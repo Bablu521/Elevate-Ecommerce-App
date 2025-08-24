@@ -12,6 +12,8 @@ import 'package:elevate_ecommerce_app/domin/entities/auth/response/forget_passwo
 import 'package:elevate_ecommerce_app/domin/entities/auth/response/reset_password_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/auth/response/verify_reset_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/login_entity.dart';
+import 'package:elevate_ecommerce_app/domin/entities/register_entity.dart';
+import 'package:elevate_ecommerce_app/domin/entities/requests/register_request_entity.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
@@ -21,14 +23,18 @@ import 'auth_repo_impl_test.mocks.dart';
 
 @GenerateMocks([AuthRemoteDataSource, AuthLocalDataSource])
 void main() {
-    group('test AuthRepoImpl', () {
+  group('test AuthRepoImpl', () {
     late MockAuthRemoteDataSource mockedAuthRemoteDataSource;
+    late MockAuthLocalDataSource mockAuthLocalDataSource;
     late AuthRepoImpl authRepoImpl;
     late RegisterRequestEntity registerRequestEntity;
     setUp(() {
-      mockedAuthRemoteDataSource =
-          MockAuthRemoteDataSource();
-      authRepoImpl = AuthRepoImpl(mockedAuthRemoteDataSource);
+      mockedAuthRemoteDataSource = MockAuthRemoteDataSource();
+      mockAuthLocalDataSource = MockAuthLocalDataSource();
+      authRepoImpl = AuthRepoImpl(
+        mockedAuthRemoteDataSource,
+        mockAuthLocalDataSource,
+      );
       registerRequestEntity = RegisterRequestEntity(
         firstName: "fake-firstName",
         lastName: "fake-lastName",

@@ -21,15 +21,18 @@ class _GenderRadioListTileState extends State<GenderRadioListTile> {
       children: [
         Text(
           AppLocalizations.of(context).gender,
-          style: Theme.of(
-            context,
-          ).textTheme.headlineMedium!.copyWith(color: AppColors.gray),
+          style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+            color: AppColors.gray,
+            fontSize: 14,
+          ),
         ),
-        IntrinsicWidth(
+        Flexible(
           child: RadioListTile(
             title: Text(
               AppLocalizations.of(context).female,
-              style: Theme.of(context).textTheme.bodySmall!.copyWith(),
+              style: Theme.of(
+                context,
+              ).textTheme.bodySmall!.copyWith(overflow: TextOverflow.ellipsis),
             ),
             value: Gender.female,
             groupValue: widget.registerViewModel.selectedGender,
@@ -47,11 +50,14 @@ class _GenderRadioListTileState extends State<GenderRadioListTile> {
             }),
           ),
         ),
-        IntrinsicWidth(
+        Flexible(
           child: RadioListTile(
             title: Text(
               AppLocalizations.of(context).male,
-              style: Theme.of(context).textTheme.bodySmall,
+
+              style: Theme.of(
+                context,
+              ).textTheme.bodySmall!.copyWith(overflow: TextOverflow.ellipsis),
             ),
             value: Gender.male,
             groupValue: widget.registerViewModel.selectedGender,

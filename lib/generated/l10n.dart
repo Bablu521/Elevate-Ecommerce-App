@@ -239,6 +239,16 @@ class AppLocalizations {
     );
   }
 
+  /// `Enter valid Egyptian Phone number`
+  String get enterValidEgyptianPhoneNumber {
+    return Intl.message(
+      'Enter valid Egyptian Phone number',
+      name: 'enterValidEgyptianPhoneNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Login`
   String get login {
     return Intl.message('Login', name: 'login', desc: '', args: []);
@@ -312,16 +322,6 @@ class AppLocalizations {
   /// `Sign Up`
   String get signUp {
     return Intl.message('Sign Up', name: 'signUp', desc: '', args: []);
-  }
-
-  /// `Enter valid Egyptian Phone number`
-  String get enterValidEgyptianPhoneNumber {
-    return Intl.message(
-      'Enter valid Egyptian Phone number',
-      name: 'enterValidEgyptianPhoneNumber',
-      desc: '',
-      args: [],
-    );
   }
 
   /// `First name`

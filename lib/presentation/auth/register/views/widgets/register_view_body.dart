@@ -23,24 +23,33 @@ class RegisterViewBody extends StatelessWidget {
             RegisterForm(registerViewModel: registerViewModel),
             SizedBox(height: 24.h),
             GenderRadioListTile(registerViewModel: registerViewModel),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  AppLocalizations.of(context).creatingAnAccountYouAgreeToOur,
-                  style: Theme.of(
-                    context,
-                  ).textTheme.bodySmall!.copyWith(fontSize: 12),
-                ),
-                InkWell(
-                  onTap: () {},
+                Expanded(
+                  flex: 3,
                   child: Text(
-                    AppLocalizations.of(context).termsAndConditions,
-                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      decoration: TextDecoration.underline,
-                      decorationColor: AppColors.black,
+                    AppLocalizations.of(context).creatingAnAccountYouAgreeToOur,
+                    style: Theme.of(
+                      context,
+                    ).textTheme.bodySmall!.copyWith(fontSize: 12),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+                Expanded(
+                  flex: 2,
+                  child: InkWell(
+                    onTap: () {},
+                    child: Text(
+                      AppLocalizations.of(context).termsAndConditions,
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                        decoration: TextDecoration.underline,
+                        decorationColor: AppColors.black,
+                      ),
                     ),
                   ),
                 ),
@@ -52,8 +61,7 @@ class RegisterViewBody extends StatelessWidget {
               height: 48.h,
               child: ElevatedButton(
                 onPressed: () {
-                  if (registerViewModel.formKey.currentState!
-                      .validate()) {
+                  if (registerViewModel.formKey.currentState!.validate()) {
                     registerViewModel.doIntent(OnSignUpClickEvent());
                   }
                 },
@@ -72,7 +80,9 @@ class RegisterViewBody extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.of(context).pushNamed(RouteNames.login);
+                      Navigator.of(
+                        context,
+                      ).pushReplacementNamed(RouteNames.login);
                     },
                     child: Text(
                       AppLocalizations.of(context).login,

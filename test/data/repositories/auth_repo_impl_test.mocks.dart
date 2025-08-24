@@ -3,17 +3,35 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i3;
+import 'dart:async' as _i4;
 
-import 'package:elevate_ecommerce_app/core/api_result/api_result.dart' as _i4;
-import 'package:elevate_ecommerce_app/data/data_source/auth_remote_data_source.dart'
-    as _i2;
-import 'package:elevate_ecommerce_app/domin/entities/register_entity.dart'
+import 'package:elevate_ecommerce_app/api/models/requestes/login_requests/login_request.dart'
     as _i5;
+import 'package:elevate_ecommerce_app/api/models/responses/login_response/login_response_dto.dart'
+    as _i2;
+import 'package:elevate_ecommerce_app/core/api_result/api_result.dart' as _i6;
+import 'package:elevate_ecommerce_app/data/data_source/auth_local_data_source.dart'
+    as _i16;
+import 'package:elevate_ecommerce_app/data/data_source/auth_remote_data_source.dart'
+    as _i3;
+import 'package:elevate_ecommerce_app/domin/entities/auth/request/forget_password_request_entity.dart'
+    as _i8;
+import 'package:elevate_ecommerce_app/domin/entities/auth/request/reset_password_request_entity.dart'
+    as _i13;
+import 'package:elevate_ecommerce_app/domin/entities/auth/request/verify_reset_request_entity.dart'
+    as _i11;
+import 'package:elevate_ecommerce_app/domin/entities/auth/response/forget_password_entity.dart'
+    as _i7;
+import 'package:elevate_ecommerce_app/domin/entities/auth/response/reset_password_entity.dart'
+    as _i12;
+import 'package:elevate_ecommerce_app/domin/entities/auth/response/verify_reset_entity.dart'
+    as _i10;
+import 'package:elevate_ecommerce_app/domin/entities/register_entity.dart'
+    as _i14;
 import 'package:elevate_ecommerce_app/domin/entities/requests/register_request_entity.dart'
-    as _i6;
+    as _i15;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:mockito/src/dummies.dart' as _i7;
+import 'package:mockito/src/dummies.dart' as _i9;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -29,27 +47,135 @@ import 'package:mockito/src/dummies.dart' as _i7;
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
+class _FakeLoginResponseDto_0 extends _i1.SmartFake
+    implements _i2.LoginResponseDto {
+  _FakeLoginResponseDto_0(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
+}
+
 /// A class which mocks [AuthRemoteDataSource].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockAuthRemoteDataSource extends _i1.Mock
-    implements _i2.AuthRemoteDataSource {
+    implements _i3.AuthRemoteDataSource {
   MockAuthRemoteDataSource() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i3.Future<_i4.ApiResult<_i5.RegisterEntity>> register(
-    _i6.RegisterRequestEntity? registerRequestEntity,
+  _i4.Future<_i2.LoginResponseDto> login({
+    required _i5.LoginRequestModel? loginRequest,
+  }) =>
+      (super.noSuchMethod(
+            Invocation.method(#login, [], {#loginRequest: loginRequest}),
+            returnValue: _i4.Future<_i2.LoginResponseDto>.value(
+              _FakeLoginResponseDto_0(
+                this,
+                Invocation.method(#login, [], {#loginRequest: loginRequest}),
+              ),
+            ),
+          )
+          as _i4.Future<_i2.LoginResponseDto>);
+
+  @override
+  _i4.Future<_i6.ApiResult<_i7.ForgetPasswordEntity>> forgetPassword(
+    _i8.ForgetPasswordRequestEntity? request,
+  ) =>
+      (super.noSuchMethod(
+            Invocation.method(#forgetPassword, [request]),
+            returnValue:
+                _i4.Future<_i6.ApiResult<_i7.ForgetPasswordEntity>>.value(
+                  _i9.dummyValue<_i6.ApiResult<_i7.ForgetPasswordEntity>>(
+                    this,
+                    Invocation.method(#forgetPassword, [request]),
+                  ),
+                ),
+          )
+          as _i4.Future<_i6.ApiResult<_i7.ForgetPasswordEntity>>);
+
+  @override
+  _i4.Future<_i6.ApiResult<_i10.VerifyResetEntity>> verifyResetCode(
+    _i11.VerifyResetRequestEntity? request,
+  ) =>
+      (super.noSuchMethod(
+            Invocation.method(#verifyResetCode, [request]),
+            returnValue:
+                _i4.Future<_i6.ApiResult<_i10.VerifyResetEntity>>.value(
+                  _i9.dummyValue<_i6.ApiResult<_i10.VerifyResetEntity>>(
+                    this,
+                    Invocation.method(#verifyResetCode, [request]),
+                  ),
+                ),
+          )
+          as _i4.Future<_i6.ApiResult<_i10.VerifyResetEntity>>);
+
+  @override
+  _i4.Future<_i6.ApiResult<_i12.ResetPasswordEntity>> resetPassword(
+    _i13.ResetPasswordRequestEntity? request,
+  ) =>
+      (super.noSuchMethod(
+            Invocation.method(#resetPassword, [request]),
+            returnValue:
+                _i4.Future<_i6.ApiResult<_i12.ResetPasswordEntity>>.value(
+                  _i9.dummyValue<_i6.ApiResult<_i12.ResetPasswordEntity>>(
+                    this,
+                    Invocation.method(#resetPassword, [request]),
+                  ),
+                ),
+          )
+          as _i4.Future<_i6.ApiResult<_i12.ResetPasswordEntity>>);
+
+  @override
+  _i4.Future<_i6.ApiResult<_i14.RegisterEntity>> register(
+    _i15.RegisterRequestEntity? registerRequestEntity,
   ) =>
       (super.noSuchMethod(
             Invocation.method(#register, [registerRequestEntity]),
-            returnValue: _i3.Future<_i4.ApiResult<_i5.RegisterEntity>>.value(
-              _i7.dummyValue<_i4.ApiResult<_i5.RegisterEntity>>(
+            returnValue: _i4.Future<_i6.ApiResult<_i14.RegisterEntity>>.value(
+              _i9.dummyValue<_i6.ApiResult<_i14.RegisterEntity>>(
                 this,
                 Invocation.method(#register, [registerRequestEntity]),
               ),
             ),
           )
-          as _i3.Future<_i4.ApiResult<_i5.RegisterEntity>>);
+          as _i4.Future<_i6.ApiResult<_i14.RegisterEntity>>);
+}
+
+/// A class which mocks [AuthLocalDataSource].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockAuthLocalDataSource extends _i1.Mock
+    implements _i16.AuthLocalDataSource {
+  MockAuthLocalDataSource() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i4.Future<void> saveUserToken({required String? token}) =>
+      (super.noSuchMethod(
+            Invocation.method(#saveUserToken, [], {#token: token}),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
+
+  @override
+  _i4.Future<void> saveUserRememberMe({required bool? rememberMe}) =>
+      (super.noSuchMethod(
+            Invocation.method(#saveUserRememberMe, [], {
+              #rememberMe: rememberMe,
+            }),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
+
+  @override
+  _i4.Future<void> saveUserStatus({required String? userStatus}) =>
+      (super.noSuchMethod(
+            Invocation.method(#saveUserStatus, [], {#userStatus: userStatus}),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 }

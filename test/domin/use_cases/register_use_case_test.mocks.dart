@@ -5,11 +5,26 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i3;
 
-import 'package:elevate_ecommerce_app/core/api_result/api_result.dart' as _i4;
-import 'package:elevate_ecommerce_app/domin/entities/register_entity.dart'
-    as _i5;
-import 'package:elevate_ecommerce_app/domin/entities/requests/register_request_entity.dart'
+import 'package:elevate_ecommerce_app/api/models/requestes/login_requests/login_request.dart'
     as _i6;
+import 'package:elevate_ecommerce_app/core/api_result/api_result.dart' as _i4;
+import 'package:elevate_ecommerce_app/domin/entities/auth/request/forget_password_request_entity.dart'
+    as _i11;
+import 'package:elevate_ecommerce_app/domin/entities/auth/request/reset_password_request_entity.dart'
+    as _i15;
+import 'package:elevate_ecommerce_app/domin/entities/auth/request/verify_reset_request_entity.dart'
+    as _i13;
+import 'package:elevate_ecommerce_app/domin/entities/auth/response/forget_password_entity.dart'
+    as _i10;
+import 'package:elevate_ecommerce_app/domin/entities/auth/response/reset_password_entity.dart'
+    as _i14;
+import 'package:elevate_ecommerce_app/domin/entities/auth/response/verify_reset_entity.dart'
+    as _i12;
+import 'package:elevate_ecommerce_app/domin/entities/login_entity.dart' as _i5;
+import 'package:elevate_ecommerce_app/domin/entities/register_entity.dart'
+    as _i8;
+import 'package:elevate_ecommerce_app/domin/entities/requests/register_request_entity.dart'
+    as _i9;
 import 'package:elevate_ecommerce_app/domin/repositories/auth_repo.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i7;
@@ -37,17 +52,93 @@ class MockAuthRepo extends _i1.Mock implements _i2.AuthRepo {
   }
 
   @override
-  _i3.Future<_i4.ApiResult<_i5.RegisterEntity>> register(
-    _i6.RegisterRequestEntity? registerRequestEntity,
+  _i3.Future<_i4.ApiResult<_i5.LoginEntity>> login({
+    required _i6.LoginRequestModel? loginRequestModel,
+  }) =>
+      (super.noSuchMethod(
+            Invocation.method(#login, [], {
+              #loginRequestModel: loginRequestModel,
+            }),
+            returnValue: _i3.Future<_i4.ApiResult<_i5.LoginEntity>>.value(
+              _i7.dummyValue<_i4.ApiResult<_i5.LoginEntity>>(
+                this,
+                Invocation.method(#login, [], {
+                  #loginRequestModel: loginRequestModel,
+                }),
+              ),
+            ),
+          )
+          as _i3.Future<_i4.ApiResult<_i5.LoginEntity>>);
+
+  @override
+  _i3.Future<_i4.ApiResult<_i8.RegisterEntity>> register(
+    _i9.RegisterRequestEntity? registerRequestEntity,
   ) =>
       (super.noSuchMethod(
             Invocation.method(#register, [registerRequestEntity]),
-            returnValue: _i3.Future<_i4.ApiResult<_i5.RegisterEntity>>.value(
-              _i7.dummyValue<_i4.ApiResult<_i5.RegisterEntity>>(
+            returnValue: _i3.Future<_i4.ApiResult<_i8.RegisterEntity>>.value(
+              _i7.dummyValue<_i4.ApiResult<_i8.RegisterEntity>>(
                 this,
                 Invocation.method(#register, [registerRequestEntity]),
               ),
             ),
           )
-          as _i3.Future<_i4.ApiResult<_i5.RegisterEntity>>);
+          as _i3.Future<_i4.ApiResult<_i8.RegisterEntity>>);
+
+  @override
+  _i3.Future<void> guestUserLogin() =>
+      (super.noSuchMethod(
+            Invocation.method(#guestUserLogin, []),
+            returnValue: _i3.Future<void>.value(),
+            returnValueForMissingStub: _i3.Future<void>.value(),
+          )
+          as _i3.Future<void>);
+
+  @override
+  _i3.Future<_i4.ApiResult<_i10.ForgetPasswordEntity>> forgetPassword(
+    _i11.ForgetPasswordRequestEntity? request,
+  ) =>
+      (super.noSuchMethod(
+            Invocation.method(#forgetPassword, [request]),
+            returnValue:
+                _i3.Future<_i4.ApiResult<_i10.ForgetPasswordEntity>>.value(
+                  _i7.dummyValue<_i4.ApiResult<_i10.ForgetPasswordEntity>>(
+                    this,
+                    Invocation.method(#forgetPassword, [request]),
+                  ),
+                ),
+          )
+          as _i3.Future<_i4.ApiResult<_i10.ForgetPasswordEntity>>);
+
+  @override
+  _i3.Future<_i4.ApiResult<_i12.VerifyResetEntity>> verifyResetCode(
+    _i13.VerifyResetRequestEntity? request,
+  ) =>
+      (super.noSuchMethod(
+            Invocation.method(#verifyResetCode, [request]),
+            returnValue:
+                _i3.Future<_i4.ApiResult<_i12.VerifyResetEntity>>.value(
+                  _i7.dummyValue<_i4.ApiResult<_i12.VerifyResetEntity>>(
+                    this,
+                    Invocation.method(#verifyResetCode, [request]),
+                  ),
+                ),
+          )
+          as _i3.Future<_i4.ApiResult<_i12.VerifyResetEntity>>);
+
+  @override
+  _i3.Future<_i4.ApiResult<_i14.ResetPasswordEntity>> resetPassword(
+    _i15.ResetPasswordRequestEntity? request,
+  ) =>
+      (super.noSuchMethod(
+            Invocation.method(#resetPassword, [request]),
+            returnValue:
+                _i3.Future<_i4.ApiResult<_i14.ResetPasswordEntity>>.value(
+                  _i7.dummyValue<_i4.ApiResult<_i14.ResetPasswordEntity>>(
+                    this,
+                    Invocation.method(#resetPassword, [request]),
+                  ),
+                ),
+          )
+          as _i3.Future<_i4.ApiResult<_i14.ResetPasswordEntity>>);
 }

@@ -1,3 +1,4 @@
+import 'package:elevate_ecommerce_app/core/router/route_names.dart';
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
@@ -20,6 +21,7 @@ class SectionCreateNewAccount extends StatelessWidget {
         TextButton(
           onPressed: () {
             // Navigate to SignUp screen
+            Navigator.pushNamed(context, RouteNames.register);
           },
           child: Text(
             local.signUp,

@@ -49,15 +49,6 @@ class RegisterView extends StatelessWidget {
                   AppLocalizations.of(context).registeredSuccessfully,
                 ),
                 actions: [
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context, rootNavigator: true).pop();
-                      Navigator.of(
-                        context,
-                      ).pushReplacementNamed(RouteNames.login);
-                    },
-                    child: Text(AppLocalizations.of(context).close),
-                  ),
                 ],
               );
             },
@@ -66,7 +57,7 @@ class RegisterView extends StatelessWidget {
           showDialog(
             context: context,
             builder: (_) {
-              return Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
             },
           );
         }
@@ -74,8 +65,12 @@ class RegisterView extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           leading: InkWell(
-            onTap: Navigator.of(context).maybePop,
-            child: Icon(Icons.arrow_back_ios),
+            onTap:
+                () => Navigator.of(
+                  context,
+                ).pushReplacementNamed(RouteNames.login),
+
+            child: const Icon(Icons.arrow_back_ios),
           ),
           title: Text(AppLocalizations().signUp),
         ),

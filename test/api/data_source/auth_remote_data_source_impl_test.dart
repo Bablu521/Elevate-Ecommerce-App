@@ -3,14 +3,17 @@ import 'package:elevate_ecommerce_app/api/data_source/auth_remote_data_source_im
 import 'package:elevate_ecommerce_app/api/mapper/auth/forget_password_mapper.dart';
 import 'package:elevate_ecommerce_app/api/mapper/auth/reset_password_mapper.dart';
 import 'package:elevate_ecommerce_app/api/mapper/auth/verify_reset_mapper.dart';
+import 'package:elevate_ecommerce_app/api/models/register_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/auth/forget_password_request.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/auth/reset_password_request.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/auth/verify_reset_request.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/login_requests/login_request.dart';
+import 'package:elevate_ecommerce_app/api/models/requestes/register_request_dto/register_request_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/auth/forget_password_response.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/auth/reset_password_response.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/auth/verify_reset_response.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/login_response/login_response_dto.dart';
+import 'package:elevate_ecommerce_app/api/models/responses/register_response_dto/register_response_dto.dart';
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/domin/entities/auth/request/forget_password_request_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/auth/request/reset_password_request_entity.dart';
@@ -18,6 +21,8 @@ import 'package:elevate_ecommerce_app/domin/entities/auth/request/verify_reset_r
 import 'package:elevate_ecommerce_app/domin/entities/auth/response/forget_password_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/auth/response/reset_password_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/auth/response/verify_reset_entity.dart';
+import 'package:elevate_ecommerce_app/domin/entities/register_entity.dart';
+import 'package:elevate_ecommerce_app/domin/entities/requests/register_request_entity.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';

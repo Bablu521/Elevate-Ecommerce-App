@@ -109,9 +109,7 @@ class CustomDialog {
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.white,
-                        side: BorderSide(
-                          color: AppColors.black,
-                        )
+                        side: BorderSide(color: AppColors.black),
                       ),
                       onPressed: () {
                         if (negativeOnClick != null) {

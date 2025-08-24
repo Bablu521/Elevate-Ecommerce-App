@@ -23,29 +23,31 @@ class _LoginViewBodyState extends State<LoginViewBody> {
     final theme = Theme.of(context);
     return SafeArea(
       child: LoginListener(
-        widget: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(local.login, style: theme.textTheme.bodyLarge),
-              const SizedBox(height: 24),
-              SectionLoginTextField(
-                globalKey: globalKey,
-                emailController: emailController,
-                passwordController: passwordController,
-              ),
-              const SizedBox(height: 16),
-              SectionRememberMeAndForgetPassword(),
-              const SizedBox(height: 64),
-              SectionButtonLogin(
-                globalKey: globalKey,
-                emailController: emailController,
-                passwordController: passwordController,
-              ),
-              const SizedBox(height: 16),
-              const SectionCreateNewAccount(),
-            ],
+        widget: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(local.login, style: theme.textTheme.bodyLarge),
+                const SizedBox(height: 24),
+                SectionLoginTextField(
+                  globalKey: globalKey,
+                  emailController: emailController,
+                  passwordController: passwordController,
+                ),
+                const SizedBox(height: 16),
+                const SectionRememberMeAndForgetPassword(),
+                const SizedBox(height: 64),
+                SectionButtonLogin(
+                  globalKey: globalKey,
+                  emailController: emailController,
+                  passwordController: passwordController,
+                ),
+                const SizedBox(height: 16),
+                const SectionCreateNewAccount(),
+              ],
+            ),
           ),
         ),
       ),

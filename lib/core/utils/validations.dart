@@ -22,9 +22,6 @@ class Validations {
     RegExp passwordRegex = RegExp(
       r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[#?!@$%^&*-]).{8,}$',
     );
-    RegExp passwordRegex = RegExp(
-      r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[#?!@$%^&*-]).{8,}$',
-    );
     if (val == null) {
       return AppLocalizations().passwordIsRequired;
     } else if (val.isEmpty) {

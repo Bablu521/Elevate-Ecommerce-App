@@ -12,6 +12,8 @@ import 'package:elevate_ecommerce_app/domin/entities/auth/response/verify_reset_
 import 'package:elevate_ecommerce_app/domin/entities/login_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/auth/response/forget_password_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/auth/response/reset_password_entity.dart';
+import 'package:elevate_ecommerce_app/domin/entities/register_entity.dart';
+import 'package:elevate_ecommerce_app/domin/entities/requests/register_request_entity.dart';
 import 'package:elevate_ecommerce_app/domin/repositories/auth_repo.dart';
 import 'package:injectable/injectable.dart';
 
