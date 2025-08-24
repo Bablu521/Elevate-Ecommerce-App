@@ -6,9 +6,11 @@ import 'package:elevate_ecommerce_app/api/mapper/auth/verify_reset_mapper.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/auth/forget_password_request.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/auth/reset_password_request.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/auth/verify_reset_request.dart';
+import 'package:elevate_ecommerce_app/api/models/requestes/login_requests/login_request.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/auth/forget_password_response.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/auth/reset_password_response.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/auth/verify_reset_response.dart';
+import 'package:elevate_ecommerce_app/api/models/responses/login_response/login_response_dto.dart';
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/domin/entities/auth/request/forget_password_request_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/auth/request/reset_password_request_entity.dart';
@@ -20,17 +22,18 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-import 'auth_remote_data_source_impl_test.mocks.dart';
+import '../../fixtures/login_fixtures.dart';
+import '../client/api_client_test.mocks.dart';
 
 @GenerateMocks([ApiClient])
 void main() {
-    group("AuthRemoteDataSourceImpl Test", () {
-        late MockApiClient mockApiClient;
-  late AuthRemoteDataSourceImpl authRemoteDataSourceImpl;
-  setUp(() {
-    mockApiClient = MockApiClient();
-    authRemoteDataSourceImpl = AuthRemoteDataSourceImpl(mockApiClient);
-  });
+  group("AuthRemoteDataSourceImpl Test", () {
+    late MockApiClient mockApiClient;
+    late AuthRemoteDataSourceImpl authRemoteDataSourceImpl;
+    setUp(() {
+      mockApiClient = MockApiClient();
+      authRemoteDataSourceImpl = AuthRemoteDataSourceImpl(mockApiClient);
+    });
     test("Login Success", () async {
       //Arrange
       final LoginResponseDto response = LoginTestFixtures.fakeLoginResponse();
@@ -45,7 +48,7 @@ void main() {
       verify(mockApiClient.login(request)).called(1);
     });
   });
-}
+
   group("test AuthRemoteDataSourceImpl", () {
     late MockApiClient mockApiClient;
     late AuthRemoteDataSourceImpl authRemoteDataSourceImpl;

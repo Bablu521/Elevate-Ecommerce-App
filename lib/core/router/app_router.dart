@@ -2,7 +2,7 @@ import 'package:elevate_ecommerce_app/core/router/route_names.dart';
 import 'package:flutter/material.dart';
 
 import '../../presentation/auth/forget_password/views/screen/forget_password_screen.dart';
-import '../../presentation/auth/login/views/login_view.dart';
+import '../../presentation/auth/login/views/screen/login_view.dart';
 
 abstract class AppRouter {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {

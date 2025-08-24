@@ -1,3 +1,4 @@
+import 'package:elevate_ecommerce_app/core/router/route_names.dart';
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
 import 'package:elevate_ecommerce_app/presentation/auth/login/view_models/login_cubit.dart';
 import 'package:elevate_ecommerce_app/presentation/auth/login/view_models/login_event.dart';
@@ -50,6 +51,7 @@ class _SectionRememberMeAndForgetPasswordState
         ),
         TextButton(
           onPressed: () {
+            Navigator.pushNamed(context, RouteNames.forgetPassword);
             //Navigate to forgetPassword
           },
           child: Text(

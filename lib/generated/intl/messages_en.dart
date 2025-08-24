@@ -40,6 +40,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "connectionTimeout": MessageLookupByLibrary.simpleMessage(
       "Connection timeout. Please try again later.",
     ),
+    "continueAsGuest": MessageLookupByLibrary.simpleMessage(
+      "Continue as guest",
+    ),
     "creatingAnAccountYouAgreeToOur": MessageLookupByLibrary.simpleMessage(
       "Creating an account, you agree to our ",
     ),
@@ -49,10 +52,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "dioErrorCancel": MessageLookupByLibrary.simpleMessage(
       "Request was cancelled. Please retry.",
     ),
+    "dontHaveAccount": MessageLookupByLibrary.simpleMessage(
+      "Dont\'t have an account?",
+    ),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "emailHintText": MessageLookupByLibrary.simpleMessage("Enter your Email"),
     "emailIsRequired": MessageLookupByLibrary.simpleMessage(
       "email is required",
     ),
+    "emailLabel": MessageLookupByLibrary.simpleMessage("Email"),
     "emailVerification": MessageLookupByLibrary.simpleMessage(
       "Email Verification",
     ),
@@ -101,9 +109,13 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "ok": MessageLookupByLibrary.simpleMessage("Ok"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "passwordHintText": MessageLookupByLibrary.simpleMessage(
+      "Enter your Password",
+    ),
     "passwordIsRequired": MessageLookupByLibrary.simpleMessage(
       "password is required",
     ),
+    "passwordLabel": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordMustNotEmpty": MessageLookupByLibrary.simpleMessage(
       "Password must not be empty and must contain 6 characters with upper case letter and one number at least",
     ),
@@ -126,12 +138,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "registeredSuccessfully": MessageLookupByLibrary.simpleMessage(
       "Registered Successfully!",
     ),
+    "rememberMe": MessageLookupByLibrary.simpleMessage("Remember me"),
     "resend": MessageLookupByLibrary.simpleMessage("Resend"),
     "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
     "sendTimeout": MessageLookupByLibrary.simpleMessage(
       "Request timed out. Please try again.",
     ),
-    "signUp": MessageLookupByLibrary.simpleMessage("Sign up"),
+    "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
     "success": MessageLookupByLibrary.simpleMessage("Success"),
     "termsAndConditions": MessageLookupByLibrary.simpleMessage(
       "Terms&Conditions",

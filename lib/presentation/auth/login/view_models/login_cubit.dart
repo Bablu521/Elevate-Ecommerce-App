@@ -36,7 +36,7 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   Future<void> _login({required String email, required String password}) async {
-    emit(LoginState.copyWith(loading: true));
+    emit(state.copyWith(loading: true));
     final response = await _loginUseCase.call(
       requestModel: LoginRequestModel(
         email: email,
@@ -46,10 +46,10 @@ class LoginCubit extends Cubit<LoginState> {
     );
     switch (response) {
       case ApiSuccessResult<LoginEntity>():
-        emit(LoginState.copyWith(loading: false, loginEntity: response.data));
+        emit(state.copyWith(loading: false, loginEntity: response.data));
       case ApiErrorResult<LoginEntity>():
         emit(
-          LoginState.copyWith(
+          state.copyWith(
             loading: false,
             errorMessage: response.errorMessage,
           ),

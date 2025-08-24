@@ -279,10 +279,10 @@ class AppLocalizations {
     return Intl.message('Remember me', name: 'rememberMe', desc: '', args: []);
   }
 
-  /// `Forget password?`
+  /// `Forget Password`
   String get forgetPassword {
     return Intl.message(
-      'Forget password?',
+      'Forget Password',
       name: 'forgetPassword',
       desc: '',
       args: [],
@@ -314,86 +314,6 @@ class AppLocalizations {
     return Intl.message('Sign Up', name: 'signUp', desc: '', args: []);
   }
 
-  /// `email is required`
-  String get emailIsRequired {
-    return Intl.message(
-      'email is required',
-      name: 'emailIsRequired',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `enter valid email`
-  String get enterValidEmail {
-    return Intl.message(
-      'enter valid email',
-      name: 'enterValidEmail',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `password is required`
-  String get passwordIsRequired {
-    return Intl.message(
-      'password is required',
-      name: 'passwordIsRequired',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `password Not Matched`
-  String get passwordNotMatched {
-    return Intl.message(
-      'password Not Matched',
-      name: 'passwordNotMatched',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `This field is required`
-  String get thisFieldIsRequired {
-    return Intl.message(
-      'This field is required',
-      name: 'thisFieldIsRequired',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Enter valid username`
-  String get enterValidUsername {
-    return Intl.message(
-      'Enter valid username',
-      name: 'enterValidUsername',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Enter numbers only`
-  String get enterNumbersOnly {
-    return Intl.message(
-      'Enter numbers only',
-      name: 'enterNumbersOnly',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Enter value must equal 11 digit`
-  String get enterValueMustEqual11Digit {
-    return Intl.message(
-      'Enter value must equal 11 digit',
-      name: 'enterValueMustEqual11Digit',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Enter valid Egyptian Phone number`
   String get enterValidEgyptianPhoneNumber {
     return Intl.message(
@@ -402,11 +322,6 @@ class AppLocalizations {
       desc: '',
       args: [],
     );
-  }
-
-  /// `Sign up`
-  String get signUp {
-    return Intl.message('Sign up', name: 'signUp', desc: '', args: []);
   }
 
   /// `First name`
@@ -514,11 +429,6 @@ class AppLocalizations {
     );
   }
 
-  /// `Login`
-  String get login {
-    return Intl.message('Login', name: 'login', desc: '', args: []);
-  }
-
   /// `Error`
   String get error {
     return Intl.message('Error', name: 'error', desc: '', args: []);
@@ -547,16 +457,6 @@ class AppLocalizations {
   /// `Password`
   String get password {
     return Intl.message('Password', name: 'password', desc: '', args: []);
-  }
-
-  /// `Forget Password`
-  String get forgetPassword {
-    return Intl.message(
-      'Forget Password',
-      name: 'forgetPassword',
-      desc: '',
-      args: [],
-    );
   }
 
   /// `Please enter your email associated to your account`

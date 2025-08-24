@@ -1,6 +1,7 @@
 import 'package:elevate_ecommerce_app/api/models/requestes/login_requests/login_request.dart';
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/domin/entities/login_entity.dart';
+import 'package:elevate_ecommerce_app/domin/use_cases/guest_login_use_case.dart';
 import 'package:elevate_ecommerce_app/domin/use_cases/login_use_case.dart';
 import 'package:elevate_ecommerce_app/presentation/auth/login/view_models/login_cubit.dart';
 import 'package:elevate_ecommerce_app/presentation/auth/login/view_models/login_event.dart';
@@ -12,16 +13,18 @@ import 'package:bloc_test/bloc_test.dart';
 import '../../../../fixtures/login_fixtures.dart';
 import 'login_cubit_test.mocks.dart';
 
-@GenerateMocks([LoginUseCase])
+@GenerateMocks([LoginUseCase, GuestLoginUseCase])
 void main() {
   late LoginCubit loginCubit;
   late MockLoginUseCase mockLoginUseCase;
   late LoginRequestModel loginRequestModel;
   late LoginEntity loginEntity;
   late LoginState state;
+  late MockGuestLoginUseCase mockGuestLoginUseCase;
   setUpAll(() {
     mockLoginUseCase = MockLoginUseCase();
-    loginCubit = LoginCubit(mockLoginUseCase);
+    mockGuestLoginUseCase = MockGuestLoginUseCase();
+    loginCubit = LoginCubit(mockLoginUseCase, mockGuestLoginUseCase);
     loginEntity = LoginTestFixtures.fakeLoginEntity();
     loginRequestModel = LoginTestFixtures.fakeLoginRequest();
     state = LoginState();
@@ -35,7 +38,7 @@ void main() {
     blocTest<LoginCubit, LoginState>(
       'emits [loading, success] when login succeeds',
       build: () {
-        return LoginCubit(mockLoginUseCase);
+        return LoginCubit(mockLoginUseCase, mockGuestLoginUseCase);
       },
       act: (cubit) async {
         when(
@@ -63,7 +66,7 @@ void main() {
     blocTest<LoginCubit, LoginState>(
       'emits [loading, error] when login fails',
       build: () {
-        return LoginCubit(mockLoginUseCase);
+        return LoginCubit(mockLoginUseCase, mockGuestLoginUseCase);
       },
       act: (cubit) async {
         when(
@@ -90,7 +93,7 @@ void main() {
     );
     blocTest<LoginCubit, LoginState>(
       'emits [initial] and updates rememberMe when remember me toggled',
-      build: () => LoginCubit(mockLoginUseCase),
+      build: () => LoginCubit(mockLoginUseCase , mockGuestLoginUseCase),
       act: (cubit) {
         cubit.doIntent(LoginEventRememberMe(rememberMe: true));
       },

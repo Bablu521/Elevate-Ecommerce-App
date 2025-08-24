@@ -4,10 +4,12 @@ import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/core/constants/const_keys.dart';
 import 'package:elevate_ecommerce_app/data/data_source/auth_local_data_source.dart';
 import 'package:elevate_ecommerce_app/data/data_source/auth_remote_data_source.dart';
-import 'package:elevate_ecommerce_app/data/mapper/login/login_mapper.dart';
+import 'package:elevate_ecommerce_app/api/mapper/auth/login_mapper.dart';
+import 'package:elevate_ecommerce_app/domin/entities/auth/request/forget_password_request_entity.dart';
+import 'package:elevate_ecommerce_app/domin/entities/auth/request/reset_password_request_entity.dart';
+import 'package:elevate_ecommerce_app/domin/entities/auth/request/verify_reset_request_entity.dart';
+import 'package:elevate_ecommerce_app/domin/entities/auth/response/verify_reset_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/login_entity.dart';
-import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
-import 'package:elevate_ecommerce_app/data/data_source/auth_remote_data_source.dart';
 import 'package:elevate_ecommerce_app/domin/entities/auth/response/forget_password_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/auth/response/reset_password_entity.dart';
 import 'package:elevate_ecommerce_app/domin/repositories/auth_repo.dart';
@@ -69,21 +71,21 @@ class AuthRepoImpl implements AuthRepo {
   Future<ApiResult<ForgetPasswordEntity>> forgetPassword(
     ForgetPasswordRequestEntity request,
   ) {
-    return _authLocalDataSource.forgetPassword(request);
+    return _authRemoteDataSource.forgetPassword(request);
   }
 
   @override
   Future<ApiResult<ResetPasswordEntity>> resetPassword(
     ResetPasswordRequestEntity request,
   ) {
-    return _authLocalDataSource.resetPassword(request);
+    return _authRemoteDataSource.resetPassword(request);
   }
 
   @override
   Future<ApiResult<VerifyResetEntity>> verifyResetCode(
     VerifyResetRequestEntity request,
   ) {
-    return _authLocalDataSource.verifyResetCode(request);
+    return _authRemoteDataSource.verifyResetCode(request);
   }
 
 }

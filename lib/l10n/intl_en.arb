@@ -27,8 +27,7 @@
   "forgetPassword": "Forget password?",
   "dontHaveAccount": "Dont't have an account?",
   "continueAsGuest": "Continue as guest",
-  "signUp": "Sign Up"
-  "unknown": "Unknown",
+  "signUp": "Sign Up",
   "emailIsRequired": "email is required",
   "enterValidEmail": "enter valid email",
   "passwordIsRequired": "password is required",
@@ -38,7 +37,7 @@
   "enterNumbersOnly": "Enter numbers only",
   "enterValueMustEqual11Digit": "Enter value must equal 11 digit",
   "enterValidEgyptianPhoneNumber": "Enter valid Egyptian Phone number",
-  "signUp": "Sign up",
+
   "firstName": "First name",
   "enterFirstName": "Enter first name",
   "lastName": "Last name",
