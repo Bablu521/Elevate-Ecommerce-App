@@ -15,6 +15,16 @@ import 'package:injectable/injectable.dart' as _i526;
 
 import '../../api/client/api_client.dart' as _i508;
 import '../../api/client/api_module.dart' as _i272;
+import '../../api/data_source/categories_remote_data_source_impl.dart' as _i451;
+import '../../api/data_source/products_remote_data_source_impl.dart' as _i950;
+import '../../data/data_source/categories_remote_data_source.dart' as _i84;
+import '../../data/data_source/products_remote_data_source.dart' as _i1000;
+import '../../data/repositories/categories_repo_impl.dart' as _i1008;
+import '../../data/repositories/products_repo_impl.dart' as _i177;
+import '../../domin/repositories/categories_repo.dart' as _i983;
+import '../../domin/repositories/products_repo.dart' as _i679;
+import '../../domin/use_case/get_all_categories_use_case.dart' as _i520;
+import '../../domin/use_case/get_all_products_use_case.dart' as _i966;
 
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -26,6 +36,24 @@ extension GetItInjectableX on _i174.GetIt {
     final apiModule = _$ApiModule();
     gh.singleton<_i361.Dio>(() => apiModule.provideDio());
     gh.factory<_i508.ApiClient>(() => _i508.ApiClient(gh<_i361.Dio>()));
+    gh.factory<_i1000.ProductsRemoteDataSource>(
+      () => _i950.ProductsRemoteDataSourceImpl(gh<_i508.ApiClient>()),
+    );
+    gh.factory<_i84.CategoriesRemoteDataSource>(
+      () => _i451.CategoriesRemoteDataSourceImpl(gh<_i508.ApiClient>()),
+    );
+    gh.factory<_i679.ProductsRepo>(
+      () => _i177.ProductsRepoImpl(gh<_i1000.ProductsRemoteDataSource>()),
+    );
+    gh.factory<_i966.GetAllProductsUseCase>(
+      () => _i966.GetAllProductsUseCase(gh<_i679.ProductsRepo>()),
+    );
+    gh.factory<_i983.CategoriesRepo>(
+      () => _i1008.CategoriesRepoImpl(gh<_i84.CategoriesRemoteDataSource>()),
+    );
+    gh.factory<_i520.GetAllCategoriesUseCase>(
+      () => _i520.GetAllCategoriesUseCase(gh<_i983.CategoriesRepo>()),
+    );
     return this;
   }
 }
