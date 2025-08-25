@@ -66,7 +66,10 @@ class ForgetPasswordResetPassword extends StatelessWidget {
           SizedBox(height: 32.h),
           ElevatedButton(
             onPressed: () {
-              forgetPasswordViewModel.doIntent(ResetPasswordEvent());
+              if (forgetPasswordViewModel.resetPasswordFormKey.currentState!
+                  .validate()) {
+                forgetPasswordViewModel.doIntent(ResetPasswordEvent());
+              }
             },
             child: Text(AppLocalizations.of(context).confirm),
           ),

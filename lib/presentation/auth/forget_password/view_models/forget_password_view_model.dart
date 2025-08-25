@@ -39,7 +39,7 @@ class ForgetPasswordViewModel extends Cubit<ForgetPasswordState> {
   void doIntent(ForgetPasswordEvents events) {
     switch (events) {
       case ForgetPasswordEvent():
-        _forgetPassword(events.isResend);
+        _forgetPassword();
       case VerifyResetCodeEvent():
         _verifyResetCode();
       case ResetPasswordEvent():
@@ -47,10 +47,7 @@ class ForgetPasswordViewModel extends Cubit<ForgetPasswordState> {
     }
   }
 
-  Future<void> _forgetPassword(bool isResend) async {
-    if (!isResend && !forgetPasswordFormKey.currentState!.validate()) {
-      return;
-    }
+  Future<void> _forgetPassword() async {
     emit(state.copyWith(isLoading: true));
     var result = await _forgetPasswordUseCase(
       ForgetPasswordRequestEntity(email: emailController.text),
@@ -88,13 +85,11 @@ class ForgetPasswordViewModel extends Cubit<ForgetPasswordState> {
           ),
         );
       case ApiErrorResult<VerifyResetEntity>():
-        emit(state.copyWith(isLoading: false));
-        verifyResetCodeFormKey.currentState!.validate();
+        emit(state.copyWith(isLoading: false, validateResetCode: true));
     }
   }
 
   Future<void> _resetPassword() async {
-    if (resetPasswordFormKey.currentState!.validate()) {
       emit(state.copyWith(isLoading: true));
       var result = await _resetPasswordUseCase(
         ResetPasswordRequestEntity(
@@ -117,7 +112,6 @@ class ForgetPasswordViewModel extends Cubit<ForgetPasswordState> {
             state.copyWith(isLoading: false, errorMessage: result.errorMessage),
           );
       }
-    }
   }
 
   @override

@@ -9,12 +9,10 @@ import '../../view_models/forget_password_view_model.dart';
 
 class ForgetPasswordResetCode extends StatelessWidget {
   final ForgetPasswordViewModel forgetPasswordViewModel;
-  final bool isError;
 
   const ForgetPasswordResetCode({
     super.key,
     required this.forgetPasswordViewModel,
-    this.isError = false,
   });
 
   @override
@@ -45,7 +43,12 @@ class ForgetPasswordResetCode extends StatelessWidget {
             length: 6,
             controller: forgetPasswordViewModel.resetCodeController,
             onSubmitted: (_) {
-              forgetPasswordViewModel.doIntent(VerifyResetCodeEvent());
+              if (forgetPasswordViewModel.resetCodeController.text.length < 6) {
+                forgetPasswordViewModel.verifyResetCodeFormKey.currentState
+                    ?.validate();
+              } else {
+                forgetPasswordViewModel.doIntent(VerifyResetCodeEvent());
+              }
             },
             defaultPinTheme: PinTheme(
               width: MediaQuery.of(context).size.width / 6,
@@ -82,9 +85,7 @@ class ForgetPasswordResetCode extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {
-                  forgetPasswordViewModel.doIntent(
-                    ForgetPasswordEvent(isResend: true),
-                  );
+                  forgetPasswordViewModel.doIntent(ForgetPasswordEvent());
                 },
                 child: Text(
                   textAlign: TextAlign.center,

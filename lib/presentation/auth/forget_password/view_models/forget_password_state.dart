@@ -12,6 +12,7 @@ class ForgetPasswordState extends Equatable {
   String? errorMessage;
   int pageNumber;
   bool isSuccess;
+  bool validateResetCode;
 
   ForgetPasswordState({
     this.isLoading = false,
@@ -21,6 +22,7 @@ class ForgetPasswordState extends Equatable {
     this.errorMessage,
     this.pageNumber = 0,
     this.isSuccess = false,
+    this.validateResetCode = false,
   });
 
   ForgetPasswordState copyWith({
@@ -31,6 +33,7 @@ class ForgetPasswordState extends Equatable {
     String? errorMessage,
     int? pageNumber,
     bool? isSuccess,
+    bool? validateResetCode,
   }) {
     return ForgetPasswordState(
       isLoading: isLoading ?? this.isLoading,
@@ -42,6 +45,7 @@ class ForgetPasswordState extends Equatable {
       errorMessage: errorMessage ?? this.errorMessage,
       pageNumber: pageNumber ?? this.pageNumber,
       isSuccess: isSuccess ?? this.isSuccess,
+      validateResetCode: validateResetCode ?? this.validateResetCode,
     );
   }
 
@@ -54,5 +58,6 @@ class ForgetPasswordState extends Equatable {
     errorMessage,
     pageNumber,
     isSuccess,
+    validateResetCode,
   ];
 }

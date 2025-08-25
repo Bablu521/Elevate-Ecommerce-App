@@ -74,9 +74,14 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                 forgetPasswordViewModel: _forgetPasswordViewModel,
               );
             } else if (state.pageNumber == 1) {
+              if (state.validateResetCode) {
+                _forgetPasswordViewModel
+                    .verifyResetCodeFormKey
+                    .currentState
+                    ?.validate();
+              }
               return ForgetPasswordResetCode(
                 forgetPasswordViewModel: _forgetPasswordViewModel,
-                isError: state.errorMessage != null,
               );
             } else if (state.pageNumber == 2) {
               return ForgetPasswordResetPassword(

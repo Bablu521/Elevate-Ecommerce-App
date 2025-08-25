@@ -55,13 +55,7 @@ void main() {
             info: "fake-info",
           );
           when(
-            mockApiClient.forgetPassword(
-              argThat(
-                predicate<ForgetPasswordRequest>(
-                  (req) => req.email == forgetPasswordRequest.email,
-                ),
-              ),
-            ),
+            mockApiClient.forgetPassword(forgetPasswordRequest),
           ).thenAnswer((_) async => expectedResult);
           //Act
           var result = await authRemoteDataSourceImpl.forgetPassword(
@@ -69,13 +63,7 @@ void main() {
           );
           //Assert
           verify(
-            mockApiClient.forgetPassword(
-              argThat(
-                predicate<ForgetPasswordRequest>(
-                  (req) => req.email == forgetPasswordRequest.email,
-                ),
-              ),
-            ),
+            mockApiClient.forgetPassword(forgetPasswordRequest),
           ).called(1);
           expect(result, isA<ApiSuccessResult<ForgetPasswordEntity>>());
           result as ApiSuccessResult<ForgetPasswordEntity>;
@@ -96,13 +84,7 @@ void main() {
           //Arrange
           var expectedError = "Server Error";
           when(
-            mockApiClient.forgetPassword(
-              argThat(
-                predicate<ForgetPasswordRequest>(
-                  (req) => req.email == forgetPasswordRequest.email,
-                ),
-              ),
-            ),
+            mockApiClient.forgetPassword(forgetPasswordRequest),
           ).thenThrow(Exception(expectedError));
           //Act
           var result = await authRemoteDataSourceImpl.forgetPassword(
@@ -110,13 +92,7 @@ void main() {
           );
           //Assert
           verify(
-            mockApiClient.forgetPassword(
-              argThat(
-                predicate<ForgetPasswordRequest>(
-                  (req) => req.email == forgetPasswordRequest.email,
-                ),
-              ),
-            ),
+            mockApiClient.forgetPassword(forgetPasswordRequest),
           ).called(1);
           expect(result, isA<ApiErrorResult<ForgetPasswordEntity>>());
           result as ApiErrorResult<ForgetPasswordEntity>;
@@ -144,13 +120,7 @@ void main() {
           //Arrange
           var expectedResult = VerifyResetResponse(status: "fake-status");
           when(
-            mockApiClient.verifyResetCode(
-              argThat(
-                predicate<VerifyResetRequest>(
-                  (req) => req.resetCode == verifyResetRequest.resetCode,
-                ),
-              ),
-            ),
+            mockApiClient.verifyResetCode(verifyResetRequest),
           ).thenAnswer((_) async => expectedResult);
           //Act
           var result = await authRemoteDataSourceImpl.verifyResetCode(
@@ -158,13 +128,7 @@ void main() {
           );
           //Assert
           verify(
-            mockApiClient.verifyResetCode(
-              argThat(
-                predicate<VerifyResetRequest>(
-                  (req) => req.resetCode == verifyResetRequest.resetCode,
-                ),
-              ),
-            ),
+            mockApiClient.verifyResetCode(verifyResetRequest),
           ).called(1);
           expect(result, isA<ApiSuccessResult<VerifyResetEntity>>());
           result as ApiSuccessResult<VerifyResetEntity>;
@@ -181,13 +145,7 @@ void main() {
           //Arrange
           var expectedError = "Server Error";
           when(
-            mockApiClient.verifyResetCode(
-              argThat(
-                predicate<VerifyResetRequest>(
-                  (req) => req.resetCode == verifyResetRequest.resetCode,
-                ),
-              ),
-            ),
+            mockApiClient.verifyResetCode(verifyResetRequest),
           ).thenThrow(Exception(expectedError));
           //Act
           var result = await authRemoteDataSourceImpl.verifyResetCode(
@@ -195,13 +153,7 @@ void main() {
           );
           //Assert
           verify(
-            mockApiClient.verifyResetCode(
-              argThat(
-                predicate<VerifyResetRequest>(
-                  (req) => req.resetCode == verifyResetRequest.resetCode,
-                ),
-              ),
-            ),
+            mockApiClient.verifyResetCode(verifyResetRequest),
           ).called(1);
           expect(result, isA<ApiErrorResult<VerifyResetEntity>>());
           result as ApiErrorResult<VerifyResetEntity>;
@@ -233,15 +185,7 @@ void main() {
             token: "fake-token",
           );
           when(
-            mockApiClient.resetPassword(
-              argThat(
-                predicate<ResetPasswordRequest>(
-                  (req) =>
-                      req.email == resetPasswordRequest.email &&
-                      req.newPassword == resetPasswordRequest.newPassword,
-                ),
-              ),
-            ),
+            mockApiClient.resetPassword(resetPasswordRequest),
           ).thenAnswer((_) async => expectedResult);
           //Act
           var result = await authRemoteDataSourceImpl.resetPassword(
@@ -249,15 +193,7 @@ void main() {
           );
           //Assert
           verify(
-            mockApiClient.resetPassword(
-              argThat(
-                predicate<ResetPasswordRequest>(
-                  (req) =>
-                      req.email == resetPasswordRequest.email &&
-                      req.newPassword == resetPasswordRequest.newPassword,
-                ),
-              ),
-            ),
+            mockApiClient.resetPassword(resetPasswordRequest),
           ).called(1);
           expect(result, isA<ApiSuccessResult<ResetPasswordEntity>>());
           result as ApiSuccessResult<ResetPasswordEntity>;
@@ -278,15 +214,7 @@ void main() {
           //Arrange
           var expectedError = "Server Error";
           when(
-            mockApiClient.resetPassword(
-              argThat(
-                predicate<ResetPasswordRequest>(
-                  (req) =>
-                      req.email == resetPasswordRequest.email &&
-                      req.newPassword == resetPasswordRequest.newPassword,
-                ),
-              ),
-            ),
+            mockApiClient.resetPassword(resetPasswordRequest),
           ).thenThrow(Exception(expectedError));
           //Act
           var result = await authRemoteDataSourceImpl.resetPassword(
@@ -294,15 +222,7 @@ void main() {
           );
           //Assert
           verify(
-            mockApiClient.resetPassword(
-              argThat(
-                predicate<ResetPasswordRequest>(
-                  (req) =>
-                      req.email == resetPasswordRequest.email &&
-                      req.newPassword == resetPasswordRequest.newPassword,
-                ),
-              ),
-            ),
+            mockApiClient.resetPassword(resetPasswordRequest),
           ).called(1);
           expect(result, isA<ApiErrorResult<ResetPasswordEntity>>());
           result as ApiErrorResult<ResetPasswordEntity>;

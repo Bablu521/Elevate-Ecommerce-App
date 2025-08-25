@@ -1,8 +1,5 @@
 sealed class ForgetPasswordEvents {}
 
-class ForgetPasswordEvent extends ForgetPasswordEvents {
-  final bool isResend;
-  ForgetPasswordEvent({this.isResend = false});
-}
+class ForgetPasswordEvent extends ForgetPasswordEvents {}
 class VerifyResetCodeEvent extends ForgetPasswordEvents {}
 class ResetPasswordEvent extends ForgetPasswordEvents {}

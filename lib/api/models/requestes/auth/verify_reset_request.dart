@@ -1,9 +1,10 @@
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'verify_reset_request.g.dart';
 
 @JsonSerializable()
-class VerifyResetRequest {
+class VerifyResetRequest extends Equatable {
   @JsonKey(name: "resetCode")
   final String? resetCode;
 
@@ -18,6 +19,9 @@ class VerifyResetRequest {
   Map<String, dynamic> toJson() {
     return _$VerifyResetRequestToJson(this);
   }
+
+  @override
+  List<Object?> get props => [resetCode];
 }
 
 
