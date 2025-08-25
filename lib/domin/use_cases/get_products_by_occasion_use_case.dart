@@ -4,9 +4,9 @@ import 'package:elevate_ecommerce_app/domin/repositories/product_repo.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
-class GetProductsByOccasionIdUseCase {
+class GetProductsByOccasionUseCase {
   final ProductRepo _productRepo;
-  GetProductsByOccasionIdUseCase(this._productRepo);
+  GetProductsByOccasionUseCase(this._productRepo);
 
   Future<ApiResult<List<ProductEntity>>> call(String occasionId) {
     return _productRepo.getProductsByOccasion(occasionId);
