@@ -95,11 +95,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "failedToParseResponse": MessageLookupByLibrary.simpleMessage(
       "Failed to parse error response.",
     ),
-    "home": MessageLookupByLibrary.simpleMessage("Home"),
     "female": MessageLookupByLibrary.simpleMessage("Female"),
     "firstName": MessageLookupByLibrary.simpleMessage("First name"),
     "forgetPassword": MessageLookupByLibrary.simpleMessage("Forget Password"),
     "gender": MessageLookupByLibrary.simpleMessage("Gender"),
+    "home": MessageLookupByLibrary.simpleMessage("Home"),
     "invalidCode": MessageLookupByLibrary.simpleMessage("Invalid code"),
     "lastName": MessageLookupByLibrary.simpleMessage("Last name"),
     "loading": MessageLookupByLibrary.simpleMessage("Loading..."),
