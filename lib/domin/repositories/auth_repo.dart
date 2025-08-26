@@ -6,4 +6,5 @@ abstract interface class AuthRepo {
   Future<ApiResult<LoginEntity>> login({
     required LoginRequestModel loginRequestModel,
   });
+  Future<void> guestUserLogin();
 }

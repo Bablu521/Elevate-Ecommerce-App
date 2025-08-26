@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:elevate_ecommerce_app/api/models/requestes/login_requests/login_request.dart';
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
+import 'package:elevate_ecommerce_app/core/constants/const_keys.dart';
 import 'package:elevate_ecommerce_app/data/data_source/auth_local_data_source.dart';
 import 'package:elevate_ecommerce_app/data/data_source/auth_remote_data_source.dart';
 import 'package:elevate_ecommerce_app/data/mapper/login/login_mapper.dart';
@@ -28,6 +29,7 @@ class AuthRepoImpl implements AuthRepo {
       await _handleUserInfo(
         rememberMe: loginRequestModel.rememberMe,
         token: response.token,
+        userStatus: ConstKeys.kUserLogin,
       );
       return ApiSuccessResult<LoginEntity>(
         LoginMapper.fromResponse(loginResponse: response),
@@ -40,12 +42,23 @@ class AuthRepoImpl implements AuthRepo {
   Future<void> _handleUserInfo({
     required bool rememberMe,
     required String token,
+    required String userStatus,
   }) async {
     try {
       await authLocalDataSource.saveUserRememberMe(rememberMe: rememberMe);
       await authLocalDataSource.saveUserToken(token: token);
+      await authLocalDataSource.saveUserStatus(userStatus: userStatus);
     } catch (e, stack) {
       log("Error saving user info locally: $e", stackTrace: stack);
     }
+  }
+
+  @override
+  Future<void> guestUserLogin() async {
+    await _handleUserInfo(
+      rememberMe: true,
+      token: ConstKeys.kNoToken,
+      userStatus: ConstKeys.kUserGuest,
+    );
   }
 }
