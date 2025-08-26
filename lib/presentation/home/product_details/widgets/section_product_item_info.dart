@@ -41,7 +41,23 @@ class SectionProductItemInfo extends StatelessWidget {
                   ),
                 ],
               ),
-              Text("${local.status} : In stock"),
+              Text.rich(
+                TextSpan(
+                  children: [
+                    TextSpan(
+                      text: "${local.status}: ",
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        fontWeight: FontWeight.w500,
+                        color: theme.colorScheme.secondary,
+                      ),
+                    ),
+                    TextSpan(
+                      text: "In stock",
+                      style: theme.textTheme.headlineSmall,
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
           const SizedBox(height: 24),
