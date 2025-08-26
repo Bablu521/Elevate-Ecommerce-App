@@ -22,6 +22,10 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "addToCart": MessageLookupByLibrary.simpleMessage("Add to cart"),
+    "allPriceIncludeTax": MessageLookupByLibrary.simpleMessage(
+      "All price include tax",
+    ),
     "alreadyHaveAnAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account? ",
     ),
@@ -31,6 +35,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "badResponse": MessageLookupByLibrary.simpleMessage(
       "Unexpected error response from server",
     ),
+    "bouquetInclude": MessageLookupByLibrary.simpleMessage("Bouquet Include"),
     "close": MessageLookupByLibrary.simpleMessage("close"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm password"),
     "connectionError": MessageLookupByLibrary.simpleMessage(
@@ -42,6 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "creatingAnAccountYouAgreeToOur": MessageLookupByLibrary.simpleMessage(
       "Creating an account, you agree to our ",
     ),
+    "description": MessageLookupByLibrary.simpleMessage("Description"),
     "dioErrorCancel": MessageLookupByLibrary.simpleMessage(
       "Request was cancelled. Please retry.",
     ),
@@ -102,6 +108,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Request timed out. Please try again.",
     ),
     "signUp": MessageLookupByLibrary.simpleMessage("Sign up"),
+    "status": MessageLookupByLibrary.simpleMessage("Status"),
     "termsAndConditions": MessageLookupByLibrary.simpleMessage(
       "Terms&Conditions",
     ),

@@ -20,13 +20,14 @@ abstract class AppTheme {
       onSurface: AppColors.mainColor,
     ),
     textTheme: TextTheme(
-      bodySmall: getTextStyle(),
+      bodySmall: getTextStyle(fontSize: 12.sp, fontWeight: FontWeight.w400),
       bodyMedium: getTextStyle(fontSize: 16.sp, fontWeight: FontWeight.w400),
       bodyLarge: getTextStyle(fontSize: 20.sp, fontWeight: FontWeight.w600),
       headlineMedium: getTextStyle(
         fontSize: 18.sp,
         fontWeight: FontWeight.w500,
       ),
+      headlineSmall: getTextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500),
     ),
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.white,

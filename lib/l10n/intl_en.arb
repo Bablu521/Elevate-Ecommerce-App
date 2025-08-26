@@ -41,5 +41,11 @@
   "error": "Error",
   "close": "close",
   "registeredSuccessfully": "Registered Successfully!",
-  "welcome": "Welcome"
+  "welcome": "Welcome",
+  "addToCart": "Add to cart",
+  "allPriceIncludeTax": "All price include tax",
+  "status": "Status",
+  "description": "Description",
+  "bouquetInclude": "Bouquet Include"
+
 }

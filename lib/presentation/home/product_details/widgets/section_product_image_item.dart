@@ -1,0 +1,95 @@
+import 'package:carousel_slider/carousel_options.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:elevate_ecommerce_app/core/constants/app_colors.dart';
+import 'package:flutter/material.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+class SectionProductImageItem extends StatefulWidget {
+  const SectionProductImageItem({super.key});
+
+  @override
+  State<SectionProductImageItem> createState() =>
+      _SectionProductImageItemState();
+}
+
+class _SectionProductImageItemState extends State<SectionProductImageItem> {
+  List<String> items = [
+    "assets/images/kTestFlower.png",
+    "assets/images/kTestFlower.png",
+    "assets/images/kTestFlower.png",
+    "assets/images/kTestFlower.png",
+  ];
+  final CarouselSliderController carouselSliderController =
+      CarouselSliderController();
+  final PageController pageController = PageController();
+  int currentImage = 0;
+  @override
+  Widget build(BuildContext context) {
+    final mediaQueryHeight = MediaQuery.of(context).size.height;
+    final theme = Theme.of(context);
+    return SizedBox(
+      height: mediaQueryHeight * 0.45,
+      child: Stack(
+        children: [
+          CarouselSlider(
+            carouselController: carouselSliderController,
+
+            items: List.generate(
+              items.length,
+              (index) => Image.asset(
+                items[index],
+                fit: BoxFit.cover,
+                width: double.infinity,
+                height: double.infinity,
+              ),
+            ),
+            options: CarouselOptions(
+              height: mediaQueryHeight * 0.45,
+              aspectRatio: 1,
+              viewportFraction: 1.0,
+              initialPage: currentImage,
+              enableInfiniteScroll: true,
+              reverse: false,
+              autoPlay: true,
+              autoPlayInterval: Duration(seconds: 3),
+              autoPlayAnimationDuration: Duration(milliseconds: 800),
+              autoPlayCurve: Curves.fastOutSlowIn,
+              enlargeCenterPage: false,
+              scrollDirection: Axis.horizontal,
+              onPageChanged: (index, reason) {
+                setState(() {
+                  currentImage = index;
+                });
+              },
+            ),
+          ),
+          Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 8,
+                  vertical: 18,
+                ),
+                child: Row(children: [Icon(Icons.arrow_back_ios_new)]),
+              ),
+              Spacer(),
+              AnimatedSmoothIndicator(
+                activeIndex: currentImage,
+                count: items.length,
+                effect: SlideEffect(
+                  spacing: 8.0,
+                  radius: 4.0,
+                  dotWidth: 10,
+                  dotHeight: 10,
+                  dotColor: AppColors.white[70]!,
+                  activeDotColor: theme.colorScheme.primary,
+                ),
+              ),
+              const SizedBox(height: 8),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
