@@ -15,18 +15,18 @@ import 'auth_repo_impl_test.mocks.dart';
 
 @GenerateMocks([AuthRemoteDataSource, AuthLocalDataSource])
 void main() {
-  late MockAuthRemoteDataSource mockAuthRemoteDataSource;
-  late AuthRepoImpl authRepoImpl;
-  late MockAuthLocalDataSource mockAuthLocalDataSource;
-  setUpAll(() {
-    mockAuthRemoteDataSource = MockAuthRemoteDataSource();
-    mockAuthLocalDataSource = MockAuthLocalDataSource();
-    authRepoImpl = AuthRepoImpl(
-      authRemoteDataSource: mockAuthRemoteDataSource,
-      authLocalDataSource: mockAuthLocalDataSource,
-    );
-  });
   group("group test login impl", () {
+    late MockAuthRemoteDataSource mockAuthRemoteDataSource;
+    late AuthRepoImpl authRepoImpl;
+    late MockAuthLocalDataSource mockAuthLocalDataSource;
+    setUp(() {
+      mockAuthRemoteDataSource = MockAuthRemoteDataSource();
+      mockAuthLocalDataSource = MockAuthLocalDataSource();
+      authRepoImpl = AuthRepoImpl(
+        authRemoteDataSource: mockAuthRemoteDataSource,
+        authLocalDataSource: mockAuthLocalDataSource,
+      );
+    });
     final LoginRequestModel loginRequestModel =
         LoginTestFixtures.fakeLoginRequest();
     test("login success", () async {

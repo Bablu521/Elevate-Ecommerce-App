@@ -9,19 +9,19 @@ import 'auth_local_data_source_impl_test.mocks.dart';
 
 @GenerateMocks([FlutterSecureStorage])
 void main() {
-  late MockFlutterSecureStorage mockSecureStorage;
-  late AuthLocalDataSourceImpl authLocalDataSource;
+  group("AuthLocalDataSourceImpl Login", () {
+    late MockFlutterSecureStorage mockSecureStorage;
+    late AuthLocalDataSourceImpl authLocalDataSource;
 
-  setUp(() {
-    mockSecureStorage = MockFlutterSecureStorage();
-    authLocalDataSource = AuthLocalDataSourceImpl(
-      secureStorage: mockSecureStorage,
-    );
-  });
-
-  group("AuthLocalDataSourceImpl", () {
+    setUp(() {
+      mockSecureStorage = MockFlutterSecureStorage();
+      authLocalDataSource = AuthLocalDataSourceImpl(
+        secureStorage: mockSecureStorage,
+      );
+    });
     test("should save rememberMe correctly", () async {
       // Arrange
+
       const rememberMe = true;
 
       // Act

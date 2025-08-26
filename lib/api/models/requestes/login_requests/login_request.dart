@@ -1,9 +1,10 @@
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'login_request.g.dart';
 
 @JsonSerializable()
-class LoginRequestModel {
+class LoginRequestModel extends Equatable {
   final String email;
   final String password;
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -20,4 +21,7 @@ class LoginRequestModel {
 
   // toJson
   Map<String, dynamic> toJson() => _$LoginRequestModelToJson(this);
+
+  @override
+  List<Object?> get props => [email, password, rememberMe];
 }

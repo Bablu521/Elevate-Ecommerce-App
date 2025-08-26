@@ -4,7 +4,7 @@ import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/core/constants/const_keys.dart';
 import 'package:elevate_ecommerce_app/data/data_source/auth_local_data_source.dart';
 import 'package:elevate_ecommerce_app/data/data_source/auth_remote_data_source.dart';
-import 'package:elevate_ecommerce_app/data/mapper/login/login_mapper.dart';
+import 'package:elevate_ecommerce_app/api/mapper/auth/login_mapper.dart';
 import 'package:elevate_ecommerce_app/domin/entities/login_entity.dart';
 import 'package:elevate_ecommerce_app/domin/repositories/auth_repo.dart';
 import 'package:injectable/injectable.dart';

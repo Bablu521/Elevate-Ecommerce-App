@@ -7,19 +7,28 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import '../../fixtures/login_fixtures.dart';
 import 'login_use_case_test.mocks.dart';
+
 @GenerateMocks([AuthRepoImpl])
 void main() {
-  late MockAuthRepoImpl mockAuthRepoImpl;
-  late LoginUseCase loginUseCase;
-  setUpAll(() {
-    mockAuthRepoImpl = MockAuthRepoImpl();
-    loginUseCase = LoginUseCase(mockAuthRepoImpl);
-  });
   group("Login UseCase Test", () {
+    late MockAuthRepoImpl mockAuthRepoImpl;
+    late LoginUseCase loginUseCase;
+    setUp(() {
+      mockAuthRepoImpl = MockAuthRepoImpl();
+      loginUseCase = LoginUseCase(mockAuthRepoImpl);
+      provideDummy<ApiResult<LoginEntity>>(
+        ApiSuccessResult<LoginEntity>(
+          const LoginEntity(userToken: "dummy", message: "dummy"),
+        ),
+      );
+      provideDummy<ApiResult<LoginEntity>>(
+        ApiErrorResult<LoginEntity>(Exception("dummy")),
+      );
+    });
+    final loginEntity = const LoginEntity(userToken: "token", message: "ok");
     test("should call AuthRepo.login once and return same result", () async {
       // Arrange
       final loginRequest = LoginTestFixtures.fakeLoginRequest();
-      final loginEntity = LoginEntity(userToken: "token", message: "ok");
       final expected = ApiSuccessResult<LoginEntity>(loginEntity);
       when(
         mockAuthRepoImpl.login(loginRequestModel: loginRequest),

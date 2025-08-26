@@ -11,13 +11,13 @@ import '../client/api_client_test.mocks.dart';
 
 @GenerateMocks([ApiClient])
 void main() {
-  late MockApiClient mockApiClient;
-  late AuthRemoteDataSourceImpl authRemoteDataSourceImpl;
-  setUpAll(() {
-    mockApiClient = MockApiClient();
-    authRemoteDataSourceImpl = AuthRemoteDataSourceImpl(mockApiClient);
-  });
-  group("AuthRemoteDataSourceImpl Test", () {
+  group("AuthRemoteDataSourceImpl Test Login", () {
+    late MockApiClient mockApiClient;
+    late AuthRemoteDataSourceImpl authRemoteDataSourceImpl;
+    setUpAll(() {
+      mockApiClient = MockApiClient();
+      authRemoteDataSourceImpl = AuthRemoteDataSourceImpl(mockApiClient);
+    });
     test("Login Success", () async {
       //Arrange
       final LoginResponseDto response = LoginTestFixtures.fakeLoginResponse();
