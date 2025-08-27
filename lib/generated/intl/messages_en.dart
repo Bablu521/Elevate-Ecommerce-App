@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "addToCart": MessageLookupByLibrary.simpleMessage("Add to cart"),
     "alreadyHaveAnAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account? ",
     ),
@@ -30,6 +31,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "badResponse": MessageLookupByLibrary.simpleMessage(
       "Unexpected error response from server",
+    ),
+    "bloomWithOurExquisiteBestSellers": MessageLookupByLibrary.simpleMessage(
+      "Bloom with our exquisite best sellers",
     ),
     "close": MessageLookupByLibrary.simpleMessage("close"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm password"),
@@ -81,9 +85,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "lastName": MessageLookupByLibrary.simpleMessage("Last name"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "male": MessageLookupByLibrary.simpleMessage("Male"),
+    "noProductsAvailable": MessageLookupByLibrary.simpleMessage(
+      "No products available",
+    ),
     "noResponse": MessageLookupByLibrary.simpleMessage(
       "No response received from server.",
     ),
+    "occasion": MessageLookupByLibrary.simpleMessage("Occasion"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordIsRequired": MessageLookupByLibrary.simpleMessage(
       "password is required",
@@ -92,6 +100,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "password Not Matched",
     ),
     "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone number"),
+    "product": MessageLookupByLibrary.simpleMessage("Product"),
     "receiveTimeout": MessageLookupByLibrary.simpleMessage(
       "Server took too long to respond.",
     ),

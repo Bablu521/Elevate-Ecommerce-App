@@ -26,6 +26,8 @@ import '../../domin/repositories/product_repo.dart' as _i591;
 import '../../domin/use_cases/get_products_by_category_use_case.dart' as _i688;
 import '../../domin/use_cases/get_products_by_occasion_use_case.dart' as _i176;
 import '../../domin/use_cases/occasion_use_case.dart' as _i1046;
+import '../../presentation/occasion/view_models/occasion_view_model.dart'
+    as _i979;
 
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -57,6 +59,12 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i1046.OccasionUseCase>(
       () => _i1046.OccasionUseCase(gh<_i657.OccasionRepo>()),
+    );
+    gh.factory<_i979.OccasionViewModel>(
+      () => _i979.OccasionViewModel(
+        gh<_i1046.OccasionUseCase>(),
+        gh<_i176.GetProductsByOccasionUseCase>(),
+      ),
     );
     return this;
   }
