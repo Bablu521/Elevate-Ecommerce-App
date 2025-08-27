@@ -15,7 +15,6 @@ abstract class AppRouter {
           builder: (_) => OccasionView(),
           settings: settings,
         );
-        
 
       default:
         return MaterialPageRoute(builder: (_) => LoginView());
