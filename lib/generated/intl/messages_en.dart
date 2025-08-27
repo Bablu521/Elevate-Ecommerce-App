@@ -28,6 +28,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "badResponse": MessageLookupByLibrary.simpleMessage(
       "Unexpected error response from server",
     ),
+    "cart": MessageLookupByLibrary.simpleMessage("Cart"),
+    "categories": MessageLookupByLibrary.simpleMessage("Categories"),
     "connectionError": MessageLookupByLibrary.simpleMessage(
       "Network error. Please check your internet connection.",
     ),
@@ -55,6 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "failedToParseResponse": MessageLookupByLibrary.simpleMessage(
       "Failed to parse error response.",
     ),
+    "home": MessageLookupByLibrary.simpleMessage("Home"),
     "noResponse": MessageLookupByLibrary.simpleMessage(
       "No response received from server.",
     ),
@@ -64,6 +67,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordNotMatched": MessageLookupByLibrary.simpleMessage(
       "password Not Matched",
     ),
+    "profile": MessageLookupByLibrary.simpleMessage("Profile"),
     "receiveTimeout": MessageLookupByLibrary.simpleMessage(
       "Server took too long to respond.",
     ),
