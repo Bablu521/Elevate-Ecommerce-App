@@ -5,17 +5,18 @@ import 'package:elevate_ecommerce_app/domin/entities/occasion_entity.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: OccasionRemoteDataSource)
-class OccasionRemoteDataSourceImpl implements OccasionRemoteDataSource{
+class OccasionRemoteDataSourceImpl implements OccasionRemoteDataSource {
   final ApiClient _apiClient;
   OccasionRemoteDataSourceImpl(this._apiClient);
-  
+
   @override
   Future<ApiResult<List<OccasionEntity>>> getAllOccasions() async {
-    try {
-      var response = await _apiClient.getAllOccasions();
-      return ApiSuccessResult(response.occasions!.map((element)=>element.toOccasOccasionEntity()).toList());
-    } catch (e) {
-      return ApiErrorResult(e);
-    }
+    return safeApiCall(
+      () => _apiClient.getAllOccasions(),
+      (response) =>
+          response.occasions!
+              .map((element) => element.toOccasOccasionEntity())
+              .toList(),
+    );
   }
 }

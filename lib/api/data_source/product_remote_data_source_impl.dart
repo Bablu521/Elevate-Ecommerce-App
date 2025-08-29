@@ -13,27 +13,23 @@ class ProductRemoteDataSourceImpl implements ProductRemoteDataSource {
   Future<ApiResult<List<ProductEntity>>> getProductsByOccasion(
     String occasionId,
   ) async {
-    try {
-      var response = await _apiClient.getProductsByOccasion(occasionId);
-      return ApiSuccessResult(
-        response.products!.map((element) => element.toProductEntity()).toList(),
-      );
-    } catch (e) {
-      return ApiErrorResult(e);
-    }
+    return safeApiCall(
+      () => _apiClient.getProductsByOccasion(occasionId),
+      (response) => response.products!
+              .map((element) => element.toProductEntity())
+              .toList(),
+    );
   }
 
     @override
   Future<ApiResult<List<ProductEntity>>> getProductsByCategory(
     String categoryId,
   ) async {
-    try {
-      var response = await _apiClient.getProductsByCategory(categoryId);
-      return ApiSuccessResult(
-        response.products!.map((element) => element.toProductEntity()).toList(),
-      );
-    } catch (e) {
-      return ApiErrorResult(e);
-    }
+    return safeApiCall(
+      () => _apiClient.getProductsByCategory(categoryId),
+      (response) => response.products!
+              .map((element) => element.toProductEntity())
+              .toList(),
+    );
   }
 }
