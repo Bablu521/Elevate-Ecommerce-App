@@ -84,13 +84,22 @@ class MessageLookup extends MessageLookupByLibrary {
     "gender": MessageLookupByLibrary.simpleMessage("Gender"),
     "highestPrice": MessageLookupByLibrary.simpleMessage("Highest Price"),
     "lastName": MessageLookupByLibrary.simpleMessage("Last name"),
+    "loading": MessageLookupByLibrary.simpleMessage("Loading..."),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "lowesPrice": MessageLookupByLibrary.simpleMessage("Lowes Price"),
     "male": MessageLookupByLibrary.simpleMessage("Male"),
     "newWord": MessageLookupByLibrary.simpleMessage("New"),
+    "no": MessageLookupByLibrary.simpleMessage("No"),
+    "noCategoriesAvailable": MessageLookupByLibrary.simpleMessage(
+      "No categories available",
+    ),
+    "noProductsAvailable": MessageLookupByLibrary.simpleMessage(
+      "No products available",
+    ),
     "noResponse": MessageLookupByLibrary.simpleMessage(
       "No response received from server.",
     ),
+    "ok": MessageLookupByLibrary.simpleMessage("Ok"),
     "old": MessageLookupByLibrary.simpleMessage("Old"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordIsRequired": MessageLookupByLibrary.simpleMessage(
@@ -123,5 +132,6 @@ class MessageLookup extends MessageLookupByLibrary {
       "An unexpected error occurred:",
     ),
     "welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
+    "yes": MessageLookupByLibrary.simpleMessage("Yes"),
   };
 }

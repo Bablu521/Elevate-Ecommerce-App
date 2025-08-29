@@ -1,15 +1,15 @@
 part of 'categories_view_model.dart';
 
 class CategoriesState extends Equatable {
-  final bool? isLoading;
-  final bool? isProductsLoading;
+  final bool isLoading;
+  final bool isProductsLoading;
   final List<CategoryEntity>? categoriesList;
   final List<ProductEntity>? productsList;
   final String? errorMessage;
 
   const CategoriesState({
-    this.isLoading = false,
-    this.isProductsLoading = false,
+    this.isLoading = true,
+    this.isProductsLoading = true,
     this.productsList,
     this.categoriesList,
     this.errorMessage,

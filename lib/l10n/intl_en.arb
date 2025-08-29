@@ -51,5 +51,11 @@
   "highestPrice": "Highest Price",
   "newWord": "New",
   "old": "Old",
-  "discount": "Discount"
+  "discount": "Discount",
+  "noCategoriesAvailable": "No categories available",
+  "noProductsAvailable": "No products available",
+  "ok": "Ok",
+  "no": "No",
+  "yes": "Yes",
+  "loading": "Loading..."
 }
