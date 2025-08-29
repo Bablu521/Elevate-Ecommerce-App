@@ -81,5 +81,11 @@
   "home": "Home",
   "categories": "Categories",
   "cart": "Cart",
-  "profile": "Profile"
+  "profile": "Profile",
+    "addToCart": "Add to cart",
+  "allPriceIncludeTax": "All price include tax",
+  "status": "Status",
+  "description": "Description",
+  "bouquetInclude": "Bouquet Include"
+
 }

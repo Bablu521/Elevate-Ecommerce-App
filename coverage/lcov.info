@@ -1,13 +1,42 @@
+<<<<<<< HEAD
 SF:lib\api\models\register_dto.dart
 DA:22,2
 DA:36,0
 DA:37,0
 DA:39,0
+=======
+SF:lib\domin\entities\occasion_entity.dart
+DA:14,4
+DA:25,1
+DA:27,1
+DA:28,1
+DA:29,1
+DA:30,1
+DA:31,1
+DA:32,1
+DA:33,1
+DA:34,1
+DA:35,1
+LF:11
+LH:11
+end_of_record
+SF:lib\api\models\occasion_dto.dart
+DA:19,2
+DA:30,0
+DA:31,0
+DA:34,0
+DA:36,2
+DA:37,2
+DA:38,2
+DA:39,2
+DA:40,2
+>>>>>>> origin/ECOM-9-products-detalis
 DA:41,2
 DA:42,2
 DA:43,2
 DA:44,2
 DA:45,2
+<<<<<<< HEAD
 DA:46,2
 DA:47,2
 DA:48,2
@@ -33,11 +62,28 @@ LF:30
 LH:14
 end_of_record
 SF:lib\api\models\register_dto.g.dart
+=======
+DA:49,0
+DA:51,0
+DA:52,0
+DA:53,0
+DA:54,0
+DA:55,0
+DA:56,0
+DA:57,0
+DA:58,0
+DA:59,0
+LF:24
+LH:11
+end_of_record
+SF:lib\api\models\occasion_dto.g.dart
+>>>>>>> origin/ECOM-9-products-detalis
 DA:9,0
 DA:10,0
 DA:11,0
 DA:12,0
 DA:13,0
+<<<<<<< HEAD
 DA:14,0
 DA:15,0
 DA:16,0
@@ -45,6 +91,13 @@ DA:17,0
 DA:18,0
 DA:19,0
 DA:21,0
+=======
+DA:15,0
+DA:17,0
+DA:19,0
+DA:21,0
+DA:22,0
+>>>>>>> origin/ECOM-9-products-detalis
 DA:23,0
 DA:26,0
 DA:27,0
@@ -56,6 +109,7 @@ DA:32,0
 DA:33,0
 DA:34,0
 DA:35,0
+<<<<<<< HEAD
 DA:36,0
 DA:37,0
 DA:38,0
@@ -82,11 +136,28 @@ LF:15
 LH:12
 end_of_record
 SF:lib\api\models\requestes\register_request_dto\register_request_dto.g.dart
+=======
+LF:21
+LH:0
+end_of_record
+SF:lib\api\models\responses\occasions_reponse_dto\metadata.dart
+DA:13,1
+DA:20,0
+DA:21,0
+DA:24,0
+DA:26,0
+DA:27,0
+LF:6
+LH:1
+end_of_record
+SF:lib\api\models\responses\occasions_reponse_dto\metadata.g.dart
+>>>>>>> origin/ECOM-9-products-detalis
 DA:9,0
 DA:10,0
 DA:11,0
 DA:12,0
 DA:13,0
+<<<<<<< HEAD
 DA:14,0
 DA:15,0
 DA:16,0
@@ -114,11 +185,33 @@ LF:6
 LH:1
 end_of_record
 SF:lib\api\models\responses\register_response_dto\register_response_dto.g.dart
+=======
+DA:16,0
+DA:17,0
+DA:18,0
+DA:19,0
+DA:20,0
+LF:10
+LH:0
+end_of_record
+SF:lib\api\models\responses\occasions_reponse_dto\occasions_reponse_dto.dart
+DA:15,1
+DA:17,0
+DA:18,0
+DA:21,0
+DA:23,0
+DA:24,0
+LF:6
+LH:1
+end_of_record
+SF:lib\api\models\responses\occasions_reponse_dto\occasions_reponse_dto.g.dart
+>>>>>>> origin/ECOM-9-products-detalis
 DA:9,0
 DA:10,0
 DA:11,0
 DA:13,0
 DA:15,0
+<<<<<<< HEAD
 DA:16,0
 DA:19,0
 DA:21,0
@@ -173,10 +266,39 @@ DA:12,0
 DA:20,0
 DA:24,0
 DA:25,0
+=======
+DA:17,0
+DA:18,0
+DA:19,0
+DA:22,0
+DA:24,0
+DA:25,0
+DA:26,0
+DA:27,0
+LF:13
+LH:0
+end_of_record
+SF:lib\core\api_result\api_result.dart
+DA:8,3
+DA:14,3
+DA:15,6
+DA:16,0
+DA:18,9
+LF:5
+LH:4
+end_of_record
+SF:lib\api\client\api_client.g.dart
+DA:12,0
+DA:20,0
+DA:22,0
+DA:23,0
+DA:24,0
+>>>>>>> origin/ECOM-9-products-detalis
 DA:26,0
 DA:27,0
 DA:28,0
 DA:29,0
+<<<<<<< HEAD
 DA:30,0
 DA:31,0
 DA:32,0
@@ -200,6 +322,44 @@ DA:74,0
 LF:28
 LH:0
 end_of_record
+=======
+DA:34,0
+DA:36,0
+DA:39,0
+DA:41,0
+DA:47,0
+DA:48,0
+DA:49,0
+DA:50,0
+DA:51,0
+DA:52,0
+DA:54,0
+DA:60,0
+DA:61,0
+DA:65,0
+DA:67,0
+DA:68,0
+DA:71,0
+LF:26
+LH:0
+end_of_record
+SF:lib\api\data_source\occasion_remote_data_source_impl.dart
+DA:10,1
+DA:12,1
+DA:15,2
+DA:16,6
+DA:18,1
+LF:5
+LH:5
+end_of_record
+SF:lib\data\repositories\occasion_repo_impl.dart
+DA:10,1
+DA:12,1
+DA:14,2
+LF:3
+LH:3
+end_of_record
+>>>>>>> origin/ECOM-9-products-detalis
 SF:lib\core\api_result\dio_error_handler.dart
 DA:4,0
 DA:5,0
@@ -370,7 +530,11 @@ DA:409,0
 DA:413,0
 DA:418,0
 DA:419,0
+<<<<<<< HEAD
 DA:424,2
+=======
+DA:424,1
+>>>>>>> origin/ECOM-9-products-detalis
 DA:426,0
 DA:430,0
 DA:431,0
@@ -383,10 +547,17 @@ DA:439,0
 LF:142
 LH:1
 end_of_record
+<<<<<<< HEAD
 SF:lib\domin\use_cases\register_use_case.dart
 DA:10,1
 DA:12,1
 DA:15,2
+=======
+SF:lib\domin\use_cases\occasion_use_case.dart
+DA:9,1
+DA:11,1
+DA:12,2
+>>>>>>> origin/ECOM-9-products-detalis
 LF:3
 LH:3
 end_of_record
@@ -465,6 +636,7 @@ DA:115,0
 LF:46
 LH:0
 end_of_record
+<<<<<<< HEAD
 SF:lib\presentation\auth\register\view_models\register_states.dart
 DA:9,1
 DA:12,1
@@ -514,3 +686,5 @@ DA:17,2
 LF:3
 LH:3
 end_of_record
+=======
+>>>>>>> origin/ECOM-9-products-detalis

@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "flutterTestAssistant.projectPath": "E:/Elevate/Elevate-Projects/elevate_ecommerce_app",
+=======
+  "flutterTestAssistant.projectPath": "E:elevate_ecommerce_app",
+>>>>>>> origin/ECOM-9-products-detalis
   "flutterTestAssistant.libPath": "lib",
   "flutterTestAssistant.testPath": "test"
 }

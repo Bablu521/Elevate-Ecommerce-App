@@ -26,6 +26,13 @@ migrate_working_dir/
 *.ipr
 *.iws
 .idea/
+# Generated files
+*.g.dart
+*.freezed.dart
+*.gen.dart
+*.mocks.dart
+*.config.dart
+*.gr.dart
 
 # The .vscode folder contains launch configuration and tasks you configure in
 # VS Code which you may wish to be included in version control, so this line

@@ -73,8 +73,6 @@ class Validations {
       return AppLocalizations().enterNumbersOnly;
     } else if (!regex.hasMatch(val.trim())) {
       return AppLocalizations().enterValidEgyptianPhoneNumber;
-    } else if (!regex.hasMatch(val.trim())) {
-      return AppLocalizations().enterValidEgyptianPhoneNumber;
     } else {
       return null;
     }

@@ -20,10 +20,14 @@ abstract class AppTheme {
       onSurface: AppColors.mainColor,
     ),
     textTheme: TextTheme(
-      bodySmall: getTextStyle(),
+      bodySmall: getTextStyle(fontSize: 12.sp, fontWeight: FontWeight.w400),
       bodyMedium: getTextStyle(fontSize: 16.sp, fontWeight: FontWeight.w400),
       bodyLarge: getTextStyle(fontSize: 20.sp, fontWeight: FontWeight.w600),
-      headlineMedium: getTextStyle(fontSize: 18.sp, fontWeight: FontWeight.w500),
+      headlineMedium: getTextStyle(
+        fontSize: 18.sp,
+        fontWeight: FontWeight.w500,
+      ),
+      headlineSmall: getTextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500),
     ),
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.white,
@@ -50,7 +54,7 @@ abstract class AppTheme {
       ),
       floatingLabelStyle: WidgetStateTextStyle.resolveWith((states) {
         if (states.contains(WidgetState.error)) {
-          return getTextStyle(color: AppColors.red); 
+          return getTextStyle(color: AppColors.red);
         }
         return getTextStyle(color: AppColors.gray);
       }),
@@ -80,10 +84,7 @@ abstract class AppTheme {
         backgroundColor: AppColors.mainColor,
         disabledBackgroundColor: AppColors.black[30],
         foregroundColor: AppColors.white,
-        textStyle: getTextStyle(
-          fontSize: 16.sp,
-          fontWeight: FontWeight.w500,
-        ),
+        textStyle: getTextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
       ),
     ),

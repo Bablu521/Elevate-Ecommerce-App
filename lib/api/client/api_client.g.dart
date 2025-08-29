@@ -18,6 +18,7 @@ class _ApiClient implements ApiClient {
   final ParseErrorLogger? errorLogger;
 
   @override
+<<<<<<< HEAD
   Future<LoginResponseDto> login(LoginRequestModel loginRequestModel) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -29,15 +30,33 @@ class _ApiClient implements ApiClient {
           .compose(
             _dio.options,
             'auth/signin',
+=======
+  Future<OccasionsReponseDto> getAllOccasions() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<OccasionsReponseDto>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'api/v1/occasions',
+>>>>>>> origin/ECOM-9-products-detalis
             queryParameters: queryParameters,
             data: _data,
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+<<<<<<< HEAD
     late LoginResponseDto _value;
     try {
       _value = LoginResponseDto.fromJson(_result.data!);
+=======
+    late OccasionsReponseDto _value;
+    try {
+      _value = OccasionsReponseDto.fromJson(_result.data!);
+>>>>>>> origin/ECOM-9-products-detalis
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -46,6 +65,7 @@ class _ApiClient implements ApiClient {
   }
 
   @override
+<<<<<<< HEAD
   Future<ForgetPasswordResponse> forgetPassword(
     ForgetPasswordRequest body,
   ) async {
@@ -59,15 +79,33 @@ class _ApiClient implements ApiClient {
           .compose(
             _dio.options,
             '/auth/forgotPassword',
+=======
+  Future<ProductsReponseDto> getProductsByOccasion(String occasionId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'occasion': occasionId};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<ProductsReponseDto>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'api/v1/products',
+>>>>>>> origin/ECOM-9-products-detalis
             queryParameters: queryParameters,
             data: _data,
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+<<<<<<< HEAD
     late ForgetPasswordResponse _value;
     try {
       _value = ForgetPasswordResponse.fromJson(_result.data!);
+=======
+    late ProductsReponseDto _value;
+    try {
+      _value = ProductsReponseDto.fromJson(_result.data!);
+>>>>>>> origin/ECOM-9-products-detalis
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -76,6 +114,7 @@ class _ApiClient implements ApiClient {
   }
 
   @override
+<<<<<<< HEAD
   Future<RegisterResponseDto> register(
     RegisterRequestDto registerRequestDto,
   ) async {
@@ -89,12 +128,25 @@ class _ApiClient implements ApiClient {
           .compose(
             _dio.options,
             'auth/signup',
+=======
+  Future<ProductsReponseDto> getProductsByCategory(String categoryId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'category': categoryId};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<ProductsReponseDto>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'api/v1/products',
+>>>>>>> origin/ECOM-9-products-detalis
             queryParameters: queryParameters,
             data: _data,
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+<<<<<<< HEAD
     late RegisterResponseDto _value;
     try {
       _value = RegisterResponseDto.fromJson(_result.data!);
@@ -154,6 +206,11 @@ class _ApiClient implements ApiClient {
     late ResetPasswordResponse _value;
     try {
       _value = ResetPasswordResponse.fromJson(_result.data!);
+=======
+    late ProductsReponseDto _value;
+    try {
+      _value = ProductsReponseDto.fromJson(_result.data!);
+>>>>>>> origin/ECOM-9-products-detalis
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
