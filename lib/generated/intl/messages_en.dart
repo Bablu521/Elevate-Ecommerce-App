@@ -37,6 +37,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Unexpected error response from server",
     ),
     "bestseller": MessageLookupByLibrary.simpleMessage("Best seller"),
+    "bloomWithOurExquisiteBestSellers": MessageLookupByLibrary.simpleMessage(
+      "Bloom with our exquisite best sellers",
+    ),
     "bouquetInclude": MessageLookupByLibrary.simpleMessage("Bouquet Include"),
     "cart": MessageLookupByLibrary.simpleMessage("Cart"),
     "categories": MessageLookupByLibrary.simpleMessage("Categories"),
@@ -123,6 +126,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "newPassword": MessageLookupByLibrary.simpleMessage("New password"),
     "newWord": MessageLookupByLibrary.simpleMessage("New"),
     "no": MessageLookupByLibrary.simpleMessage("No"),
+    "noProductsAvailable": MessageLookupByLibrary.simpleMessage(
+      "No products available",
+    ),
     "noResponse": MessageLookupByLibrary.simpleMessage(
       "No response received from server.",
     ),
@@ -153,6 +159,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "pleaseEnterYourVerificationCode": MessageLookupByLibrary.simpleMessage(
       "Please enter your code that send to your email address",
     ),
+    "product": MessageLookupByLibrary.simpleMessage("Product"),
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),
     "receiveTimeout": MessageLookupByLibrary.simpleMessage(
       "Server took too long to respond.",

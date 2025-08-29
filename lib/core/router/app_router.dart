@@ -27,10 +27,7 @@ abstract class AppRouter {
           builder: (_) => ProductDetailsView(productEntity: productEntity),
         );
       case RouteNames.occasion:
-        return MaterialPageRoute(
-          builder: (_) => OccasionView(),
-          settings: settings,
-        );
+        return MaterialPageRoute(builder: (_) => OccasionView());
       default:
         return MaterialPageRoute(builder: (_) => const LoginView());
     }

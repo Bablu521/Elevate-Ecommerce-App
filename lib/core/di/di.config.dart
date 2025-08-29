@@ -53,7 +53,6 @@ import '../../domin/use_cases/guest_login_use_case.dart' as _i917;
 import '../../domin/use_cases/home/get_home_use_case.dart' as _i740;
 import '../../domin/use_cases/login_use_case.dart' as _i1073;
 import '../../domin/use_cases/occasion_use_case.dart' as _i1046;
-<<<<<<< HEAD
 import '../../domin/use_cases/register_use_case.dart' as _i638;
 import '../../domin/use_cases/reset_password_use_case.dart' as _i670;
 import '../../domin/use_cases/verify_reset_code_use_case.dart' as _i643;
@@ -65,11 +64,9 @@ import '../../presentation/auth/register/view_models/register_view_model.dart'
 import '../../presentation/categories/view_models/categories_view_model.dart'
     as _i350;
 import '../../presentation/home/view_models/home_view_model.dart' as _i479;
-import '../module/secure_storage_module.dart' as _i260;
-=======
 import '../../presentation/occasion/view_models/occasion_view_model.dart'
     as _i979;
->>>>>>> origin/ECOM-10-Occasions
+import '../module/secure_storage_module.dart' as _i260;
 
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -196,16 +193,14 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i1046.OccasionUseCase>(
       () => _i1046.OccasionUseCase(gh<_i657.OccasionRepo>()),
     );
-<<<<<<< HEAD
     gh.factory<_i479.HomeViewModel>(
       () => _i479.HomeViewModel(gh<_i740.GetHomeUseCase>()),
-=======
+    );
     gh.factory<_i979.OccasionViewModel>(
       () => _i979.OccasionViewModel(
         gh<_i1046.OccasionUseCase>(),
         gh<_i176.GetProductsByOccasionUseCase>(),
       ),
->>>>>>> origin/ECOM-10-Occasions
     );
     return this;
   }

@@ -78,7 +78,6 @@ void main() {
       },
     );
 
-    
     var expectedError = ApiErrorResult<List<OccasionEntity>>(errorMsg);
     provideDummy<ApiResult<List<OccasionEntity>>>(expectedError);
     blocTest<OccasionViewModel, OccasionStates>(
@@ -117,8 +116,8 @@ void main() {
         quantity: 50,
         category: "fake-category",
         occasion: "fake-occasion",
-        createdAt: DateTime.now(),
-        updatedAt: DateTime.now(),
+        createdAt: DateTime.now().toString(),
+        updatedAt: DateTime.now().toString(),
         v: 1,
         isSuperAdmin: false,
         sold: 20,
@@ -137,8 +136,8 @@ void main() {
         quantity: 30,
         category: "fake-category-2",
         occasion: "fake-occasion-2",
-        createdAt: DateTime.now(),
-        updatedAt: DateTime.now(),
+        createdAt: DateTime.now().toString(),
+        updatedAt: DateTime.now().toString(),
         v: 1,
         isSuperAdmin: false,
         sold: 10,

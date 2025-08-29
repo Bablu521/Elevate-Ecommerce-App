@@ -1,37 +1,3 @@
-// import '../../../domin/entities/home_entity.dart';
-//
-// class HomeStates  {
-//   final bool homeListIsLoading;
-//   final List<HomeEntity> homeListSuccess;
-//   final String? homeListErrorMessage;
-//
-//
-//
-//   const HomeStates({
-//     this.homeListIsLoading = false,
-//     this.homeListSuccess = const [],
-//     this.homeListErrorMessage,
-//
-//
-//   });
-//
-//   HomeStates copyWith({
-//     bool? homeListIsLoading,
-//     List<HomeEntity>? homeListSuccess,
-//     String? homeListErrorMessage,
-//
-//   }) {
-//     return HomeStates(
-//       homeListIsLoading:
-//       homeListIsLoading ?? this. homeListIsLoading,
-//       homeListSuccess:  homeListSuccess ?? this. homeListSuccess,
-//       homeListErrorMessage:  homeListErrorMessage,
-//
-//     );
-//   }
-//
-//
-// }
 import 'package:elevate_ecommerce_app/domin/entities/categories_entity.dart';
 import 'package:equatable/equatable.dart';
 
