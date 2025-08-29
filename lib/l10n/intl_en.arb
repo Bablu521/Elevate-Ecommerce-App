@@ -86,6 +86,15 @@
   "allPriceIncludeTax": "All price include tax",
   "status": "Status",
   "description": "Description",
-  "bouquetInclude": "Bouquet Include"
+  "bouquetInclude": "Bouquet Include",
+  "search": "Search",
+  "all": "All",
+  "filter": "Filter",
+  "sortBy": "Sort by",
+  "lowesPrice": "Lowes Price",
+  "highestPrice": "Highest Price",
+  "newWord": "New",
+  "old": "Old",
+  "discount": "Discount"
 
 }

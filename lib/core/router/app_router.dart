@@ -1,4 +1,5 @@
 import 'package:elevate_ecommerce_app/core/router/route_names.dart';
+import 'package:elevate_ecommerce_app/presentation/categories/views/screen/categories_page.dart';
 import 'package:elevate_ecommerce_app/presentation/auth/register/views/screen/register_view.dart';
 import 'package:elevate_ecommerce_app/presentation/home/pages/home.dart';
 import 'package:elevate_ecommerce_app/presentation/home/product_details/screen/product_details_view.dart';
@@ -24,6 +25,9 @@ abstract class AppRouter {
         return MaterialPageRoute(builder: (_) => Home());
       case RouteNames.productDetails:
         return MaterialPageRoute(builder: (_) => const  ProductDetailsView());
+      case RouteNames.categoriesPage:
+        return MaterialPageRoute(builder: (_) => CategoriesPage(categoryId: "673c47751159920171827c93",));
+      
       default:
         return MaterialPageRoute(builder: (_) => const LoginView());
     }

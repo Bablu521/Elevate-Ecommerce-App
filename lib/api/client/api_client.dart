@@ -12,6 +12,8 @@ import 'package:elevate_ecommerce_app/core/constants/end_points.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/occasions_reponse_dto/occasions_reponse_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/products_reponse_dto/products_reponse_dto.dart';
 import 'package:elevate_ecommerce_app/core/constants/end_points.dart';
+import 'package:elevate_ecommerce_app/api/models/responses/categories/all_categories_response.dart';
+import 'package:elevate_ecommerce_app/api/models/responses/products/all_products_response.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -24,7 +26,7 @@ part 'api_client.g.dart';
 abstract class ApiClient {
   @factoryMethod
   factory ApiClient(Dio dio) = _ApiClient;
-
+  
   @GET(Endpoints.occasions)
   Future<OccasionsReponseDto> getAllOccasions();
 
@@ -54,4 +56,20 @@ abstract class ApiClient {
 
   @PUT(Endpoints.resetPassword)
   Future<ResetPasswordResponse> resetPassword(@Body() ResetPasswordRequest body);
+   @GET(Endpoints.categories)
+  Future<AllCategoriesResponse> getAllCategories();
+
+  @GET(Endpoints.products)
+  Future<AllProductsResponse> getAllProducts();
+
+  @GET(Endpoints.products)
+  Future<AllProductsResponse> getProductsByCategory(
+    @Query("category") String category,
+  );
+
+  @GET(Endpoints.products)
+  Future<AllProductsResponse> getProductsByOccasion(
+    @Query("occasion") String occasion,
+  );
+
 }

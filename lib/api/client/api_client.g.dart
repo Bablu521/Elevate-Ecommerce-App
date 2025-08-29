@@ -18,25 +18,43 @@ class _ApiClient implements ApiClient {
   final ParseErrorLogger? errorLogger;
 
   @override
+<<<<<<< HEAD
   Future<OccasionsReponseDto> getAllOccasions() async {
+=======
+  Future<AllCategoriesResponse> getAllCategories() async {
+>>>>>>> origin/ECOM-11-categories
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
+<<<<<<< HEAD
     final _options = _setStreamType<OccasionsReponseDto>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
             'api/v1/occasions',
+=======
+    final _options = _setStreamType<AllCategoriesResponse>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/v1/categories',
+>>>>>>> origin/ECOM-11-categories
             queryParameters: queryParameters,
             data: _data,
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+<<<<<<< HEAD
     late OccasionsReponseDto _value;
     try {
       _value = OccasionsReponseDto.fromJson(_result.data!);
+=======
+    late AllCategoriesResponse _value;
+    try {
+      _value = AllCategoriesResponse.fromJson(_result.data!);
+>>>>>>> origin/ECOM-11-categories
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -45,6 +63,7 @@ class _ApiClient implements ApiClient {
   }
 
   @override
+<<<<<<< HEAD
   Future<ProductsReponseDto> getProductsByOccasion(String occasionId) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'occasion': occasionId};
@@ -55,15 +74,33 @@ class _ApiClient implements ApiClient {
           .compose(
             _dio.options,
             'api/v1/products',
+=======
+  Future<AllProductsResponse> getAllProducts() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<AllProductsResponse>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/v1/products',
+>>>>>>> origin/ECOM-11-categories
             queryParameters: queryParameters,
             data: _data,
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+<<<<<<< HEAD
     late ProductsReponseDto _value;
     try {
       _value = ProductsReponseDto.fromJson(_result.data!);
+=======
+    late AllProductsResponse _value;
+    try {
+      _value = AllProductsResponse.fromJson(_result.data!);
+>>>>>>> origin/ECOM-11-categories
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -72,6 +109,7 @@ class _ApiClient implements ApiClient {
   }
 
   @override
+<<<<<<< HEAD
   Future<ProductsReponseDto> getProductsByCategory(String categoryId) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'category': categoryId};
@@ -82,15 +120,33 @@ class _ApiClient implements ApiClient {
           .compose(
             _dio.options,
             'api/v1/products',
+=======
+  Future<AllProductsResponse> getProductsByCategory(String category) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'category': category};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<AllProductsResponse>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/v1/products',
+>>>>>>> origin/ECOM-11-categories
             queryParameters: queryParameters,
             data: _data,
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+<<<<<<< HEAD
     late ProductsReponseDto _value;
     try {
       _value = ProductsReponseDto.fromJson(_result.data!);
+=======
+    late AllProductsResponse _value;
+    try {
+      _value = AllProductsResponse.fromJson(_result.data!);
+>>>>>>> origin/ECOM-11-categories
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -99,6 +155,7 @@ class _ApiClient implements ApiClient {
   }
 
   @override
+<<<<<<< HEAD
   Future<LoginResponseDto> login(LoginRequestModel loginRequestModel) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -110,12 +167,25 @@ class _ApiClient implements ApiClient {
           .compose(
             _dio.options,
             'auth/signin',
+=======
+  Future<AllProductsResponse> getProductsByOccasion(String occasion) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'occasion': occasion};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<AllProductsResponse>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/v1/products',
+>>>>>>> origin/ECOM-11-categories
             queryParameters: queryParameters,
             data: _data,
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+<<<<<<< HEAD
     late LoginResponseDto _value;
     try {
       _value = LoginResponseDto.fromJson(_result.data!);
@@ -235,6 +305,11 @@ class _ApiClient implements ApiClient {
     late ResetPasswordResponse _value;
     try {
       _value = ResetPasswordResponse.fromJson(_result.data!);
+=======
+    late AllProductsResponse _value;
+    try {
+      _value = AllProductsResponse.fromJson(_result.data!);
+>>>>>>> origin/ECOM-11-categories
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

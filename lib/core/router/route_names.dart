@@ -7,4 +7,5 @@ abstract class RouteNames {
   static const String occasion = "/occasionView";
   static const String productDetails = "/productDetailsView";
   static const String forgetPassword = "/forgetPassword";
+  static const String categoriesPage = "/categoriesPage";
 }
