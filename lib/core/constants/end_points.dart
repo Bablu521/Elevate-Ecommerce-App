@@ -7,4 +7,5 @@ abstract class Endpoints {
   static const String verifyReset = "/auth/verifyResetCode";
   static const String resetPassword = "/auth/resetPassword";
   static const String categories = "categories";
+    static const String home = "home";
 }

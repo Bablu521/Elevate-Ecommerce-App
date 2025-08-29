@@ -82,7 +82,7 @@
   "categories": "Categories",
   "cart": "Cart",
   "profile": "Profile",
-    "addToCart": "Add to cart",
+  "addToCart": "Add to cart",
   "allPriceIncludeTax": "All price include tax",
   "status": "Status",
   "description": "Description",
@@ -95,6 +95,8 @@
   "highestPrice": "Highest Price",
   "newWord": "New",
   "old": "Old",
-  "discount": "Discount"
-
+  "discount": "Discount",
+  "bestseller": "Best seller",
+  "occasion": "Occasion ",
+  "delivertosheikhzayed": "Deliver to 2XVP+XC - Sheikh Zayed"
 }

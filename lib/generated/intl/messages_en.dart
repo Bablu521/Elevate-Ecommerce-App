@@ -36,6 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "badResponse": MessageLookupByLibrary.simpleMessage(
       "Unexpected error response from server",
     ),
+    "bestseller": MessageLookupByLibrary.simpleMessage("Best seller"),
     "bouquetInclude": MessageLookupByLibrary.simpleMessage("Bouquet Include"),
     "cart": MessageLookupByLibrary.simpleMessage("Cart"),
     "categories": MessageLookupByLibrary.simpleMessage("Categories"),
@@ -53,6 +54,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "creatingAnAccountYouAgreeToOur": MessageLookupByLibrary.simpleMessage(
       "Creating an account, you agree to our ",
+    ),
+    "delivertosheikhzayed": MessageLookupByLibrary.simpleMessage(
+      "Deliver to 2XVP+XC - Sheikh Zayed",
     ),
     "description": MessageLookupByLibrary.simpleMessage("Description"),
     "didNotReceiveCode": MessageLookupByLibrary.simpleMessage(
@@ -122,6 +126,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "noResponse": MessageLookupByLibrary.simpleMessage(
       "No response received from server.",
     ),
+    "occasion": MessageLookupByLibrary.simpleMessage("Occasion "),
     "ok": MessageLookupByLibrary.simpleMessage("Ok"),
     "old": MessageLookupByLibrary.simpleMessage("Old"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),

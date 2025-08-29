@@ -723,6 +723,26 @@ class AppLocalizations {
   String get discount {
     return Intl.message('Discount', name: 'discount', desc: '', args: []);
   }
+
+  /// `Best seller`
+  String get bestseller {
+    return Intl.message('Best seller', name: 'bestseller', desc: '', args: []);
+  }
+
+  /// `Occasion `
+  String get occasion {
+    return Intl.message('Occasion ', name: 'occasion', desc: '', args: []);
+  }
+
+  /// `Deliver to 2XVP+XC - Sheikh Zayed`
+  String get delivertosheikhzayed {
+    return Intl.message(
+      'Deliver to 2XVP+XC - Sheikh Zayed',
+      name: 'delivertosheikhzayed',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppLocalizations> {
