@@ -32,11 +32,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "badResponse": MessageLookupByLibrary.simpleMessage(
       "Unexpected error response from server",
     ),
+
     "bloomWithOurExquisiteBestSellers": MessageLookupByLibrary.simpleMessage(
       "Bloom with our exquisite best sellers",
     ),
     "close": MessageLookupByLibrary.simpleMessage("close"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm password"),
+
+    "cart": MessageLookupByLibrary.simpleMessage("Cart"),
+    "categories": MessageLookupByLibrary.simpleMessage("Categories"),
+
     "connectionError": MessageLookupByLibrary.simpleMessage(
       "Network error. Please check your internet connection.",
     ),
@@ -79,6 +84,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "failedToParseResponse": MessageLookupByLibrary.simpleMessage(
       "Failed to parse error response.",
     ),
+
     "female": MessageLookupByLibrary.simpleMessage("Female"),
     "firstName": MessageLookupByLibrary.simpleMessage("First name"),
     "gender": MessageLookupByLibrary.simpleMessage("Gender"),
@@ -88,6 +94,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "noProductsAvailable": MessageLookupByLibrary.simpleMessage(
       "No products available",
     ),
+
+    "home": MessageLookupByLibrary.simpleMessage("Home"),
+
     "noResponse": MessageLookupByLibrary.simpleMessage(
       "No response received from server.",
     ),
@@ -99,8 +108,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordNotMatched": MessageLookupByLibrary.simpleMessage(
       "password Not Matched",
     ),
+
     "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone number"),
     "product": MessageLookupByLibrary.simpleMessage("Product"),
+
+    "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+
     "receiveTimeout": MessageLookupByLibrary.simpleMessage(
       "Server took too long to respond.",
     ),

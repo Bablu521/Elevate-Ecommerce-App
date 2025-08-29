@@ -47,4 +47,9 @@
   "addToCart": "Add to cart",
   "noProductsAvailable": "No products available",
   "product": "Product"
+  "home": "Home",
+  "categories": "Categories",
+  "cart": "Cart",
+  "profile": "Profile"
 }
+
