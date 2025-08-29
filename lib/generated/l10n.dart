@@ -418,6 +418,36 @@ class AppLocalizations {
   String get welcome {
     return Intl.message('Welcome', name: 'welcome', desc: '', args: []);
   }
+
+  /// `Categories`
+  String get categories {
+    return Intl.message('Categories', name: 'categories', desc: '', args: []);
+  }
+
+  /// `Best seller`
+  String get bestseller {
+    return Intl.message('Best seller', name: 'bestseller', desc: '', args: []);
+  }
+
+  /// `Occasion `
+  String get occasion {
+    return Intl.message('Occasion ', name: 'occasion', desc: '', args: []);
+  }
+
+  /// `Search `
+  String get search {
+    return Intl.message('Search ', name: 'search', desc: '', args: []);
+  }
+
+  /// `Deliver to 2XVP+XC - Sheikh Zayed`
+  String get delivertosheikhzayed {
+    return Intl.message(
+      'Deliver to 2XVP+XC - Sheikh Zayed',
+      name: 'delivertosheikhzayed',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppLocalizations> {

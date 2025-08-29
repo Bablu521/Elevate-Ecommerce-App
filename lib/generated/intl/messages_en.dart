@@ -31,6 +31,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "badResponse": MessageLookupByLibrary.simpleMessage(
       "Unexpected error response from server",
     ),
+    "bestseller": MessageLookupByLibrary.simpleMessage("Best seller"),
+    "categories": MessageLookupByLibrary.simpleMessage("Categories"),
     "close": MessageLookupByLibrary.simpleMessage("close"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm password"),
     "connectionError": MessageLookupByLibrary.simpleMessage(
@@ -41,6 +43,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "creatingAnAccountYouAgreeToOur": MessageLookupByLibrary.simpleMessage(
       "Creating an account, you agree to our ",
+    ),
+    "delivertosheikhzayed": MessageLookupByLibrary.simpleMessage(
+      "Deliver to 2XVP+XC - Sheikh Zayed",
     ),
     "dioErrorCancel": MessageLookupByLibrary.simpleMessage(
       "Request was cancelled. Please retry.",
@@ -84,6 +89,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "noResponse": MessageLookupByLibrary.simpleMessage(
       "No response received from server.",
     ),
+    "occasion": MessageLookupByLibrary.simpleMessage("Occasion "),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordIsRequired": MessageLookupByLibrary.simpleMessage(
       "password is required",
@@ -98,6 +104,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "registeredSuccessfully": MessageLookupByLibrary.simpleMessage(
       "Registered Successfully!",
     ),
+    "search": MessageLookupByLibrary.simpleMessage("Search "),
     "sendTimeout": MessageLookupByLibrary.simpleMessage(
       "Request timed out. Please try again.",
     ),

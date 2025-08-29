@@ -3,9 +3,11 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i5;
+import 'dart:async' as _i6;
 
-import 'package:elevate_ecommerce_app/api/client/api_client.dart' as _i4;
+import 'package:elevate_ecommerce_app/api/client/api_client.dart' as _i5;
+import 'package:elevate_ecommerce_app/api/models/responses/home_response_dto/home_response_dto.dart'
+    as _i4;
 import 'package:elevate_ecommerce_app/api/models/responses/occasions_reponse_dto/occasions_reponse_dto.dart'
     as _i2;
 import 'package:elevate_ecommerce_app/api/models/responses/products_reponse_dto/products_reponse_dto.dart'
@@ -38,54 +40,69 @@ class _FakeProductsReponseDto_1 extends _i1.SmartFake
     : super(parent, parentInvocation);
 }
 
+class _FakeHomeDto_2 extends _i1.SmartFake implements _i4.HomeDto {
+  _FakeHomeDto_2(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
+}
+
 /// A class which mocks [ApiClient].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockApiClient extends _i1.Mock implements _i4.ApiClient {
+class MockApiClient extends _i1.Mock implements _i5.ApiClient {
   MockApiClient() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i5.Future<_i2.OccasionsReponseDto> getAllOccasions() =>
+  _i6.Future<_i2.OccasionsReponseDto> getAllOccasions() =>
       (super.noSuchMethod(
             Invocation.method(#getAllOccasions, []),
-            returnValue: _i5.Future<_i2.OccasionsReponseDto>.value(
+            returnValue: _i6.Future<_i2.OccasionsReponseDto>.value(
               _FakeOccasionsReponseDto_0(
                 this,
                 Invocation.method(#getAllOccasions, []),
               ),
             ),
           )
-          as _i5.Future<_i2.OccasionsReponseDto>);
+          as _i6.Future<_i2.OccasionsReponseDto>);
 
   @override
-  _i5.Future<_i3.ProductsReponseDto> getProductsByOccasion(
+  _i6.Future<_i3.ProductsReponseDto> getProductsByOccasion(
     String? occasionId,
   ) =>
       (super.noSuchMethod(
             Invocation.method(#getProductsByOccasion, [occasionId]),
-            returnValue: _i5.Future<_i3.ProductsReponseDto>.value(
+            returnValue: _i6.Future<_i3.ProductsReponseDto>.value(
               _FakeProductsReponseDto_1(
                 this,
                 Invocation.method(#getProductsByOccasion, [occasionId]),
               ),
             ),
           )
-          as _i5.Future<_i3.ProductsReponseDto>);
+          as _i6.Future<_i3.ProductsReponseDto>);
 
   @override
-  _i5.Future<_i3.ProductsReponseDto> getProductsByCategory(
+  _i6.Future<_i3.ProductsReponseDto> getProductsByCategory(
     String? categoryId,
   ) =>
       (super.noSuchMethod(
             Invocation.method(#getProductsByCategory, [categoryId]),
-            returnValue: _i5.Future<_i3.ProductsReponseDto>.value(
+            returnValue: _i6.Future<_i3.ProductsReponseDto>.value(
               _FakeProductsReponseDto_1(
                 this,
                 Invocation.method(#getProductsByCategory, [categoryId]),
               ),
             ),
           )
-          as _i5.Future<_i3.ProductsReponseDto>);
+          as _i6.Future<_i3.ProductsReponseDto>);
+
+  @override
+  _i6.Future<_i4.HomeDto> getHome() =>
+      (super.noSuchMethod(
+            Invocation.method(#getHome, []),
+            returnValue: _i6.Future<_i4.HomeDto>.value(
+              _FakeHomeDto_2(this, Invocation.method(#getHome, [])),
+            ),
+          )
+          as _i6.Future<_i4.HomeDto>);
 }

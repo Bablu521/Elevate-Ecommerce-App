@@ -4,6 +4,8 @@ import 'package:elevate_ecommerce_app/api/models/responses/products_reponse_dto/
 import 'package:elevate_ecommerce_app/core/constants/end_points.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
+
+import '../models/responses/home_response_dto/home_response_dto.dart';
 part 'api_client.g.dart';
 
 @injectable
@@ -24,4 +26,6 @@ abstract class ApiClient {
   Future<ProductsReponseDto> getProductsByCategory(
     @Query("category") String categoryId,
   );
+  @GET(Endpoints.home)
+  Future<HomeDto>getHome();
 }

@@ -41,5 +41,10 @@
   "error": "Error",
   "close": "close",
   "registeredSuccessfully": "Registered Successfully!",
-  "welcome": "Welcome"
+  "welcome": "Welcome",
+  "categories": "Categories",
+  "bestseller": "Best seller",
+  "occasion": "Occasion ",
+  "search": "Search ",
+  "delivertosheikhzayed": "Deliver to 2XVP+XC - Sheikh Zayed"
 }
