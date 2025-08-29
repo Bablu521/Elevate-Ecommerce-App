@@ -3,6 +3,7 @@ import 'package:elevate_ecommerce_app/domin/entities/product_entity.dart';
 import 'package:elevate_ecommerce_app/presentation/auth/register/views/screen/register_view.dart';
 import 'package:elevate_ecommerce_app/presentation/home/pages/home.dart';
 import 'package:elevate_ecommerce_app/presentation/product_details/screen/product_details_view.dart';
+import 'package:elevate_ecommerce_app/presentation/occasion/views/screen/occasion_view.dart';
 
 import 'package:flutter/material.dart';
 
@@ -25,7 +26,11 @@ abstract class AppRouter {
         return MaterialPageRoute(
           builder: (_) => ProductDetailsView(productEntity: productEntity),
         );
-
+      case RouteNames.occasion:
+        return MaterialPageRoute(
+          builder: (_) => OccasionView(),
+          settings: settings,
+        );
       default:
         return MaterialPageRoute(builder: (_) => const LoginView());
     }
