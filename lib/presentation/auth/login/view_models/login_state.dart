@@ -1,6 +1,7 @@
 import 'package:elevate_ecommerce_app/domin/entities/login_entity.dart';
+import 'package:equatable/equatable.dart';
 
-class LoginState {
+class LoginState extends Equatable {
   final String? errorMessage;
   final LoginEntity? loginEntity;
   final bool loading;
@@ -20,4 +21,7 @@ class LoginState {
       loading: loading ?? false,
     );
   }
+
+  @override
+  List<Object?> get props => [errorMessage, loginEntity, loading];
 }

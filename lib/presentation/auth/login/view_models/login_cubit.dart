@@ -49,10 +49,7 @@ class LoginCubit extends Cubit<LoginState> {
         emit(state.copyWith(loading: false, loginEntity: response.data));
       case ApiErrorResult<LoginEntity>():
         emit(
-          state.copyWith(
-            loading: false,
-            errorMessage: response.errorMessage,
-          ),
+          state.copyWith(loading: false, errorMessage: response.errorMessage),
         );
     }
   }

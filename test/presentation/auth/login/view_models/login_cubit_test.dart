@@ -15,21 +15,21 @@ import 'login_cubit_test.mocks.dart';
 
 @GenerateMocks([LoginUseCase, GuestLoginUseCase])
 void main() {
-  late LoginCubit loginCubit;
-  late MockLoginUseCase mockLoginUseCase;
-  late LoginRequestModel loginRequestModel;
-  late LoginEntity loginEntity;
-  late LoginState state;
-  late MockGuestLoginUseCase mockGuestLoginUseCase;
-  setUpAll(() {
-    mockLoginUseCase = MockLoginUseCase();
-    mockGuestLoginUseCase = MockGuestLoginUseCase();
-    loginCubit = LoginCubit(mockLoginUseCase, mockGuestLoginUseCase);
-    loginEntity = LoginTestFixtures.fakeLoginEntity();
-    loginRequestModel = LoginTestFixtures.fakeLoginRequest();
-    state = LoginState();
-  });
   group("Login Cubit test", () {
+    late LoginCubit loginCubit;
+    late MockLoginUseCase mockLoginUseCase;
+    late LoginRequestModel loginRequestModel;
+    late MockGuestLoginUseCase mockGuestLoginUseCase;
+    late LoginEntity loginEntity;
+    late LoginState state;
+    setUp(() {
+      mockLoginUseCase = MockLoginUseCase();
+      mockGuestLoginUseCase = MockGuestLoginUseCase();
+      loginCubit = LoginCubit(mockLoginUseCase, mockGuestLoginUseCase);
+      loginEntity = LoginTestFixtures.fakeLoginEntity();
+      loginRequestModel = LoginTestFixtures.fakeLoginRequest();
+      state = LoginState();
+    });
     provideDummy<ApiResult<LoginEntity>>(
       ApiErrorResult<LoginEntity>("Server Error"),
     );
@@ -93,7 +93,7 @@ void main() {
     );
     blocTest<LoginCubit, LoginState>(
       'emits [initial] and updates rememberMe when remember me toggled',
-      build: () => LoginCubit(mockLoginUseCase , mockGuestLoginUseCase),
+      build: () => LoginCubit(mockLoginUseCase, mockGuestLoginUseCase),
       act: (cubit) {
         cubit.doIntent(LoginEventRememberMe(rememberMe: true));
       },

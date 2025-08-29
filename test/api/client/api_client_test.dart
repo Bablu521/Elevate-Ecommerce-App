@@ -10,14 +10,14 @@ import 'api_client_test.mocks.dart';
 
 @GenerateMocks([ApiClient])
 void main() {
-  late MockApiClient mockApiClient;
-  setUpAll(() {
-    mockApiClient = MockApiClient();
-  });
   group("test ApiClient", () {
     test("test Login ApiClient success", () async {
       ///AAA
       ///Arrange
+      late MockApiClient mockApiClient;
+      setUp(() {
+        mockApiClient = MockApiClient();
+      });
       final LoginResponseDto loginResponseDto =
           LoginTestFixtures.fakeLoginResponse();
       final LoginRequestModel loginRequestModel =
