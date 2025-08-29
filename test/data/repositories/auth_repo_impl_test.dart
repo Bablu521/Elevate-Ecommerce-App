@@ -23,7 +23,6 @@ import 'auth_repo_impl_test.mocks.dart';
 
 @GenerateMocks([AuthRemoteDataSource, AuthLocalDataSource])
 void main() {
-<<<<<<< HEAD
   group('test register', () {
     late MockAuthRemoteDataSource mockedAuthRemoteDataSource;
     late MockAuthLocalDataSource mockAuthLocalDataSource;
@@ -102,7 +101,7 @@ void main() {
       expect(result.errorMessage, expectedError);
     });
   });
-    group("group test login impl", () {
+  group("group test login impl", () {
     late MockAuthRemoteDataSource mockAuthRemoteDataSource;
     late AuthRepoImpl authRepoImpl;
     late MockAuthLocalDataSource mockAuthLocalDataSource;
@@ -110,8 +109,8 @@ void main() {
       mockAuthRemoteDataSource = MockAuthRemoteDataSource();
       mockAuthLocalDataSource = MockAuthLocalDataSource();
       authRepoImpl = AuthRepoImpl(
-        authRemoteDataSource: mockAuthRemoteDataSource,
-        authLocalDataSource: mockAuthLocalDataSource,
+        mockAuthRemoteDataSource,
+        mockAuthLocalDataSource,
       );
     });
     final LoginRequestModel loginRequestModel =
