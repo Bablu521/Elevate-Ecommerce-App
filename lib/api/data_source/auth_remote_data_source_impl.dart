@@ -15,13 +15,11 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   Future<ApiResult<RegisterEntity>> register(
     RegisterRequestEntity registerRequestEntity,
   ) async {
-    try {
-      var response = await _apiClient.register(
+    return safeApiCall(
+      () => _apiClient.register(
         RegisterRequestDto.fromDomain(registerRequestEntity),
-      );
-      return ApiSuccessResult(response.user!.toRegisterEntity());
-    } catch (e) {
-      return ApiErrorResult(e);
-    }
+      ),
+      (response) => response.user!.toRegisterEntity(),
+    );
   }
 }
