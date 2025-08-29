@@ -42,4 +42,10 @@
   "close": "close",
   "registeredSuccessfully": "Registered Successfully!",
   "welcome": "Welcome"
+
+  "home": "Home",
+  "categories": "Categories",
+  "cart": "Cart",
+  "profile": "Profile"
+
 }
