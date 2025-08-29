@@ -1,3 +1,4 @@
+import 'package:elevate_ecommerce_app/presentation/categories/views/screen/categories_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -12,14 +13,13 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int currentIndex=0;
+  int currentIndex = 0;
 
-  List<Widget>screens=[
+  List<Widget> screens = [
     HomeScreen(),
-    Profile(),
+    CategoriesPage(categoryId: "673c46fd1159920171827c85"),
     Cart(),
     Profile(),
-
   ];
 
   @override
@@ -27,30 +27,30 @@ class _HomeState extends State<Home> {
     return Scaffold(
       body: screens[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-      currentIndex: currentIndex,
-          onTap: (int index){
-        setState(() {
+        currentIndex: currentIndex,
+        onTap: (int index) {
+          setState(() {});
+          currentIndex = index;
+        },
 
-        });
-        currentIndex=index;
-          },
-
-          items: [
-            BottomNavigationBarItem(
-                icon: Icon(Icons.home_outlined,),
-              label: AppLocalizations.of(context).home
-            ), BottomNavigationBarItem(
-                icon: Icon(Icons.category_outlined,),
-              label: AppLocalizations.of(context).categories
-            ), BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_cart_outlined,),
-              label: AppLocalizations.of(context).cart
-            ), BottomNavigationBarItem(
-                icon: Icon(Icons.person_outline_outlined,),
-              label: AppLocalizations.of(context).profile
-            ),
-          ],
-
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_outlined),
+            label: AppLocalizations.of(context).home,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.category_outlined),
+            label: AppLocalizations.of(context).categories,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart_outlined),
+            label: AppLocalizations.of(context).cart,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_outline_outlined),
+            label: AppLocalizations.of(context).profile,
+          ),
+        ],
       ),
     );
   }

@@ -5,20 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class SectionProductImageItem extends StatefulWidget {
-  const SectionProductImageItem({super.key});
-
+  const SectionProductImageItem({super.key, required this.items});
+  final List<String> items;
   @override
   State<SectionProductImageItem> createState() =>
       _SectionProductImageItemState();
 }
 
 class _SectionProductImageItemState extends State<SectionProductImageItem> {
-  List<String> items = [
-    "assets/images/kTestFlower.png",
-    "assets/images/kTestFlower.png",
-    "assets/images/kTestFlower.png",
-    "assets/images/kTestFlower.png",
-  ];
   final CarouselSliderController carouselSliderController =
       CarouselSliderController();
   final PageController pageController = PageController();
@@ -35,9 +29,9 @@ class _SectionProductImageItemState extends State<SectionProductImageItem> {
             carouselController: carouselSliderController,
 
             items: List.generate(
-              items.length,
-              (index) => Image.asset(
-                items[index],
+              widget.items.length,
+              (index) => Image.network(
+                widget.items[index],
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: double.infinity,
@@ -51,8 +45,8 @@ class _SectionProductImageItemState extends State<SectionProductImageItem> {
               enableInfiniteScroll: true,
               reverse: false,
               autoPlay: true,
-              autoPlayInterval: Duration(seconds: 3),
-              autoPlayAnimationDuration: Duration(milliseconds: 800),
+              autoPlayInterval: const Duration(seconds: 3),
+              autoPlayAnimationDuration: const Duration(milliseconds: 800),
               autoPlayCurve: Curves.fastOutSlowIn,
               enlargeCenterPage: false,
               scrollDirection: Axis.horizontal,
@@ -70,12 +64,21 @@ class _SectionProductImageItemState extends State<SectionProductImageItem> {
                   horizontal: 8,
                   vertical: 18,
                 ),
-                child: Row(children: [Icon(Icons.arrow_back_ios_new)]),
+                child: Row(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Icon(Icons.arrow_back_ios_new),
+                    ),
+                  ],
+                ),
               ),
-              Spacer(),
+              const Spacer(),
               AnimatedSmoothIndicator(
                 activeIndex: currentImage,
-                count: items.length,
+                count: widget.items.length,
                 effect: SlideEffect(
                   spacing: 8.0,
                   radius: 4.0,

@@ -638,7 +638,6 @@ packages:
     source: hosted
     version: "2.0.0"
   mockito:
-<<<<<<< HEAD
     dependency: "direct dev"
     description:
       name: mockito
@@ -654,15 +653,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.4"
-=======
-    dependency: "direct main"
-    description:
-      name: mockito
-      sha256: "4546eac99e8967ea91bae633d2ca7698181d008e95fa4627330cf903d573277a"
-      url: "https://pub.dev"
-    source: hosted
-    version: "5.4.6"
->>>>>>> origin/ECOM-11-categories
   nested:
     dependency: transitive
     description:
@@ -1132,7 +1122,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.4"
-<<<<<<< HEAD
   test_core:
     dependency: transitive
     description:
@@ -1141,8 +1130,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.6.8"
-=======
->>>>>>> origin/ECOM-11-categories
   timing:
     dependency: transitive
     description:

@@ -16,21 +16,32 @@ import 'package:injectable/injectable.dart' as _i526;
 
 import '../../api/client/api_client.dart' as _i508;
 import '../../api/client/api_module.dart' as _i272;
-<<<<<<< HEAD
 import '../../api/data_source/auth_local_data_source_impl.dart' as _i914;
 import '../../api/data_source/auth_remote_data_source_impl.dart' as _i222;
+import '../../api/data_source/categories_remote_data_source_impl.dart' as _i451;
 import '../../api/data_source/occasion_remote_data_source_impl.dart' as _i854;
 import '../../api/data_source/product_remote_data_source_impl.dart' as _i5;
+import '../../api/data_source/products_remote_data_source_impl.dart' as _i950;
 import '../../data/data_source/auth_local_data_source.dart' as _i891;
 import '../../data/data_source/auth_remote_data_source.dart' as _i697;
+import '../../data/data_source/categories_remote_data_source.dart' as _i84;
 import '../../data/data_source/occasion_remote_data_source.dart' as _i802;
 import '../../data/data_source/product_remote_data_source.dart' as _i357;
+import '../../data/data_source/products_remote_data_source.dart' as _i1000;
 import '../../data/repositories/auth_repo_impl.dart' as _i653;
+import '../../data/repositories/categories_repo_impl.dart' as _i1008;
 import '../../data/repositories/occasion_repo_impl.dart' as _i847;
 import '../../data/repositories/product_repo_impl.dart' as _i953;
+import '../../data/repositories/products_repo_impl.dart' as _i177;
 import '../../domin/repositories/auth_repo.dart' as _i340;
+import '../../domin/repositories/categories_repo.dart' as _i983;
 import '../../domin/repositories/occasion_repo.dart' as _i657;
 import '../../domin/repositories/product_repo.dart' as _i591;
+import '../../domin/repositories/products_repo.dart' as _i679;
+import '../../domin/use_case/get_all_categories_use_case.dart' as _i520;
+import '../../domin/use_case/get_all_products_use_case.dart' as _i966;
+import '../../domin/use_case/get_products_by_category_use_case.dart' as _i1032;
+import '../../domin/use_case/get_products_by_occasion_use_case.dart' as _i150;
 import '../../domin/use_cases/forget_password_use_case.dart' as _i213;
 import '../../domin/use_cases/get_products_by_category_use_case.dart' as _i688;
 import '../../domin/use_cases/get_products_by_occasion_use_case.dart' as _i176;
@@ -45,23 +56,9 @@ import '../../presentation/auth/forget_password/view_models/forget_password_view
 import '../../presentation/auth/login/view_models/login_cubit.dart' as _i441;
 import '../../presentation/auth/register/view_models/register_view_model.dart'
     as _i490;
-import '../module/secure_storage_module.dart' as _i260;
-=======
-import '../../api/data_source/categories_remote_data_source_impl.dart' as _i451;
-import '../../api/data_source/products_remote_data_source_impl.dart' as _i950;
-import '../../data/data_source/categories_remote_data_source.dart' as _i84;
-import '../../data/data_source/products_remote_data_source.dart' as _i1000;
-import '../../data/repositories/categories_repo_impl.dart' as _i1008;
-import '../../data/repositories/products_repo_impl.dart' as _i177;
-import '../../domin/repositories/categories_repo.dart' as _i983;
-import '../../domin/repositories/products_repo.dart' as _i679;
-import '../../domin/use_case/get_all_categories_use_case.dart' as _i520;
-import '../../domin/use_case/get_all_products_use_case.dart' as _i966;
-import '../../domin/use_case/get_products_by_category_use_case.dart' as _i1032;
-import '../../domin/use_case/get_products_by_occasion_use_case.dart' as _i150;
 import '../../presentation/categories/view_models/categories_view_model.dart'
     as _i350;
->>>>>>> origin/ECOM-11-categories
+import '../module/secure_storage_module.dart' as _i260;
 
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -73,7 +70,6 @@ extension GetItInjectableX on _i174.GetIt {
     final apiModule = _$ApiModule();
     final secureStorageModule = _$SecureStorageModule();
     gh.singleton<_i361.Dio>(() => apiModule.provideDio());
-<<<<<<< HEAD
     gh.lazySingleton<_i558.FlutterSecureStorage>(
       () => secureStorageModule.secureStorage,
     );
@@ -86,11 +82,32 @@ extension GetItInjectableX on _i174.GetIt {
         secureStorage: gh<_i558.FlutterSecureStorage>(),
       ),
     );
+    gh.factory<_i1000.ProductsRemoteDataSource>(
+      () => _i950.ProductsRemoteDataSourceImpl(gh<_i508.ApiClient>()),
+    );
     gh.factory<_i802.OccasionRemoteDataSource>(
       () => _i854.OccasionRemoteDataSourceImpl(gh<_i508.ApiClient>()),
     );
+    gh.factory<_i84.CategoriesRemoteDataSource>(
+      () => _i451.CategoriesRemoteDataSourceImpl(gh<_i508.ApiClient>()),
+    );
     gh.factory<_i357.ProductRemoteDataSource>(
       () => _i5.ProductRemoteDataSourceImpl(gh<_i508.ApiClient>()),
+    );
+    gh.factory<_i679.ProductsRepo>(
+      () => _i177.ProductsRepoImpl(gh<_i1000.ProductsRemoteDataSource>()),
+    );
+    gh.factory<_i966.GetAllProductsUseCase>(
+      () => _i966.GetAllProductsUseCase(gh<_i679.ProductsRepo>()),
+    );
+    gh.factory<_i1032.GetProductsByCategoryUseCase>(
+      () => _i1032.GetProductsByCategoryUseCase(gh<_i679.ProductsRepo>()),
+    );
+    gh.factory<_i150.GetProductsByOccasionUseCase>(
+      () => _i150.GetProductsByOccasionUseCase(gh<_i679.ProductsRepo>()),
+    );
+    gh.factory<_i983.CategoriesRepo>(
+      () => _i1008.CategoriesRepoImpl(gh<_i84.CategoriesRemoteDataSource>()),
     );
     gh.factory<_i340.AuthRepo>(
       () => _i653.AuthRepoImpl(
@@ -138,40 +155,14 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i670.ResetPasswordUseCase>(),
       ),
     );
+    gh.factory<_i520.GetAllCategoriesUseCase>(
+      () => _i520.GetAllCategoriesUseCase(gh<_i983.CategoriesRepo>()),
+    );
     gh.factory<_i688.GetProductsByCategoryUseCase>(
       () => _i688.GetProductsByCategoryUseCase(gh<_i591.ProductRepo>()),
     );
     gh.factory<_i176.GetProductsByOccasionUseCase>(
       () => _i176.GetProductsByOccasionUseCase(gh<_i591.ProductRepo>()),
-    );
-    gh.factory<_i1046.OccasionUseCase>(
-      () => _i1046.OccasionUseCase(gh<_i657.OccasionRepo>()),
-    );
-=======
-    gh.factory<_i508.ApiClient>(() => _i508.ApiClient(gh<_i361.Dio>()));
-    gh.factory<_i1000.ProductsRemoteDataSource>(
-      () => _i950.ProductsRemoteDataSourceImpl(gh<_i508.ApiClient>()),
-    );
-    gh.factory<_i84.CategoriesRemoteDataSource>(
-      () => _i451.CategoriesRemoteDataSourceImpl(gh<_i508.ApiClient>()),
-    );
-    gh.factory<_i679.ProductsRepo>(
-      () => _i177.ProductsRepoImpl(gh<_i1000.ProductsRemoteDataSource>()),
-    );
-    gh.factory<_i966.GetAllProductsUseCase>(
-      () => _i966.GetAllProductsUseCase(gh<_i679.ProductsRepo>()),
-    );
-    gh.factory<_i1032.GetProductsByCategoryUseCase>(
-      () => _i1032.GetProductsByCategoryUseCase(gh<_i679.ProductsRepo>()),
-    );
-    gh.factory<_i150.GetProductsByOccasionUseCase>(
-      () => _i150.GetProductsByOccasionUseCase(gh<_i679.ProductsRepo>()),
-    );
-    gh.factory<_i983.CategoriesRepo>(
-      () => _i1008.CategoriesRepoImpl(gh<_i84.CategoriesRemoteDataSource>()),
-    );
-    gh.factory<_i520.GetAllCategoriesUseCase>(
-      () => _i520.GetAllCategoriesUseCase(gh<_i983.CategoriesRepo>()),
     );
     gh.factory<_i350.CategoriesViewModel>(
       () => _i350.CategoriesViewModel(
@@ -180,7 +171,9 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i966.GetAllProductsUseCase>(),
       ),
     );
->>>>>>> origin/ECOM-11-categories
+    gh.factory<_i1046.OccasionUseCase>(
+      () => _i1046.OccasionUseCase(gh<_i657.OccasionRepo>()),
+    );
     return this;
   }
 }

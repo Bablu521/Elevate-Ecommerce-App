@@ -6,53 +6,53 @@ part 'product_dto.g.dart';
 
 @JsonSerializable()
 class ProductDto extends Equatable {
-	final int? rateAvg;
-	final int? rateCount;
-	@JsonKey(name: '_id') 
-	final String? id;
-	final String? title;
-	final String? slug;
-	final String? description;
-	final String? imgCover;
-	final List<String>? images;
-	final int? price;
-	final int? priceAfterDiscount;
-	final int? quantity;
-	final String? category;
-	final String? occasion;
-	final DateTime? createdAt;
-	final DateTime? updatedAt;
-	@JsonKey(name: '__v') 
-	final int? v;
-	final bool? isSuperAdmin;
-	final int? sold;
+  final int? rateAvg;
+  final int? rateCount;
+  @JsonKey(name: '_id')
+  final String? id;
+  final String? title;
+  final String? slug;
+  final String? description;
+  final String? imgCover;
+  final List<String>? images;
+  final int? price;
+  final int? priceAfterDiscount;
+  final int? quantity;
+  final String? category;
+  final String? occasion;
+  final DateTime? createdAt;
+  final DateTime? updatedAt;
+  @JsonKey(name: '__v')
+  final int? v;
+  final bool? isSuperAdmin;
+  final int? sold;
 
-	const ProductDto({
-		this.rateAvg, 
-		this.rateCount, 
-		this.id, 
-		this.title, 
-		this.slug, 
-		this.description, 
-		this.imgCover, 
-		this.images, 
-		this.price, 
-		this.priceAfterDiscount, 
-		this.quantity, 
-		this.category, 
-		this.occasion, 
-		this.createdAt, 
-		this.updatedAt, 
-		this.v, 
-		this.isSuperAdmin, 
-		this.sold,  
-	});
+  const ProductDto({
+    this.rateAvg,
+    this.rateCount,
+    this.id,
+    this.title,
+    this.slug,
+    this.description,
+    this.imgCover,
+    this.images,
+    this.price,
+    this.priceAfterDiscount,
+    this.quantity,
+    this.category,
+    this.occasion,
+    this.createdAt,
+    this.updatedAt,
+    this.v,
+    this.isSuperAdmin,
+    this.sold,
+  });
 
-	factory ProductDto.fromJson(Map<String, dynamic> json) {
-		return _$ProductDtoFromJson(json);
-	}
+  factory ProductDto.fromJson(Map<String, dynamic> json) {
+    return _$ProductDtoFromJson(json);
+  }
 
-	Map<String, dynamic> toJson() => _$ProductDtoToJson(this);
+  Map<String, dynamic> toJson() => _$ProductDtoToJson(this);
 
   ProductEntity toProductEntity() {
     return ProductEntity(
@@ -69,36 +69,36 @@ class ProductDto extends Equatable {
       quantity: quantity,
       category: category,
       occasion: occasion,
-      createdAt: createdAt,
-      updatedAt: updatedAt,
+      createdAt: createdAt.toString(),
+      updatedAt: updatedAt.toString(),
       v: v,
       isSuperAdmin: isSuperAdmin,
       sold: sold,
     );
   }
 
-	@override
-	List<Object?> get props {
-		return [
-				rateAvg,
-				rateCount,
-				id,
-				title,
-				slug,
-				description,
-				imgCover,
-				images,
-				price,
-				priceAfterDiscount,
-				quantity,
-				category,
-				occasion,
-				createdAt,
-				updatedAt,
-				v,
-				isSuperAdmin,
-				sold,
-				id,
-		];
-	}
+  @override
+  List<Object?> get props {
+    return [
+      rateAvg,
+      rateCount,
+      id,
+      title,
+      slug,
+      description,
+      imgCover,
+      images,
+      price,
+      priceAfterDiscount,
+      quantity,
+      category,
+      occasion,
+      createdAt,
+      updatedAt,
+      v,
+      isSuperAdmin,
+      sold,
+      id,
+    ];
+  }
 }

@@ -18,31 +18,11 @@ class CategoriesTabBarView extends StatelessWidget {
         crossAxisCount: 2,
         mainAxisSpacing: 17,
         crossAxisSpacing: 17,
-        childAspectRatio: 163 / 245,
+        childAspectRatio: 165 / 260,
       ),
       itemBuilder: (context, index) {
-        return InkWell(
-          onTap: () {
-            /*Navigator.of(context).pushNamed(
-              RouteNames.productDetails,
-              arguments: categoriesViewModel.state.productsList![index],
-            );*/
-          },
-          child: CustomProductItems(
-            title:
-                categoriesViewModel.state.productsList![index].title ??
-                "AppLocalizations.of(context).product",
-            imgCover:
-                categoriesViewModel.state.productsList![index].imgCover ??
-                "AppImages.fakeImgUrl",
-            priceAfterDiscount:
-                categoriesViewModel
-                    .state
-                    .productsList![index]
-                    .priceAfterDiscount ??
-                0,
-            price: categoriesViewModel.state.productsList![index].price ?? 0,
-          ),
+        return CustomProductItems(
+          productEntity: categoriesViewModel.state.productsList![index],
         );
       },
     );

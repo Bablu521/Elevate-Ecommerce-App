@@ -1,115 +1,120 @@
 import 'package:elevate_ecommerce_app/core/constants/app_colors.dart';
+import 'package:elevate_ecommerce_app/core/router/route_names.dart';
+import 'package:elevate_ecommerce_app/domin/entities/product_entity.dart';
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomProductItems extends StatelessWidget {
-  final String title;
-  final String imgCover;
-  final num priceAfterDiscount;
-  final num price;
-
-  const CustomProductItems({
-    super.key,
-    required this.title,
-    required this.imgCover,
-    required this.priceAfterDiscount,
-    required this.price,
-  });
+  final ProductEntity productEntity;
+  const CustomProductItems({super.key, required this.productEntity});
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final local = AppLocalizations.of(context);
 
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8.r),
-        border: Border.all(color: AppColors.white[70]!, width: 0.5.w),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Image.network(
-              imgCover,
-              fit: BoxFit.fitWidth,
-              width: double.infinity,
-              height: MediaQuery.of(context).size.height / 6,
-            ),
-            SizedBox(height: 8),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 13.5),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      overflow: TextOverflow.ellipsis,
-                      style: Theme.of(
-                        context,
-                      ).textTheme.bodySmall!.copyWith(fontSize: 12.sp),
-                    ),
-                    SizedBox(height: 4),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width / 4,
-                      child: Wrap(
-                        children: [
-                          Text(
-                            overflow: TextOverflow.ellipsis,
-                            "EGP ${priceAfterDiscount.toString()}",
-                            style: theme.textTheme.bodySmall?.copyWith(
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          Text(
-                            price.toString(),
-                            overflow: TextOverflow.ellipsis,
-                            style: theme.textTheme.bodySmall?.copyWith(
-                              fontSize: 12.sp,
-                              fontWeight: FontWeight.w400,
-                              color: AppColors.gray,
-                              decoration: TextDecoration.lineThrough,
-                              decorationColor: AppColors.gray,
-                            ),
-                          ),
-                          Text(
-                            "${((price - priceAfterDiscount) / price * 100).toInt()}%",
-                            overflow: TextOverflow.ellipsis,
-                            style: theme.textTheme.bodySmall?.copyWith(
-                              fontSize: 12.sp,
-                              fontWeight: FontWeight.w400,
-                              color: AppColors.green,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(
+          context,
+          RouteNames.productDetails,
+          arguments: productEntity,
+        );
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8.r),
+          border: Border.all(color: AppColors.white[70]!, width: 0.5.w),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Image.network(
+                productEntity.images?.first ?? "AppImages.fakeImgUrl",
+                fit: BoxFit.fitWidth,
+                width: double.infinity,
+                height: MediaQuery.of(context).size.height / 6,
               ),
-            ),
-            SizedBox(height: 8.h),
-            SizedBox(
-              height: 30.h,
-              width: 147.w,
-              child: ElevatedButton.icon(
-                onPressed: () {},
-                icon: Icon(Icons.shopping_cart_outlined, size: 18),
-                label: Text(
-                  local.addToCart,
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    fontSize: 13.sp,
-                    fontWeight: FontWeight.w500,
-                    color: AppColors.white,
+              const SizedBox(height: 8),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 13.5),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        productEntity.title ?? "",
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(
+                          context,
+                        ).textTheme.bodySmall!.copyWith(fontSize: 12.sp),
+                      ),
+                      const SizedBox(height: 4),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width / 4,
+                        child: Wrap(
+                          direction: Axis.horizontal,
+                          children: [
+                            Text(
+                              overflow: TextOverflow.ellipsis,
+                              "EGP ${productEntity.priceAfterDiscount.toString()}",
+                              style: theme.textTheme.bodySmall?.copyWith(
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            Text(
+                              productEntity.price.toString(),
+                              overflow: TextOverflow.ellipsis,
+                              style: theme.textTheme.bodySmall?.copyWith(
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w400,
+                                color: AppColors.gray,
+                                decoration: TextDecoration.lineThrough,
+                                decorationColor: AppColors.gray,
+                              ),
+                            ),
+                            Text(
+                              "${((productEntity.price ?? 0 - productEntity.priceAfterDiscount!.toInt()) / productEntity.price!.toInt() * 100).toInt()}%",
+                              overflow: TextOverflow.ellipsis,
+                              style: theme.textTheme.bodySmall?.copyWith(
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w400,
+                                color: AppColors.green,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                style: ElevatedButton.styleFrom(),
               ),
-            ),
-          ],
+              SizedBox(height: 8.h),
+              SizedBox(
+                height: 30.h,
+                width: 147.w,
+                child: ElevatedButton.icon(
+                  onPressed: () {},
+                  icon: const FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Icon(Icons.shopping_cart_outlined, size: 14),
+                  ),
+                  label: Text(
+                    local.addToCart,
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      fontSize: 13.sp,
+                      fontWeight: FontWeight.w500,
+                      color: AppColors.white,
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

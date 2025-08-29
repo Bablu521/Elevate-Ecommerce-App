@@ -62,7 +62,7 @@ class CategoriesTabBar extends StatelessWidget {
             maxLines: 1,
           ),
           Divider(
-            radius: BorderRadius.only(
+            radius:const BorderRadius.only(
               topLeft: Radius.circular(100),
               topRight: Radius.circular(100),
             ),
