@@ -18,13 +18,24 @@ import '../../api/client/api_client.dart' as _i508;
 import '../../api/client/api_module.dart' as _i272;
 import '../../api/data_source/auth_local_data_source_impl.dart' as _i914;
 import '../../api/data_source/auth_remote_data_source_impl.dart' as _i222;
+import '../../api/data_source/occasion_remote_data_source_impl.dart' as _i854;
+import '../../api/data_source/product_remote_data_source_impl.dart' as _i5;
 import '../../data/data_source/auth_local_data_source.dart' as _i891;
 import '../../data/data_source/auth_remote_data_source.dart' as _i697;
+import '../../data/data_source/occasion_remote_data_source.dart' as _i802;
+import '../../data/data_source/product_remote_data_source.dart' as _i357;
 import '../../data/repositories/auth_repo_impl.dart' as _i653;
+import '../../data/repositories/occasion_repo_impl.dart' as _i847;
+import '../../data/repositories/product_repo_impl.dart' as _i953;
 import '../../domin/repositories/auth_repo.dart' as _i340;
+import '../../domin/repositories/occasion_repo.dart' as _i657;
+import '../../domin/repositories/product_repo.dart' as _i591;
 import '../../domin/use_cases/forget_password_use_case.dart' as _i213;
+import '../../domin/use_cases/get_products_by_category_use_case.dart' as _i688;
+import '../../domin/use_cases/get_products_by_occasion_use_case.dart' as _i176;
 import '../../domin/use_cases/guest_login_use_case.dart' as _i917;
 import '../../domin/use_cases/login_use_case.dart' as _i1073;
+import '../../domin/use_cases/occasion_use_case.dart' as _i1046;
 import '../../domin/use_cases/register_use_case.dart' as _i638;
 import '../../domin/use_cases/reset_password_use_case.dart' as _i670;
 import '../../domin/use_cases/verify_reset_code_use_case.dart' as _i643;
@@ -57,6 +68,12 @@ extension GetItInjectableX on _i174.GetIt {
         secureStorage: gh<_i558.FlutterSecureStorage>(),
       ),
     );
+    gh.factory<_i802.OccasionRemoteDataSource>(
+      () => _i854.OccasionRemoteDataSourceImpl(gh<_i508.ApiClient>()),
+    );
+    gh.factory<_i357.ProductRemoteDataSource>(
+      () => _i5.ProductRemoteDataSourceImpl(gh<_i508.ApiClient>()),
+    );
     gh.factory<_i340.AuthRepo>(
       () => _i653.AuthRepoImpl(
         gh<_i697.AuthRemoteDataSource>(),
@@ -87,6 +104,12 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i917.GuestLoginUseCase>(),
       ),
     );
+    gh.factory<_i591.ProductRepo>(
+      () => _i953.ProductRepoImpl(gh<_i357.ProductRemoteDataSource>()),
+    );
+    gh.factory<_i657.OccasionRepo>(
+      () => _i847.OccasionRepoImpl(gh<_i802.OccasionRemoteDataSource>()),
+    );
     gh.factory<_i490.RegisterViewModel>(
       () => _i490.RegisterViewModel(gh<_i638.RegisterUseCase>()),
     );
@@ -96,6 +119,15 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i643.VerifyResetCodeUseCase>(),
         gh<_i670.ResetPasswordUseCase>(),
       ),
+    );
+    gh.factory<_i688.GetProductsByCategoryUseCase>(
+      () => _i688.GetProductsByCategoryUseCase(gh<_i591.ProductRepo>()),
+    );
+    gh.factory<_i176.GetProductsByOccasionUseCase>(
+      () => _i176.GetProductsByOccasionUseCase(gh<_i591.ProductRepo>()),
+    );
+    gh.factory<_i1046.OccasionUseCase>(
+      () => _i1046.OccasionUseCase(gh<_i657.OccasionRepo>()),
     );
     return this;
   }
