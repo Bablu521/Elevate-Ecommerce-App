@@ -14,41 +14,29 @@ class ProductsRemoteDataSourceImpl implements ProductsRemoteDataSource {
 
   @override
   Future<ApiResult<List<ProductEntity>>> getAllProducts() async {
-    try {
-      final response = await _apiClient.getAllProducts();
-      return ApiSuccessResult(
-        response.products!.map(ProductMapper.fromDTO).toList(),
-      );
-    } catch (e) {
-      return ApiErrorResult(e);
-    }
+    return safeApiCall(
+      () => _apiClient.getAllProducts(),
+      (response) => response.products!.map(ProductMapper.fromDTO).toList(),
+    );
   }
 
   @override
   Future<ApiResult<List<ProductEntity>>> getProductsByCategory(
     String category,
   ) async {
-    try {
-      final response = await _apiClient.getProductsByCategory(category);
-      return ApiSuccessResult(
-        response.products!.map(ProductMapper.fromDTO).toList(),
-      );
-    } catch (e) {
-      return ApiErrorResult(e);
-    }
+    return safeApiCall(
+      () => _apiClient.getProductsByCategory(category),
+      (response) => response.products!.map(ProductMapper.fromDTO).toList(),
+    );
   }
 
   @override
   Future<ApiResult<List<ProductEntity>>> getProductsByOccasion(
     String occasion,
   ) async {
-    try {
-      final response = await _apiClient.getProductsByOccasion(occasion);
-      return ApiSuccessResult(
-        response.products!.map(ProductMapper.fromDTO).toList(),
-      );
-    } catch (e) {
-      return ApiErrorResult(e);
-    }
+    return safeApiCall(
+      () => _apiClient.getProductsByOccasion(occasion),
+      (response) => response.products!.map(ProductMapper.fromDTO).toList(),
+    );
   }
 }

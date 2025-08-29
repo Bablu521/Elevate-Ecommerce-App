@@ -41,5 +41,15 @@
   "error": "Error",
   "close": "close",
   "registeredSuccessfully": "Registered Successfully!",
-  "welcome": "Welcome"
+  "welcome": "Welcome",
+  "addToCart": "Add to cart",
+  "search": "Search",
+  "all": "All",
+  "filter": "Filter",
+  "sortBy": "Sort by",
+  "lowesPrice": "Lowes Price",
+  "highestPrice": "Highest Price",
+  "newWord": "New",
+  "old": "Old",
+  "discount": "Discount"
 }

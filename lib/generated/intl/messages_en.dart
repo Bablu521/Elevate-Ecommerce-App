@@ -22,6 +22,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "addToCart": MessageLookupByLibrary.simpleMessage("Add to cart"),
+    "all": MessageLookupByLibrary.simpleMessage("All"),
     "alreadyHaveAnAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account? ",
     ),
@@ -45,6 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "dioErrorCancel": MessageLookupByLibrary.simpleMessage(
       "Request was cancelled. Please retry.",
     ),
+    "discount": MessageLookupByLibrary.simpleMessage("Discount"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "emailIsRequired": MessageLookupByLibrary.simpleMessage(
       "email is required",
@@ -76,14 +79,19 @@ class MessageLookup extends MessageLookupByLibrary {
       "Failed to parse error response.",
     ),
     "female": MessageLookupByLibrary.simpleMessage("Female"),
+    "filter": MessageLookupByLibrary.simpleMessage("Filter"),
     "firstName": MessageLookupByLibrary.simpleMessage("First name"),
     "gender": MessageLookupByLibrary.simpleMessage("Gender"),
+    "highestPrice": MessageLookupByLibrary.simpleMessage("Highest Price"),
     "lastName": MessageLookupByLibrary.simpleMessage("Last name"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
+    "lowesPrice": MessageLookupByLibrary.simpleMessage("Lowes Price"),
     "male": MessageLookupByLibrary.simpleMessage("Male"),
+    "newWord": MessageLookupByLibrary.simpleMessage("New"),
     "noResponse": MessageLookupByLibrary.simpleMessage(
       "No response received from server.",
     ),
+    "old": MessageLookupByLibrary.simpleMessage("Old"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordIsRequired": MessageLookupByLibrary.simpleMessage(
       "password is required",
@@ -98,10 +106,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "registeredSuccessfully": MessageLookupByLibrary.simpleMessage(
       "Registered Successfully!",
     ),
+    "search": MessageLookupByLibrary.simpleMessage("Search"),
     "sendTimeout": MessageLookupByLibrary.simpleMessage(
       "Request timed out. Please try again.",
     ),
     "signUp": MessageLookupByLibrary.simpleMessage("Sign up"),
+    "sortBy": MessageLookupByLibrary.simpleMessage("Sort by"),
     "termsAndConditions": MessageLookupByLibrary.simpleMessage(
       "Terms&Conditions",
     ),

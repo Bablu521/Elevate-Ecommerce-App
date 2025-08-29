@@ -418,6 +418,61 @@ class AppLocalizations {
   String get welcome {
     return Intl.message('Welcome', name: 'welcome', desc: '', args: []);
   }
+
+  /// `Add to cart`
+  String get addToCart {
+    return Intl.message('Add to cart', name: 'addToCart', desc: '', args: []);
+  }
+
+  /// `Search`
+  String get search {
+    return Intl.message('Search', name: 'search', desc: '', args: []);
+  }
+
+  /// `All`
+  String get all {
+    return Intl.message('All', name: 'all', desc: '', args: []);
+  }
+
+  /// `Filter`
+  String get filter {
+    return Intl.message('Filter', name: 'filter', desc: '', args: []);
+  }
+
+  /// `Sort by`
+  String get sortBy {
+    return Intl.message('Sort by', name: 'sortBy', desc: '', args: []);
+  }
+
+  /// `Lowes Price`
+  String get lowesPrice {
+    return Intl.message('Lowes Price', name: 'lowesPrice', desc: '', args: []);
+  }
+
+  /// `Highest Price`
+  String get highestPrice {
+    return Intl.message(
+      'Highest Price',
+      name: 'highestPrice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New`
+  String get newWord {
+    return Intl.message('New', name: 'newWord', desc: '', args: []);
+  }
+
+  /// `Old`
+  String get old {
+    return Intl.message('Old', name: 'old', desc: '', args: []);
+  }
+
+  /// `Discount`
+  String get discount {
+    return Intl.message('Discount', name: 'discount', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppLocalizations> {

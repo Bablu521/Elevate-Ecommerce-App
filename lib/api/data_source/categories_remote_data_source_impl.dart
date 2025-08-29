@@ -13,14 +13,11 @@ class CategoriesRemoteDataSourceImpl implements CategoriesRemoteDataSource {
   CategoriesRemoteDataSourceImpl(this._apiClient);
 
   @override
-  Future<ApiResult<List<CategoryEntity>>> getAllCategories() async {
-    try {
-      final response = await _apiClient.getAllCategories();
-      return ApiSuccessResult(
-        response.categories!.map(CategoryMapper.fromDTO).toList(),
-      );
-    } catch (e) {
-      return ApiErrorResult(e);
-    }
+  Future<ApiResult<List<CategoryEntity>>> getAllCategories() {
+    return safeApiCall(
+          () => _apiClient.getAllCategories(),
+          (response) => response.categories!.map(CategoryMapper.fromDTO).toList(),
+    );
   }
+
 }
