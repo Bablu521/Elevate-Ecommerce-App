@@ -26,7 +26,7 @@ part 'api_client.g.dart';
 abstract class ApiClient {
   @factoryMethod
   factory ApiClient(Dio dio) = _ApiClient;
-  
+
   @GET(Endpoints.occasions)
   Future<OccasionsReponseDto> getAllOccasions();
 
@@ -39,13 +39,13 @@ abstract class ApiClient {
   Future<ProductsReponseDto> getProductsByCategory(
     @Query("category") String categoryId,
   );
-    @POST(Endpoints.signIn)
+  @POST(Endpoints.signIn)
   Future<LoginResponseDto> login(@Body() LoginRequestModel loginRequestModel);
-    @POST(Endpoints.forgetPassword)
+  @POST(Endpoints.forgetPassword)
   Future<ForgetPasswordResponse> forgetPassword(
     @Body() ForgetPasswordRequest body,
   );
-  
+
   @POST(Endpoints.register)
   Future<RegisterResponseDto> register(
     @Body() RegisterRequestDto registerRequestDto,
@@ -55,21 +55,12 @@ abstract class ApiClient {
   Future<VerifyResetResponse> verifyResetCode(@Body() VerifyResetRequest body);
 
   @PUT(Endpoints.resetPassword)
-  Future<ResetPasswordResponse> resetPassword(@Body() ResetPasswordRequest body);
-   @GET(Endpoints.categories)
+  Future<ResetPasswordResponse> resetPassword(
+    @Body() ResetPasswordRequest body,
+  );
+  @GET(Endpoints.categories)
   Future<AllCategoriesResponse> getAllCategories();
 
   @GET(Endpoints.products)
   Future<AllProductsResponse> getAllProducts();
-
-  @GET(Endpoints.products)
-  Future<AllProductsResponse> getProductsByCategory(
-    @Query("category") String category,
-  );
-
-  @GET(Endpoints.products)
-  Future<AllProductsResponse> getProductsByOccasion(
-    @Query("occasion") String occasion,
-  );
-
 }

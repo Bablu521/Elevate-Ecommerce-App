@@ -1,3 +1,4 @@
+import 'package:elevate_ecommerce_app/api/models/responses/products/product_dto.dart';
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/domin/entities/product_entity.dart';
 import 'package:injectable/injectable.dart';
@@ -26,7 +27,12 @@ class ProductsRemoteDataSourceImpl implements ProductsRemoteDataSource {
   ) async {
     return safeApiCall(
       () => _apiClient.getProductsByCategory(category),
-      (response) => response.products!.map(ProductMapper.fromDTO).toList(),
+      (response) =>
+          response.products!
+              .map<ProductEntity>(
+                (dto) => ProductMapper.fromDTO(dto as ProductDTO),
+              )
+              .toList(),
     );
   }
 
@@ -36,7 +42,12 @@ class ProductsRemoteDataSourceImpl implements ProductsRemoteDataSource {
   ) async {
     return safeApiCall(
       () => _apiClient.getProductsByOccasion(occasion),
-      (response) => response.products!.map(ProductMapper.fromDTO).toList(),
+      (response) =>
+          response.products!
+              .map<ProductEntity>(
+                (dto) => ProductMapper.fromDTO(dto as ProductDTO),
+              )
+              .toList(),
     );
   }
 }

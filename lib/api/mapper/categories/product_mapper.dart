@@ -6,7 +6,6 @@ abstract class ProductMapper {
     return ProductEntity(
       rateAvg: dto.rateAvg,
       rateCount: dto.rateCount,
-      Id: dto.Id,
       title: dto.title,
       slug: dto.slug,
       description: dto.description,

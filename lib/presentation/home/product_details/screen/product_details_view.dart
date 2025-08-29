@@ -6,6 +6,6 @@ class ProductDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: ProductDetailsBody());
+    return const Scaffold(body: ProductDetailsBody());
   }
 }

@@ -14,8 +14,8 @@ class ProductEntity extends Equatable {
   final int? quantity;
   final String? category;
   final String? occasion;
-  final DateTime? createdAt;
-  final DateTime? updatedAt;
+  final String? createdAt;
+  final String? updatedAt;
   final int? v;
   final bool? isSuperAdmin;
   final int? sold;
@@ -41,7 +41,6 @@ class ProductEntity extends Equatable {
     this.sold,
   });
 
-  
   @override
   List<Object?> get props {
     return [
@@ -67,5 +66,3 @@ class ProductEntity extends Equatable {
     ];
   }
 }
-
-      
