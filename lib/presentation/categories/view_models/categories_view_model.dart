@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/domin/entities/category_entity.dart';
@@ -65,10 +67,15 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
     switch (result) {
       case ApiSuccessResult<List<ProductEntity>>():
         productsList = result.data;
-        emit(state.copyWith(productsList: result.data, isProductsLoading: false));
+        emit(
+          state.copyWith(productsList: result.data, isProductsLoading: false),
+        );
       case ApiErrorResult<List<ProductEntity>>():
         emit(
-          state.copyWith(errorMessage: result.errorMessage, isProductsLoading: false),
+          state.copyWith(
+            errorMessage: result.errorMessage,
+            isProductsLoading: false,
+          ),
         );
     }
   }
@@ -81,10 +88,16 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
     switch (result) {
       case ApiSuccessResult<List<ProductEntity>>():
         productsList = result.data;
-        emit(state.copyWith(productsList: result.data, isProductsLoading: false));
+
+        emit(
+          state.copyWith(productsList: result.data, isProductsLoading: false),
+        );
       case ApiErrorResult<List<ProductEntity>>():
         emit(
-          state.copyWith(errorMessage: result.errorMessage, isProductsLoading: false),
+          state.copyWith(
+            errorMessage: result.errorMessage,
+            isProductsLoading: false,
+          ),
         );
     }
   }
@@ -103,7 +116,9 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
               .toList();
       emit(state.copyWith(productsList: tempList, isProductsLoading: false));
     } else {
-      emit(state.copyWith(productsList: productsList, isProductsLoading: false));
+      emit(
+        state.copyWith(productsList: productsList, isProductsLoading: false),
+      );
     }
   }
 
@@ -123,7 +138,7 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
   }
 
   void selectTabByCategory() {
-    if (categoryId.isEmpty){
+    if (categoryId.isEmpty) {
       _getAllProducts();
       return;
     }
@@ -132,10 +147,9 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
         tabController.index = index + 1;
       }
     });
+    _getProductsByCategory();
     if (tabController.index == 0) {
       _getAllProducts();
-    } else {
-      _getProductsByCategory();
-    }
+    } else {}
   }
 }

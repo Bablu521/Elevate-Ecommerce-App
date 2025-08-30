@@ -1,4 +1,5 @@
 import 'package:elevate_ecommerce_app/core/constants/app_colors.dart';
+import 'package:elevate_ecommerce_app/core/constants/app_images.dart';
 import 'package:elevate_ecommerce_app/core/router/route_names.dart';
 import 'package:elevate_ecommerce_app/domin/entities/product_entity.dart';
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
@@ -33,7 +34,7 @@ class CustomProductItems extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Image.network(
-                productEntity.images?.first ?? "AppImages.fakeImgUrl",
+                productEntity.images?.first ?? AppImages.fakeImgUrl,
                 fit: BoxFit.fitWidth,
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height / 6,

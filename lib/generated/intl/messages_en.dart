@@ -36,7 +36,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "badResponse": MessageLookupByLibrary.simpleMessage(
       "Unexpected error response from server",
     ),
+    "bestSeller": MessageLookupByLibrary.simpleMessage("Best seller"),
     "bestseller": MessageLookupByLibrary.simpleMessage("Best seller"),
+    "bloomWithIOurExquisiteBestSellers": MessageLookupByLibrary.simpleMessage(
+      "Bloom with our exquisite best sellers",
+    ),
     "bloomWithOurExquisiteBestSellers": MessageLookupByLibrary.simpleMessage(
       "Bloom with our exquisite best sellers",
     ),
@@ -113,6 +117,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "female": MessageLookupByLibrary.simpleMessage("Female"),
     "filter": MessageLookupByLibrary.simpleMessage("Filter"),
     "firstName": MessageLookupByLibrary.simpleMessage("First name"),
+    "flowery": MessageLookupByLibrary.simpleMessage("🌸 Flowery"),
     "forgetPassword": MessageLookupByLibrary.simpleMessage("Forget Password"),
     "gender": MessageLookupByLibrary.simpleMessage("Gender"),
     "highestPrice": MessageLookupByLibrary.simpleMessage("Highest Price"),

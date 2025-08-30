@@ -12,7 +12,7 @@ class HomeStates extends Equatable {
   final List<CategoriesEntity> categoriesListSuccess;
   final List<OccasionEntity> occasionListSuccess;
   final List<ProductEntity> productListSuccess;
-  final List<BestSellerEntity> bestSellerListSuccess;
+  final List<ProductEntity> bestSellerListSuccess;
 
   HomeStates({
     this.homeListIsLoading = false,
@@ -29,15 +29,17 @@ class HomeStates extends Equatable {
     List<CategoriesEntity>? categoriesListSuccess,
     List<OccasionEntity>? occasionListSuccess,
     List<ProductEntity>? productListSuccess,
-    List<BestSellerEntity>? bestSellerListSuccess,
+    List<ProductEntity>? bestSellerListSuccess,
   }) {
     return HomeStates(
       homeListIsLoading: homeListIsLoading ?? this.homeListIsLoading,
       homeListErrorMessage: homeListErrorMessage ?? this.homeListErrorMessage,
-      categoriesListSuccess: categoriesListSuccess ?? this.categoriesListSuccess,
+      categoriesListSuccess:
+          categoriesListSuccess ?? this.categoriesListSuccess,
       occasionListSuccess: occasionListSuccess ?? this.occasionListSuccess,
       productListSuccess: productListSuccess ?? this.productListSuccess,
-      bestSellerListSuccess: bestSellerListSuccess ?? this.bestSellerListSuccess,
+      bestSellerListSuccess:
+          bestSellerListSuccess ?? this.bestSellerListSuccess,
     );
   }
 

@@ -1,11 +1,12 @@
 import 'package:elevate_ecommerce_app/core/constants/app_colors.dart';
+import 'package:elevate_ecommerce_app/domin/entities/product_entity.dart';
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
-import 'package:elevate_ecommerce_app/presentation/occasion/views/widgets/occasion_view_body.dart';
+import 'package:elevate_ecommerce_app/presentation/best_seller/view/widgets/best_seller_body.dart';
 import 'package:flutter/material.dart';
 
-class OccasionView extends StatelessWidget {
-  const OccasionView({super.key, required this.occasionId});
-  final String occasionId;
+class BestSellerView extends StatelessWidget {
+  const BestSellerView({super.key, required this.listProduct});
+  final List<ProductEntity> listProduct;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +22,7 @@ class OccasionView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              AppLocalizations.of(context).occasion,
+              AppLocalizations.of(context).bestSeller,
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             Text(
@@ -35,7 +36,7 @@ class OccasionView extends StatelessWidget {
         ),
         centerTitle: false,
       ),
-      body: SafeArea(child: OccasionViewBody(occasionId: occasionId)),
+      body: BestSellerBody(listProduct: listProduct),
     );
   }
 }

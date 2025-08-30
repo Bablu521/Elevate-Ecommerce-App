@@ -63,7 +63,8 @@ import '../../presentation/auth/register/view_models/register_view_model.dart'
     as _i490;
 import '../../presentation/categories/view_models/categories_view_model.dart'
     as _i350;
-import '../../presentation/home/view_models/home_view_model.dart' as _i479;
+import '../../presentation/home_screen/view_models/home_view_model.dart'
+    as _i404;
 import '../../presentation/occasion/view_models/occasion_view_model.dart'
     as _i979;
 import '../module/secure_storage_module.dart' as _i260;
@@ -193,8 +194,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i1046.OccasionUseCase>(
       () => _i1046.OccasionUseCase(gh<_i657.OccasionRepo>()),
     );
-    gh.factory<_i479.HomeViewModel>(
-      () => _i479.HomeViewModel(gh<_i740.GetHomeUseCase>()),
+    gh.factory<_i404.HomeViewModel>(
+      () => _i404.HomeViewModel(gh<_i740.GetHomeUseCase>()),
     );
     gh.factory<_i979.OccasionViewModel>(
       () => _i979.OccasionViewModel(

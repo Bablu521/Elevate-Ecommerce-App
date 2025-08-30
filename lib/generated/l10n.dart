@@ -768,6 +768,26 @@ class AppLocalizations {
   String get product {
     return Intl.message('Product', name: 'product', desc: '', args: []);
   }
+
+  /// `🌸 Flowery`
+  String get flowery {
+    return Intl.message('🌸 Flowery', name: 'flowery', desc: '', args: []);
+  }
+
+  /// `Bloom with our exquisite best sellers`
+  String get bloomWithIOurExquisiteBestSellers {
+    return Intl.message(
+      'Bloom with our exquisite best sellers',
+      name: 'bloomWithIOurExquisiteBestSellers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Best seller`
+  String get bestSeller {
+    return Intl.message('Best seller', name: 'bestSeller', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppLocalizations> {

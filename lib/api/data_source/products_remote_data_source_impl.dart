@@ -1,4 +1,3 @@
-import 'package:elevate_ecommerce_app/api/models/responses/products/product_dto.dart';
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/domin/entities/product_entity.dart';
 import 'package:injectable/injectable.dart';
@@ -25,29 +24,27 @@ class ProductsRemoteDataSourceImpl implements ProductsRemoteDataSource {
   Future<ApiResult<List<ProductEntity>>> getProductsByCategory(
     String category,
   ) async {
-    return safeApiCall(
-      () => _apiClient.getProductsByCategory(category),
-      (response) =>
-          response.products!
-              .map<ProductEntity>(
-                (dto) => ProductMapper.fromDTO(dto as ProductDTO),
-              )
-              .toList(),
-    );
+    try {
+      final response = await _apiClient.getProductsByCategory(category);
+      final products =
+          response.products!.map((dto) => dto.toProductEntity()).toList();
+      return ApiSuccessResult(products);
+    } catch (e) {
+      return ApiErrorResult<List<ProductEntity>>(e.toString());
+    }
   }
 
   @override
   Future<ApiResult<List<ProductEntity>>> getProductsByOccasion(
     String occasion,
   ) async {
-    return safeApiCall(
-      () => _apiClient.getProductsByOccasion(occasion),
-      (response) =>
-          response.products!
-              .map<ProductEntity>(
-                (dto) => ProductMapper.fromDTO(dto as ProductDTO),
-              )
-              .toList(),
-    );
+    try {
+      final response = await _apiClient.getProductsByOccasion(occasion);
+      final products =
+          response.products!.map((dto) => dto.toProductEntity()).toList();
+      return ApiSuccessResult(products);
+    } catch (e) {
+      return ApiErrorResult<List<ProductEntity>>(e.toString());
+    }
   }
 }

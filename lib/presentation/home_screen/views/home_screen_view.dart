@@ -1,13 +1,17 @@
 import 'package:elevate_ecommerce_app/core/router/route_names.dart';
+import 'package:elevate_ecommerce_app/domin/entities/product_entity.dart';
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
-import 'package:elevate_ecommerce_app/presentation/home/view_models/home_states.dart';
-import 'package:elevate_ecommerce_app/presentation/home/view_models/home_view_model.dart';
-import 'package:elevate_ecommerce_app/presentation/home/views/widgets/Category_item.dart';
-import 'package:elevate_ecommerce_app/presentation/home/views/widgets/occasion_item.dart';
-import 'package:elevate_ecommerce_app/presentation/home/views/widgets/proudect_item.dart';
-import 'package:elevate_ecommerce_app/presentation/home/views/widgets/section_header.dart';
+import 'package:elevate_ecommerce_app/presentation/best_seller/view/best_seller_view.dart';
+import 'package:elevate_ecommerce_app/presentation/main_home/main_provider/controller_provider.dart';
+import 'package:elevate_ecommerce_app/presentation/home_screen/view_models/home_states.dart';
+import 'package:elevate_ecommerce_app/presentation/home_screen/view_models/home_view_model.dart';
+import 'package:elevate_ecommerce_app/presentation/home_screen/views/widgets/Category_item.dart';
+import 'package:elevate_ecommerce_app/presentation/home_screen/views/widgets/occasion_item.dart';
+import 'package:elevate_ecommerce_app/presentation/home_screen/views/widgets/proudect_item.dart';
+import 'package:elevate_ecommerce_app/presentation/home_screen/views/widgets/section_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/di/di.dart';
 import '../view_models/home_event.dart';
@@ -22,12 +26,11 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<ControllerProvider>(context);
     return BlocProvider(
       create: (_) => getIt<HomeViewModel>()..doIntent(OnLoadHomeListEvent()),
-
       child: Scaffold(
         backgroundColor: AppColors.white,
-
         body: BlocBuilder<HomeViewModel, HomeStates>(
           builder: (context, state) {
             return SingleChildScrollView(
@@ -41,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Row(
                       children: [
                         Text(
-                          "🌸 Flowery",
+                          AppLocalizations.of(context).flowery,
                           style: TextStyle(
                             color: AppColors.mainColor,
                             fontWeight: FontWeight.bold,
@@ -103,7 +106,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   // Categories
                   SectionHeader(
                     title: AppLocalizations.of(context).categories,
-                    onTap: () {},
+                    onTap: () {
+                      provider.changePage(1);
+                    },
                   ),
                   const SizedBox(height: 16),
                   SizedBox(
@@ -116,6 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         return CategoryItem(
                           image: categories.image ?? "",
                           label: categories.name ?? "",
+                          categoryId: categories.Id ?? '',
                         );
                       },
                     ),
@@ -126,7 +132,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   // Best Seller
                   SectionHeader(
                     title: AppLocalizations.of(context).bestseller,
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context,
+                        RouteNames.bestSeller,
+                        arguments: state.bestSellerListSuccess,
+                      );
+                    },
                   ),
                   const SizedBox(height: 16),
                   SizedBox(
@@ -135,12 +147,20 @@ class _HomeScreenState extends State<HomeScreen> {
                       scrollDirection: Axis.horizontal,
                       itemCount: state.bestSellerListSuccess.length,
                       itemBuilder: (context, index) {
-                        final categories =
-                            state.bestSellerListSuccess[index]; //
-                        return ProductItem(
-                          imageUrl: categories.imgCover ?? "",
-                          title: categories.title ?? "",
-                          price: "${categories.price}" ?? "",
+                        final categories = state.bestSellerListSuccess[index];
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              RouteNames.productDetails,
+                              arguments: categories,
+                            );
+                          },
+                          child: ProductItem(
+                            imageUrl: categories.imgCover ?? "",
+                            title: categories.title ?? "",
+                            price: "${categories.price ?? ''}",
+                          ),
                         );
                       },
                     ),
@@ -152,7 +172,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   SectionHeader(
                     title: AppLocalizations.of(context).occasion,
                     onTap: () {
-                      Navigator.pushNamed(context, RouteNames.occasion);
+                      Navigator.pushNamed(
+                        context,
+                        RouteNames.occasion,
+                        arguments: "",
+                      );
                     },
                   ),
                   const SizedBox(height: 16),
@@ -162,9 +186,18 @@ class _HomeScreenState extends State<HomeScreen> {
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
                         final occasion = state.occasionListSuccess[index];
-                        return OccasionItem(
-                          imageUrl: occasion.image ?? "",
-                          label: occasion.name ?? "",
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              RouteNames.occasion,
+                              arguments: occasion.id,
+                            );
+                          },
+                          child: OccasionItem(
+                            imageUrl: occasion.image ?? "",
+                            label: occasion.name ?? "",
+                          ),
                         );
                       },
                       itemCount: state.occasionListSuccess.length,

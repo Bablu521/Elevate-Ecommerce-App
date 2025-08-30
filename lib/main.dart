@@ -14,7 +14,7 @@ import 'my_bloc_observer.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   configureDependencies();
-  Bloc.observer = MyBlocObserver();
+  // Bloc.observer = MyBlocObserver();
   final bool isRememberMe = await getRememberMe();
   runApp(MyApp(isRememberMe: isRememberMe));
 }

@@ -126,9 +126,18 @@ class _CategoriesPageState extends State<CategoriesPage>
                     ),
                     Expanded(
                       child:
-                          state.productsList != null &&
-                                  state.isProductsLoading == false
-                              ? TabBarView(
+                          state.isProductsLoading == true
+                              ? const Center(child: CircularProgressIndicator())
+                              : (state.productsList == null ||
+                                  state.productsList!.isEmpty)
+                              ? Center(
+                                child: Text(
+                                  AppLocalizations.of(
+                                    context,
+                                  ).noProductsAvailable,
+                                ),
+                              )
+                              : TabBarView(
                                 controller: categoriesViewModel.tabController,
                                 children: [
                                   CategoriesTabBarView(
@@ -140,8 +149,7 @@ class _CategoriesPageState extends State<CategoriesPage>
                                     );
                                   }),
                                 ],
-                              )
-                              :const  Center(child: CircularProgressIndicator()),
+                              ),
                     ),
                   ],
                 ),
@@ -167,7 +175,7 @@ class _CategoriesPageState extends State<CategoriesPage>
               ],
             );
           }
-          return const  Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         },
       ),
     );
