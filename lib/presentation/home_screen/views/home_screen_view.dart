@@ -107,6 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   SectionHeader(
                     title: AppLocalizations.of(context).categories,
                     onTap: () {
+                      provider.changeSelectedCategory("");
                       provider.changePage(1);
                     },
                   ),
