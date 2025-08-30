@@ -78,7 +78,7 @@ class CustomProductItems extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              "${((productEntity.price ?? 0 - productEntity.priceAfterDiscount!.toInt()) / productEntity.price!.toInt() * 100).toInt()}%",
+                            "${((productEntity.price! - productEntity.priceAfterDiscount!) / productEntity.price! * 100).toInt()}%",
                               overflow: TextOverflow.ellipsis,
                               style: theme.textTheme.bodySmall?.copyWith(
                                 fontSize: 12.sp,

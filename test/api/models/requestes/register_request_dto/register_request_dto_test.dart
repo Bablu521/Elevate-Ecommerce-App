@@ -8,7 +8,7 @@ void main() {
       'when call fromDomain with null values it should return RegisterRequestDto with null values ',
       () {
         //Arrange
-        RegisterRequestEntity registerRequestEntity = RegisterRequestEntity(
+        final RegisterRequestEntity registerRequestEntity = const RegisterRequestEntity(
           firstName: null,
           lastName: null,
           email: null,
@@ -19,7 +19,7 @@ void main() {
         );
 
         //Act
-        RegisterRequestDto result = RegisterRequestDto.fromDomain(
+        final RegisterRequestDto result = RegisterRequestDto.fromDomain(
           registerRequestEntity,
         );
 
@@ -38,7 +38,7 @@ void main() {
       'when call fromDomain with non-null values it should return RegisterRequestDto with right values ',
       () {
         //Arrange
-        RegisterRequestEntity registerRequestEntity = RegisterRequestEntity(
+        final RegisterRequestEntity registerRequestEntity = const RegisterRequestEntity(
           firstName: "fake-firstName",
           lastName: "fake-lastName",
           email: "fake-email",
@@ -49,7 +49,7 @@ void main() {
         );
 
         //Act
-        RegisterRequestDto result = RegisterRequestDto.fromDomain(
+        final RegisterRequestDto result = RegisterRequestDto.fromDomain(
           registerRequestEntity,
         );
 

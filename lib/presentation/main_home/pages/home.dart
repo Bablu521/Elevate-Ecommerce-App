@@ -1,5 +1,4 @@
 import 'package:elevate_ecommerce_app/presentation/main_home/main_provider/controller_provider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

@@ -1,11 +1,9 @@
 import 'package:elevate_ecommerce_app/core/router/route_names.dart';
-import 'package:elevate_ecommerce_app/domin/entities/product_entity.dart';
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
-import 'package:elevate_ecommerce_app/presentation/best_seller/view/best_seller_view.dart';
 import 'package:elevate_ecommerce_app/presentation/main_home/main_provider/controller_provider.dart';
 import 'package:elevate_ecommerce_app/presentation/home_screen/view_models/home_states.dart';
 import 'package:elevate_ecommerce_app/presentation/home_screen/view_models/home_view_model.dart';
-import 'package:elevate_ecommerce_app/presentation/home_screen/views/widgets/Category_item.dart';
+import 'package:elevate_ecommerce_app/presentation/home_screen/views/widgets/category_item.dart';
 import 'package:elevate_ecommerce_app/presentation/home_screen/views/widgets/occasion_item.dart';
 import 'package:elevate_ecommerce_app/presentation/home_screen/views/widgets/proudect_item.dart';
 import 'package:elevate_ecommerce_app/presentation/home_screen/views/widgets/section_header.dart';
@@ -112,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   const SizedBox(height: 16),
                   SizedBox(
-                    height: 90,
+                    height: 95,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: state.categoriesListSuccess.length,

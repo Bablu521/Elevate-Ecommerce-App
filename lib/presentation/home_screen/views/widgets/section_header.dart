@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SectionHeader extends StatelessWidget {
@@ -17,7 +16,9 @@ class SectionHeader extends StatelessWidget {
         ),
         TextButton(
           onPressed: onTap,
-          child: const Text("View All"),
+          child: const Text("View All" , style: TextStyle(
+            decoration: TextDecoration.underline
+          ),),
         ),
       ],
     );

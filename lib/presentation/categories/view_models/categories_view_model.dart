@@ -24,7 +24,7 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
     this._getAllCategoriesUseCase,
     this._getProductsByCategoryUseCase,
     this._getAllProductsUseCase,
-  ) : super(CategoriesState());
+  ) : super(const CategoriesState());
 
   late final String categoryId;
   late final TickerProvider tabControllerVsync;

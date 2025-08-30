@@ -788,6 +788,11 @@ class AppLocalizations {
   String get bestSeller {
     return Intl.message('Best seller', name: 'bestSeller', desc: '', args: []);
   }
+
+  /// `EGP`
+  String get eGP {
+    return Intl.message('EGP', name: 'eGP', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppLocalizations> {

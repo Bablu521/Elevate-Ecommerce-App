@@ -1,8 +1,7 @@
-
 import 'package:elevate_ecommerce_app/core/constants/app_colors.dart';
 import 'package:elevate_ecommerce_app/presentation/main_home/main_provider/controller_provider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 class CategoryItem extends StatelessWidget {
@@ -31,8 +30,8 @@ class CategoryItem extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
-              width: 80,
-              height: 60,
+              width: 68.w,
+              height: 64.h,
               decoration: BoxDecoration(
                 color: Colors.pink.shade50,
                 borderRadius: BorderRadius.circular(20),
@@ -48,8 +47,11 @@ class CategoryItem extends StatelessWidget {
             const SizedBox(height: 8),
             Text(
               label,
-              style: const TextStyle(fontSize: 12),
-              overflow: TextOverflow.ellipsis,
+              style: Theme.of(context).textTheme.bodySmall!.copyWith(
+            fontSize: 14.sp,
+            fontWeight: FontWeight.w400,
+            overflow: TextOverflow.ellipsis
+          )
             ),
           ],
         ),

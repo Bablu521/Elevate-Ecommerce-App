@@ -1,5 +1,3 @@
-import 'package:elevate_ecommerce_app/api/models/responses/best_seller/best_seller.dart';
-import 'package:elevate_ecommerce_app/domin/entities/best_seller_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/categories_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/occasion_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/product_entity.dart';

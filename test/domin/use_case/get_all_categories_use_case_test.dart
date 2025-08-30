@@ -22,7 +22,7 @@ void main() {
     test(
       'when call getAllCategories it should return a list of CategoryEntity from repo with right parameters',
       () async {
-        var expectedList = [
+        final expectedList = [
           CategoryEntity(
             Id: "fake-id-1",
             name: "fake-name-1",
@@ -44,13 +44,13 @@ void main() {
             productsCount: 2,
           ),
         ];
-        var expectedResult = ApiSuccessResult(expectedList);
+        final expectedResult = ApiSuccessResult(expectedList);
         provideDummy<ApiResult<List<CategoryEntity>>>(expectedResult);
         when(
           mockCategoriesRepo.getAllCategories(),
         ).thenAnswer((_) async => expectedResult);
 
-        var result = await getAllCategoriesUseCase();
+        final result = await getAllCategoriesUseCase();
 
         verify(mockCategoriesRepo.getAllCategories()).called(1);
         expect(result, isA<ApiSuccessResult<List<CategoryEntity>>>());
@@ -62,8 +62,8 @@ void main() {
     test(
       "when getAllCategories failed it should return an error result",
       () async {
-        var expectedError = "Server Error";
-        var expectedResult = ApiErrorResult<List<CategoryEntity>>(
+        final expectedError = "Server Error";
+        final expectedResult = ApiErrorResult<List<CategoryEntity>>(
           expectedError,
         );
         provideDummy<ApiResult<List<CategoryEntity>>>(expectedResult);
@@ -71,7 +71,7 @@ void main() {
           mockCategoriesRepo.getAllCategories(),
         ).thenAnswer((_) async => expectedResult);
 
-        var result = await getAllCategoriesUseCase.call();
+        final result = await getAllCategoriesUseCase.call();
 
         verify(mockCategoriesRepo.getAllCategories()).called(1);
         expect(result, isA<ApiErrorResult<List<CategoryEntity>>>());

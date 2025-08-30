@@ -13,7 +13,7 @@ void main() {
   group('Test GetProductsByCategoryUseCase', () {
     late MockProductRepo mockedProductRepo;
     late GetProductsByCategoryUseCase getProductsByCategoryUseCase;
-    var categoryId = "fake-category-id";
+    final categoryId = "fake-category-id";
     setUp(() {
       mockedProductRepo = MockProductRepo();
       getProductsByCategoryUseCase = GetProductsByCategoryUseCase(
@@ -25,7 +25,7 @@ void main() {
       'when call getProductsByCategory it should return a list of products from repo with right parameters',
       () async {
         //Arrange
-        var expectedProducts = [
+        final expectedProducts = [
           ProductEntity(
             rateAvg: 5,
             rateCount: 10,
@@ -67,14 +67,14 @@ void main() {
             sold: 10,
           ),
         ];
-        var expectedResult = ApiSuccessResult(expectedProducts);
+        final expectedResult = ApiSuccessResult(expectedProducts);
         provideDummy<ApiResult<List<ProductEntity>>>(expectedResult);
         when(
           mockedProductRepo.getProductsByCategory(categoryId),
         ).thenAnswer((_) async => expectedResult);
 
         //Act
-        var result = await getProductsByCategoryUseCase.call(categoryId);
+        final result = await getProductsByCategoryUseCase.call(categoryId);
 
         //Assert
         verify(mockedProductRepo.getProductsByCategory(categoryId)).called(1);
@@ -89,15 +89,15 @@ void main() {
       () async {
         //Arrange
         
-        var expectedError = "Server Error";
-        var expectedResult = ApiErrorResult<List<ProductEntity>>(expectedError);
+        final expectedError = "Server Error";
+        final expectedResult = ApiErrorResult<List<ProductEntity>>(expectedError);
         provideDummy<ApiResult<List<ProductEntity>>>(expectedResult);
         when(
           mockedProductRepo.getProductsByCategory(categoryId),
         ).thenAnswer((_) async => expectedResult);
 
         //Act
-        var result = await getProductsByCategoryUseCase.call(categoryId);
+        final result = await getProductsByCategoryUseCase.call(categoryId);
 
         //Assert
         verify(mockedProductRepo.getProductsByCategory(categoryId)).called(1);

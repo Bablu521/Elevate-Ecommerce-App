@@ -1,5 +1,7 @@
+import 'package:elevate_ecommerce_app/generated/l10n.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProductItem extends StatelessWidget {
 
@@ -26,10 +28,18 @@ class ProductItem extends StatelessWidget {
                 height: 140, width: 150, fit: BoxFit.cover),
           ),
           const SizedBox(height: 8),
-          Text(title, style: const TextStyle(fontWeight: FontWeight.bold),
-            overflow: TextOverflow.ellipsis,),
-          Text(price, style: const TextStyle(color: Colors.grey),
-            overflow: TextOverflow.ellipsis,),
+          Text(title, style: Theme.of(context).textTheme.bodySmall!.copyWith(
+              
+              fontWeight: FontWeight.w400,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+          Text("$price ${AppLocalizations.of(context).eGP}", style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+              fontSize: 14.sp,
+              fontWeight: FontWeight.w500,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
         ],
       ),
     );
