@@ -1,8 +1,8 @@
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
 import 'package:flutter/cupertino.dart';
 
-class Profile extends StatelessWidget {
-  const Profile({super.key});
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
