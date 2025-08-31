@@ -8,6 +8,7 @@ class CustomProductItems extends StatelessWidget {
   final String imgCover;
   final num priceAfterDiscount;
   final num price;
+
   const CustomProductItems({
     super.key,
     required this.title,
@@ -15,7 +16,7 @@ class CustomProductItems extends StatelessWidget {
     required this.priceAfterDiscount,
     required this.price,
   });
-  
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -31,9 +32,11 @@ class CustomProductItems extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            AspectRatio(
-              aspectRatio: 147 / 131,
-              child: Image.network(imgCover, fit: BoxFit.cover),
+            Image.network(
+              imgCover,
+              fit: BoxFit.fitWidth,
+              width: double.infinity,
+              height: MediaQuery.of(context).size.height / 6,
             ),
             SizedBox(height: 8),
             Expanded(
@@ -50,34 +53,39 @@ class CustomProductItems extends StatelessWidget {
                       ).textTheme.bodySmall!.copyWith(fontSize: 12.sp),
                     ),
                     SizedBox(height: 4),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "EGP ${priceAfterDiscount.toString()}",
-                          style: theme.textTheme.bodySmall?.copyWith(
-                            fontWeight: FontWeight.w500,
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 4,
+                      child: Wrap(
+                        children: [
+                          Text(
+                            overflow: TextOverflow.ellipsis,
+                            "EGP ${priceAfterDiscount.toString()}",
+                            style: theme.textTheme.bodySmall?.copyWith(
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
-                        ),
-                        Text(
-                          price.toString(),
-                          style: theme.textTheme.bodySmall?.copyWith(
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.gray,
-                            decoration: TextDecoration.lineThrough,
-                            decorationColor: AppColors.gray,
+                          Text(
+                            price.toString(),
+                            overflow: TextOverflow.ellipsis,
+                            style: theme.textTheme.bodySmall?.copyWith(
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.w400,
+                              color: AppColors.gray,
+                              decoration: TextDecoration.lineThrough,
+                              decorationColor: AppColors.gray,
+                            ),
                           ),
-                        ),
-                        Text(
-                          "${((price - priceAfterDiscount) / price * 100).toInt()}%",
-                          style: theme.textTheme.bodySmall?.copyWith(
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.green,
+                          Text(
+                            "${((price - priceAfterDiscount) / price * 100).toInt()}%",
+                            overflow: TextOverflow.ellipsis,
+                            style: theme.textTheme.bodySmall?.copyWith(
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.w400,
+                              color: AppColors.green,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
                 ),

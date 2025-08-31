@@ -63,19 +63,16 @@ abstract class AppTheme {
       enabledBorder: getOutlineInputBorder(color: AppColors.gray),
       errorBorder: getOutlineInputBorder(color: AppColors.red),
     ),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      selectedIconTheme:IconThemeData(
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      selectedIconTheme: IconThemeData(
         color: AppColors.red,
-        applyTextScaling: true
-
+        applyTextScaling: true,
       ),
-      selectedItemColor:AppColors.red,
+      selectedItemColor: AppColors.red,
       unselectedItemColor: AppColors.gray,
       showSelectedLabels: true,
       showUnselectedLabels: true,
       type: BottomNavigationBarType.shifting,
-
-
     ),
 
     elevatedButtonTheme: ElevatedButtonThemeData(
