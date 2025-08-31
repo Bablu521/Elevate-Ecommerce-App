@@ -7,4 +7,6 @@ abstract final class AppImages {
   static const String logo = '$_rootImages/Logo_flower.png';
   static const String productTest = '$_rootImages/prodcutTest.png';
   static const String productTestImage = '$_rootImages/prodeuctTestImage.png';
+  static const String locationIconImage = '$_rootImages/locationIcon.png';
+  static const String deleteIconImage = '$_rootImages/deleteIcon.png';
 }

@@ -61,5 +61,16 @@
   "ok": "Ok",
   "no": "No",
   "yes": "Yes",
-  "loading": "Loading..."
+  "loading": "Loading...",
+  "deliverTo": "Deliver to",
+  "fakeAddress": "2XVP+XC - Sheikh Zayed.....",
+  "clearCart": "Clear Cart",
+  "redRoses": "Red roses",
+  "pinkRoseBouquet": "15 Pink Rose Bouquet",
+  "eGP": "EGP",
+  "subTotal": "Sub Total",
+  "deliveryFee": "Delivery Fee",
+  "total": "Total",
+  "checkout": "Checkout",
+  "items": "items"
 }
