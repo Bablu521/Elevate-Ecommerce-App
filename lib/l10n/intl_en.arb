@@ -61,5 +61,11 @@
   "ok": "Ok",
   "no": "No",
   "yes": "Yes",
-  "loading": "Loading..."
+  "loading": "Loading...",
+  "editProfile": "Edit Profile",
+  "change": "Change",
+  "update": "Update",
+  "resetPassword": "Reset password",
+  "newPassword": "New password",
+  "currentPassword": "Current password"
 }

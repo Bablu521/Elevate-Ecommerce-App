@@ -1,4 +1,5 @@
 import 'package:elevate_ecommerce_app/core/router/route_names.dart';
+import 'package:elevate_ecommerce_app/presentation/profile/views/change_password_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../presentation/auth/login/views/login_view.dart';
@@ -11,6 +12,8 @@ abstract class AppRouter {
         return MaterialPageRoute(builder: (_) => LoginView());
       case RouteNames.home:
         return MaterialPageRoute(builder: (_) => MainHome());
+      case RouteNames.changePassword:
+        return MaterialPageRoute(builder: (_) => ChangePasswordView());
 
       default:
         return MaterialPageRoute(builder: (_) => LoginView());
