@@ -32,6 +32,7 @@ extension GetItInjectableX on _i174.GetIt {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
     final apiModule = _$ApiModule();
     gh.singleton<_i361.Dio>(() => apiModule.provideDio());
+
     gh.factory<_i508.ApiClient>(() => _i508.ApiClient(gh<_i361.Dio>()));
     gh.factory<_i697.AuthRemoteDataSource>(
       () => _i222.AuthRemoteDataSourceImpl(gh<_i508.ApiClient>()),
@@ -45,6 +46,7 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i490.RegisterViewModel>(
       () => _i490.RegisterViewModel(gh<_i638.RegisterUseCase>()),
     );
+
     return this;
   }
 }
