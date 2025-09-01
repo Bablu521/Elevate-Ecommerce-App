@@ -26,10 +26,11 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
 
   late final String categoryId;
   late final TickerProvider tabControllerVsync;
-  late final TabController tabController;
+  TabController? tabController;
   final TextEditingController searchController = TextEditingController();
   final ValueNotifier<int> selectedTabIndex = ValueNotifier<int>(0);
   List<ProductEntity>? productsList;
+  List<CategoryEntity>? categoriesList;
 
   void doIntent(CategoriesEvents events) {
     switch (events) {
@@ -41,6 +42,8 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
         _getProductsByCategory();
       case ProductsSearchEvent():
         _productsSearch();
+      case InitTabBarEvent():
+        _initTabBarController();
     }
   }
 
@@ -49,9 +52,8 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
     final result = await _getAllCategoriesUseCase();
     switch (result) {
       case ApiSuccessResult<List<CategoryEntity>>():
-        initTabBarController(result.data.length);
+        categoriesList = result.data;
         emit(state.copyWith(categoriesList: result.data, isLoading: false));
-        selectTabByCategory();
       case ApiErrorResult<List<CategoryEntity>>():
         emit(
           state.copyWith(errorMessage: result.errorMessage, isLoading: false),
@@ -76,7 +78,7 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
   Future<void> _getProductsByCategory() async {
     emit(state.copyWith(isProductsLoading: true, errorMessage: null));
     final result = await _getProductsByCategoryUseCase(
-      state.categoriesList![selectedTabIndex.value - 1].Id!,
+      categoriesList![selectedTabIndex.value - 1].Id!,
     );
     switch (result) {
       case ApiSuccessResult<List<ProductEntity>>():
@@ -107,32 +109,30 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
     }
   }
 
-  void initTabBarController(int length) {
+  void _initTabBarController() {
     tabController = TabController(
-      length: length + 1,
+      length: categoriesList!.length + 1,
       vsync: tabControllerVsync,
     );
-    tabController.addListener(() {
-      selectedTabIndex.value = tabController.index;
-      if (tabController.index == 0) {
+    tabController!.addListener(() {
+      selectedTabIndex.value = tabController!.index;
+      if (tabController!.index == 0) {
         _getAllProducts();
       } else {
         _getProductsByCategory();
       }
     });
-  }
 
-  void selectTabByCategory() {
     if (categoryId.isEmpty){
       _getAllProducts();
       return;
     }
-    state.categoriesList!.asMap().forEach((index, category) {
+    categoriesList!.asMap().forEach((index, category) {
       if (category.Id == categoryId) {
-        tabController.index = index + 1;
+        tabController!.index = index + 1;
       }
     });
-    if (tabController.index == 0) {
+    if (tabController!.index == 0) {
       _getAllProducts();
     } else {
       _getProductsByCategory();

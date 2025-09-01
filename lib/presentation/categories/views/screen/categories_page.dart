@@ -14,9 +14,9 @@ import '../widget/categories_tab_bar.dart';
 import '../widget/categories_tab_bar_view.dart';
 
 class CategoriesPage extends StatefulWidget {
-  final String categoryId;
+  final String? categoryId;
 
-  const CategoriesPage({super.key, required this.categoryId});
+  const CategoriesPage({super.key, this.categoryId});
 
   @override
   State<CategoriesPage> createState() => _CategoriesPageState();
@@ -31,7 +31,7 @@ class _CategoriesPageState extends State<CategoriesPage>
     super.initState();
     categoriesViewModel = getIt<CategoriesViewModel>();
     categoriesViewModel.tabControllerVsync = this;
-    categoriesViewModel.categoryId = widget.categoryId;
+    categoriesViewModel.categoryId = widget.categoryId ?? "";
     categoriesViewModel.doIntent(GetCategoriesEvent());
   }
 
@@ -52,6 +52,10 @@ class _CategoriesPageState extends State<CategoriesPage>
           },
           builder: (context, state) {
             if (state.isLoading == false) {
+              if (categoriesViewModel.tabController == null &&
+                  state.categoriesList != null) {
+                categoriesViewModel.doIntent(InitTabBarEvent());
+              }
               return state.categoriesList != null ||
                       state.categoriesList?.isNotEmpty == true
                   ? Stack(

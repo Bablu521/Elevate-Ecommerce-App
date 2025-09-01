@@ -7,3 +7,5 @@ class GetAllProductsEvent extends CategoriesEvents {}
 class GetProductsByCategoryEvent extends CategoriesEvents {}
 
 class ProductsSearchEvent extends CategoriesEvents {}
+
+class InitTabBarEvent extends CategoriesEvents {}
