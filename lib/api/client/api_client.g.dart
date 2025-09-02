@@ -30,7 +30,7 @@ class _ApiClient implements ApiClient {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'auth/signin',
+            'api/v1/auth/signin',
             queryParameters: queryParameters,
             data: _data,
           )

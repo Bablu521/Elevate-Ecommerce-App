@@ -618,6 +618,7 @@ class AppLocalizations {
   String get or {
     return Intl.message('or', name: 'or', desc: '', args: []);
   }
+
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppLocalizations> {

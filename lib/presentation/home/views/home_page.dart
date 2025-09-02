@@ -1,5 +1,4 @@
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -10,7 +9,7 @@ class HomePage extends StatelessWidget {
     return Center(
       child: Text(
         AppLocalizations.of(context).home,
-        style: TextStyle(color: Colors.black),
+        style: const TextStyle(color: Colors.black),
       ),
     );
   }
