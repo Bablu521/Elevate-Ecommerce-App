@@ -23,7 +23,7 @@ class RegisterViewBody extends StatelessWidget {
             RegisterForm(registerViewModel: registerViewModel),
             SizedBox(height: 24.h),
             GenderRadioListTile(registerViewModel: registerViewModel),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Row(
               children: [
                 Text(

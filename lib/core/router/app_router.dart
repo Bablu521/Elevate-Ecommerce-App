@@ -13,7 +13,7 @@ abstract class AppRouter {
       case RouteNames.login:
         return MaterialPageRoute(builder: (_) => const LoginView());
       case RouteNames.home:
-        return MaterialPageRoute(builder: (_) => MainHome());
+        return MaterialPageRoute(builder: (_) => const MainHome());
       case RouteNames.register:
         return MaterialPageRoute(builder: (_) => RegisterView());
 

@@ -17,10 +17,9 @@ RegisterDto _$RegisterDtoFromJson(Map<String, dynamic> json) => RegisterDto(
   wishlist: json['wishlist'] as List<dynamic>?,
   id: json['_id'] as String?,
   addresses: json['addresses'] as List<dynamic>?,
-  createdAt:
-      json['createdAt'] == null
-          ? null
-          : DateTime.parse(json['createdAt'] as String),
+  createdAt: json['createdAt'] == null
+      ? null
+      : DateTime.parse(json['createdAt'] as String),
 );
 
 Map<String, dynamic> _$RegisterDtoToJson(RegisterDto instance) =>

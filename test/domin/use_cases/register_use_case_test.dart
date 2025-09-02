@@ -18,7 +18,7 @@ void main() {
     setUp(() {
       mockedAuthRepo = MockAuthRepo();
       registerUseCase = RegisterUseCase(mockedAuthRepo);
-      registerRequestEntity = RegisterRequestEntity(
+      registerRequestEntity = const RegisterRequestEntity(
         firstName: "fake-firstName",
         lastName: "fake-lastName",
         email: "fake-email",
@@ -32,7 +32,7 @@ void main() {
       'when call RegisterUseCase it should return RegisterEntity from repo with correct parameters',
       () async {
         //Arrange
-        var expectedEntity = RegisterEntity(
+        final expectedEntity = const RegisterEntity(
           firstName: "fake-firstName",
           lastName: "fake-lastName",
           email: "fake-email",
@@ -44,14 +44,14 @@ void main() {
           id: "fake-id",
           addresses: ["fake-addresses"],
         );
-        var expectedResult = ApiSuccessResult(expectedEntity);
+        final expectedResult = ApiSuccessResult(expectedEntity);
         provideDummy<ApiResult<RegisterEntity>>(expectedResult);
         when(
           mockedAuthRepo.register(registerRequestEntity),
         ).thenAnswer((_) async => expectedResult);
 
         //Act
-        var result = await registerUseCase.call(registerRequestEntity);
+        final result = await registerUseCase.call(registerRequestEntity);
 
         //Assert
         verify(mockedAuthRepo.register(registerRequestEntity)).called(1);
@@ -65,15 +65,15 @@ void main() {
       'when RegisterUseCase failed it should return an error result',
       () async {
         //Arrange
-        var expectedError = "Server Error";
-        var expectedResult = ApiErrorResult<RegisterEntity>(expectedError);
+        final expectedError = "Server Error";
+        final expectedResult = ApiErrorResult<RegisterEntity>(expectedError);
         provideDummy<ApiResult<RegisterEntity>>(expectedResult);
         when(
           mockedAuthRepo.register(registerRequestEntity),
         ).thenAnswer((_) async => expectedResult);
 
         //Act
-        var result = await registerUseCase.call(registerRequestEntity);
+        final result = await registerUseCase.call(registerRequestEntity);
 
         //Assert
         verify(mockedAuthRepo.register(registerRequestEntity)).called(1);

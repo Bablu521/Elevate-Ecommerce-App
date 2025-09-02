@@ -66,7 +66,7 @@ class RegisterView extends StatelessWidget {
           showDialog(
             context: context,
             builder: (_) {
-              return Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
             },
           );
         }
@@ -75,7 +75,7 @@ class RegisterView extends StatelessWidget {
         appBar: AppBar(
           leading: InkWell(
             onTap: Navigator.of(context).maybePop,
-            child: Icon(Icons.arrow_back_ios),
+            child: const Icon(Icons.arrow_back_ios),
           ),
           title: Text(AppLocalizations().signUp),
         ),

@@ -24,7 +24,6 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "addToCart": MessageLookupByLibrary.simpleMessage("Add to cart"),
     "all": MessageLookupByLibrary.simpleMessage("All"),
-
     "alreadyHaveAnAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account? ",
     ),
@@ -34,25 +33,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "badResponse": MessageLookupByLibrary.simpleMessage(
       "Unexpected error response from server",
     ),
-
-    "close": MessageLookupByLibrary.simpleMessage("close"),
-    "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm password"),
-
     "cart": MessageLookupByLibrary.simpleMessage("Cart"),
     "categories": MessageLookupByLibrary.simpleMessage("Categories"),
-
     "close": MessageLookupByLibrary.simpleMessage("close"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm password"),
-
     "connectionError": MessageLookupByLibrary.simpleMessage(
       "Network error. Please check your internet connection.",
     ),
     "connectionTimeout": MessageLookupByLibrary.simpleMessage(
       "Connection timeout. Please try again later.",
     ),
-
-    "creatingAnAccountYouAgreeToOur": MessageLookupByLibrary.simpleMessage(
-      "Creating an account, you agree to our ",
     "continueAsGuest": MessageLookupByLibrary.simpleMessage(
       "Continue as guest",
     ),
@@ -62,12 +52,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "dioErrorCancel": MessageLookupByLibrary.simpleMessage(
       "Request was cancelled. Please retry.",
     ),
-    "email": MessageLookupByLibrary.simpleMessage("Email"),
-    "emailIsRequired": MessageLookupByLibrary.simpleMessage(
-      "email is required",
-    ),
-    "enterFirstName": MessageLookupByLibrary.simpleMessage("Enter first name"),
-    "enterLastName": MessageLookupByLibrary.simpleMessage("Enter last name"),
     "discount": MessageLookupByLibrary.simpleMessage("Discount"),
     "dontHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Dont\'t have an account?",
@@ -104,14 +88,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "failedToParseResponse": MessageLookupByLibrary.simpleMessage(
       "Failed to parse error response.",
     ),
-
-    "female": MessageLookupByLibrary.simpleMessage("Female"),
-    "firstName": MessageLookupByLibrary.simpleMessage("First name"),
-    "gender": MessageLookupByLibrary.simpleMessage("Gender"),
-    "lastName": MessageLookupByLibrary.simpleMessage("Last name"),
-    "login": MessageLookupByLibrary.simpleMessage("Login"),
-    "male": MessageLookupByLibrary.simpleMessage("Male"),
-
     "female": MessageLookupByLibrary.simpleMessage("Female"),
     "filter": MessageLookupByLibrary.simpleMessage("Filter"),
     "firstName": MessageLookupByLibrary.simpleMessage("First name"),
@@ -120,10 +96,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "guestMode": MessageLookupByLibrary.simpleMessage("Guest Mode"),
     "highestPrice": MessageLookupByLibrary.simpleMessage("Highest Price"),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
-
-    "noResponse": MessageLookupByLibrary.simpleMessage(
-      "No response received from server.",
-    ),
     "lastName": MessageLookupByLibrary.simpleMessage("Last name"),
     "loading": MessageLookupByLibrary.simpleMessage("Loading..."),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
@@ -158,21 +130,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "password Not Matched",
     ),
     "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone number"),
-
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),
-
     "receiveTimeout": MessageLookupByLibrary.simpleMessage(
       "Server took too long to respond.",
     ),
     "registeredSuccessfully": MessageLookupByLibrary.simpleMessage(
       "Registered Successfully!",
-    ),
-    "sendTimeout": MessageLookupByLibrary.simpleMessage(
-      "Request timed out. Please try again.",
-    ),
-    "signUp": MessageLookupByLibrary.simpleMessage("Sign up"),
-    "termsAndConditions": MessageLookupByLibrary.simpleMessage(
-      "Terms&Conditions",
     ),
     "rememberMe": MessageLookupByLibrary.simpleMessage("Remember me"),
     "search": MessageLookupByLibrary.simpleMessage("Search"),

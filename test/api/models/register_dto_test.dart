@@ -8,7 +8,7 @@ void main() {
       'when call toRegisterEntity with null values it should return registerEntity with null values',
       () {
         //Arrange
-        RegisterDto registerDto = RegisterDto(
+        final RegisterDto registerDto = const RegisterDto(
           firstName: null,
           lastName: null,
           email: null,
@@ -22,7 +22,7 @@ void main() {
         );
 
         //Act
-        RegisterEntity result = registerDto.toRegisterEntity();
+        final RegisterEntity result = registerDto.toRegisterEntity();
 
         //Assert
         expect(result.firstName, isNull);
@@ -42,7 +42,7 @@ void main() {
       'when call toRegisterEntity with non-null values it should return registerEntity with right values',
       () {
         //Arrange
-        RegisterDto registerDto = RegisterDto(
+        final RegisterDto registerDto = const RegisterDto(
           firstName: "fake-firstName",
           lastName: "fake-lastName",
           email: "fake-email",
@@ -56,7 +56,7 @@ void main() {
         );
 
         //Act
-        RegisterEntity result = registerDto.toRegisterEntity();
+        final RegisterEntity result = registerDto.toRegisterEntity();
 
         //Assert
         expect(result.firstName, equals(registerDto.firstName));

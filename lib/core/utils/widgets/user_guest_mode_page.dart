@@ -50,7 +50,7 @@ class UserGuestModePage extends StatelessWidget {
               width: mediaQuerySize.width * 0.4.h,
               child: ElevatedButton(
                 onPressed: () {
-                  //  Navigator.pushReplacementNamed(context, RouteNames.); to sign up
+                  Navigator.pushReplacementNamed(context, RouteNames.register);
                 },
                 child: Text(local.signUp),
               ),

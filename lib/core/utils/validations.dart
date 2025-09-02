@@ -19,7 +19,7 @@ class Validations {
   }
 
   static String? validatePassword(String? val) {
-    RegExp passwordRegex = RegExp(
+    final RegExp passwordRegex = RegExp(
       r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[#?!@$%^&*-]).{8,}$',
     );
     if (val == null) {

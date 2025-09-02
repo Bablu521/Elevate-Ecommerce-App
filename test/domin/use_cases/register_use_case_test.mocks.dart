@@ -5,7 +5,10 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i3;
 
+import 'package:elevate_ecommerce_app/api/models/requestes/login_requests/login_request.dart'
+    as _i9;
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart' as _i4;
+import 'package:elevate_ecommerce_app/domin/entities/login_entity.dart' as _i8;
 import 'package:elevate_ecommerce_app/domin/entities/register_entity.dart'
     as _i5;
 import 'package:elevate_ecommerce_app/domin/entities/requests/register_request_entity.dart'
@@ -50,4 +53,40 @@ class MockAuthRepo extends _i1.Mock implements _i2.AuthRepo {
             ),
           )
           as _i3.Future<_i4.ApiResult<_i5.RegisterEntity>>);
+
+  @override
+  _i3.Future<_i4.ApiResult<_i8.LoginEntity>> login({
+    required _i9.LoginRequestModel? loginRequestModel,
+  }) =>
+      (super.noSuchMethod(
+            Invocation.method(#login, [], {
+              #loginRequestModel: loginRequestModel,
+            }),
+            returnValue: _i3.Future<_i4.ApiResult<_i8.LoginEntity>>.value(
+              _i7.dummyValue<_i4.ApiResult<_i8.LoginEntity>>(
+                this,
+                Invocation.method(#login, [], {
+                  #loginRequestModel: loginRequestModel,
+                }),
+              ),
+            ),
+          )
+          as _i3.Future<_i4.ApiResult<_i8.LoginEntity>>);
+
+  @override
+  _i3.Future<void> guestUserLogin() =>
+      (super.noSuchMethod(
+            Invocation.method(#guestUserLogin, []),
+            returnValue: _i3.Future<void>.value(),
+            returnValueForMissingStub: _i3.Future<void>.value(),
+          )
+          as _i3.Future<void>);
+
+  @override
+  _i3.Future<bool> getUserStatus() =>
+      (super.noSuchMethod(
+            Invocation.method(#getUserStatus, []),
+            returnValue: _i3.Future<bool>.value(false),
+          )
+          as _i3.Future<bool>);
 }

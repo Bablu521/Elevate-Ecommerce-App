@@ -3,11 +3,15 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i4;
+import 'dart:async' as _i5;
 
-import 'package:elevate_ecommerce_app/api/client/api_client.dart' as _i3;
+import 'package:elevate_ecommerce_app/api/client/api_client.dart' as _i4;
+import 'package:elevate_ecommerce_app/api/models/requestes/login_requests/login_request.dart'
+    as _i7;
 import 'package:elevate_ecommerce_app/api/models/requestes/register_request_dto/register_request_dto.dart'
-    as _i5;
+    as _i6;
+import 'package:elevate_ecommerce_app/api/models/responses/login_response/login_response_dto.dart'
+    as _i3;
 import 'package:elevate_ecommerce_app/api/models/responses/register_response_dto/register_response_dto.dart'
     as _i2;
 import 'package:mockito/mockito.dart' as _i1;
@@ -32,26 +36,47 @@ class _FakeRegisterResponseDto_0 extends _i1.SmartFake
     : super(parent, parentInvocation);
 }
 
+class _FakeLoginResponseDto_1 extends _i1.SmartFake
+    implements _i3.LoginResponseDto {
+  _FakeLoginResponseDto_1(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
+}
+
 /// A class which mocks [ApiClient].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockApiClient extends _i1.Mock implements _i3.ApiClient {
+class MockApiClient extends _i1.Mock implements _i4.ApiClient {
   MockApiClient() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<_i2.RegisterResponseDto> register(
-    _i5.RegisterRequestDto? registerRequestDto,
+  _i5.Future<_i2.RegisterResponseDto> register(
+    _i6.RegisterRequestDto? registerRequestDto,
   ) =>
       (super.noSuchMethod(
             Invocation.method(#register, [registerRequestDto]),
-            returnValue: _i4.Future<_i2.RegisterResponseDto>.value(
+            returnValue: _i5.Future<_i2.RegisterResponseDto>.value(
               _FakeRegisterResponseDto_0(
                 this,
                 Invocation.method(#register, [registerRequestDto]),
               ),
             ),
           )
-          as _i4.Future<_i2.RegisterResponseDto>);
+          as _i5.Future<_i2.RegisterResponseDto>);
+
+  @override
+  _i5.Future<_i3.LoginResponseDto> login(
+    _i7.LoginRequestModel? loginRequestModel,
+  ) =>
+      (super.noSuchMethod(
+            Invocation.method(#login, [loginRequestModel]),
+            returnValue: _i5.Future<_i3.LoginResponseDto>.value(
+              _FakeLoginResponseDto_1(
+                this,
+                Invocation.method(#login, [loginRequestModel]),
+              ),
+            ),
+          )
+          as _i5.Future<_i3.LoginResponseDto>);
 }

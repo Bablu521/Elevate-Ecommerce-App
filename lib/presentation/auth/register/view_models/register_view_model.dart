@@ -12,7 +12,7 @@ import 'package:injectable/injectable.dart';
 @injectable
 class RegisterViewModel extends Cubit<RegisterStates> {
   final RegisterUseCase _registerUseCase;
-  RegisterViewModel(this._registerUseCase) : super(RegisterStates());
+  RegisterViewModel(this._registerUseCase) : super(const RegisterStates());
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController firstNameController = TextEditingController();
@@ -33,7 +33,7 @@ class RegisterViewModel extends Cubit<RegisterStates> {
 
   Future<void> _register() async {
     emit(state.copyWith(isLoading: true));
-    var result = await _registerUseCase.call(
+    final result = await _registerUseCase.call(
       RegisterRequestEntity(
         firstName: firstNameController.text,
         lastName: lastNameController.text,

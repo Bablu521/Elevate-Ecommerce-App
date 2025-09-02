@@ -1,9 +1,7 @@
-
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/domin/entities/register_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/requests/register_request_entity.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/login_requests/login_request.dart';
-import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/domin/entities/login_entity.dart';
 
 abstract interface class AuthRepo {

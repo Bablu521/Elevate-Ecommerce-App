@@ -239,7 +239,6 @@ class AppLocalizations {
     );
   }
 
-
   /// `Enter valid Egyptian Phone number`
   String get enterValidEgyptianPhoneNumber {
     return Intl.message(
@@ -295,21 +294,6 @@ class AppLocalizations {
     return Intl.message(
       'Enter your email',
       name: 'enterYourEmail',
-  /// `Login`
-  String get login {
-    return Intl.message('Login', name: 'login', desc: '', args: []);
-  }
-
-  /// `Email`
-  String get emailLabel {
-    return Intl.message('Email', name: 'emailLabel', desc: '', args: []);
-  }
-
-  /// `Enter your Email`
-  String get emailHintText {
-    return Intl.message(
-      'Enter your Email',
-      name: 'emailHintText',
       desc: '',
       args: [],
     );
@@ -335,15 +319,6 @@ class AppLocalizations {
     return Intl.message(
       'Confirm password',
       name: 'confirmPassword',
-  String get passwordLabel {
-    return Intl.message('Password', name: 'passwordLabel', desc: '', args: []);
-  }
-
-  /// `Enter your Password`
-  String get passwordHintText {
-    return Intl.message(
-      'Enter your Password',
-      name: 'passwordHintText',
       desc: '',
       args: [],
     );
@@ -389,16 +364,6 @@ class AppLocalizations {
     return Intl.message(
       'Creating an account, you agree to our ',
       name: 'creatingAnAccountYouAgreeToOur',
-  /// `Remember me`
-  String get rememberMe {
-    return Intl.message('Remember me', name: 'rememberMe', desc: '', args: []);
-  }
-
-  /// `Forget password?`
-  String get forgetPassword {
-    return Intl.message(
-      'Forget password?',
-      name: 'forgetPassword',
       desc: '',
       args: [],
     );
@@ -409,11 +374,6 @@ class AppLocalizations {
     return Intl.message(
       'Terms&Conditions',
       name: 'termsAndConditions',
-  /// `Dont't have an account?`
-  String get dontHaveAccount {
-    return Intl.message(
-      'Dont\'t have an account?',
-      name: 'dontHaveAccount',
       desc: '',
       args: [],
     );
@@ -424,11 +384,6 @@ class AppLocalizations {
     return Intl.message(
       'Already have an account? ',
       name: 'alreadyHaveAnAccount',
-  /// `Continue as guest`
-  String get continueAsGuest {
-    return Intl.message(
-      'Continue as guest',
-      name: 'continueAsGuest',
       desc: '',
       args: [],
     );
@@ -462,6 +417,72 @@ class AppLocalizations {
   /// `Welcome`
   String get welcome {
     return Intl.message('Welcome', name: 'welcome', desc: '', args: []);
+  }
+
+  /// `Email`
+  String get emailLabel {
+    return Intl.message('Email', name: 'emailLabel', desc: '', args: []);
+  }
+
+  /// `Enter your Email`
+  String get emailHintText {
+    return Intl.message(
+      'Enter your Email',
+      name: 'emailHintText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get passwordLabel {
+    return Intl.message('Password', name: 'passwordLabel', desc: '', args: []);
+  }
+
+  /// `Enter your Password`
+  String get passwordHintText {
+    return Intl.message(
+      'Enter your Password',
+      name: 'passwordHintText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remember me`
+  String get rememberMe {
+    return Intl.message('Remember me', name: 'rememberMe', desc: '', args: []);
+  }
+
+  /// `Forget password?`
+  String get forgetPassword {
+    return Intl.message(
+      'Forget password?',
+      name: 'forgetPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dont't have an account?`
+  String get dontHaveAccount {
+    return Intl.message(
+      'Dont\'t have an account?',
+      name: 'dontHaveAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue as guest`
+  String get continueAsGuest {
+    return Intl.message(
+      'Continue as guest',
+      name: 'continueAsGuest',
+      desc: '',
+      args: [],
+    );
+  }
 
   /// `Home`
   String get home {
@@ -481,182 +502,6 @@ class AppLocalizations {
   /// `Profile`
   String get profile {
     return Intl.message('Profile', name: 'profile', desc: '', args: []);
-
-  }
-
-  /// `Enter valid Egyptian Phone number`
-  String get enterValidEgyptianPhoneNumber {
-    return Intl.message(
-      'Enter valid Egyptian Phone number',
-      name: 'enterValidEgyptianPhoneNumber',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Sign up`
-  String get signUp {
-    return Intl.message('Sign up', name: 'signUp', desc: '', args: []);
-  }
-
-  /// `First name`
-  String get firstName {
-    return Intl.message('First name', name: 'firstName', desc: '', args: []);
-  }
-
-  /// `Enter first name`
-  String get enterFirstName {
-    return Intl.message(
-      'Enter first name',
-      name: 'enterFirstName',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Last name`
-  String get lastName {
-    return Intl.message('Last name', name: 'lastName', desc: '', args: []);
-  }
-
-  /// `Enter last name`
-  String get enterLastName {
-    return Intl.message(
-      'Enter last name',
-      name: 'enterLastName',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Email`
-  String get email {
-    return Intl.message('Email', name: 'email', desc: '', args: []);
-  }
-
-  /// `Enter your email`
-  String get enterYourEmail {
-    return Intl.message(
-      'Enter your email',
-      name: 'enterYourEmail',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Password`
-  String get password {
-    return Intl.message('Password', name: 'password', desc: '', args: []);
-  }
-
-  /// `Enter password`
-  String get enterPassword {
-    return Intl.message(
-      'Enter password',
-      name: 'enterPassword',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Confirm password`
-  String get confirmPassword {
-    return Intl.message(
-      'Confirm password',
-      name: 'confirmPassword',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Phone number`
-  String get phoneNumber {
-    return Intl.message(
-      'Phone number',
-      name: 'phoneNumber',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Enter phone number`
-  String get enterPhoneNumber {
-    return Intl.message(
-      'Enter phone number',
-      name: 'enterPhoneNumber',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Gender`
-  String get gender {
-    return Intl.message('Gender', name: 'gender', desc: '', args: []);
-  }
-
-  /// `Female`
-  String get female {
-    return Intl.message('Female', name: 'female', desc: '', args: []);
-  }
-
-  /// `Male`
-  String get male {
-    return Intl.message('Male', name: 'male', desc: '', args: []);
-  }
-
-  /// `Creating an account, you agree to our `
-  String get creatingAnAccountYouAgreeToOur {
-    return Intl.message(
-      'Creating an account, you agree to our ',
-      name: 'creatingAnAccountYouAgreeToOur',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Terms&Conditions`
-  String get termsAndConditions {
-    return Intl.message(
-      'Terms&Conditions',
-      name: 'termsAndConditions',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Already have an account? `
-  String get alreadyHaveAnAccount {
-    return Intl.message(
-      'Already have an account? ',
-      name: 'alreadyHaveAnAccount',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Error`
-  String get error {
-    return Intl.message('Error', name: 'error', desc: '', args: []);
-  }
-
-  /// `close`
-  String get close {
-    return Intl.message('close', name: 'close', desc: '', args: []);
-  }
-
-  /// `Registered Successfully!`
-  String get registeredSuccessfully {
-    return Intl.message(
-      'Registered Successfully!',
-      name: 'registeredSuccessfully',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Welcome`
-  String get welcome {
-    return Intl.message('Welcome', name: 'welcome', desc: '', args: []);
   }
 
   /// `Add to cart`
@@ -773,7 +618,6 @@ class AppLocalizations {
   String get or {
     return Intl.message('or', name: 'or', desc: '', args: []);
   }
-
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppLocalizations> {

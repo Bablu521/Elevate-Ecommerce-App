@@ -24,7 +24,7 @@ void main() {
     setUp(() {
       mockedRegisterUseCase = MockRegisterUseCase();
       registerViewModel = RegisterViewModel(mockedRegisterUseCase);
-      state = RegisterStates();
+      state = const RegisterStates();
 
       registerRequestEntity = RegisterRequestEntity(
         firstName: "fake-firstName",
@@ -39,7 +39,7 @@ void main() {
       
     });
 
-    RegisterEntity expectedEntity = RegisterEntity(
+    final RegisterEntity expectedEntity = const RegisterEntity(
       firstName: "fake-firstName",
       lastName: "fake-lastName",
       email: "fake-email",
@@ -51,11 +51,11 @@ void main() {
       id: "fake-id",
       addresses: ["fake-addresses"],
     );
-    var expectedResult = ApiSuccessResult<RegisterEntity>(expectedEntity);
+    final expectedResult = ApiSuccessResult<RegisterEntity>(expectedEntity);
     provideDummy<ApiResult<RegisterEntity>>(expectedResult);
 
-    var errorMsg = "Server Error";
-    var expectedError = ApiErrorResult<RegisterEntity>(errorMsg);
+    final errorMsg = "Server Error";
+    final expectedError = ApiErrorResult<RegisterEntity>(errorMsg);
     provideDummy<ApiResult<RegisterEntity>>(expectedError);
 
     blocTest<RegisterViewModel, RegisterStates>(
