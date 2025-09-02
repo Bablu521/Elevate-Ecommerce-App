@@ -11,10 +11,9 @@ abstract class AppRouter {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case RouteNames.login:
-        return MaterialPageRoute(builder: (_) => LoginView());
+        return MaterialPageRoute(builder: (_) => const LoginView());
       case RouteNames.home:
         return MaterialPageRoute(builder: (_) => MainHome());
-
       case RouteNames.register:
         return MaterialPageRoute(builder: (_) => RegisterView());
 

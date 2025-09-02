@@ -16,6 +16,7 @@ import 'login_cubit_test.mocks.dart';
 @GenerateMocks([LoginUseCase, GuestLoginUseCase])
 void main() {
   group("Login Cubit test", () {
+    // ignore: unused_local_variable
     late LoginCubit loginCubit;
     late MockLoginUseCase mockLoginUseCase;
     late LoginRequestModel loginRequestModel;
@@ -28,13 +29,13 @@ void main() {
       loginCubit = LoginCubit(mockLoginUseCase, mockGuestLoginUseCase);
       loginEntity = LoginTestFixtures.fakeLoginEntity();
       loginRequestModel = LoginTestFixtures.fakeLoginRequest();
-      state = LoginState();
+      state = const LoginState();
     });
     provideDummy<ApiResult<LoginEntity>>(
       ApiErrorResult<LoginEntity>("Server Error"),
     );
-    var expectedError = ApiErrorResult<LoginEntity>("Server Error");
-    var expectedResult = ApiSuccessResult<LoginEntity>(loginEntity);
+    final expectedError = ApiErrorResult<LoginEntity>("Server Error");
+    final expectedResult = ApiSuccessResult<LoginEntity>(loginEntity);
     blocTest<LoginCubit, LoginState>(
       'emits [loading, success] when login succeeds',
       build: () {

@@ -108,7 +108,7 @@ void main() {
       ///Arrange
       final LoginResponseDto loginResponseDto =
           LoginTestFixtures.fakeLoginResponse();
-      final LoginEntity loginEntity = LoginEntity(
+      final LoginEntity loginEntity = const LoginEntity(
         userToken: "fake_token",
         message: "success",
       );
@@ -185,5 +185,20 @@ void main() {
         ),
       ).called(0);
 
+       test("user status login", () async {
+      //Arrange
+      const bool expectResult = true;
+      //Act
+      when(
+        mockAuthLocalDataSource.getUserStatus(),
+      ).thenAnswer((_) async => expectResult);
+      final bool result = await authRepoImpl.getUserStatus();
+      //Assert
+      expect(result, isA<bool>());
+      expect(result, equals(expectResult));
+      verify(mockAuthLocalDataSource.getUserStatus()).called(1);
     });
+
+    });
+
 }
