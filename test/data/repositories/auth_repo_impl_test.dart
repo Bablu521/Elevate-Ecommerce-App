@@ -33,7 +33,7 @@ void main() {
       ///Arrange
       final LoginResponseDto loginResponseDto =
           LoginTestFixtures.fakeLoginResponse();
-      final LoginEntity loginEntity = LoginEntity(
+      final LoginEntity loginEntity = const LoginEntity(
         userToken: "fake_token",
         message: "success",
       );
@@ -109,6 +109,44 @@ void main() {
           rememberMe: loginRequestModel.rememberMe,
         ),
       ).called(0);
+    });
+  });
+  group("test user process", () {
+    late MockAuthRemoteDataSource mockAuthRemoteDataSource;
+    late AuthRepoImpl authRepoImpl;
+    late MockAuthLocalDataSource mockAuthLocalDataSource;
+    setUp(() {
+      mockAuthRemoteDataSource = MockAuthRemoteDataSource();
+      mockAuthLocalDataSource = MockAuthLocalDataSource();
+      authRepoImpl = AuthRepoImpl(
+        authRemoteDataSource: mockAuthRemoteDataSource,
+        authLocalDataSource: mockAuthLocalDataSource,
+      );
+    });
+    test("user status login", () async {
+      //Arrange
+      const bool expectResult = true;
+      //Act
+      when(
+        mockAuthLocalDataSource.getUserStatus(),
+      ).thenAnswer((_) async => expectResult);
+      final bool result = await authRepoImpl.getUserStatus();
+      //Assert
+      expect(result, isA<bool>());
+      expect(result, equals(expectResult));
+      verify(mockAuthLocalDataSource.getUserStatus()).called(1);
+    });
+    test("userLogout should call dataSource", () async {
+      // Arrange
+      when(
+        mockAuthLocalDataSource.userLogout(),
+      ).thenAnswer((_) async => Future.value());
+
+      // Act
+      await authRepoImpl.userLogout();
+
+      // Assert
+      verify(mockAuthLocalDataSource.userLogout()).called(1);
     });
   });
 }

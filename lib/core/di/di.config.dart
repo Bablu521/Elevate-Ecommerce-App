@@ -22,8 +22,10 @@ import '../../data/data_source/auth_local_data_source.dart' as _i891;
 import '../../data/data_source/auth_remote_data_source.dart' as _i697;
 import '../../data/repositories/auth_repo_impl.dart' as _i653;
 import '../../domin/repositories/auth_repo.dart' as _i340;
+import '../../domin/use_cases/get_user_status_use_case.dart' as _i799;
 import '../../domin/use_cases/guest_login_use_case.dart' as _i917;
 import '../../domin/use_cases/login_use_case.dart' as _i1073;
+import '../../domin/use_cases/logout_use_case.dart' as _i769;
 import '../../presentation/auth/login/view_models/login_cubit.dart' as _i441;
 import '../module/secure_storage_module.dart' as _i260;
 
@@ -37,11 +39,10 @@ extension GetItInjectableX on _i174.GetIt {
     final apiModule = _$ApiModule();
     final secureStorageModule = _$SecureStorageModule();
     gh.singleton<_i361.Dio>(() => apiModule.provideDio());
-
     gh.lazySingleton<_i558.FlutterSecureStorage>(
       () => secureStorageModule.secureStorage,
     );
-    gh.factory<_i508.ApiClient>(() => _i508.ApiClient(gh<_i361.Dio>()));
+    gh.factory<_i508.ApiClient>(() => _i508.ApiClient.new(gh<_i361.Dio>()));
     gh.factory<_i697.AuthRemoteDataSource>(
       () => _i222.AuthRemoteDataSourceImpl(gh<_i508.ApiClient>()),
     );
@@ -56,11 +57,17 @@ extension GetItInjectableX on _i174.GetIt {
         authLocalDataSource: gh<_i891.AuthLocalDataSource>(),
       ),
     );
+    gh.lazySingleton<_i917.GuestLoginUseCase>(
+      () => _i917.GuestLoginUseCase(gh<_i340.AuthRepo>()),
+    );
     gh.lazySingleton<_i1073.LoginUseCase>(
       () => _i1073.LoginUseCase(gh<_i340.AuthRepo>()),
     );
-    gh.lazySingleton<_i917.GuestLoginUseCase>(
-      () => _i917.GuestLoginUseCase(gh<_i340.AuthRepo>()),
+    gh.lazySingleton<_i799.GetUserStatusUseCase>(
+      () => _i799.GetUserStatusUseCase(gh<_i340.AuthRepo>()),
+    );
+    gh.lazySingleton<_i769.LogoutUseCase>(
+      () => _i769.LogoutUseCase(gh<_i340.AuthRepo>()),
     );
     gh.factory<_i441.LoginCubit>(
       () => _i441.LoginCubit(
@@ -68,9 +75,6 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i917.GuestLoginUseCase>(),
       ),
     );
-=======
-    gh.factory<_i508.ApiClient>(() => _i508.ApiClient.new(gh<_i361.Dio>()));
-
     return this;
   }
 }

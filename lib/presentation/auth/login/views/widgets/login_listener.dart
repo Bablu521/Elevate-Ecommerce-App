@@ -1,3 +1,4 @@
+import 'package:elevate_ecommerce_app/core/router/route_names.dart';
 import 'package:elevate_ecommerce_app/core/utils/loaders/loaders.dart';
 import 'package:elevate_ecommerce_app/presentation/auth/login/view_models/login_cubit.dart';
 import 'package:elevate_ecommerce_app/presentation/auth/login/view_models/login_state.dart';
@@ -23,8 +24,7 @@ class LoginListener extends StatelessWidget {
             message: state.loginEntity?.message ?? "",
             context: context,
           );
-          // Navigator.pushReplacementNamed(context,);
-          
+          Navigator.pushReplacementNamed(context, RouteNames.home);
         } else if (state.errorMessage != null) {
           Navigator.pop(context);
           Loaders.showErrorMessage(
