@@ -36,12 +36,20 @@ class MessageLookup extends MessageLookupByLibrary {
     "connectionTimeout": MessageLookupByLibrary.simpleMessage(
       "Connection timeout. Please try again later.",
     ),
+    "continueAsGuest": MessageLookupByLibrary.simpleMessage(
+      "Continue as guest",
+    ),
     "dioErrorCancel": MessageLookupByLibrary.simpleMessage(
       "Request was cancelled. Please retry.",
     ),
+    "dontHaveAccount": MessageLookupByLibrary.simpleMessage(
+      "Dont\'t have an account?",
+    ),
+    "emailHintText": MessageLookupByLibrary.simpleMessage("Enter your Email"),
     "emailIsRequired": MessageLookupByLibrary.simpleMessage(
       "email is required",
     ),
+    "emailLabel": MessageLookupByLibrary.simpleMessage("Email"),
     "enterNumbersOnly": MessageLookupByLibrary.simpleMessage(
       "Enter numbers only",
     ),
@@ -57,13 +65,19 @@ class MessageLookup extends MessageLookupByLibrary {
     "failedToParseResponse": MessageLookupByLibrary.simpleMessage(
       "Failed to parse error response.",
     ),
+    "forgetPassword": MessageLookupByLibrary.simpleMessage("Forget password?"),
+    "login": MessageLookupByLibrary.simpleMessage("Login"),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
     "noResponse": MessageLookupByLibrary.simpleMessage(
       "No response received from server.",
     ),
+    "passwordHintText": MessageLookupByLibrary.simpleMessage(
+      "Enter your Password",
+    ),
     "passwordIsRequired": MessageLookupByLibrary.simpleMessage(
       "password is required",
     ),
+    "passwordLabel": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordNotMatched": MessageLookupByLibrary.simpleMessage(
       "password Not Matched",
     ),
@@ -71,9 +85,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "receiveTimeout": MessageLookupByLibrary.simpleMessage(
       "Server took too long to respond.",
     ),
+    "rememberMe": MessageLookupByLibrary.simpleMessage("Remember me"),
     "sendTimeout": MessageLookupByLibrary.simpleMessage(
       "Request timed out. Please try again.",
     ),
+    "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
     "thisFieldIsRequired": MessageLookupByLibrary.simpleMessage(
       "This field is required",
     ),
