@@ -34,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Unexpected error response from server",
     ),
     "cart": MessageLookupByLibrary.simpleMessage("Cart"),
+    "cartIsEmpty": MessageLookupByLibrary.simpleMessage("Cart is empty"),
     "categories": MessageLookupByLibrary.simpleMessage("Categories"),
     "checkout": MessageLookupByLibrary.simpleMessage("Checkout"),
     "clearCart": MessageLookupByLibrary.simpleMessage("Clear Cart"),
@@ -124,6 +125,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "pinkRoseBouquet": MessageLookupByLibrary.simpleMessage(
       "15 Pink Rose Bouquet",
     ),
+    "productDescription": MessageLookupByLibrary.simpleMessage(
+      "Product description",
+    ),
+    "productTitle": MessageLookupByLibrary.simpleMessage("Product Title"),
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),
     "receiveTimeout": MessageLookupByLibrary.simpleMessage(
       "Server took too long to respond.",

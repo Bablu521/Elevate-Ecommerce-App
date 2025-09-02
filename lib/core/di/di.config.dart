@@ -23,6 +23,7 @@ import '../../domin/use_cases/add_product_to_cart_use_case.dart' as _i449;
 import '../../domin/use_cases/clear_user_cart_use_case.dart' as _i950;
 import '../../domin/use_cases/delete_specific_cart_item_use_case.dart' as _i721;
 import '../../domin/use_cases/get_logged_user_cart_use_case.dart' as _i193;
+import '../../presentation/cart/view_models/cart_view_model.dart' as _i1031;
 
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -51,6 +52,14 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i193.GetLoggedUserCartUseCase>(
       () => _i193.GetLoggedUserCartUseCase(gh<_i547.CartRepo>()),
+    );
+    gh.factory<_i1031.CartViewModel>(
+      () => _i1031.CartViewModel(
+        gh<_i193.GetLoggedUserCartUseCase>(),
+        gh<_i449.AddProductToCartUseCase>(),
+        gh<_i721.DeleteSpecificCartItemUseCase>(),
+        gh<_i950.ClearUserCartUseCase>(),
+      ),
     );
     return this;
   }

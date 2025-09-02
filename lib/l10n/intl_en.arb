@@ -72,5 +72,8 @@
   "deliveryFee": "Delivery Fee",
   "total": "Total",
   "checkout": "Checkout",
-  "items": "items"
+  "items": "items",
+  "productTitle": "Product Title",
+  "productDescription": "Product description",
+  "cartIsEmpty": "Cart is empty"
 }

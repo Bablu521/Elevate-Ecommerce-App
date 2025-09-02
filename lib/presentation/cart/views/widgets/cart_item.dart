@@ -1,11 +1,19 @@
 import 'package:elevate_ecommerce_app/core/constants/app_colors.dart';
 import 'package:elevate_ecommerce_app/core/constants/app_images.dart';
+import 'package:elevate_ecommerce_app/domin/entities/cart_response_entity/cart_item_entity.dart';
+import 'package:elevate_ecommerce_app/domin/entities/requests/add_product_to_cart_request_entity.dart';
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
+import 'package:elevate_ecommerce_app/presentation/cart/view_models/cart_events.dart';
+import 'package:elevate_ecommerce_app/presentation/cart/view_models/cart_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CartItem extends StatelessWidget {
-  const CartItem({super.key});
+  final CartItemEntity cartItem;
+  final CartViewModel cartViewModel;
+  CartItem({super.key, required this.cartItem, required this.cartViewModel});
+
+  late final product = cartItem.product;
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +34,9 @@ class CartItem extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(8.r)),
                 color: AppColors.lightPink,
-                image: const DecorationImage(
-                  image: AssetImage("assets/images/cartTestImage.png"),
+                image: DecorationImage(
+                  image: NetworkImage("${product!.imgCover}"),
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
@@ -40,33 +49,44 @@ class CartItem extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              AppLocalizations.of(context).redRoses,
-                              style: Theme.of(
-                                context,
-                              ).textTheme.bodyMedium!.copyWith(
-                                fontWeight: FontWeight.w500,
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                product!.title ??
+                                    AppLocalizations.of(context).productTitle,
+                                maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
+                                style: Theme.of(context).textTheme.bodyMedium!
+                                    .copyWith(fontWeight: FontWeight.w500),
                               ),
-                            ),
-                            SizedBox(height: 4.h),
-                            Text(
-                              AppLocalizations.of(context).pinkRoseBouquet,
-                              style: Theme.of(
-                                context,
-                              ).textTheme.bodySmall!.copyWith(
-                                fontSize: 13.sp,
-                                color: AppColors.gray,
-                                overflow: TextOverflow.ellipsis
+                              SizedBox(height: 4.h),
+                              Text(
+                                product!.description ??
+                                    AppLocalizations.of(
+                                      context,
+                                    ).productDescription,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: Theme.of(context).textTheme.bodySmall!
+                                    .copyWith(
+                                      fontSize: 13.sp,
+                                      color: AppColors.gray,
+                                    ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
+                        SizedBox(width: 15.w),
                         InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            cartViewModel.doIntent(
+                              OnDeleteSpecificCartItemEvent(
+                                productId: product?.id ?? '',
+                              ),
+                            );
+                          },
                           child: Container(
                             width: 16.w,
                             height: 18.h,
@@ -86,7 +106,7 @@ class CartItem extends StatelessWidget {
                         Column(
                           children: [
                             Text(
-                              "${AppLocalizations.of(context).eGP} 600",
+                              "${AppLocalizations.of(context).eGP} ${product!.price}",
                               style: Theme.of(context).textTheme.bodySmall!
                                   .copyWith(fontWeight: FontWeight.w600),
                             ),
@@ -97,18 +117,40 @@ class CartItem extends StatelessWidget {
                             Row(
                               children: [
                                 InkWell(
-                                  onTap: () {},
+                                  onTap: () {
+                                    (cartItem.quantity != null && cartItem.quantity! > 1)
+                                        ? cartViewModel.doIntent(
+                                            OnDecrementProductFromCartEvent(
+                                              addProductToCartRequestEntity:
+                                                  AddProductToCartRequestEntity(
+                                                    product: product?.id ?? '',
+                                                    quantity: -1,
+                                                  ),
+                                            ),
+                                          )
+                                        : null;
+                                  },
                                   child: const Icon(Icons.remove),
                                 ),
                                 SizedBox(width: 8.w),
                                 Text(
-                                  "1",
+                                  "${cartItem.quantity}",
                                   style: Theme.of(context).textTheme.bodySmall!
                                       .copyWith(fontWeight: FontWeight.w600),
                                 ),
                                 SizedBox(width: 8.w),
                                 InkWell(
-                                  onTap: () {},
+                                  onTap: () {
+                                    cartViewModel.doIntent(
+                                      OnIncrementProductToCartEvent(
+                                        addProductToCartRequestEntity:
+                                            AddProductToCartRequestEntity(
+                                              product: product?.id ?? '',
+                                              quantity: 1,
+                                            ),
+                                      ),
+                                    );
+                                  },
                                   child: const Icon(Icons.add),
                                 ),
                               ],

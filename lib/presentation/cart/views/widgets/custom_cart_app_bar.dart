@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomCartAppBar extends StatelessWidget {
-  const CustomCartAppBar({super.key});
+  final int numOfCartItems;
+  const CustomCartAppBar({super.key,required this.numOfCartItems});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class CustomCartAppBar extends StatelessWidget {
         ),
         SizedBox(width: 8.w),
         Text(
-          "${AppLocalizations.of(context).cart} (3 ${AppLocalizations.of(context).items}) ",
+          "${AppLocalizations.of(context).cart} ($numOfCartItems ${AppLocalizations.of(context).items}) ",
           style: Theme.of(
             context,
           ).textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.w500),

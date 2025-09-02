@@ -603,6 +603,36 @@ class AppLocalizations {
   String get items {
     return Intl.message('items', name: 'items', desc: '', args: []);
   }
+
+  /// `Product Title`
+  String get productTitle {
+    return Intl.message(
+      'Product Title',
+      name: 'productTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Product description`
+  String get productDescription {
+    return Intl.message(
+      'Product description',
+      name: 'productDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cart is empty`
+  String get cartIsEmpty {
+    return Intl.message(
+      'Cart is empty',
+      name: 'cartIsEmpty',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppLocalizations> {
