@@ -38,7 +38,7 @@ class CustomProductItems extends StatelessWidget {
               width: double.infinity,
               height: MediaQuery.of(context).size.height / 6,
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 13.5),
@@ -52,7 +52,7 @@ class CustomProductItems extends StatelessWidget {
                         context,
                       ).textTheme.bodySmall!.copyWith(fontSize: 12.sp),
                     ),
-                    SizedBox(height: 4),
+                    const SizedBox(height: 4),
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 4,
                       child: Wrap(
@@ -97,7 +97,7 @@ class CustomProductItems extends StatelessWidget {
               width: 147.w,
               child: ElevatedButton.icon(
                 onPressed: () {},
-                icon: Icon(Icons.shopping_cart_outlined, size: 18),
+                icon: const Icon(Icons.shopping_cart_outlined, size: 18),
                 label: Text(
                   local.addToCart,
                   style: theme.textTheme.bodySmall?.copyWith(

@@ -37,11 +37,10 @@ extension GetItInjectableX on _i174.GetIt {
     final apiModule = _$ApiModule();
     final secureStorageModule = _$SecureStorageModule();
     gh.singleton<_i361.Dio>(() => apiModule.provideDio());
-
     gh.lazySingleton<_i558.FlutterSecureStorage>(
       () => secureStorageModule.secureStorage,
     );
-    gh.factory<_i508.ApiClient>(() => _i508.ApiClient(gh<_i361.Dio>()));
+    gh.factory<_i508.ApiClient>(() => _i508.ApiClient.new(gh<_i361.Dio>()));
     gh.factory<_i697.AuthRemoteDataSource>(
       () => _i222.AuthRemoteDataSourceImpl(gh<_i508.ApiClient>()),
     );
@@ -56,11 +55,11 @@ extension GetItInjectableX on _i174.GetIt {
         authLocalDataSource: gh<_i891.AuthLocalDataSource>(),
       ),
     );
-    gh.lazySingleton<_i1073.LoginUseCase>(
-      () => _i1073.LoginUseCase(gh<_i340.AuthRepo>()),
-    );
     gh.lazySingleton<_i917.GuestLoginUseCase>(
       () => _i917.GuestLoginUseCase(gh<_i340.AuthRepo>()),
+    );
+    gh.lazySingleton<_i1073.LoginUseCase>(
+      () => _i1073.LoginUseCase(gh<_i340.AuthRepo>()),
     );
     gh.factory<_i441.LoginCubit>(
       () => _i441.LoginCubit(
@@ -68,9 +67,6 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i917.GuestLoginUseCase>(),
       ),
     );
-=======
-    gh.factory<_i508.ApiClient>(() => _i508.ApiClient.new(gh<_i361.Dio>()));
-
     return this;
   }
 }

@@ -33,7 +33,7 @@ void main() {
       ///Arrange
       final LoginResponseDto loginResponseDto =
           LoginTestFixtures.fakeLoginResponse();
-      final LoginEntity loginEntity = LoginEntity(
+      final LoginEntity loginEntity = const LoginEntity(
         userToken: "fake_token",
         message: "success",
       );
