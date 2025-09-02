@@ -44,8 +44,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "connectionTimeout": MessageLookupByLibrary.simpleMessage(
       "Connection timeout. Please try again later.",
     ),
+
     "creatingAnAccountYouAgreeToOur": MessageLookupByLibrary.simpleMessage(
       "Creating an account, you agree to our ",
+    "continueAsGuest": MessageLookupByLibrary.simpleMessage(
+      "Continue as guest",
     ),
     "dioErrorCancel": MessageLookupByLibrary.simpleMessage(
       "Request was cancelled. Please retry.",
@@ -56,6 +59,14 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "enterFirstName": MessageLookupByLibrary.simpleMessage("Enter first name"),
     "enterLastName": MessageLookupByLibrary.simpleMessage("Enter last name"),
+    "dontHaveAccount": MessageLookupByLibrary.simpleMessage(
+      "Dont\'t have an account?",
+    ),
+    "emailHintText": MessageLookupByLibrary.simpleMessage("Enter your Email"),
+    "emailIsRequired": MessageLookupByLibrary.simpleMessage(
+      "email is required",
+    ),
+    "emailLabel": MessageLookupByLibrary.simpleMessage("Email"),
     "enterNumbersOnly": MessageLookupByLibrary.simpleMessage(
       "Enter numbers only",
     ),
@@ -88,15 +99,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "male": MessageLookupByLibrary.simpleMessage("Male"),
 
+    "forgetPassword": MessageLookupByLibrary.simpleMessage("Forget password?"),
+    "login": MessageLookupByLibrary.simpleMessage("Login"),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
 
     "noResponse": MessageLookupByLibrary.simpleMessage(
       "No response received from server.",
     ),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "passwordHintText": MessageLookupByLibrary.simpleMessage(
+      "Enter your Password",
+    ),
     "passwordIsRequired": MessageLookupByLibrary.simpleMessage(
       "password is required",
     ),
+    "passwordLabel": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordNotMatched": MessageLookupByLibrary.simpleMessage(
       "password Not Matched",
     ),
@@ -118,6 +135,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "termsAndConditions": MessageLookupByLibrary.simpleMessage(
       "Terms&Conditions",
     ),
+    "rememberMe": MessageLookupByLibrary.simpleMessage("Remember me"),
+    "sendTimeout": MessageLookupByLibrary.simpleMessage(
+      "Request timed out. Please try again.",
+    ),
+    "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
     "thisFieldIsRequired": MessageLookupByLibrary.simpleMessage(
       "This field is required",
     ),
