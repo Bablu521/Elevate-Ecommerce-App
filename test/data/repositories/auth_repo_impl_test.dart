@@ -136,17 +136,5 @@ void main() {
       expect(result, equals(expectResult));
       verify(mockAuthLocalDataSource.getUserStatus()).called(1);
     });
-    test("userLogout should call dataSource", () async {
-      // Arrange
-      when(
-        mockAuthLocalDataSource.userLogout(),
-      ).thenAnswer((_) async => Future.value());
-
-      // Act
-      await authRepoImpl.userLogout();
-
-      // Assert
-      verify(mockAuthLocalDataSource.userLogout()).called(1);
-    });
   });
 }

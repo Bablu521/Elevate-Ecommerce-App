@@ -25,7 +25,6 @@ import '../../domin/repositories/auth_repo.dart' as _i340;
 import '../../domin/use_cases/get_user_status_use_case.dart' as _i799;
 import '../../domin/use_cases/guest_login_use_case.dart' as _i917;
 import '../../domin/use_cases/login_use_case.dart' as _i1073;
-import '../../domin/use_cases/logout_use_case.dart' as _i769;
 import '../../presentation/auth/login/view_models/login_cubit.dart' as _i441;
 import '../module/secure_storage_module.dart' as _i260;
 
@@ -65,9 +64,6 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i799.GetUserStatusUseCase>(
       () => _i799.GetUserStatusUseCase(gh<_i340.AuthRepo>()),
-    );
-    gh.lazySingleton<_i769.LogoutUseCase>(
-      () => _i769.LogoutUseCase(gh<_i340.AuthRepo>()),
     );
     gh.factory<_i441.LoginCubit>(
       () => _i441.LoginCubit(

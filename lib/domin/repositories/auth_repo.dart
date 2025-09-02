@@ -8,5 +8,4 @@ abstract interface class AuthRepo {
   });
   Future<void> guestUserLogin();
   Future<bool> getUserStatus();
-  Future<void> userLogout();
 }

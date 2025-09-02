@@ -73,13 +73,4 @@ class AuthRepoImpl implements AuthRepo {
     }
   }
 
-  @override
-  Future<void> userLogout() async {
-    try {
-      await authLocalDataSource.userLogout();
-    } catch (e, stack) {
-      log("Error: $e");
-      log("Stack trace: $stack");
-    }
-  }
 }
