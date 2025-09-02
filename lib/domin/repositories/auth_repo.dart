@@ -7,4 +7,5 @@ abstract interface class AuthRepo {
     required LoginRequestModel loginRequestModel,
   });
   Future<void> guestUserLogin();
+  Future<bool> getUserStatus();
 }

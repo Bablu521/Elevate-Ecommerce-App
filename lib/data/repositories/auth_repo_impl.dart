@@ -61,4 +61,16 @@ class AuthRepoImpl implements AuthRepo {
       userStatus: ConstKeys.kUserGuest,
     );
   }
+
+  @override
+  Future<bool> getUserStatus() async {
+    try {
+      return await authLocalDataSource.getUserStatus();
+    } catch (e, stack) {
+      log("Error: $e");
+      log("Stack trace: $stack");
+      return false;
+    }
+  }
+
 }

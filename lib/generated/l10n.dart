@@ -598,6 +598,27 @@ class AppLocalizations {
   String get loading {
     return Intl.message('Loading...', name: 'loading', desc: '', args: []);
   }
+
+  /// `Guest Mode`
+  String get guestMode {
+    return Intl.message('Guest Mode', name: 'guestMode', desc: '', args: []);
+  }
+
+  /// `Login or create a free account to save your cart, checkout faster, manage your profile, and track your orders.`
+  String get loginToSaveCartAndManageProfile {
+    return Intl.message(
+      'Login or create a free account to save your cart, checkout faster, manage your profile, and track your orders.',
+      name: 'loginToSaveCartAndManageProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `or`
+  String get or {
+    return Intl.message('or', name: 'or', desc: '', args: []);
+  }
+
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppLocalizations> {

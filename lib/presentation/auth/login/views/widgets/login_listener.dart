@@ -24,9 +24,8 @@ class LoginListener extends StatelessWidget {
             message: state.loginEntity?.message ?? "",
             context: context,
           );
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            Navigator.pushReplacementNamed(context, RouteNames.home);
-          });
+          Navigator.pushReplacementNamed(context, RouteNames.home);
+
         } else if (state.errorMessage != null) {
           Navigator.pop(context);
           Loaders.showErrorMessage(

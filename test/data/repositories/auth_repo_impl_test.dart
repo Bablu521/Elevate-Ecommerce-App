@@ -111,4 +111,30 @@ void main() {
       ).called(0);
     });
   });
+  group("test user process", () {
+    late MockAuthRemoteDataSource mockAuthRemoteDataSource;
+    late AuthRepoImpl authRepoImpl;
+    late MockAuthLocalDataSource mockAuthLocalDataSource;
+    setUp(() {
+      mockAuthRemoteDataSource = MockAuthRemoteDataSource();
+      mockAuthLocalDataSource = MockAuthLocalDataSource();
+      authRepoImpl = AuthRepoImpl(
+        authRemoteDataSource: mockAuthRemoteDataSource,
+        authLocalDataSource: mockAuthLocalDataSource,
+      );
+    });
+    test("user status login", () async {
+      //Arrange
+      const bool expectResult = true;
+      //Act
+      when(
+        mockAuthLocalDataSource.getUserStatus(),
+      ).thenAnswer((_) async => expectResult);
+      final bool result = await authRepoImpl.getUserStatus();
+      //Assert
+      expect(result, isA<bool>());
+      expect(result, equals(expectResult));
+      verify(mockAuthLocalDataSource.getUserStatus()).called(1);
+    });
+  });
 }
