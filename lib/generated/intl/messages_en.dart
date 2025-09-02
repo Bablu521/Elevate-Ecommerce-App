@@ -93,11 +93,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "firstName": MessageLookupByLibrary.simpleMessage("First name"),
     "forgetPassword": MessageLookupByLibrary.simpleMessage("Forget password?"),
     "gender": MessageLookupByLibrary.simpleMessage("Gender"),
+    "guestMode": MessageLookupByLibrary.simpleMessage("Guest Mode"),
     "highestPrice": MessageLookupByLibrary.simpleMessage("Highest Price"),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
     "lastName": MessageLookupByLibrary.simpleMessage("Last name"),
     "loading": MessageLookupByLibrary.simpleMessage("Loading..."),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
+    "loginToSaveCartAndManageProfile": MessageLookupByLibrary.simpleMessage(
+      "Login or create a free account to save your cart, checkout faster, manage your profile, and track your orders.",
+    ),
     "lowesPrice": MessageLookupByLibrary.simpleMessage("Lowes Price"),
     "male": MessageLookupByLibrary.simpleMessage("Male"),
     "newWord": MessageLookupByLibrary.simpleMessage("New"),
@@ -113,6 +117,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "ok": MessageLookupByLibrary.simpleMessage("Ok"),
     "old": MessageLookupByLibrary.simpleMessage("Old"),
+    "or": MessageLookupByLibrary.simpleMessage("or"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordHintText": MessageLookupByLibrary.simpleMessage(
       "Enter your Password",

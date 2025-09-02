@@ -61,5 +61,31 @@ void main() {
         mockSecureStorage.write(key: ConstKeys.keyUserToken, value: token),
       ).called(1);
     });
+
+    test("should read correctly", () async {
+      // Arrange 
+      when(
+        mockSecureStorage.read(key: ConstKeys.keyUserStatus),
+      ).thenAnswer((_) async => ConstKeys.kUserLogin);
+
+      // Act
+      await authLocalDataSource.getUserStatus();
+
+      // Assert
+      verify(mockSecureStorage.read(key: ConstKeys.keyUserStatus)).called(1);
+    });
+
+    test("should delete user token and rememberMe correctly", () async {
+      // Arrange
+      when(
+        mockSecureStorage.delete(key: "fake_deleted"),
+      ).thenAnswer((_) async => Future.value());
+      // Act
+      await authLocalDataSource.userLogout();
+
+      // Assert
+      verify(mockSecureStorage.delete(key: ConstKeys.keyUserToken)).called(1);
+      verify(mockSecureStorage.delete(key: ConstKeys.keyRememberMe)).called(1);
+    });
   });
 }

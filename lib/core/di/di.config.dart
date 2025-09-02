@@ -22,9 +22,13 @@ import '../../data/data_source/auth_local_data_source.dart' as _i891;
 import '../../data/data_source/auth_remote_data_source.dart' as _i697;
 import '../../data/repositories/auth_repo_impl.dart' as _i653;
 import '../../domin/repositories/auth_repo.dart' as _i340;
+import '../../domin/use_cases/get_user_status_use_case.dart' as _i799;
 import '../../domin/use_cases/guest_login_use_case.dart' as _i917;
 import '../../domin/use_cases/login_use_case.dart' as _i1073;
+import '../../domin/use_cases/register_use_case.dart' as _i638;
 import '../../presentation/auth/login/view_models/login_cubit.dart' as _i441;
+import '../../presentation/auth/register/view_models/register_view_model.dart'
+    as _i490;
 import '../module/secure_storage_module.dart' as _i260;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -51,9 +55,12 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i340.AuthRepo>(
       () => _i653.AuthRepoImpl(
-        authRemoteDataSource: gh<_i697.AuthRemoteDataSource>(),
-        authLocalDataSource: gh<_i891.AuthLocalDataSource>(),
+        gh<_i697.AuthRemoteDataSource>(),
+        gh<_i891.AuthLocalDataSource>(),
       ),
+    );
+    gh.lazySingleton<_i799.GetUserStatusUseCase>(
+      () => _i799.GetUserStatusUseCase(gh<_i340.AuthRepo>()),
     );
     gh.lazySingleton<_i917.GuestLoginUseCase>(
       () => _i917.GuestLoginUseCase(gh<_i340.AuthRepo>()),
@@ -61,11 +68,17 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i1073.LoginUseCase>(
       () => _i1073.LoginUseCase(gh<_i340.AuthRepo>()),
     );
+    gh.factory<_i638.RegisterUseCase>(
+      () => _i638.RegisterUseCase(gh<_i340.AuthRepo>()),
+    );
     gh.factory<_i441.LoginCubit>(
       () => _i441.LoginCubit(
         gh<_i1073.LoginUseCase>(),
         gh<_i917.GuestLoginUseCase>(),
       ),
+    );
+    gh.factory<_i490.RegisterViewModel>(
+      () => _i490.RegisterViewModel(gh<_i638.RegisterUseCase>()),
     );
     return this;
   }
