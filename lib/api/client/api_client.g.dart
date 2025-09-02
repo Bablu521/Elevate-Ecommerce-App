@@ -18,6 +18,18 @@ class _ApiClient implements ApiClient {
   final ParseErrorLogger? errorLogger;
 
   @override
+
+  Future<OccasionsReponseDto> getAllOccasions() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<OccasionsReponseDto>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'api/v1/occasions',
+
   Future<LoginResponseDto> login(LoginRequestModel loginRequestModel) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -29,15 +41,76 @@ class _ApiClient implements ApiClient {
           .compose(
             _dio.options,
             'auth/signin',
+
             queryParameters: queryParameters,
             data: _data,
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+
+    late OccasionsReponseDto _value;
+    try {
+      _value = OccasionsReponseDto.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<ProductsReponseDto> getProductsByOccasion(String occasionId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'occasion': occasionId};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<ProductsReponseDto>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'api/v1/products',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late ProductsReponseDto _value;
+    try {
+      _value = ProductsReponseDto.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<ProductsReponseDto> getProductsByCategory(String categoryId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'category': categoryId};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<ProductsReponseDto>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'api/v1/products',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late ProductsReponseDto _value;
+    try {
+      _value = ProductsReponseDto.fromJson(_result.data!);
+
     late LoginResponseDto _value;
     try {
       _value = LoginResponseDto.fromJson(_result.data!);
+
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
