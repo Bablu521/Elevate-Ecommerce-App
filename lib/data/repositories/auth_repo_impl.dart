@@ -1,3 +1,7 @@
+import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
+import 'package:elevate_ecommerce_app/data/data_source/auth_remote_data_source.dart';
+import 'package:elevate_ecommerce_app/domin/entities/register_entity.dart';
+import 'package:elevate_ecommerce_app/domin/entities/requests/register_request_entity.dart';
 import 'dart:developer';
 import 'package:elevate_ecommerce_app/api/models/requestes/login_requests/login_request.dart';
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
@@ -11,12 +15,15 @@ import 'package:injectable/injectable.dart';
 
 @Injectable(as: AuthRepo)
 class AuthRepoImpl implements AuthRepo {
-  final AuthRemoteDataSource authRemoteDataSource;
+  final AuthRemoteDataSource _authRemoteDataSource;
   final AuthLocalDataSource authLocalDataSource;
-  AuthRepoImpl({
-    required this.authRemoteDataSource,
-    required this.authLocalDataSource,
-  });
+  const AuthRepoImpl(this._authRemoteDataSource, this.authLocalDataSource,);
+
+  @override
+  Future<ApiResult<RegisterEntity>> register(
+    RegisterRequestEntity registerRequestEntity,
+  ) {
+    return _authRemoteDataSource.register(registerRequestEntity);
 
   @override
   Future<ApiResult<LoginEntity>> login({
@@ -60,6 +67,7 @@ class AuthRepoImpl implements AuthRepo {
       token: ConstKeys.kNoToken,
       userStatus: ConstKeys.kUserGuest,
     );
+
   }
 
   @override

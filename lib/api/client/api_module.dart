@@ -42,4 +42,4 @@ abstract class ApiModule {
     );
     return dio;
   }
-}
+
