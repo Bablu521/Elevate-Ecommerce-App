@@ -309,9 +309,24 @@ class AppLocalizations {
     );
   }
 
-  /// `Sign Up`
-  String get signUp {
-    return Intl.message('Sign Up', name: 'signUp', desc: '', args: []);
+  /// `Home`
+  String get home {
+    return Intl.message('Home', name: 'home', desc: '', args: []);
+  }
+
+  /// `Categories`
+  String get categories {
+    return Intl.message('Categories', name: 'categories', desc: '', args: []);
+  }
+
+  /// `Cart`
+  String get cart {
+    return Intl.message('Cart', name: 'cart', desc: '', args: []);
+  }
+
+  /// `Profile`
+  String get profile {
+    return Intl.message('Profile', name: 'profile', desc: '', args: []);
   }
 }
 

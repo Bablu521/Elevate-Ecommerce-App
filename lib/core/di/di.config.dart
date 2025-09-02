@@ -37,6 +37,7 @@ extension GetItInjectableX on _i174.GetIt {
     final apiModule = _$ApiModule();
     final secureStorageModule = _$SecureStorageModule();
     gh.singleton<_i361.Dio>(() => apiModule.provideDio());
+
     gh.lazySingleton<_i558.FlutterSecureStorage>(
       () => secureStorageModule.secureStorage,
     );
@@ -67,6 +68,9 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i917.GuestLoginUseCase>(),
       ),
     );
+=======
+    gh.factory<_i508.ApiClient>(() => _i508.ApiClient.new(gh<_i361.Dio>()));
+
     return this;
   }
 }

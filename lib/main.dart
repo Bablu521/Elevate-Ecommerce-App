@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: AppTheme.lightTheme,
           onGenerateRoute: AppRouter.onGenerateRoute,
-          initialRoute: RouteNames.login,
+          initialRoute: RouteNames.home,
           localizationsDelegates: [
             AppLocalizations.delegate,
             GlobalMaterialLocalizations.delegate,
