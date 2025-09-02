@@ -34,7 +34,7 @@ abstract class ApiModule {
         onRequest: (options, handler) async {
           final String? token = await TokenStorage.getToken();
           if (token != null && token.isNotEmpty) {
-            options.headers["Authorization"] = token;
+            options.headers["Authorization"] = "Bearer $token";
           }
           return handler.next(options);
         },

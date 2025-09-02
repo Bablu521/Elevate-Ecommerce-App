@@ -18,6 +18,7 @@ class _ApiClient implements ApiClient {
   final ParseErrorLogger? errorLogger;
 
   @override
+
   Future<OccasionsReponseDto> getAllOccasions() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -28,12 +29,26 @@ class _ApiClient implements ApiClient {
           .compose(
             _dio.options,
             'api/v1/occasions',
+
+  Future<LoginResponseDto> login(LoginRequestModel loginRequestModel) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(loginRequestModel.toJson());
+    final _options = _setStreamType<LoginResponseDto>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'auth/signin',
+
             queryParameters: queryParameters,
             data: _data,
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+
     late OccasionsReponseDto _value;
     try {
       _value = OccasionsReponseDto.fromJson(_result.data!);
@@ -91,6 +106,11 @@ class _ApiClient implements ApiClient {
     late ProductsReponseDto _value;
     try {
       _value = ProductsReponseDto.fromJson(_result.data!);
+
+    late LoginResponseDto _value;
+    try {
+      _value = LoginResponseDto.fromJson(_result.data!);
+
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

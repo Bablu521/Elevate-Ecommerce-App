@@ -294,6 +294,21 @@ class AppLocalizations {
     return Intl.message(
       'Enter your email',
       name: 'enterYourEmail',
+  /// `Login`
+  String get login {
+    return Intl.message('Login', name: 'login', desc: '', args: []);
+  }
+
+  /// `Email`
+  String get emailLabel {
+    return Intl.message('Email', name: 'emailLabel', desc: '', args: []);
+  }
+
+  /// `Enter your Email`
+  String get emailHintText {
+    return Intl.message(
+      'Enter your Email',
+      name: 'emailHintText',
       desc: '',
       args: [],
     );
@@ -319,6 +334,15 @@ class AppLocalizations {
     return Intl.message(
       'Confirm password',
       name: 'confirmPassword',
+  String get passwordLabel {
+    return Intl.message('Password', name: 'passwordLabel', desc: '', args: []);
+  }
+
+  /// `Enter your Password`
+  String get passwordHintText {
+    return Intl.message(
+      'Enter your Password',
+      name: 'passwordHintText',
       desc: '',
       args: [],
     );
@@ -339,6 +363,16 @@ class AppLocalizations {
     return Intl.message(
       'Enter phone number',
       name: 'enterPhoneNumber',
+  /// `Remember me`
+  String get rememberMe {
+    return Intl.message('Remember me', name: 'rememberMe', desc: '', args: []);
+  }
+
+  /// `Forget password?`
+  String get forgetPassword {
+    return Intl.message(
+      'Forget password?',
+      name: 'forgetPassword',
       desc: '',
       args: [],
     );
@@ -364,6 +398,11 @@ class AppLocalizations {
     return Intl.message(
       'Creating an account, you agree to our ',
       name: 'creatingAnAccountYouAgreeToOur',
+  /// `Dont't have an account?`
+  String get dontHaveAccount {
+    return Intl.message(
+      'Dont\'t have an account?',
+      name: 'dontHaveAccount',
       desc: '',
       args: [],
     );
@@ -374,6 +413,11 @@ class AppLocalizations {
     return Intl.message(
       'Terms&Conditions',
       name: 'termsAndConditions',
+  /// `Continue as guest`
+  String get continueAsGuest {
+    return Intl.message(
+      'Continue as guest',
+      name: 'continueAsGuest',
       desc: '',
       args: [],
     );
