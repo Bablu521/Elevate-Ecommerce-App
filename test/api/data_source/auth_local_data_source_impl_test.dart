@@ -61,12 +61,20 @@ void main() {
         mockSecureStorage.write(key: ConstKeys.keyUserToken, value: token),
       ).called(1);
     });
+
     test("should read correctly", () async {
+      // Arrange 
+      when(
+        mockSecureStorage.read(key: ConstKeys.keyUserStatus),
+      ).thenAnswer((_) async => ConstKeys.kUserLogin);
+
       // Act
       await authLocalDataSource.getUserStatus();
+
       // Assert
       verify(mockSecureStorage.read(key: ConstKeys.keyUserStatus)).called(1);
     });
+
     test("should delete user token and rememberMe correctly", () async {
       // Arrange
       when(
