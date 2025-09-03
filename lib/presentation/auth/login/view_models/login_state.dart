@@ -1,3 +1,27 @@
-sealed class LoginState {}
+import 'package:elevate_ecommerce_app/domin/entities/login_entity.dart';
+import 'package:equatable/equatable.dart';
 
-final class LoginInitial extends LoginState {}
+class LoginState extends Equatable {
+  final String? errorMessage;
+  final LoginEntity? loginEntity;
+  final bool loading;
+
+  const LoginState({this.errorMessage, this.loginEntity, this.loading = false});
+
+  LoginState initial() => const LoginState();
+
+  LoginState copyWith({
+    String? errorMessage,
+    LoginEntity? loginEntity,
+    bool? loading,
+  }) {
+    return LoginState(
+      errorMessage: errorMessage ?? "",
+      loginEntity: loginEntity,
+      loading: loading ?? false,
+    );
+  }
+
+  @override
+  List<Object?> get props => [errorMessage, loginEntity, loading];
+}

@@ -1,3 +1,35 @@
+import 'package:elevate_ecommerce_app/api/client/api_client.dart';
+import 'package:elevate_ecommerce_app/api/models/requestes/register_request_dto/register_request_dto.dart';
+import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/data/data_source/auth_remote_data_source.dart';
+import 'package:elevate_ecommerce_app/domin/entities/register_entity.dart';
+import 'package:elevate_ecommerce_app/domin/entities/requests/register_request_entity.dart';
+import 'package:elevate_ecommerce_app/api/models/requestes/login_requests/login_request.dart';
+import 'package:elevate_ecommerce_app/api/models/responses/login_response/login_response_dto.dart';
+import 'package:injectable/injectable.dart';
 
-class AuthRemoteDataSourceImpl implements AuthRemoteDataSource{}
+@Injectable(as: AuthRemoteDataSource)
+class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
+  final ApiClient _apiClient;
+  const AuthRemoteDataSourceImpl(this._apiClient);
+
+  @override
+  Future<ApiResult<RegisterEntity>> register(
+    RegisterRequestEntity registerRequestEntity,
+  ) async {
+    return safeApiCall(
+      () => _apiClient.register(
+        RegisterRequestDto.fromDomain(registerRequestEntity),
+      ),
+      (response) => response.user!.toRegisterEntity(),
+    );
+
+  }
+  
+  @override
+  Future<LoginResponseDto> login({
+    required LoginRequestModel loginRequest,
+  }) async {
+    return await _apiClient.login(loginRequest);
+  }
+}

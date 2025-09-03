@@ -239,26 +239,6 @@ class AppLocalizations {
     );
   }
 
-  /// `Home`
-  String get home {
-    return Intl.message('Home', name: 'home', desc: '', args: []);
-  }
-
-  /// `Categories`
-  String get categories {
-    return Intl.message('Categories', name: 'categories', desc: '', args: []);
-  }
-
-  /// `Cart`
-  String get cart {
-    return Intl.message('Cart', name: 'cart', desc: '', args: []);
-  }
-
-  /// `Profile`
-  String get profile {
-    return Intl.message('Profile', name: 'profile', desc: '', args: []);
-  }
-
   /// `Enter valid Egyptian Phone number`
   String get enterValidEgyptianPhoneNumber {
     return Intl.message(
@@ -437,6 +417,91 @@ class AppLocalizations {
   /// `Welcome`
   String get welcome {
     return Intl.message('Welcome', name: 'welcome', desc: '', args: []);
+  }
+
+  /// `Email`
+  String get emailLabel {
+    return Intl.message('Email', name: 'emailLabel', desc: '', args: []);
+  }
+
+  /// `Enter your Email`
+  String get emailHintText {
+    return Intl.message(
+      'Enter your Email',
+      name: 'emailHintText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get passwordLabel {
+    return Intl.message('Password', name: 'passwordLabel', desc: '', args: []);
+  }
+
+  /// `Enter your Password`
+  String get passwordHintText {
+    return Intl.message(
+      'Enter your Password',
+      name: 'passwordHintText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remember me`
+  String get rememberMe {
+    return Intl.message('Remember me', name: 'rememberMe', desc: '', args: []);
+  }
+
+  /// `Forget password?`
+  String get forgetPassword {
+    return Intl.message(
+      'Forget password?',
+      name: 'forgetPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dont't have an account?`
+  String get dontHaveAccount {
+    return Intl.message(
+      'Dont\'t have an account?',
+      name: 'dontHaveAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue as guest`
+  String get continueAsGuest {
+    return Intl.message(
+      'Continue as guest',
+      name: 'continueAsGuest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Home`
+  String get home {
+    return Intl.message('Home', name: 'home', desc: '', args: []);
+  }
+
+  /// `Categories`
+  String get categories {
+    return Intl.message('Categories', name: 'categories', desc: '', args: []);
+  }
+
+  /// `Cart`
+  String get cart {
+    return Intl.message('Cart', name: 'cart', desc: '', args: []);
+  }
+
+  /// `Profile`
+  String get profile {
+    return Intl.message('Profile', name: 'profile', desc: '', args: []);
   }
 
   /// `Add to cart`
@@ -632,6 +697,26 @@ class AppLocalizations {
       desc: '',
       args: [],
     );
+  }
+
+  /// `Guest Mode`
+  String get guestMode {
+    return Intl.message('Guest Mode', name: 'guestMode', desc: '', args: []);
+  }
+
+  /// `Login or create a free account to save your cart, checkout faster, manage your profile, and track your orders.`
+  String get loginToSaveCartAndManageProfile {
+    return Intl.message(
+      'Login or create a free account to save your cart, checkout faster, manage your profile, and track your orders.',
+      name: 'loginToSaveCartAndManageProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `or`
+  String get or {
+    return Intl.message('or', name: 'or', desc: '', args: []);
   }
 }
 

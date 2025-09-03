@@ -6,7 +6,7 @@ import '../../constants/app_colors.dart';
 
 
 abstract class Loaders {
-  static showSuccessMessage({
+  static void showSuccessMessage({
     Widget? title,
     required String message,
     int secondsDuration = 3,
@@ -37,7 +37,7 @@ abstract class Loaders {
     ).show(context);
   }
 
-  static showWarningMessage({
+  static void showWarningMessage({
     Widget? title,
     required String message,
     int secondsDuration = 3,
@@ -68,7 +68,7 @@ abstract class Loaders {
     ).show(context);
   }
 
-  static showErrorMessage({
+  static void showErrorMessage({
     Widget? title,
     required String message,
     int secondsDuration = 3,
