@@ -18,6 +18,15 @@
   "enterValidUsername": "Enter valid username",
   "enterNumbersOnly": "Enter numbers only",
   "enterValueMustEqual11Digit": "Enter value must equal 11 digit",
+  "login": "Login",
+  "emailLabel": "Email",
+  "emailHintText": "Enter your Email",
+  "passwordLabel": "Password",
+  "passwordHintText": "Enter your Password",
+  "rememberMe": "Remember me",
+  "forgetPassword": "Forget password?",
+  "dontHaveAccount": "Dont't have an account?",
+  "continueAsGuest": "Continue as guest",
   "home": "Home",
   "categories": "Categories",
   "cart": "Cart",
@@ -41,7 +50,6 @@
   "creatingAnAccountYouAgreeToOur": "Creating an account, you agree to our ",
   "termsAndConditions": "Terms&Conditions",
   "alreadyHaveAnAccount": "Already have an account? ",
-  "login": "Login",
   "error": "Error",
   "close": "close",
   "registeredSuccessfully": "Registered Successfully!",
@@ -67,5 +75,8 @@
   "update": "Update",
   "resetPassword": "Reset password",
   "newPassword": "New password",
-  "currentPassword": "Current password"
+  "currentPassword": "Current password",
+  "guestMode": "Guest Mode",
+  "loginToSaveCartAndManageProfile": "Login or create a free account to save your cart, checkout faster, manage your profile, and track your orders.",
+  "or": "or"
 }

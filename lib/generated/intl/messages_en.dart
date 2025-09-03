@@ -27,6 +27,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "alreadyHaveAnAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account? ",
     ),
+    "addToCart": MessageLookupByLibrary.simpleMessage("Add to cart"),
+    "all": MessageLookupByLibrary.simpleMessage("All"),
+    "alreadyHaveAnAccount": MessageLookupByLibrary.simpleMessage(
+      "Already have an account? ",
+    ),
     "badCertificate": MessageLookupByLibrary.simpleMessage(
       "Bad certificate. Please check your device date/time.",
     ),
@@ -36,6 +41,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "cart": MessageLookupByLibrary.simpleMessage("Cart"),
     "categories": MessageLookupByLibrary.simpleMessage("Categories"),
     "change": MessageLookupByLibrary.simpleMessage("Change"),
+    "close": MessageLookupByLibrary.simpleMessage("close"),
+    "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm password"),
     "close": MessageLookupByLibrary.simpleMessage("close"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm password"),
     "connectionError": MessageLookupByLibrary.simpleMessage(
@@ -48,19 +55,41 @@ class MessageLookup extends MessageLookupByLibrary {
       "Creating an account, you agree to our ",
     ),
     "currentPassword": MessageLookupByLibrary.simpleMessage("Current password"),
+    "continueAsGuest": MessageLookupByLibrary.simpleMessage(
+      "Continue as guest",
+    ),
+    "creatingAnAccountYouAgreeToOur": MessageLookupByLibrary.simpleMessage(
+      "Creating an account, you agree to our ",
+    ),
     "dioErrorCancel": MessageLookupByLibrary.simpleMessage(
       "Request was cancelled. Please retry.",
     ),
     "discount": MessageLookupByLibrary.simpleMessage("Discount"),
     "editProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "discount": MessageLookupByLibrary.simpleMessage("Discount"),
+    "dontHaveAccount": MessageLookupByLibrary.simpleMessage(
+      "Dont\'t have an account?",
+    ),
+    "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "emailHintText": MessageLookupByLibrary.simpleMessage("Enter your Email"),
     "emailIsRequired": MessageLookupByLibrary.simpleMessage(
       "email is required",
     ),
+    "emailLabel": MessageLookupByLibrary.simpleMessage("Email"),
+    "enterFirstName": MessageLookupByLibrary.simpleMessage("Enter first name"),
+    "enterLastName": MessageLookupByLibrary.simpleMessage("Enter last name"),
     "enterFirstName": MessageLookupByLibrary.simpleMessage("Enter first name"),
     "enterLastName": MessageLookupByLibrary.simpleMessage("Enter last name"),
     "enterNumbersOnly": MessageLookupByLibrary.simpleMessage(
       "Enter numbers only",
+    ),
+    "enterPassword": MessageLookupByLibrary.simpleMessage("Enter password"),
+    "enterPhoneNumber": MessageLookupByLibrary.simpleMessage(
+      "Enter phone number",
+    ),
+    "enterValidEgyptianPhoneNumber": MessageLookupByLibrary.simpleMessage(
+      "Enter valid Egyptian Phone number",
     ),
     "enterPassword": MessageLookupByLibrary.simpleMessage("Enter password"),
     "enterPhoneNumber": MessageLookupByLibrary.simpleMessage(
@@ -80,9 +109,18 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "enterYourEmail": MessageLookupByLibrary.simpleMessage("Enter your email"),
     "error": MessageLookupByLibrary.simpleMessage("Error"),
+    "enterYourEmail": MessageLookupByLibrary.simpleMessage("Enter your email"),
+    "error": MessageLookupByLibrary.simpleMessage("Error"),
     "failedToParseResponse": MessageLookupByLibrary.simpleMessage(
       "Failed to parse error response.",
     ),
+    "female": MessageLookupByLibrary.simpleMessage("Female"),
+    "filter": MessageLookupByLibrary.simpleMessage("Filter"),
+    "firstName": MessageLookupByLibrary.simpleMessage("First name"),
+    "forgetPassword": MessageLookupByLibrary.simpleMessage("Forget password?"),
+    "gender": MessageLookupByLibrary.simpleMessage("Gender"),
+    "guestMode": MessageLookupByLibrary.simpleMessage("Guest Mode"),
+    "highestPrice": MessageLookupByLibrary.simpleMessage("Highest Price"),
     "female": MessageLookupByLibrary.simpleMessage("Female"),
     "filter": MessageLookupByLibrary.simpleMessage("Filter"),
     "firstName": MessageLookupByLibrary.simpleMessage("First name"),
@@ -103,8 +141,31 @@ class MessageLookup extends MessageLookupByLibrary {
     "noProductsAvailable": MessageLookupByLibrary.simpleMessage(
       "No products available",
     ),
+    "lastName": MessageLookupByLibrary.simpleMessage("Last name"),
+    "loading": MessageLookupByLibrary.simpleMessage("Loading..."),
+    "login": MessageLookupByLibrary.simpleMessage("Login"),
+    "loginToSaveCartAndManageProfile": MessageLookupByLibrary.simpleMessage(
+      "Login or create a free account to save your cart, checkout faster, manage your profile, and track your orders.",
+    ),
+    "lowesPrice": MessageLookupByLibrary.simpleMessage("Lowes Price"),
+    "male": MessageLookupByLibrary.simpleMessage("Male"),
+    "newWord": MessageLookupByLibrary.simpleMessage("New"),
+    "no": MessageLookupByLibrary.simpleMessage("No"),
+    "noCategoriesAvailable": MessageLookupByLibrary.simpleMessage(
+      "No categories available",
+    ),
+    "noProductsAvailable": MessageLookupByLibrary.simpleMessage(
+      "No products available",
+    ),
     "noResponse": MessageLookupByLibrary.simpleMessage(
       "No response received from server.",
+    ),
+    "ok": MessageLookupByLibrary.simpleMessage("Ok"),
+    "old": MessageLookupByLibrary.simpleMessage("Old"),
+    "or": MessageLookupByLibrary.simpleMessage("or"),
+    "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "passwordHintText": MessageLookupByLibrary.simpleMessage(
+      "Enter your Password",
     ),
     "ok": MessageLookupByLibrary.simpleMessage("Ok"),
     "old": MessageLookupByLibrary.simpleMessage("Old"),
@@ -112,9 +173,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordIsRequired": MessageLookupByLibrary.simpleMessage(
       "password is required",
     ),
+    "passwordLabel": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordNotMatched": MessageLookupByLibrary.simpleMessage(
       "password Not Matched",
     ),
+    "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone number"),
     "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone number"),
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),
     "receiveTimeout": MessageLookupByLibrary.simpleMessage(
@@ -125,8 +188,18 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "resetPassword": MessageLookupByLibrary.simpleMessage("Reset password"),
     "search": MessageLookupByLibrary.simpleMessage("Search"),
+    "registeredSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Registered Successfully!",
+    ),
+    "rememberMe": MessageLookupByLibrary.simpleMessage("Remember me"),
+    "search": MessageLookupByLibrary.simpleMessage("Search"),
     "sendTimeout": MessageLookupByLibrary.simpleMessage(
       "Request timed out. Please try again.",
+    ),
+    "signUp": MessageLookupByLibrary.simpleMessage("Sign up"),
+    "sortBy": MessageLookupByLibrary.simpleMessage("Sort by"),
+    "termsAndConditions": MessageLookupByLibrary.simpleMessage(
+      "Terms&Conditions",
     ),
     "signUp": MessageLookupByLibrary.simpleMessage("Sign up"),
     "sortBy": MessageLookupByLibrary.simpleMessage("Sort by"),
@@ -141,6 +214,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "An unexpected error occurred:",
     ),
     "update": MessageLookupByLibrary.simpleMessage("Update"),
+    "welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
+    "yes": MessageLookupByLibrary.simpleMessage("Yes"),
     "welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
     "yes": MessageLookupByLibrary.simpleMessage("Yes"),
   };

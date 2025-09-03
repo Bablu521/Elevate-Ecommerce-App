@@ -7,10 +7,10 @@ import 'package:flutter/material.dart';
 class ControllerHomeProvider extends ChangeNotifier {
   int currentIndex = 0;
   List<Widget> get screens => [
-    HomePage(),
-    CategoriesPage(),
-    CartPage(),
-    ProfilePage(),
+    const HomePage(),
+    const CategoriesPage(),
+    const CartPage(),
+    const ProfilePage(),
   ];
   void changePage(int index) {
     currentIndex = index;
