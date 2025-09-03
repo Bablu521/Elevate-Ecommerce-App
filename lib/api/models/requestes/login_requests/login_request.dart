@@ -8,8 +8,8 @@ class LoginRequestModel extends Equatable {
   final String email;
   final String password;
   @JsonKey(includeFromJson: false, includeToJson: false)
-  bool rememberMe;
-  LoginRequestModel({
+  final bool rememberMe;
+  const LoginRequestModel({
     required this.email,
     required this.password,
     this.rememberMe = false,

@@ -8,7 +8,7 @@ class LoginState extends Equatable {
 
   const LoginState({this.errorMessage, this.loginEntity, this.loading = false});
 
-  LoginState initial() => LoginState();
+  LoginState initial() => const LoginState();
 
   LoginState copyWith({
     String? errorMessage,

@@ -65,6 +65,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i799.GetUserStatusUseCase>(
       () => _i799.GetUserStatusUseCase(gh<_i340.AuthRepo>()),
     );
+    gh.lazySingleton<_i1073.LoginUseCase>(
+      () => _i1073.LoginUseCase(gh<_i340.AuthRepo>()),
+    );
     gh.factory<_i441.LoginCubit>(
       () => _i441.LoginCubit(
         gh<_i1073.LoginUseCase>(),

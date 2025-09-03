@@ -36,7 +36,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 passwordController: passwordController,
               ),
               const SizedBox(height: 16),
-              SectionRememberMeAndForgetPassword(),
+              const SectionRememberMeAndForgetPassword(),
               const SizedBox(height: 64),
               SectionButtonLogin(
                 globalKey: globalKey,
