@@ -15,7 +15,6 @@ class SectionRememberMeAndForgetPassword extends StatefulWidget {
 
 class _SectionRememberMeAndForgetPasswordState
     extends State<SectionRememberMeAndForgetPassword> {
-  bool rememberMe = false;
 
   @override
   Widget build(BuildContext context) {
@@ -30,11 +29,10 @@ class _SectionRememberMeAndForgetPasswordState
             BlocBuilder<LoginCubit, LoginState>(
               builder: (context, state) {
                 return Checkbox(
-                  value: rememberMe,
+                  value: state.rememberMe,
                   onChanged: (value) {
-                    rememberMe = !rememberMe;
                     cubit.doIntent(
-                      LoginEventRememberMe(rememberMe: rememberMe),
+                      LoginEventRememberMe(rememberMe: value ?? false),
                     );
                   },
                 );

@@ -56,14 +56,11 @@ extension GetItInjectableX on _i174.GetIt {
         authLocalDataSource: gh<_i891.AuthLocalDataSource>(),
       ),
     );
-    gh.lazySingleton<_i917.GuestLoginUseCase>(
-      () => _i917.GuestLoginUseCase(gh<_i340.AuthRepo>()),
-    );
-    gh.lazySingleton<_i1073.LoginUseCase>(
-      () => _i1073.LoginUseCase(gh<_i340.AuthRepo>()),
-    );
     gh.lazySingleton<_i799.GetUserStatusUseCase>(
       () => _i799.GetUserStatusUseCase(gh<_i340.AuthRepo>()),
+    );
+    gh.lazySingleton<_i917.GuestLoginUseCase>(
+      () => _i917.GuestLoginUseCase(gh<_i340.AuthRepo>()),
     );
     gh.lazySingleton<_i1073.LoginUseCase>(
       () => _i1073.LoginUseCase(gh<_i340.AuthRepo>()),

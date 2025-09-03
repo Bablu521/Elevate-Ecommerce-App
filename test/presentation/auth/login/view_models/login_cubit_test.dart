@@ -98,7 +98,7 @@ void main() {
       act: (cubit) {
         cubit.doIntent(LoginEventRememberMe(rememberMe: true));
       },
-      expect: () => [state.initial()],
+      expect: () => [state.copyWith()],
       verify: (cubit) {
         expect(cubit.rememberMe, true);
       },
