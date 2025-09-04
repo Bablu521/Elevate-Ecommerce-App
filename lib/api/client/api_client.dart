@@ -1,6 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
+
+import '../../core/constants/end_points.dart';
+import '../models/responses/auth/profile/edit_profile.dart';
 part 'api_client.g.dart';
 
 
@@ -9,5 +12,9 @@ part 'api_client.g.dart';
 abstract class ApiClient {
   @factoryMethod
   factory ApiClient(Dio dio) = _ApiClient;
-  // Define your API methods here, for example:
+
+  @PUT(Endpoints.editProfile)
+  Future<EditProfileDto> editProfile(
+      @Header("Authorization") String token,
+      );
 }
