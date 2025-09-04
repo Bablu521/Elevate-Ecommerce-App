@@ -61,5 +61,13 @@
   "ok": "Ok",
   "no": "No",
   "yes": "Yes",
-  "loading": "Loading..."
+  "loading": "Loading...",
+  "flowery": "Flowery",
+  "myOrders": "My orders",
+  "savedAddress": "Saved address",
+  "notifications": "Notifications",
+  "language": "Language",
+  "aboutUs": "About us",
+  "logout": "Logout",
+  "english": "English"
 }

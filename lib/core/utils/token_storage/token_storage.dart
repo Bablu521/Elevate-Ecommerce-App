@@ -11,19 +11,19 @@ abstract class TokenStorage {
 
   static Future<void> saveToken(String token) async {
     try {
-      await _storage.write(key: ConstKeys.tokenKey, value: token);
+      await _storage.write(key: ConstKeys.keyUserToken, value: token);
     } catch (e) {
       log('SecureStorage error: $e');
       await _storage.deleteAll();
-      await _storage.write(key: ConstKeys.tokenKey, value: token);
+      await _storage.write(key: ConstKeys.keyUserToken, value: token);
     }
   }
 
   static Future<String?> getToken() async {
-    return await _storage.read(key: ConstKeys.tokenKey);
+    return await _storage.read(key: ConstKeys.keyUserToken);
   }
 
   static Future<void> deleteToken() async {
-    await _storage.delete(key: ConstKeys.tokenKey);
+    await _storage.delete(key: ConstKeys.keyUserToken);
   }
 }
