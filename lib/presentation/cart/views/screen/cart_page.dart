@@ -1,5 +1,7 @@
 import 'package:elevate_ecommerce_app/core/constants/app_colors.dart';
 import 'package:elevate_ecommerce_app/core/di/di.dart';
+import 'package:elevate_ecommerce_app/core/router/route_names.dart';
+import 'package:elevate_ecommerce_app/core/utils/widgets/user_guest_mode_page.dart';
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
 import 'package:elevate_ecommerce_app/presentation/cart/view_models/cart_events.dart';
 import 'package:elevate_ecommerce_app/presentation/cart/view_models/cart_states.dart';
@@ -33,18 +35,16 @@ class _CartPageState extends State<CartPage> {
     return BlocBuilder<CartViewModel, CartStates>(
       bloc: cartViewModel,
       builder: (context, state) {
-        if (state.cartDataLoading) {
+        if (state.navigateToLoginScreen) {
+          return const UserGuestModePage();
+        } else if (state.cartDataLoading) {
           return Center(
             child: CircularProgressIndicator(color: AppColors.mainColor),
           );
         } else if (state.cartDataErrorMessage != null) {
           return Center(child: Text(state.cartDataErrorMessage!));
-        } else if (state.cartDataSuccess == null && !state.cartDataLoading) {
+        } else if (state.cartIsEmpty) {
           return Center(child: Text(AppLocalizations.of(context).cartIsEmpty));
-        } else if ((state.cartDataSuccess?.cart?.cartItems?.isEmpty ?? true) && !state.cartDataLoading) {
-          return Center(child: Text(AppLocalizations.of(context).cartIsEmpty,style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-            color: AppColors.mainColor
-          ),));
         } else {
           final response = state.cartDataSuccess!;
           return SafeArea(
@@ -99,7 +99,9 @@ class _CartPageState extends State<CartPage> {
                       height: 48.h,
                       width: double.infinity,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, RouteNames.checkOut);
+                        },
                         child: Text(AppLocalizations.of(context).checkout),
                       ),
                     ),

@@ -54,31 +54,11 @@ extension GetItInjectableX on _i174.GetIt {
       () => secureStorageModule.secureStorage,
     );
     gh.factory<_i508.ApiClient>(() => _i508.ApiClient.new(gh<_i361.Dio>()));
+    gh.factory<_i891.AuthLocalDataSource>(
+      () => _i914.AuthLocalDataSourceImpl(gh<_i558.FlutterSecureStorage>()),
+    );
     gh.factory<_i697.AuthRemoteDataSource>(
       () => _i222.AuthRemoteDataSourceImpl(gh<_i508.ApiClient>()),
-    );
-    gh.factory<_i986.CartRemoteDataSource>(
-      () => _i279.CartRemoteDataSourceImpl(gh<_i508.ApiClient>()),
-    );
-    gh.factory<_i891.AuthLocalDataSource>(
-      () => _i914.AuthLocalDataSourceImpl(
-        secureStorage: gh<_i558.FlutterSecureStorage>(),
-      ),
-    );
-    gh.factory<_i547.CartRepo>(
-      () => _i418.CartRepoImpl(gh<_i986.CartRemoteDataSource>()),
-    );
-    gh.factory<_i449.AddProductToCartUseCase>(
-      () => _i449.AddProductToCartUseCase(gh<_i547.CartRepo>()),
-    );
-    gh.factory<_i950.ClearUserCartUseCase>(
-      () => _i950.ClearUserCartUseCase(gh<_i547.CartRepo>()),
-    );
-    gh.factory<_i721.DeleteSpecificCartItemUseCase>(
-      () => _i721.DeleteSpecificCartItemUseCase(gh<_i547.CartRepo>()),
-    );
-    gh.factory<_i193.GetLoggedUserCartUseCase>(
-      () => _i193.GetLoggedUserCartUseCase(gh<_i547.CartRepo>()),
     );
     gh.factory<_i340.AuthRepo>(
       () => _i653.AuthRepoImpl(
@@ -98,22 +78,41 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i638.RegisterUseCase>(
       () => _i638.RegisterUseCase(gh<_i340.AuthRepo>()),
     );
-    gh.factory<_i1031.CartViewModel>(
-      () => _i1031.CartViewModel(
-        gh<_i193.GetLoggedUserCartUseCase>(),
-        gh<_i449.AddProductToCartUseCase>(),
-        gh<_i721.DeleteSpecificCartItemUseCase>(),
-        gh<_i950.ClearUserCartUseCase>(),
-      ),
-    );
     gh.factory<_i441.LoginCubit>(
       () => _i441.LoginCubit(
         gh<_i1073.LoginUseCase>(),
         gh<_i917.GuestLoginUseCase>(),
       ),
     );
+    gh.factory<_i986.CartRemoteDataSource>(
+      () => _i279.CartRemoteDataSourceImpl(gh<_i508.ApiClient>()),
+    );
     gh.factory<_i490.RegisterViewModel>(
       () => _i490.RegisterViewModel(gh<_i638.RegisterUseCase>()),
+    );
+    gh.factory<_i547.CartRepo>(
+      () => _i418.CartRepoImpl(gh<_i986.CartRemoteDataSource>()),
+    );
+    gh.factory<_i449.AddProductToCartUseCase>(
+      () => _i449.AddProductToCartUseCase(gh<_i547.CartRepo>()),
+    );
+    gh.factory<_i950.ClearUserCartUseCase>(
+      () => _i950.ClearUserCartUseCase(gh<_i547.CartRepo>()),
+    );
+    gh.factory<_i721.DeleteSpecificCartItemUseCase>(
+      () => _i721.DeleteSpecificCartItemUseCase(gh<_i547.CartRepo>()),
+    );
+    gh.factory<_i193.GetLoggedUserCartUseCase>(
+      () => _i193.GetLoggedUserCartUseCase(gh<_i547.CartRepo>()),
+    );
+    gh.factory<_i1031.CartViewModel>(
+      () => _i1031.CartViewModel(
+        gh<_i193.GetLoggedUserCartUseCase>(),
+        gh<_i449.AddProductToCartUseCase>(),
+        gh<_i721.DeleteSpecificCartItemUseCase>(),
+        gh<_i950.ClearUserCartUseCase>(),
+        gh<_i799.GetUserStatusUseCase>(),
+      ),
     );
     return this;
   }

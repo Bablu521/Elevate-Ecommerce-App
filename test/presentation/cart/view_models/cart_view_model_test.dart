@@ -12,6 +12,7 @@ import 'package:elevate_ecommerce_app/domin/use_cases/add_product_to_cart_use_ca
 import 'package:elevate_ecommerce_app/domin/use_cases/clear_user_cart_use_case.dart';
 import 'package:elevate_ecommerce_app/domin/use_cases/delete_specific_cart_item_use_case.dart';
 import 'package:elevate_ecommerce_app/domin/use_cases/get_logged_user_cart_use_case.dart';
+import 'package:elevate_ecommerce_app/domin/use_cases/get_user_status_use_case.dart';
 import 'package:mockito/annotations.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:mockito/mockito.dart';
@@ -23,6 +24,7 @@ import 'cart_view_model_test.mocks.dart';
   AddProductToCartUseCase,
   DeleteSpecificCartItemUseCase,
   ClearUserCartUseCase,
+  GetUserStatusUseCase,
 ])
 void main() {
   group('Test CartViewModel', () {
@@ -30,6 +32,7 @@ void main() {
     late MockAddProductToCartUseCase mockedAddProductToCartUseCase;
     late MockDeleteSpecificCartItemUseCase mockedDeleteSpecificCartItemUseCase;
     late MockClearUserCartUseCase mockedClearUserCartUseCase;
+    late MockGetUserStatusUseCase mockedGetUserStatusUseCase;
     late CartViewModel cartViewModel;
     const CartStates state = CartStates();
     late ProductEntity productEntity;
@@ -47,13 +50,15 @@ void main() {
       mockedAddProductToCartUseCase = MockAddProductToCartUseCase();
       mockedDeleteSpecificCartItemUseCase = MockDeleteSpecificCartItemUseCase();
       mockedClearUserCartUseCase = MockClearUserCartUseCase();
+      mockedGetUserStatusUseCase = MockGetUserStatusUseCase();
       cartViewModel = CartViewModel(
         mockedGetLoggedUserCartUseCase,
         mockedAddProductToCartUseCase,
         mockedDeleteSpecificCartItemUseCase,
         mockedClearUserCartUseCase,
+        mockedGetUserStatusUseCase,
       );
-      
+
       productEntity = ProductEntity(
         rateAvg: 5,
         rateCount: 10,
@@ -113,6 +118,7 @@ void main() {
       'call doIntent with OnLoadLoggedUserCartDataEvent then load and successed',
       build: () => cartViewModel,
       act: (cartViewModel) async {
+        when(mockedGetUserStatusUseCase.call()).thenAnswer((_) async => true);
         when(
           mockedGetLoggedUserCartUseCase.call(),
         ).thenAnswer((_) async => expectedResult);
@@ -126,6 +132,7 @@ void main() {
         ),
       ],
       verify: (_) {
+        verify(mockedGetUserStatusUseCase.call()).called(1);
         verify(mockedGetLoggedUserCartUseCase.call()).called(1);
       },
     );
@@ -134,6 +141,7 @@ void main() {
       'call doIntent with OnLoadLoggedUserCartDataEvent then load and failed',
       build: () => cartViewModel,
       act: (cartViewModel) async {
+        when(mockedGetUserStatusUseCase.call()).thenAnswer((_) async => true);
         when(
           mockedGetLoggedUserCartUseCase.call(),
         ).thenAnswer((_) async => expectedFailure);
@@ -147,7 +155,25 @@ void main() {
         ),
       ],
       verify: (_) {
+        verify(mockedGetUserStatusUseCase.call()).called(1);
         verify(mockedGetLoggedUserCartUseCase.call()).called(1);
+      },
+    );
+
+    blocTest<CartViewModel, CartStates>(
+      'call doIntent with OnLoadLoggedUserCartDataEvent when user not logged in',
+      build: () => cartViewModel,
+      act: (cartViewModel) async {
+        when(mockedGetUserStatusUseCase.call()).thenAnswer((_) async => false);
+        return cartViewModel.doIntent(OnLoadLoggedUserCartDataEvent());
+      },
+      expect: () => [
+        state.copyWith(cartDataLoading: true),
+        state.copyWith(cartDataLoading: false, navigateToLoginScreen: true),
+      ],
+      verify: (_) {
+        verify(mockedGetUserStatusUseCase.call()).called(1);
+        verifyNever(mockedGetLoggedUserCartUseCase.call());
       },
     );
 
@@ -164,7 +190,9 @@ void main() {
           ),
         );
       },
-      expect: () => [state.copyWith(cartDataSuccess: expectedCartResponseEntity)],
+      expect: () => [
+        state.copyWith(cartDataSuccess: expectedCartResponseEntity),
+      ],
       verify: (_) {
         verify(
           mockedAddProductToCartUseCase.call(addProductToCartRequestEntity),
@@ -172,7 +200,6 @@ void main() {
       },
     );
 
-  
     blocTest<CartViewModel, CartStates>(
       'call doIntent with OnIncrementProductToCartEvent then failed',
       build: () => cartViewModel,
@@ -188,10 +215,13 @@ void main() {
       },
       expect: () => [state.copyWith(cartDataErrorMessage: expectedError)],
       verify: (_) {
-        verify(mockedAddProductToCartUseCase.call(addProductToCartRequestEntity)).called(1);
+        verify(
+          mockedAddProductToCartUseCase.call(addProductToCartRequestEntity),
+        ).called(1);
       },
     );
 
+  
     blocTest<CartViewModel, CartStates>(
       'call doIntent with OnDecrementProductFromCartEvent then successed',
       build: () => cartViewModel,
@@ -200,7 +230,9 @@ void main() {
           mockedAddProductToCartUseCase.call(addProductToCartRequestEntity),
         ).thenAnswer((_) async => expectedResult);
         return cartViewModel.doIntent(
-          OnDecrementProductFromCartEvent(addProductToCartRequestEntity: addProductToCartRequestEntity)
+          OnDecrementProductFromCartEvent(
+            addProductToCartRequestEntity: addProductToCartRequestEntity,
+          ),
         );
       },
       expect: () => [
@@ -221,7 +253,9 @@ void main() {
           mockedAddProductToCartUseCase.call(addProductToCartRequestEntity),
         ).thenAnswer((_) async => expectedFailure);
         return cartViewModel.doIntent(
-          OnDecrementProductFromCartEvent(addProductToCartRequestEntity: addProductToCartRequestEntity)
+          OnDecrementProductFromCartEvent(
+            addProductToCartRequestEntity: addProductToCartRequestEntity,
+          ),
         );
       },
       expect: () => [state.copyWith(cartDataErrorMessage: expectedError)],
@@ -232,6 +266,7 @@ void main() {
       },
     );
 
+  
     blocTest<CartViewModel, CartStates>(
       'call doIntent with OnDeleteSpecificCartItemEvent then successed',
       build: () => cartViewModel,
@@ -240,19 +275,18 @@ void main() {
           mockedDeleteSpecificCartItemUseCase.call(productId),
         ).thenAnswer((_) async => expectedResult);
         return cartViewModel.doIntent(
-          OnDeleteSpecificCartItemEvent(productId: productId)
+          OnDeleteSpecificCartItemEvent(productId: productId),
         );
       },
       expect: () => [
         state.copyWith(cartDataSuccess: expectedCartResponseEntity),
       ],
       verify: (_) {
-        verify(
-          mockedDeleteSpecificCartItemUseCase.call(productId),
-        ).called(1);
+        verify(mockedDeleteSpecificCartItemUseCase.call(productId)).called(1);
       },
     );
 
+  
     blocTest<CartViewModel, CartStates>(
       'call doIntent with OnDeleteSpecificCartItemEvent then failed',
       build: () => cartViewModel,
@@ -261,35 +295,29 @@ void main() {
           mockedDeleteSpecificCartItemUseCase.call(productId),
         ).thenAnswer((_) async => expectedFailure);
         return cartViewModel.doIntent(
-          OnDeleteSpecificCartItemEvent(productId: productId)
+          OnDeleteSpecificCartItemEvent(productId: productId),
         );
       },
       expect: () => [state.copyWith(cartDataErrorMessage: expectedError)],
       verify: (_) {
-        verify(
-          mockedDeleteSpecificCartItemUseCase.call(productId),
-        ).called(1);
+        verify(mockedDeleteSpecificCartItemUseCase.call(productId)).called(1);
       },
     );
 
-      blocTest<CartViewModel, CartStates>(
+    blocTest<CartViewModel, CartStates>(
       'call doIntent with OnClearUserCartEvent then successed',
       build: () => cartViewModel,
       act: (cartViewModel) async {
         when(
-          mockedClearUserCartUseCase.call()
+          mockedClearUserCartUseCase.call(),
         ).thenAnswer((_) async => expectedResult);
-        return cartViewModel.doIntent(
-          OnClearUserCartEvent()
-        );
+        return cartViewModel.doIntent(OnClearUserCartEvent());
       },
       expect: () => [
-        state.copyWith(cartDataSuccess: expectedCartResponseEntity),
+        state.copyWith(cartDataSuccess: expectedCartResponseEntity,cartIsEmpty: true),
       ],
       verify: (_) {
-        verify(
-          mockedClearUserCartUseCase.call()
-        ).called(1);
+        verify(mockedClearUserCartUseCase.call()).called(1);
       },
     );
 
@@ -300,15 +328,11 @@ void main() {
         when(
           mockedClearUserCartUseCase.call(),
         ).thenAnswer((_) async => expectedFailure);
-        return cartViewModel.doIntent(
-          OnClearUserCartEvent(),
-        );
+        return cartViewModel.doIntent(OnClearUserCartEvent());
       },
       expect: () => [state.copyWith(cartDataErrorMessage: expectedError)],
       verify: (_) {
-        verify(
-          mockedClearUserCartUseCase.call()
-        ).called(1);
+        verify(mockedClearUserCartUseCase.call()).called(1);
       },
     );
   });

@@ -5,22 +5,31 @@ class CartStates extends Equatable {
   final bool cartDataLoading;
   final CartResponseEntity? cartDataSuccess;
   final String? cartDataErrorMessage;
+  final bool navigateToLoginScreen;
+  final bool cartIsEmpty;
 
   const CartStates({
     this.cartDataLoading = false,
     this.cartDataSuccess,
     this.cartDataErrorMessage,
+    this.navigateToLoginScreen = false,
+    this.cartIsEmpty = false
   });
 
   CartStates copyWith({
     bool? cartDataLoading,
     CartResponseEntity? cartDataSuccess,
-    String? cartDataErrorMessage
+    String? cartDataErrorMessage,
+    bool? navigateToLoginScreen,
+    bool? cartIsEmpty
   }) {
     return CartStates(
       cartDataLoading: cartDataLoading ?? this.cartDataLoading,
       cartDataSuccess: cartDataSuccess,
-      cartDataErrorMessage: cartDataErrorMessage
+      cartDataErrorMessage: cartDataErrorMessage,
+      navigateToLoginScreen:
+          navigateToLoginScreen ?? this.navigateToLoginScreen,
+          cartIsEmpty: cartIsEmpty ?? this.cartIsEmpty
     );
   }
 
@@ -29,5 +38,6 @@ class CartStates extends Equatable {
     cartDataLoading,
     cartDataSuccess,
     cartDataErrorMessage,
+    navigateToLoginScreen,
   ];
 }

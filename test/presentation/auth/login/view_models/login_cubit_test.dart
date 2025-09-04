@@ -21,13 +21,12 @@ void main() {
     late MockLoginUseCase mockLoginUseCase;
     late LoginRequestModel loginRequestModel;
     late MockGuestLoginUseCase mockGuestLoginUseCase;
-    late LoginEntity loginEntity;
+    final loginEntity = LoginTestFixtures.fakeLoginEntity();
     late LoginState state;
     setUp(() {
       mockLoginUseCase = MockLoginUseCase();
       mockGuestLoginUseCase = MockGuestLoginUseCase();
       loginCubit = LoginCubit(mockLoginUseCase, mockGuestLoginUseCase);
-      loginEntity = LoginTestFixtures.fakeLoginEntity();
       loginRequestModel = LoginTestFixtures.fakeLoginRequest();
       state = const LoginState();
     });
