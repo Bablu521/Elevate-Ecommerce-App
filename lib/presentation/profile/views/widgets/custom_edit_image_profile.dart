@@ -1,41 +1,81 @@
+import 'dart:io';
+import 'package:dio/dio.dart';
 import 'package:elevate_ecommerce_app/core/constants/app_colors.dart';
-import 'package:elevate_ecommerce_app/core/constants/app_images.dart';
+import 'package:elevate_ecommerce_app/presentation/profile/view_model/edit_profile_view_model/edit_profile_cubit.dart';
+import 'package:elevate_ecommerce_app/presentation/profile/view_model/edit_profile_view_model/edit_profile_event.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:provider/provider.dart';
 
-class CustomEditImageProfile extends StatelessWidget {
+class CustomEditImageProfile extends StatefulWidget {
   const CustomEditImageProfile({super.key});
+  @override
+  State<CustomEditImageProfile> createState() => _CustomEditImageProfileState();
+}
 
+class _CustomEditImageProfileState extends State<CustomEditImageProfile> {
+  File? _image;
+  final ImagePicker _picker = ImagePicker();
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.sizeOf(context);
-    return Container(
+    return SizedBox(
       width: mediaQuery.width * 0.23.w,
       height: mediaQuery.width * 0.23.h,
-      decoration: const BoxDecoration(
-        shape: BoxShape.circle,
-        image: DecorationImage(
-          image: AssetImage(AppImages.profileImageTest),
-          fit: BoxFit.cover,
-        ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Container(
-            padding: const EdgeInsets.all(3),
+      child: BlocBuilder<EditProfileCubit, EditProfileState>(
+        builder: (context, state) {
+          if (state.profileInfoState?.isLoading == true ||
+              state.uploadImageProfileState?.isLoading == true) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          return Container(
             decoration: BoxDecoration(
-              color: AppColors.lightPink,
-              borderRadius: BorderRadius.circular(4),
+              shape: BoxShape.circle,
+              image: DecorationImage(
+                image: state.localPickedImage == null
+                    ? NetworkImage(state.profileInfoState!.data!.imagePath)
+                    : FileImage(state.localPickedImage!),
+                fit: BoxFit.cover,
+              ),
             ),
-            child: Icon(
-              Icons.camera_alt_outlined,
-              color: AppColors.gray,
-              size: 18.sp,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(3),
+                  decoration: BoxDecoration(
+                    color: AppColors.lightPink,
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: GestureDetector(
+                    onTap: () async {
+                      // final pickedFile = await _picker.pickImage(
+                      //   source: ImageSource.gallery,
+                      // );
+                      // if (pickedFile != null) {
+                      //   _image = File(pickedFile.path);
+                      // }
+                      // final file = await MultipartFile.fromFile(_image!.path);
+                      context.read<EditProfileCubit>().doIntent(
+                        EditProfileUploadImageEvent(
+                          imageSource: ImageSource.gallery,
+                        ),
+                      );
+                    },
+                    child: Icon(
+                      Icons.camera_alt_outlined,
+                      color: AppColors.gray,
+                      size: 18.sp,
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ),
-        ],
+          );
+        },
       ),
     );
   }

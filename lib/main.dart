@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:elevate_ecommerce_app/core/constants/const_keys.dart';
 import 'package:elevate_ecommerce_app/core/di/di.dart';
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
@@ -54,5 +56,6 @@ Future<bool> getRememberMe() async {
   final String? rememberMeValue = await secureStorage.read(
     key: ConstKeys.keyRememberMe,
   );
+  log(rememberMeValue.toString());
   return rememberMeValue == "true";
 }

@@ -1,6 +1,9 @@
+import 'package:elevate_ecommerce_app/core/di/di.dart';
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
+import 'package:elevate_ecommerce_app/presentation/profile/view_model/change_password_view_model/change_password_view_model_cubit.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/views/widgets/change_password_body.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ChangePasswordView extends StatelessWidget {
   const ChangePasswordView({super.key});
@@ -22,7 +25,10 @@ class ChangePasswordView extends StatelessWidget {
         ),
         centerTitle: false,
       ),
-      body: const ChangePasswordBody(),
+      body: BlocProvider(
+        create: (context) => getIt.get<ChangePasswordViewModelCubit>(),
+        child: const ChangePasswordBody(),
+      ),
     );
   }
 }

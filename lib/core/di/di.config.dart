@@ -33,6 +33,10 @@ import '../../domin/use_cases/upload_profile_image_use_case.dart' as _i603;
 import '../../presentation/auth/login/view_models/login_cubit.dart' as _i441;
 import '../../presentation/auth/register/view_models/register_view_model.dart'
     as _i490;
+import '../../presentation/profile/view_model/change_password_view_model/change_password_view_model_cubit.dart'
+    as _i159;
+import '../../presentation/profile/view_model/edit_profile_view_model/edit_profile_cubit.dart'
+    as _i697;
 import '../module/secure_storage_module.dart' as _i260;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -63,6 +67,12 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i891.AuthLocalDataSource>(),
       ),
     );
+    gh.lazySingleton<_i257.ChangePasswordProfileUseCase>(
+      () => _i257.ChangePasswordProfileUseCase(gh<_i340.AuthRepo>()),
+    );
+    gh.lazySingleton<_i911.GetProfileInfoUseCase>(
+      () => _i911.GetProfileInfoUseCase(gh<_i340.AuthRepo>()),
+    );
     gh.lazySingleton<_i799.GetUserStatusUseCase>(
       () => _i799.GetUserStatusUseCase(gh<_i340.AuthRepo>()),
     );
@@ -71,12 +81,6 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i1073.LoginUseCase>(
       () => _i1073.LoginUseCase(gh<_i340.AuthRepo>()),
-    );
-    gh.lazySingleton<_i257.ChangePasswordProfileUseCase>(
-      () => _i257.ChangePasswordProfileUseCase(gh<_i340.AuthRepo>()),
-    );
-    gh.lazySingleton<_i911.GetProfileInfoUseCase>(
-      () => _i911.GetProfileInfoUseCase(gh<_i340.AuthRepo>()),
     );
     gh.lazySingleton<_i981.UpdateProfileInfoUseCase>(
       () => _i981.UpdateProfileInfoUseCase(gh<_i340.AuthRepo>()),
@@ -95,6 +99,18 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i490.RegisterViewModel>(
       () => _i490.RegisterViewModel(gh<_i638.RegisterUseCase>()),
+    );
+    gh.factory<_i697.EditProfileCubit>(
+      () => _i697.EditProfileCubit(
+        gh<_i911.GetProfileInfoUseCase>(),
+        gh<_i981.UpdateProfileInfoUseCase>(),
+        gh<_i603.UploadProfileImageUseCase>(),
+      ),
+    );
+    gh.factory<_i159.ChangePasswordViewModelCubit>(
+      () => _i159.ChangePasswordViewModelCubit(
+        gh<_i257.ChangePasswordProfileUseCase>(),
+      ),
     );
     return this;
   }

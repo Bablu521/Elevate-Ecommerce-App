@@ -1,8 +1,9 @@
-import 'dart:developer';
-import 'package:elevate_ecommerce_app/core/utils/validations.dart';
-import 'package:elevate_ecommerce_app/generated/l10n.dart';
+import 'package:elevate_ecommerce_app/core/utils/helper_function.dart';
+import 'package:elevate_ecommerce_app/core/utils/loaders/loaders.dart';
+import 'package:elevate_ecommerce_app/presentation/profile/view_model/change_password_view_model/change_password_view_model_cubit.dart';
+import 'package:elevate_ecommerce_app/presentation/profile/views/widgets/change_password_builder.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ChangePasswordBody extends StatefulWidget {
   const ChangePasswordBody({super.key});
@@ -18,80 +19,52 @@ class _ChangePasswordBodyState extends State<ChangePasswordBody> {
   final GlobalKey<FormState> _globalKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final local = AppLocalizations.of(context);
-    return Form(
-      key: _globalKey,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        child: Column(
-          children: [
-            TextFormField(
-              style: theme.textTheme.bodyMedium,
-              controller: currentPasswordController,
-              decoration: InputDecoration(
-                label: Text(local.currentPassword),
-                hintText: local.currentPassword,
-              ),
-              validator: Validations.validatePassword,
-            ),
-            SizedBox(height: 24.h),
-            TextFormField(
-              style: theme.textTheme.bodyMedium,
-              controller: newPasswordController,
-              decoration: InputDecoration(
-                label: Text(local.newPassword),
-                hintText: local.newPassword,
-              ),
-              validator: Validations.validatePassword,
-            ),
-            SizedBox(height: 24.h),
-            TextFormField(
-              style: theme.textTheme.bodyMedium,
-              controller: confirmPasswordController,
-              decoration: InputDecoration(
-                label: Text(local.confirmPassword),
-                hintText: local.confirmPassword,
-              ),
-              validator:
-                  (value) => Validations.validateConfirmPassword(
-                    value,
-                    newPasswordController.text,
-                  ),
-            ),
-            SizedBox(height: 48.h),
-            ValueListenableBuilder<TextEditingValue>(
-              valueListenable: confirmPasswordController,
-              builder: (context, value, child) {
-                final bool allFilled =
-                    currentPasswordController.text.isNotEmpty &&
-                    newPasswordController.text.isNotEmpty &&
-                    confirmPasswordController.text.isNotEmpty;
-                return SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed:
-                        (allFilled)
-                            ? () {
-                              if (_globalKey.currentState!.validate()) {
-                                log("sucs");
-                                setState(() {});
-                              }
-                            }
-                            : null,
-                    child: Text(
-                      local.update,
-                      style: theme.textTheme.bodyMedium?.copyWith(
-                        color: theme.colorScheme.onSecondary,
-                      ),
-                    ),
-                  ),
-                );
-              },
-            ),
-          ],
-        ),
+    return BlocListener<
+      ChangePasswordViewModelCubit,
+      ChangePasswordViewModelState
+    >(
+      listener: (context, state) {
+        if (state.isLoading) {
+          showDialog(
+            context: context,
+            barrierDismissible: false,
+            builder: (_) => const Center(child: CircularProgressIndicator()),
+          );
+        } else if (state.changePasswordEntity != null) {
+          HelperFunction.dismissDialog(context);
+          Loaders.showSuccessMessage(
+            message: state.changePasswordEntity?.message ?? "",
+            context: context,
+          );
+          _clearControllers();
+        } else if (state.errorMessage != null) {
+          HelperFunction.dismissDialog(context);
+          Loaders.showErrorMessage(
+            message: state.errorMessage ?? "",
+            context: context,
+          );
+        } else {}
+      },
+      child: ChangePasswordBuilder(
+        confirmPasswordController: confirmPasswordController,
+        currentPasswordController: currentPasswordController,
+        newPasswordController: newPasswordController,
+        globalKey: _globalKey,
       ),
     );
+  }
+
+  void _clearControllers() {
+    confirmPasswordController.clear();
+    currentPasswordController.clear();
+    newPasswordController.clear();
+  }
+
+  @override
+  void dispose() {
+    confirmPasswordController.dispose();
+    currentPasswordController.dispose();
+    newPasswordController.dispose();
+    super.dispose();
   }
 }
