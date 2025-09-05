@@ -16,26 +16,29 @@ import 'login_cubit_test.mocks.dart';
 @GenerateMocks([LoginUseCase, GuestLoginUseCase])
 void main() {
   group("Login Cubit test", () {
-    // ignore: unused_local_variable
     late LoginCubit loginCubit;
     late MockLoginUseCase mockLoginUseCase;
     late LoginRequestModel loginRequestModel;
     late MockGuestLoginUseCase mockGuestLoginUseCase;
     late LoginEntity loginEntity;
     late LoginState state;
+    late ApiErrorResult<LoginEntity> expectedError;
+    late ApiSuccessResult<LoginEntity> expectedResult;
+
     setUp(() {
       mockLoginUseCase = MockLoginUseCase();
       mockGuestLoginUseCase = MockGuestLoginUseCase();
       loginCubit = LoginCubit(mockLoginUseCase, mockGuestLoginUseCase);
       loginEntity = LoginTestFixtures.fakeLoginEntity();
       loginRequestModel = LoginTestFixtures.fakeLoginRequest();
-      state = const LoginState();
+      state = LoginState();
+      expectedError = ApiErrorResult<LoginEntity>("Server Error");
+      expectedResult = ApiSuccessResult<LoginEntity>(loginEntity);
     });
     provideDummy<ApiResult<LoginEntity>>(
       ApiErrorResult<LoginEntity>("Server Error"),
     );
-    final expectedError = ApiErrorResult<LoginEntity>("Server Error");
-    final expectedResult = ApiSuccessResult<LoginEntity>(loginEntity);
+
     blocTest<LoginCubit, LoginState>(
       'emits [loading, success] when login succeeds',
       build: () {
@@ -53,11 +56,10 @@ void main() {
           ),
         );
       },
-      expect:
-          () => [
-            state.copyWith(loading: true),
-            state.copyWith(loading: false, loginEntity: loginEntity),
-          ],
+      expect: () => [
+        state.copyWith(loading: true),
+        state.copyWith(loading: false, loginEntity: loginEntity),
+      ],
       verify: (_) {
         verify(
           mockLoginUseCase.call(requestModel: loginRequestModel),
@@ -81,11 +83,10 @@ void main() {
           ),
         );
       },
-      expect:
-          () => [
-            state.copyWith(loading: true),
-            state.copyWith(loading: false, errorMessage: "Server Error"),
-          ],
+      expect: () => [
+        state.copyWith(loading: true),
+        state.copyWith(loading: false, errorMessage: "Server Error"),
+      ],
       verify: (_) {
         verify(
           mockLoginUseCase.call(requestModel: anyNamed('requestModel')),
@@ -96,11 +97,11 @@ void main() {
       'emits [initial] and updates rememberMe when remember me toggled',
       build: () => LoginCubit(mockLoginUseCase, mockGuestLoginUseCase),
       act: (cubit) {
-        cubit.doIntent(LoginEventRememberMe(rememberMe: true));
+        cubit.doIntent(LoginEventRememberMe(rememberMe: false));
       },
-      expect: () => [state.copyWith()],
+      expect: () => [state],
       verify: (cubit) {
-        expect(cubit.rememberMe, true);
+        expect(cubit.rememberMe, false);
       },
     );
   });

@@ -3,23 +3,36 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i4;
+import 'dart:async' as _i8;
 
+import 'package:dio/dio.dart' as _i15;
 import 'package:elevate_ecommerce_app/api/models/requestes/login_requests/login_request.dart'
-    as _i9;
+    as _i13;
+import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/change_password_request/change_password_request.dart'
+    as _i16;
+import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/update_profile_info_request/update_profile_info_request.dart'
+    as _i14;
 import 'package:elevate_ecommerce_app/api/models/responses/login_response/login_response_dto.dart'
     as _i2;
-import 'package:elevate_ecommerce_app/core/api_result/api_result.dart' as _i5;
-import 'package:elevate_ecommerce_app/data/data_source/auth_local_data_source.dart'
-    as _i10;
-import 'package:elevate_ecommerce_app/data/data_source/auth_remote_data_source.dart'
-    as _i3;
-import 'package:elevate_ecommerce_app/domin/entities/register_entity.dart'
+import 'package:elevate_ecommerce_app/api/models/responses/profile/change_password_response/change_password_response_dto.dart'
     as _i6;
-import 'package:elevate_ecommerce_app/domin/entities/requests/register_request_entity.dart'
+import 'package:elevate_ecommerce_app/api/models/responses/profile/profile_info_response/profile_info_response_dto.dart'
+    as _i4;
+import 'package:elevate_ecommerce_app/api/models/responses/profile/update_profile_info_response/update_profile_info_response_dto.dart'
+    as _i3;
+import 'package:elevate_ecommerce_app/api/models/responses/profile/upload_image_response/upload_image_response_dto.dart'
+    as _i5;
+import 'package:elevate_ecommerce_app/core/api_result/api_result.dart' as _i9;
+import 'package:elevate_ecommerce_app/data/data_source/auth_local_data_source.dart'
+    as _i17;
+import 'package:elevate_ecommerce_app/data/data_source/auth_remote_data_source.dart'
     as _i7;
+import 'package:elevate_ecommerce_app/domin/entities/register_entity.dart'
+    as _i10;
+import 'package:elevate_ecommerce_app/domin/entities/requests/register_request_entity.dart'
+    as _i11;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:mockito/src/dummies.dart' as _i8;
+import 'package:mockito/src/dummies.dart' as _i12;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -41,98 +54,182 @@ class _FakeLoginResponseDto_0 extends _i1.SmartFake
     : super(parent, parentInvocation);
 }
 
+class _FakeUpdateProfileInfoResponseDto_1 extends _i1.SmartFake
+    implements _i3.UpdateProfileInfoResponseDto {
+  _FakeUpdateProfileInfoResponseDto_1(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(parent, parentInvocation);
+}
+
+class _FakeProfileInfoResponseDto_2 extends _i1.SmartFake
+    implements _i4.ProfileInfoResponseDto {
+  _FakeProfileInfoResponseDto_2(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
+}
+
+class _FakeUploadImageResponseDto_3 extends _i1.SmartFake
+    implements _i5.UploadImageResponseDto {
+  _FakeUploadImageResponseDto_3(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
+}
+
+class _FakeChangePasswordResponseDto_4 extends _i1.SmartFake
+    implements _i6.ChangePasswordResponseDto {
+  _FakeChangePasswordResponseDto_4(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
+}
+
 /// A class which mocks [AuthRemoteDataSource].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockAuthRemoteDataSource extends _i1.Mock
-    implements _i3.AuthRemoteDataSource {
+    implements _i7.AuthRemoteDataSource {
   MockAuthRemoteDataSource() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<_i5.ApiResult<_i6.RegisterEntity>> register(
-    _i7.RegisterRequestEntity? registerRequestEntity,
+  _i8.Future<_i9.ApiResult<_i10.RegisterEntity>> register(
+    _i11.RegisterRequestEntity? registerRequestEntity,
   ) =>
       (super.noSuchMethod(
             Invocation.method(#register, [registerRequestEntity]),
-            returnValue: _i4.Future<_i5.ApiResult<_i6.RegisterEntity>>.value(
-              _i8.dummyValue<_i5.ApiResult<_i6.RegisterEntity>>(
+            returnValue: _i8.Future<_i9.ApiResult<_i10.RegisterEntity>>.value(
+              _i12.dummyValue<_i9.ApiResult<_i10.RegisterEntity>>(
                 this,
                 Invocation.method(#register, [registerRequestEntity]),
               ),
             ),
           )
-          as _i4.Future<_i5.ApiResult<_i6.RegisterEntity>>);
+          as _i8.Future<_i9.ApiResult<_i10.RegisterEntity>>);
 
   @override
-  _i4.Future<_i2.LoginResponseDto> login({
-    required _i9.LoginRequestModel? loginRequest,
+  _i8.Future<_i2.LoginResponseDto> login({
+    required _i13.LoginRequestModel? loginRequest,
   }) =>
       (super.noSuchMethod(
             Invocation.method(#login, [], {#loginRequest: loginRequest}),
-            returnValue: _i4.Future<_i2.LoginResponseDto>.value(
+            returnValue: _i8.Future<_i2.LoginResponseDto>.value(
               _FakeLoginResponseDto_0(
                 this,
                 Invocation.method(#login, [], {#loginRequest: loginRequest}),
               ),
             ),
           )
-          as _i4.Future<_i2.LoginResponseDto>);
+          as _i8.Future<_i2.LoginResponseDto>);
+
+  @override
+  _i8.Future<_i3.UpdateProfileInfoResponseDto> updateProfileInfo({
+    required _i14.UpdateProfileInfoRequest? request,
+  }) =>
+      (super.noSuchMethod(
+            Invocation.method(#updateProfileInfo, [], {#request: request}),
+            returnValue: _i8.Future<_i3.UpdateProfileInfoResponseDto>.value(
+              _FakeUpdateProfileInfoResponseDto_1(
+                this,
+                Invocation.method(#updateProfileInfo, [], {#request: request}),
+              ),
+            ),
+          )
+          as _i8.Future<_i3.UpdateProfileInfoResponseDto>);
+
+  @override
+  _i8.Future<_i4.ProfileInfoResponseDto> getProfileInfo() =>
+      (super.noSuchMethod(
+            Invocation.method(#getProfileInfo, []),
+            returnValue: _i8.Future<_i4.ProfileInfoResponseDto>.value(
+              _FakeProfileInfoResponseDto_2(
+                this,
+                Invocation.method(#getProfileInfo, []),
+              ),
+            ),
+          )
+          as _i8.Future<_i4.ProfileInfoResponseDto>);
+
+  @override
+  _i8.Future<_i5.UploadImageResponseDto> uploadProfileImage({
+    required _i15.MultipartFile? request,
+  }) =>
+      (super.noSuchMethod(
+            Invocation.method(#uploadProfileImage, [], {#request: request}),
+            returnValue: _i8.Future<_i5.UploadImageResponseDto>.value(
+              _FakeUploadImageResponseDto_3(
+                this,
+                Invocation.method(#uploadProfileImage, [], {#request: request}),
+              ),
+            ),
+          )
+          as _i8.Future<_i5.UploadImageResponseDto>);
+
+  @override
+  _i8.Future<_i6.ChangePasswordResponseDto> changeUserPassword({
+    required _i16.ChangePasswordRequest? request,
+  }) =>
+      (super.noSuchMethod(
+            Invocation.method(#changeUserPassword, [], {#request: request}),
+            returnValue: _i8.Future<_i6.ChangePasswordResponseDto>.value(
+              _FakeChangePasswordResponseDto_4(
+                this,
+                Invocation.method(#changeUserPassword, [], {#request: request}),
+              ),
+            ),
+          )
+          as _i8.Future<_i6.ChangePasswordResponseDto>);
 }
 
 /// A class which mocks [AuthLocalDataSource].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockAuthLocalDataSource extends _i1.Mock
-    implements _i10.AuthLocalDataSource {
+    implements _i17.AuthLocalDataSource {
   MockAuthLocalDataSource() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<void> saveUserToken({required String? token}) =>
+  _i8.Future<void> saveUserToken({required String? token}) =>
       (super.noSuchMethod(
             Invocation.method(#saveUserToken, [], {#token: token}),
-            returnValue: _i4.Future<void>.value(),
-            returnValueForMissingStub: _i4.Future<void>.value(),
+            returnValue: _i8.Future<void>.value(),
+            returnValueForMissingStub: _i8.Future<void>.value(),
           )
-          as _i4.Future<void>);
+          as _i8.Future<void>);
 
   @override
-  _i4.Future<void> saveUserRememberMe({required bool? rememberMe}) =>
+  _i8.Future<void> saveUserRememberMe({required bool? rememberMe}) =>
       (super.noSuchMethod(
             Invocation.method(#saveUserRememberMe, [], {
               #rememberMe: rememberMe,
             }),
-            returnValue: _i4.Future<void>.value(),
-            returnValueForMissingStub: _i4.Future<void>.value(),
+            returnValue: _i8.Future<void>.value(),
+            returnValueForMissingStub: _i8.Future<void>.value(),
           )
-          as _i4.Future<void>);
+          as _i8.Future<void>);
 
   @override
-  _i4.Future<void> saveUserStatus({required String? userStatus}) =>
+  _i8.Future<void> saveUserStatus({required String? userStatus}) =>
       (super.noSuchMethod(
             Invocation.method(#saveUserStatus, [], {#userStatus: userStatus}),
-            returnValue: _i4.Future<void>.value(),
-            returnValueForMissingStub: _i4.Future<void>.value(),
+            returnValue: _i8.Future<void>.value(),
+            returnValueForMissingStub: _i8.Future<void>.value(),
           )
-          as _i4.Future<void>);
+          as _i8.Future<void>);
 
   @override
-  _i4.Future<bool> getUserStatus() =>
+  _i8.Future<bool> getUserStatus() =>
       (super.noSuchMethod(
             Invocation.method(#getUserStatus, []),
-            returnValue: _i4.Future<bool>.value(false),
+            returnValue: _i8.Future<bool>.value(false),
           )
-          as _i4.Future<bool>);
+          as _i8.Future<bool>);
 
   @override
-  _i4.Future<void> userLogout() =>
+  _i8.Future<void> userLogout() =>
       (super.noSuchMethod(
             Invocation.method(#userLogout, []),
-            returnValue: _i4.Future<void>.value(),
-            returnValueForMissingStub: _i4.Future<void>.value(),
+            returnValue: _i8.Future<void>.value(),
+            returnValueForMissingStub: _i8.Future<void>.value(),
           )
-          as _i4.Future<void>);
+          as _i8.Future<void>);
 }

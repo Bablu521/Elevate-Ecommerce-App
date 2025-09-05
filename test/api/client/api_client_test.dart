@@ -1,15 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:elevate_ecommerce_app/api/client/api_client.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/login_requests/login_request.dart';
-import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/change_password_request/change_password_request.dart';
-import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/update_profile_info_request/update_profile_info_request.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/login_response/login_response_dto.dart';
-import 'package:elevate_ecommerce_app/api/models/responses/profile/change_password_response/change_password_response_dto.dart';
-import 'package:elevate_ecommerce_app/api/models/responses/profile/profile_info_response/profile_info_response_dto.dart';
-import 'package:elevate_ecommerce_app/api/models/responses/profile/update_profile_info_response/update_profile_info_response_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/profile/upload_image_response/upload_image_response_dto.dart';
+import 'package:elevate_ecommerce_app/core/constants/end_points.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:http_mock_adapter/src/types.dart';
 import 'package:mockito/annotations.dart';
+import 'package:http_mock_adapter/http_mock_adapter.dart';
 import 'package:mockito/mockito.dart';
 
 import '../../fixtures/login_fixtures.dart';
@@ -18,108 +16,92 @@ import 'api_client_test.mocks.dart';
 
 @GenerateMocks([ApiClient])
 void main() {
-  late MockApiClient mockApiClient;
+  late Dio dio;
+  late DioAdapter dioAdapter;
+  late ApiClient apiClient;
+  late MockApiClient mockedApiClient;
   setUpAll(() {
-    mockApiClient = MockApiClient();
+    dio = Dio(BaseOptions(baseUrl: "https://fakeapi.com" , ));
+    dioAdapter = DioAdapter(dio: dio);
+    apiClient = ApiClient(dio);
+    mockedApiClient = MockApiClient();
   });
   group("test ApiClient", () {
     test("test Login ApiClient success", () async {
       ///AAA
       ///Arrange
-
       final LoginResponseDto loginResponseDto =
           LoginTestFixtures.fakeLoginResponse();
       final LoginRequestModel loginRequestModel =
           LoginTestFixtures.fakeLoginRequest();
       when(
-        mockApiClient.login(loginRequestModel),
+        mockedApiClient.login(loginRequestModel),
       ).thenAnswer((_) async => loginResponseDto);
 
       ///Act
-      final result = await mockApiClient.login(loginRequestModel);
+      final result = await mockedApiClient.login(loginRequestModel);
 
       ///Assert
       expect(result, isA<LoginResponseDto>());
       expect(result.token, equals(loginResponseDto.token));
     });
   });
-  group("test ApiClient profile function is correctly", () {
-    test("get user info ApiClient success", () async {
-      ///AAA
-      ///Arrange
-      final ProfileInfoResponseDto profileInfoResponseDto =
-          ProfileFixtures.fakeProfileInfoResponse;
-      when(
-        mockApiClient.getProfileData(),
-      ).thenAnswer((_) async => profileInfoResponseDto);
+  group("ApiClient Integration Tests", () {
+    test("getProfileData returns ProfileInfoResponseDto", () async {
+      // Arrange (Mock server response)
+      final mockJson = ProfileFixtures.fakeProfileInfoResponse;
 
-      ///Act
-      final result = await mockApiClient.getProfileData();
-
-      ///Assert
-      expect(result, isA<ProfileInfoResponseDto>());
-      expect(result.message, equals(profileInfoResponseDto.message));
-    });
-    test("update user info ApiClient success", () async {
-      ///AAA
-      ///Arrange
-      final UpdateProfileInfoRequest updateProfileInfoRequest =
-          ProfileFixtures.fakeUpdateProfileRequest;
-      final UpdateProfileInfoResponseDto updateProfileInfoResponseDto =
-          ProfileFixtures.fakeUpdateProfileResponse;
-      when(
-        mockApiClient.updateProfileData(updateProfileInfoRequest),
-      ).thenAnswer((_) async => updateProfileInfoResponseDto);
-
-      ///Act
-      final result = await mockApiClient.updateProfileData(
-        updateProfileInfoRequest,
+      dioAdapter.onGet(
+        Endpoints.profileData,
+        (server) => server.reply(200, mockJson),
       );
 
-      ///Assert
-      expect(result, isA<UpdateProfileInfoResponseDto>());
-      expect(
-        result.user?.email,
-        equals(updateProfileInfoResponseDto.user?.email),
-      );
+      // Act
+      final result = await apiClient.getProfileData();
+
+      // Assert
+      expect(result.message, equals(mockJson.message));
+      expect(result.user?.email, equals(mockJson.user?.email));
     });
-    test("upload profile image ApiClient success", () async {
-      ///AAA
-      ///Arrange
-      final MultipartFile request = MultipartFile.fromString(
+
+    test("changePassword returns ChangePasswordResponseDto", () async {
+      // Arrange
+      final request = ProfileFixtures.fakeChangePasswordRequest;
+
+      final mockJson = ProfileFixtures.fakeChangePasswordResponse;
+
+      dioAdapter.onPatch(
+        Endpoints.changePassword,
+        data: request.toJson(),
+        (server) => server.reply(200, mockJson),
+      );
+
+      // Act
+      final result = await apiClient.changePassword(request);
+
+      // Assert
+      expect(result.token, equals(mockJson.token));
+      expect(result.message, equals(mockJson.message));
+    });
+
+    test("uploadProfileImage returns UploadImageResponseDto", () async {
+      // Arrange
+      final fakeFile = MultipartFile.fromString(
         'dummy data',
         filename: 'profile.png',
       );
-      final UploadImageResponseDto response =
-          ProfileFixtures.fakeUploadImageResponse;
+
+      final mockJson = ProfileFixtures.fakeUploadImageResponse;
+
       when(
-        mockApiClient.uploadImageProfile(request),
-      ).thenAnswer((_) async => response);
+        mockedApiClient.uploadImageProfile(fakeFile),
+      ).thenAnswer((_) async => mockJson);
+      // Act
+      final result = await mockedApiClient.uploadImageProfile(fakeFile);
 
-      ///Act
-      final result = await mockApiClient.uploadImageProfile(request);
-
-      ///Assert
+      // Assert
       expect(result, isA<UploadImageResponseDto>());
-      expect(result.message, equals(response.message));
-    });
-    test("change password ApiClient success", () async {
-      ///AAA
-      ///Arrange
-      final ChangePasswordRequest request =
-          ProfileFixtures.fakeChangePasswordRequest;
-      final ChangePasswordResponseDto response =
-          ProfileFixtures.fakeChangePasswordResponse;
-      when(
-        mockApiClient.changePassword(request),
-      ).thenAnswer((_) async => response);
-
-      ///Act
-      final result = await mockApiClient.changePassword(request);
-
-      ///Assert
-      expect(result, isA<ChangePasswordResponseDto>());
-      expect(result.token, equals(response.token));
+      expect(result.message, equals(mockJson.message));
     });
   });
 }

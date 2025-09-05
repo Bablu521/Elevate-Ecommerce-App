@@ -6,6 +6,9 @@ import 'package:elevate_ecommerce_app/api/models/responses/profile/profile_info_
 import 'package:elevate_ecommerce_app/api/models/responses/profile/update_profile_info_response/update_profile_info_response_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/profile/update_profile_info_response/update_profile_user_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/profile/upload_image_response/upload_image_response_dto.dart';
+import 'package:elevate_ecommerce_app/domin/entities/profile_info_entity.dart';
+import 'package:elevate_ecommerce_app/domin/entities/update_profile_entity.dart';
+import 'package:elevate_ecommerce_app/domin/entities/upload_image_entity.dart';
 
 abstract class ProfileFixtures {
   // 🟢 Fake User
@@ -76,4 +79,26 @@ abstract class ProfileFixtures {
   // 🟢 Fake Upload Image Response
   static final UploadImageResponseDto fakeUploadImageResponse =
       const UploadImageResponseDto(message: "Image uploaded successfully");
+
+  static final ProfileInfoEntity fakeProfileInfoEntity = ProfileInfoEntity(
+    message: "success",
+    email: fakeUser.email!,
+    firstName: fakeUser.firstName!,
+    lastName: fakeUser.lastName!,
+    gender: fakeUser.gender!,
+    phone: fakeUser.phone!,
+    imagePath: fakeUser.photo!,
+  );
+  static final UpdateProfileEntity updateProfileEntity = UpdateProfileEntity(
+    message: "success",
+    firstName: fakeUserUpdateDate.firstName!,
+    lastName: fakeUserUpdateDate.lastName!,
+    email: fakeUserUpdateDate.email!,
+    gender: fakeUserUpdateDate.gender!,
+    phone: fakeUserUpdateDate.phone!,
+    photo: fakeUserUpdateDate.photo!,
+  );
+  static final UploadImageEntity uploadImageEntity = UploadImageEntity(
+    message: fakeUploadImageResponse.message!,
+  );
 }

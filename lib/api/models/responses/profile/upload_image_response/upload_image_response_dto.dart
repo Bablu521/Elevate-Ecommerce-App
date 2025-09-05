@@ -5,7 +5,7 @@ part 'upload_image_response_dto.g.dart';
 
 @JsonSerializable()
 class UploadImageResponseDto extends Equatable {
-  final String message;
+  final String? message;
 
   const UploadImageResponseDto({required this.message});
 

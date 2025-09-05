@@ -22,10 +22,14 @@ import '../../data/data_source/auth_local_data_source.dart' as _i891;
 import '../../data/data_source/auth_remote_data_source.dart' as _i697;
 import '../../data/repositories/auth_repo_impl.dart' as _i653;
 import '../../domin/repositories/auth_repo.dart' as _i340;
+import '../../domin/use_cases/change_password_profile_use_case.dart' as _i257;
+import '../../domin/use_cases/get_profile_info_use_case.dart' as _i911;
 import '../../domin/use_cases/get_user_status_use_case.dart' as _i799;
 import '../../domin/use_cases/guest_login_use_case.dart' as _i917;
 import '../../domin/use_cases/login_use_case.dart' as _i1073;
 import '../../domin/use_cases/register_use_case.dart' as _i638;
+import '../../domin/use_cases/update_profile_info_use_case.dart' as _i981;
+import '../../domin/use_cases/upload_profile_image_use_case.dart' as _i603;
 import '../../presentation/auth/login/view_models/login_cubit.dart' as _i441;
 import '../../presentation/auth/register/view_models/register_view_model.dart'
     as _i490;
@@ -67,6 +71,18 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i1073.LoginUseCase>(
       () => _i1073.LoginUseCase(gh<_i340.AuthRepo>()),
+    );
+    gh.lazySingleton<_i257.ChangePasswordProfileUseCase>(
+      () => _i257.ChangePasswordProfileUseCase(gh<_i340.AuthRepo>()),
+    );
+    gh.lazySingleton<_i911.GetProfileInfoUseCase>(
+      () => _i911.GetProfileInfoUseCase(gh<_i340.AuthRepo>()),
+    );
+    gh.lazySingleton<_i981.UpdateProfileInfoUseCase>(
+      () => _i981.UpdateProfileInfoUseCase(gh<_i340.AuthRepo>()),
+    );
+    gh.lazySingleton<_i603.UploadProfileImageUseCase>(
+      () => _i603.UploadProfileImageUseCase(gh<_i340.AuthRepo>()),
     );
     gh.factory<_i638.RegisterUseCase>(
       () => _i638.RegisterUseCase(gh<_i340.AuthRepo>()),
