@@ -7,5 +7,4 @@ abstract class RouteNames {
   static const String forgetPassword = "/forgetPassword";
   static const String cart = "/cart";
   static const String checkOut = "/checkOut";
-
 }
