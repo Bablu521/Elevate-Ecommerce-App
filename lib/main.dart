@@ -20,20 +20,19 @@ void main() async {
   configureDependencies();
   Bloc.observer = MyBlocObserver();
   final bool isRememberMe = await getRememberMe();
-  final String local = await getLocal();
+
   runApp(
     ChangeNotifierProvider(
-      create: (context) => AppConfigProvider(),
+      create: (context) => AppConfigProvider()..getLocal(),
 
-      child: MyApp(isRememberMe: isRememberMe, local: local),
+      child: MyApp(isRememberMe: isRememberMe),
     ),
   );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key, required this.isRememberMe, required this.local});
+  const MyApp({super.key, required this.isRememberMe});
   final bool isRememberMe;
-  final String local;
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<AppConfigProvider>(context);
@@ -55,7 +54,7 @@ class MyApp extends StatelessWidget {
             GlobalCupertinoLocalizations.delegate,
           ],
           supportedLocales: AppLocalizations.delegate.supportedLocales,
-          locale: Locale(local),
+          locale: Locale(provider.local ?? ConstKeys.kEnglishLanguage),
         );
       },
     );
@@ -69,13 +68,4 @@ Future<bool> getRememberMe() async {
   );
   log(rememberMeValue.toString());
   return rememberMeValue == "true";
-}
-
-Future<String> getLocal() async {
-  final FlutterSecureStorage _secureStorage = getIt.get<FlutterSecureStorage>();
-  final String local =
-      await _secureStorage.read(key: ConstKeys.local) ??
-      ConstKeys.kEnglishLanguage;
-
-  return local;
 }
