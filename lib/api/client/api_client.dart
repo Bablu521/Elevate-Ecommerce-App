@@ -4,8 +4,11 @@ import 'package:elevate_ecommerce_app/api/models/responses/register_response_dto
 import 'package:elevate_ecommerce_app/api/models/requestes/login_requests/login_request.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/login_response/login_response_dto.dart';
 import 'package:elevate_ecommerce_app/core/constants/end_points.dart';
+import 'package:elevate_ecommerce_app/api/models/responses/categories/all_categories_response.dart';
+import 'package:elevate_ecommerce_app/api/models/responses/products/all_products_response.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
+
 part 'api_client.g.dart';
 
 @injectable
@@ -22,4 +25,19 @@ abstract class ApiClient {
   @POST(Endpoints.signIn)
   Future<LoginResponseDto> login(@Body() LoginRequestModel loginRequestModel);
 
+  @GET(Endpoints.categories)
+  Future<AllCategoriesResponse> getAllCategories();
+
+  @GET(Endpoints.products)
+  Future<AllProductsResponse> getAllProducts();
+
+  @GET(Endpoints.products)
+  Future<AllProductsResponse> getProductsByCategory(
+    @Query(Endpoints.categoryQuery) String category,
+  );
+
+  @GET(Endpoints.products)
+  Future<AllProductsResponse> getProductsByOccasion(
+    @Query(Endpoints.occasionQuery) String occasion,
+  );
 }
