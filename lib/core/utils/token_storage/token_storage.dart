@@ -25,9 +25,6 @@ abstract class TokenStorage {
 
   static Future<void> deleteToken() async {
     await _storage.delete(key: ConstKeys.keyUserToken);
-  }
 
-  static Future<bool> getUserStatus() async {
-    return await _storage.read(key: ConstKeys.keyUserStatus) == ConstKeys.kUserLogin;
   }
 }
