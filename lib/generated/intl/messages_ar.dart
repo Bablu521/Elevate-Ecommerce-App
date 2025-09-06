@@ -30,33 +30,38 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
     "badCertificate": MessageLookupByLibrary.simpleMessage(
-      "شهادة غير صالحة. الرجاء التحقق من تاريخ/وقت جهازك.",
+      "شهادة غير صالحة. يرجى التحقق من تاريخ/وقت جهازك.",
     ),
     "badResponse": MessageLookupByLibrary.simpleMessage(
       "استجابة غير متوقعة من الخادم",
     ),
     "cart": MessageLookupByLibrary.simpleMessage("سلة التسوق"),
     "categories": MessageLookupByLibrary.simpleMessage("الفئات"),
+    "change": MessageLookupByLibrary.simpleMessage("تغيير"),
     "changeLanguage": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
     "close": MessageLookupByLibrary.simpleMessage("إغلاق"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمة المرور",
     ),
     "connectionError": MessageLookupByLibrary.simpleMessage(
-      "خطأ في الشبكة. الرجاء التحقق من اتصالك بالإنترنت.",
+      "خطأ في الشبكة. يرجى التحقق من اتصالك بالإنترنت.",
     ),
     "connectionTimeout": MessageLookupByLibrary.simpleMessage(
-      "انتهت مهلة الاتصال. الرجاء المحاولة لاحقًا.",
+      "انتهت مهلة الاتصال. يرجى المحاولة لاحقًا.",
     ),
     "continueAsGuest": MessageLookupByLibrary.simpleMessage("المتابعة كضيف"),
     "creatingAnAccountYouAgreeToOur": MessageLookupByLibrary.simpleMessage(
       "بإنشاء حساب، فإنك توافق على ",
     ),
+    "currentPassword": MessageLookupByLibrary.simpleMessage(
+      "كلمة المرور الحالية",
+    ),
     "dioErrorCancel": MessageLookupByLibrary.simpleMessage(
-      "تم إلغاء الطلب. الرجاء إعادة المحاولة.",
+      "تم إلغاء الطلب. يرجى إعادة المحاولة.",
     ),
     "discount": MessageLookupByLibrary.simpleMessage("خصم"),
     "dontHaveAccount": MessageLookupByLibrary.simpleMessage("لا تملك حسابًا؟"),
+    "editProfile": MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
     "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
     "emailHintText": MessageLookupByLibrary.simpleMessage(
       "أدخل بريدك الإلكتروني",
@@ -74,29 +79,31 @@ class MessageLookup extends MessageLookupByLibrary {
     "enterPassword": MessageLookupByLibrary.simpleMessage("أدخل كلمة المرور"),
     "enterPhoneNumber": MessageLookupByLibrary.simpleMessage("أدخل رقم الهاتف"),
     "enterValidEgyptianPhoneNumber": MessageLookupByLibrary.simpleMessage(
-      "أدخل رقم هاتف مصري صالح",
+      "أدخل رقم هاتف مصري صحيح",
     ),
     "enterValidEmail": MessageLookupByLibrary.simpleMessage(
-      "أدخل بريدًا إلكترونيًا صالحًا",
+      "أدخل بريدًا إلكترونيًا صحيحًا",
     ),
     "enterValidUsername": MessageLookupByLibrary.simpleMessage(
-      "أدخل اسم مستخدم صالح",
+      "أدخل اسم مستخدم صحيح",
     ),
     "enterValueMustEqual11Digit": MessageLookupByLibrary.simpleMessage(
-      "يجب أن يكون الرقم 11 رقمًا",
+      "يجب أن يتكون الرقم من 11 رقمًا",
     ),
     "enterYourEmail": MessageLookupByLibrary.simpleMessage(
       "أدخل بريدك الإلكتروني",
     ),
     "error": MessageLookupByLibrary.simpleMessage("خطأ"),
     "failedToParseResponse": MessageLookupByLibrary.simpleMessage(
-      "فشل تحليل استجابة الخطأ.",
+      "فشل في تحليل استجابة الخطأ.",
     ),
     "female": MessageLookupByLibrary.simpleMessage("أنثى"),
     "filter": MessageLookupByLibrary.simpleMessage("تصفية"),
     "firstName": MessageLookupByLibrary.simpleMessage("الاسم الأول"),
     "flowery": MessageLookupByLibrary.simpleMessage("فلوري"),
-    "forgetPassword": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
+    "forgetPassword": MessageLookupByLibrary.simpleMessage(
+      "هل نسيت كلمة المرور؟",
+    ),
     "gender": MessageLookupByLibrary.simpleMessage("الجنس"),
     "guestMode": MessageLookupByLibrary.simpleMessage("وضع الضيف"),
     "highestPrice": MessageLookupByLibrary.simpleMessage("الأعلى سعرًا"),
@@ -112,6 +119,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "lowesPrice": MessageLookupByLibrary.simpleMessage("الأقل سعرًا"),
     "male": MessageLookupByLibrary.simpleMessage("ذكر"),
     "myOrders": MessageLookupByLibrary.simpleMessage("طلباتي"),
+    "newPassword": MessageLookupByLibrary.simpleMessage("كلمة مرور جديدة"),
     "newWord": MessageLookupByLibrary.simpleMessage("جديد"),
     "no": MessageLookupByLibrary.simpleMessage("لا"),
     "noCategoriesAvailable": MessageLookupByLibrary.simpleMessage(
@@ -141,16 +149,19 @@ class MessageLookup extends MessageLookupByLibrary {
     "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
     "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
     "receiveTimeout": MessageLookupByLibrary.simpleMessage(
-      "استغرق الخادم وقتًا طويلاً للرد.",
+      "استغرق الخادم وقتًا طويلًا للرد.",
     ),
     "registeredSuccessfully": MessageLookupByLibrary.simpleMessage(
       "تم التسجيل بنجاح!",
     ),
     "rememberMe": MessageLookupByLibrary.simpleMessage("تذكرني"),
+    "resetPassword": MessageLookupByLibrary.simpleMessage(
+      "إعادة تعيين كلمة المرور",
+    ),
     "savedAddress": MessageLookupByLibrary.simpleMessage("العنوان المحفوظ"),
     "search": MessageLookupByLibrary.simpleMessage("بحث"),
     "sendTimeout": MessageLookupByLibrary.simpleMessage(
-      "انتهت مهلة الطلب. الرجاء المحاولة مرة أخرى.",
+      "انتهت مهلة الطلب. يرجى المحاولة مرة أخرى.",
     ),
     "signUp": MessageLookupByLibrary.simpleMessage("تسجيل"),
     "sortBy": MessageLookupByLibrary.simpleMessage("ترتيب حسب"),
@@ -162,6 +173,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "unknown": MessageLookupByLibrary.simpleMessage("غير معروف"),
     "unknownError": MessageLookupByLibrary.simpleMessage("حدث خطأ غير متوقع:"),
+    "update": MessageLookupByLibrary.simpleMessage("تحديث"),
     "welcome": MessageLookupByLibrary.simpleMessage("مرحبًا"),
     "yes": MessageLookupByLibrary.simpleMessage("نعم"),
   };

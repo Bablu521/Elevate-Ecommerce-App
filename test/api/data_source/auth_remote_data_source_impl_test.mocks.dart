@@ -3,43 +3,30 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-<<<<<<< HEAD
-import 'dart:async' as _i6;
+import 'dart:async' as _i10;
 
-import 'package:elevate_ecommerce_app/api/client/api_client.dart' as _i5;
+import 'package:dio/dio.dart' as _i15;
+import 'package:elevate_ecommerce_app/api/client/api_client.dart' as _i9;
 import 'package:elevate_ecommerce_app/api/models/requestes/login_requests/login_request.dart'
-    as _i8;
-import 'package:elevate_ecommerce_app/api/models/requestes/register_request_dto/register_request_dto.dart'
-    as _i7;
-import 'package:elevate_ecommerce_app/api/models/responses/auth/profile/edit_profile.dart'
-=======
-import 'dart:async' as _i9;
-
-import 'package:dio/dio.dart' as _i14;
-import 'package:elevate_ecommerce_app/api/client/api_client.dart' as _i8;
-import 'package:elevate_ecommerce_app/api/models/requestes/login_requests/login_request.dart'
-    as _i11;
-import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/change_password_request/change_password_request.dart'
     as _i12;
-import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/update_profile_info_request/update_profile_info_request.dart'
+import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/change_password_request/change_password_request.dart'
     as _i13;
+import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/update_profile_info_request/update_profile_info_request.dart'
+    as _i14;
 import 'package:elevate_ecommerce_app/api/models/requestes/register_request_dto/register_request_dto.dart'
-    as _i10;
-import 'package:elevate_ecommerce_app/api/models/responses/login_response/login_response_dto.dart'
-    as _i3;
-import 'package:elevate_ecommerce_app/api/models/responses/profile/change_password_response/change_password_response_dto.dart'
-    as _i4;
-import 'package:elevate_ecommerce_app/api/models/responses/profile/profile_info_response/profile_info_response_dto.dart'
-    as _i5;
-import 'package:elevate_ecommerce_app/api/models/responses/profile/update_profile_info_response/update_profile_info_response_dto.dart'
-    as _i6;
-import 'package:elevate_ecommerce_app/api/models/responses/profile/upload_image_response/upload_image_response_dto.dart'
-    as _i7;
-import 'package:elevate_ecommerce_app/api/models/responses/register_response_dto/register_response_dto.dart'
->>>>>>> origin/ECOM-19-edit-profile
+    as _i11;
+import 'package:elevate_ecommerce_app/api/models/responses/auth/profile/edit_profile.dart'
     as _i2;
 import 'package:elevate_ecommerce_app/api/models/responses/login_response/login_response_dto.dart'
     as _i4;
+import 'package:elevate_ecommerce_app/api/models/responses/profile/change_password_response/change_password_response_dto.dart'
+    as _i5;
+import 'package:elevate_ecommerce_app/api/models/responses/profile/profile_info_response/profile_info_response_dto.dart'
+    as _i6;
+import 'package:elevate_ecommerce_app/api/models/responses/profile/update_profile_info_response/update_profile_info_response_dto.dart'
+    as _i7;
+import 'package:elevate_ecommerce_app/api/models/responses/profile/upload_image_response/upload_image_response_dto.dart'
+    as _i8;
 import 'package:elevate_ecommerce_app/api/models/responses/register_response_dto/register_response_dto.dart'
     as _i3;
 import 'package:mockito/mockito.dart' as _i1;
@@ -76,169 +63,138 @@ class _FakeLoginResponseDto_2 extends _i1.SmartFake
     : super(parent, parentInvocation);
 }
 
-class _FakeChangePasswordResponseDto_2 extends _i1.SmartFake
-    implements _i4.ChangePasswordResponseDto {
-  _FakeChangePasswordResponseDto_2(Object parent, Invocation parentInvocation)
+class _FakeChangePasswordResponseDto_3 extends _i1.SmartFake
+    implements _i5.ChangePasswordResponseDto {
+  _FakeChangePasswordResponseDto_3(Object parent, Invocation parentInvocation)
     : super(parent, parentInvocation);
 }
 
-class _FakeProfileInfoResponseDto_3 extends _i1.SmartFake
-    implements _i5.ProfileInfoResponseDto {
-  _FakeProfileInfoResponseDto_3(Object parent, Invocation parentInvocation)
+class _FakeProfileInfoResponseDto_4 extends _i1.SmartFake
+    implements _i6.ProfileInfoResponseDto {
+  _FakeProfileInfoResponseDto_4(Object parent, Invocation parentInvocation)
     : super(parent, parentInvocation);
 }
 
-class _FakeUpdateProfileInfoResponseDto_4 extends _i1.SmartFake
-    implements _i6.UpdateProfileInfoResponseDto {
-  _FakeUpdateProfileInfoResponseDto_4(
+class _FakeUpdateProfileInfoResponseDto_5 extends _i1.SmartFake
+    implements _i7.UpdateProfileInfoResponseDto {
+  _FakeUpdateProfileInfoResponseDto_5(
     Object parent,
     Invocation parentInvocation,
   ) : super(parent, parentInvocation);
 }
 
-class _FakeUploadImageResponseDto_5 extends _i1.SmartFake
-    implements _i7.UploadImageResponseDto {
-  _FakeUploadImageResponseDto_5(Object parent, Invocation parentInvocation)
+class _FakeUploadImageResponseDto_6 extends _i1.SmartFake
+    implements _i8.UploadImageResponseDto {
+  _FakeUploadImageResponseDto_6(Object parent, Invocation parentInvocation)
     : super(parent, parentInvocation);
 }
 
 /// A class which mocks [ApiClient].
 ///
 /// See the documentation for Mockito's code generation for more information.
-<<<<<<< HEAD
-class MockApiClient extends _i1.Mock implements _i5.ApiClient {
-=======
-class MockApiClient extends _i1.Mock implements _i8.ApiClient {
->>>>>>> origin/ECOM-19-edit-profile
+class MockApiClient extends _i1.Mock implements _i9.ApiClient {
   MockApiClient() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-<<<<<<< HEAD
-  _i6.Future<_i2.EditProfileDto> editProfile(String? token) =>
+  _i10.Future<_i2.EditProfileDto> editProfile(String? token) =>
       (super.noSuchMethod(
             Invocation.method(#editProfile, [token]),
-            returnValue: _i6.Future<_i2.EditProfileDto>.value(
+            returnValue: _i10.Future<_i2.EditProfileDto>.value(
               _FakeEditProfileDto_0(
                 this,
                 Invocation.method(#editProfile, [token]),
               ),
             ),
           )
-          as _i6.Future<_i2.EditProfileDto>);
+          as _i10.Future<_i2.EditProfileDto>);
 
   @override
-  _i6.Future<_i3.RegisterResponseDto> register(
-    _i7.RegisterRequestDto? registerRequestDto,
+  _i10.Future<_i3.RegisterResponseDto> register(
+    _i11.RegisterRequestDto? registerRequestDto,
   ) =>
       (super.noSuchMethod(
             Invocation.method(#register, [registerRequestDto]),
-            returnValue: _i6.Future<_i3.RegisterResponseDto>.value(
+            returnValue: _i10.Future<_i3.RegisterResponseDto>.value(
               _FakeRegisterResponseDto_1(
-=======
-  _i9.Future<_i2.RegisterResponseDto> register(
-    _i10.RegisterRequestDto? registerRequestDto,
-  ) =>
-      (super.noSuchMethod(
-            Invocation.method(#register, [registerRequestDto]),
-            returnValue: _i9.Future<_i2.RegisterResponseDto>.value(
-              _FakeRegisterResponseDto_0(
->>>>>>> origin/ECOM-19-edit-profile
                 this,
                 Invocation.method(#register, [registerRequestDto]),
               ),
             ),
           )
-<<<<<<< HEAD
-          as _i6.Future<_i3.RegisterResponseDto>);
+          as _i10.Future<_i3.RegisterResponseDto>);
 
   @override
-  _i6.Future<_i4.LoginResponseDto> login(
-    _i8.LoginRequestModel? loginRequestModel,
+  _i10.Future<_i4.LoginResponseDto> login(
+    _i12.LoginRequestModel? loginRequestModel,
   ) =>
       (super.noSuchMethod(
             Invocation.method(#login, [loginRequestModel]),
-            returnValue: _i6.Future<_i4.LoginResponseDto>.value(
+            returnValue: _i10.Future<_i4.LoginResponseDto>.value(
               _FakeLoginResponseDto_2(
-=======
-          as _i9.Future<_i2.RegisterResponseDto>);
-
-  @override
-  _i9.Future<_i3.LoginResponseDto> login(
-    _i11.LoginRequestModel? loginRequestModel,
-  ) =>
-      (super.noSuchMethod(
-            Invocation.method(#login, [loginRequestModel]),
-            returnValue: _i9.Future<_i3.LoginResponseDto>.value(
-              _FakeLoginResponseDto_1(
->>>>>>> origin/ECOM-19-edit-profile
                 this,
                 Invocation.method(#login, [loginRequestModel]),
               ),
             ),
           )
-<<<<<<< HEAD
-          as _i6.Future<_i4.LoginResponseDto>);
-=======
-          as _i9.Future<_i3.LoginResponseDto>);
+          as _i10.Future<_i4.LoginResponseDto>);
 
   @override
-  _i9.Future<_i4.ChangePasswordResponseDto> changePassword(
-    _i12.ChangePasswordRequest? request,
+  _i10.Future<_i5.ChangePasswordResponseDto> changePassword(
+    _i13.ChangePasswordRequest? request,
   ) =>
       (super.noSuchMethod(
             Invocation.method(#changePassword, [request]),
-            returnValue: _i9.Future<_i4.ChangePasswordResponseDto>.value(
-              _FakeChangePasswordResponseDto_2(
+            returnValue: _i10.Future<_i5.ChangePasswordResponseDto>.value(
+              _FakeChangePasswordResponseDto_3(
                 this,
                 Invocation.method(#changePassword, [request]),
               ),
             ),
           )
-          as _i9.Future<_i4.ChangePasswordResponseDto>);
+          as _i10.Future<_i5.ChangePasswordResponseDto>);
 
   @override
-  _i9.Future<_i5.ProfileInfoResponseDto> getProfileData() =>
+  _i10.Future<_i6.ProfileInfoResponseDto> getProfileData() =>
       (super.noSuchMethod(
             Invocation.method(#getProfileData, []),
-            returnValue: _i9.Future<_i5.ProfileInfoResponseDto>.value(
-              _FakeProfileInfoResponseDto_3(
+            returnValue: _i10.Future<_i6.ProfileInfoResponseDto>.value(
+              _FakeProfileInfoResponseDto_4(
                 this,
                 Invocation.method(#getProfileData, []),
               ),
             ),
           )
-          as _i9.Future<_i5.ProfileInfoResponseDto>);
+          as _i10.Future<_i6.ProfileInfoResponseDto>);
 
   @override
-  _i9.Future<_i6.UpdateProfileInfoResponseDto> updateProfileData(
-    _i13.UpdateProfileInfoRequest? request,
+  _i10.Future<_i7.UpdateProfileInfoResponseDto> updateProfileData(
+    _i14.UpdateProfileInfoRequest? request,
   ) =>
       (super.noSuchMethod(
             Invocation.method(#updateProfileData, [request]),
-            returnValue: _i9.Future<_i6.UpdateProfileInfoResponseDto>.value(
-              _FakeUpdateProfileInfoResponseDto_4(
+            returnValue: _i10.Future<_i7.UpdateProfileInfoResponseDto>.value(
+              _FakeUpdateProfileInfoResponseDto_5(
                 this,
                 Invocation.method(#updateProfileData, [request]),
               ),
             ),
           )
-          as _i9.Future<_i6.UpdateProfileInfoResponseDto>);
+          as _i10.Future<_i7.UpdateProfileInfoResponseDto>);
 
   @override
-  _i9.Future<_i7.UploadImageResponseDto> uploadImageProfile(
-    _i14.MultipartFile? photo,
+  _i10.Future<_i8.UploadImageResponseDto> uploadImageProfile(
+    _i15.MultipartFile? photo,
   ) =>
       (super.noSuchMethod(
             Invocation.method(#uploadImageProfile, [photo]),
-            returnValue: _i9.Future<_i7.UploadImageResponseDto>.value(
-              _FakeUploadImageResponseDto_5(
+            returnValue: _i10.Future<_i8.UploadImageResponseDto>.value(
+              _FakeUploadImageResponseDto_6(
                 this,
                 Invocation.method(#uploadImageProfile, [photo]),
               ),
             ),
           )
-          as _i9.Future<_i7.UploadImageResponseDto>);
->>>>>>> origin/ECOM-19-edit-profile
+          as _i10.Future<_i8.UploadImageResponseDto>);
 }

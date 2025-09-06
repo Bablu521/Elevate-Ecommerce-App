@@ -1,6 +1,7 @@
 import 'package:elevate_ecommerce_app/core/router/route_names.dart';
 import 'package:elevate_ecommerce_app/presentation/auth/register/views/screen/register_view.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/views/change_password_view.dart';
+import 'package:elevate_ecommerce_app/presentation/profile/views/widgets/edit_profile_page.dart';
 
 import 'package:flutter/material.dart';
 import '../../presentation/auth/login/views/login_view.dart';
@@ -18,6 +19,8 @@ abstract class AppRouter {
         return MaterialPageRoute(builder: (_) => RegisterView());
       case RouteNames.changePassword:
         return MaterialPageRoute(builder: (_) => ChangePasswordView());
+      case RouteNames.editProfile:
+        return MaterialPageRoute(builder: (_) => EditProfilePage());
 
       default:
         return MaterialPageRoute(builder: (_) => const LoginView());

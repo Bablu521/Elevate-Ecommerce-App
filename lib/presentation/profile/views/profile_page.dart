@@ -2,6 +2,7 @@ import 'package:elevate_ecommerce_app/core/constants/app_colors.dart';
 import 'package:elevate_ecommerce_app/core/constants/app_images.dart';
 import 'package:elevate_ecommerce_app/core/constants/const_keys.dart';
 import 'package:elevate_ecommerce_app/core/provider/app_config_provider.dart';
+import 'package:elevate_ecommerce_app/core/router/route_names.dart';
 import 'package:elevate_ecommerce_app/core/utils/widgets/user_guest_mode_page.dart';
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/profile_view_model/profile_event.dart';
@@ -53,12 +54,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             );
           } else if (state.editProfile == true) {
-            return BlocProvider(
-              create: (context) =>
-                  getIt.get<EditProfileCubit>()
-                    ..doIntent(EditProfileGetInfoUser()),
-              child: const EditProfilePage(),
-            );
+            return const EditProfilePage();
           }
           return SafeArea(
             child: SingleChildScrollView(
@@ -122,8 +118,9 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                             GestureDetector(
                               onTap: () {
-                                context.read<ProfileViewModel>().doIntent(
-                                  EditProfilePageEvent(editProfilePage: true),
+                                Navigator.pushNamed(
+                                  context,
+                                  RouteNames.editProfile,
                                 );
                               },
                               child: Image.asset(AppImages.penImage),

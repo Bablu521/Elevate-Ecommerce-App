@@ -27,13 +27,10 @@ import '../../data/data_source/profile/edit_profile_remote_data_source.dart'
 import '../../data/repositories/auth_repo_impl.dart' as _i653;
 import '../../data/repositories/profile/edit_profile_impl.dart' as _i177;
 import '../../domin/repositories/auth_repo.dart' as _i340;
-<<<<<<< HEAD
 import '../../domin/repositories/profile/edit_profile_repo.dart' as _i251;
 import '../../domin/use_case/edit_profile_use_case.dart' as _i274;
-=======
 import '../../domin/use_cases/change_password_profile_use_case.dart' as _i257;
 import '../../domin/use_cases/get_profile_info_use_case.dart' as _i911;
->>>>>>> origin/ECOM-19-edit-profile
 import '../../domin/use_cases/get_user_status_use_case.dart' as _i799;
 import '../../domin/use_cases/guest_login_use_case.dart' as _i917;
 import '../../domin/use_cases/login_use_case.dart' as _i1073;
@@ -43,15 +40,12 @@ import '../../domin/use_cases/upload_profile_image_use_case.dart' as _i603;
 import '../../presentation/auth/login/view_models/login_cubit.dart' as _i441;
 import '../../presentation/auth/register/view_models/register_view_model.dart'
     as _i490;
-<<<<<<< HEAD
 import '../../presentation/profile/profile_view_model/profile_view_model.dart'
     as _i276;
-=======
 import '../../presentation/profile/view_model/change_password_view_model/change_password_view_model_cubit.dart'
     as _i159;
 import '../../presentation/profile/view_model/edit_profile_view_model/edit_profile_cubit.dart'
     as _i697;
->>>>>>> origin/ECOM-19-edit-profile
 import '../module/secure_storage_module.dart' as _i260;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -118,7 +112,18 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i490.RegisterViewModel>(
       () => _i490.RegisterViewModel(gh<_i638.RegisterUseCase>()),
     );
-<<<<<<< HEAD
+    gh.factory<_i697.EditProfileCubit>(
+      () => _i697.EditProfileCubit(
+        gh<_i911.GetProfileInfoUseCase>(),
+        gh<_i981.UpdateProfileInfoUseCase>(),
+        gh<_i603.UploadProfileImageUseCase>(),
+      ),
+    );
+    gh.factory<_i159.ChangePasswordViewModelCubit>(
+      () => _i159.ChangePasswordViewModelCubit(
+        gh<_i257.ChangePasswordProfileUseCase>(),
+      ),
+    );
     gh.factory<_i251.EditProfileRepo>(
       () => _i177.EditProfileRepoImpl(
         editProfileRemoteDataSource: gh<_i1001.EditProfileRemoteDataSource>(),
@@ -133,18 +138,6 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i276.ProfileViewModel(
         gh<_i274.EditProfileUseCase>(),
         gh<_i799.GetUserStatusUseCase>(),
-=======
-    gh.factory<_i697.EditProfileCubit>(
-      () => _i697.EditProfileCubit(
-        gh<_i911.GetProfileInfoUseCase>(),
-        gh<_i981.UpdateProfileInfoUseCase>(),
-        gh<_i603.UploadProfileImageUseCase>(),
-      ),
-    );
-    gh.factory<_i159.ChangePasswordViewModelCubit>(
-      () => _i159.ChangePasswordViewModelCubit(
-        gh<_i257.ChangePasswordProfileUseCase>(),
->>>>>>> origin/ECOM-19-edit-profile
       ),
     );
     return this;
