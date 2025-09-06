@@ -26,8 +26,8 @@ jobs:
       - name: Install packages
         run: flutter pub get
 
-      - name: Generate localization files
-        run: flutter gen-l10n --template-arb-file=intl_en.arb
+      - name: Generate intl files
+        run: flutter pub run intl_utils:generate
 
 
       - name: Generate JSON serialization and mocks
