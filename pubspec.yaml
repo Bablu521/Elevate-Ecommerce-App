@@ -127,4 +127,5 @@ flutter:
   # see https://flutter.dev/to/font-from-package
 flutter_intl:
   enabled: true
+  arb-dir: lib/l10n
   class_name: AppLocalizations

@@ -27,7 +27,7 @@ jobs:
         run: flutter pub get
 
       - name: Generate localization files
-        run: flutter gen-l10n --template-arb-file=lib/l10n/intl_en.arb
+        run: flutter gen-l10n --template-arb-file=l10n/intl_en.arb
       - name: Run generator
         run: flutter pub run build_runner build --delete-conflicting-outputs
       - name: Run tests (excluding localization)
