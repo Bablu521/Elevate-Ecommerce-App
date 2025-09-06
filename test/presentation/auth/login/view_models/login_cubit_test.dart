@@ -17,7 +17,6 @@ import 'login_cubit_test.mocks.dart';
 @GenerateMocks([LoginUseCase, GuestLoginUseCase])
 void main() {
   group("Login Cubit test", () {
-    late LoginCubit loginCubit;
     late MockLoginUseCase mockLoginUseCase;
     late LoginRequestModel loginRequestModel;
     late MockGuestLoginUseCase mockGuestLoginUseCase;
@@ -29,9 +28,8 @@ void main() {
     setUp(() {
       mockLoginUseCase = MockLoginUseCase();
       mockGuestLoginUseCase = MockGuestLoginUseCase();
-      loginCubit = LoginCubit(mockLoginUseCase, mockGuestLoginUseCase);
       loginRequestModel = LoginTestFixtures.fakeLoginRequest();
-      state = LoginState();
+      state = const LoginState();
       expectedError = ApiErrorResult<LoginEntity>("Server Error");
       expectedResult = ApiSuccessResult<LoginEntity>(loginEntity);
     });
