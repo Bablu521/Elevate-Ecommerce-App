@@ -57,5 +57,20 @@
   "ok": "Ok",
   "no": "No",
   "yes": "Yes",
-  "loading": "Loading..."
+  "loading": "Loading...",
+  "emailLabel": "Email",
+  "emailHintText": "Enter your Email",
+  "passwordLabel": "Password",
+  "passwordHintText": "Enter your Password",
+  "rememberMe": "Remember me",
+  "forgetPassword": "Forget password?",
+  "dontHaveAccount": "Dont't have an account?",
+  "continueAsGuest": "Continue as guest",
+  "home": "Home",
+  "categories": "Categories",
+  "cart": "Cart",
+  "profile": "Profile",
+  "guestMode": "Guest Mode",
+  "loginToSaveCartAndManageProfile": "Login or create a free account to save your cart, checkout faster, manage your profile, and track your orders.",
+  "or": "or"
 }

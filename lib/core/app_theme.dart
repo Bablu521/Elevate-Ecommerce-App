@@ -53,7 +53,7 @@ abstract class AppTheme {
       ),
       floatingLabelStyle: WidgetStateTextStyle.resolveWith((states) {
         if (states.contains(WidgetState.error)) {
-          return getTextStyle(color: AppColors.red);
+          return getTextStyle(color: AppColors.red); 
         }
         return getTextStyle(color: AppColors.gray);
       }),
@@ -62,6 +62,17 @@ abstract class AppTheme {
       focusedBorder: getOutlineInputBorder(color: AppColors.gray),
       enabledBorder: getOutlineInputBorder(color: AppColors.gray),
       errorBorder: getOutlineInputBorder(color: AppColors.red),
+    ),
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      selectedIconTheme: IconThemeData(
+        color: AppColors.red,
+        applyTextScaling: true,
+      ),
+      selectedItemColor: AppColors.red,
+      unselectedItemColor: AppColors.gray,
+      showSelectedLabels: true,
+      showUnselectedLabels: true,
+      type: BottomNavigationBarType.shifting,
     ),
 
     elevatedButtonTheme: ElevatedButtonThemeData(

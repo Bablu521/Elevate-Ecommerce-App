@@ -5,7 +5,7 @@ sealed class ApiResult<T> {}
 
 class ApiSuccessResult<T> extends ApiResult<T> {
   T data;
-  ApiSuccessResult(this.data,);
+  ApiSuccessResult(this.data);
 }
 
 class ApiErrorResult<T> extends ApiResult<T> {
@@ -21,9 +21,9 @@ class ApiErrorResult<T> extends ApiResult<T> {
 }
 
 Future<ApiResult<TOut>> safeApiCall<TIn, TOut>(
-    Future<TIn> Function() apiCall,
-    TOut Function(TIn) transform,
-    ) async {
+  Future<TIn> Function() apiCall,
+  TOut Function(TIn) transform,
+) async {
   try {
     final result = await apiCall();
     return ApiSuccessResult(transform(result));
@@ -31,3 +31,4 @@ Future<ApiResult<TOut>> safeApiCall<TIn, TOut>(
     return ApiErrorResult(e);
   }
 }
+
