@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:bloc_test/bloc_test.dart';
 import 'package:dio/dio.dart';
@@ -6,12 +5,11 @@ import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/updat
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/domin/entities/profile_info_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/update_profile_entity.dart';
-import 'package:elevate_ecommerce_app/domin/entities/upload_image_entity.dart';
 import 'package:elevate_ecommerce_app/domin/use_cases/get_profile_info_use_case.dart';
 import 'package:elevate_ecommerce_app/domin/use_cases/update_profile_info_use_case.dart';
 import 'package:elevate_ecommerce_app/domin/use_cases/upload_profile_image_use_case.dart';
-import 'package:elevate_ecommerce_app/presentation/profile/view_model/edit_profile_view_model/edit_profile_cubit.dart';
-import 'package:elevate_ecommerce_app/presentation/profile/view_model/edit_profile_view_model/edit_profile_event.dart';
+import 'package:elevate_ecommerce_app/presentation/profile/profile_view_model/edit_profile_view_model/edit_profile_cubit.dart';
+import 'package:elevate_ecommerce_app/presentation/profile/profile_view_model/edit_profile_view_model/edit_profile_event.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';

@@ -1,6 +1,6 @@
 import 'package:elevate_ecommerce_app/core/utils/helper_function.dart';
 import 'package:elevate_ecommerce_app/core/utils/loaders/loaders.dart';
-import 'package:elevate_ecommerce_app/presentation/profile/view_model/change_password_view_model/change_password_view_model_cubit.dart';
+import 'package:elevate_ecommerce_app/presentation/profile/profile_view_model/change_password_view_model/change_password_view_model_cubit.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/views/widgets/change_password_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

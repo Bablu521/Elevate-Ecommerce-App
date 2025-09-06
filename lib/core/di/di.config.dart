@@ -33,9 +33,9 @@ import '../../domin/use_cases/upload_profile_image_use_case.dart' as _i603;
 import '../../presentation/auth/login/view_models/login_cubit.dart' as _i441;
 import '../../presentation/auth/register/view_models/register_view_model.dart'
     as _i490;
-import '../../presentation/profile/view_model/change_password_view_model/change_password_view_model_cubit.dart'
+import '../../presentation/profile/profile_view_model/change_password_view_model/change_password_view_model_cubit.dart'
     as _i159;
-import '../../presentation/profile/view_model/edit_profile_view_model/edit_profile_cubit.dart'
+import '../../presentation/profile/profile_view_model/edit_profile_view_model/edit_profile_cubit.dart'
     as _i697;
 import '../module/secure_storage_module.dart' as _i260;
 

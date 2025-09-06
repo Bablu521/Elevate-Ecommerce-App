@@ -1,8 +1,8 @@
 import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/change_password_request/change_password_request.dart';
 import 'package:elevate_ecommerce_app/core/utils/validations.dart';
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
-import 'package:elevate_ecommerce_app/presentation/profile/view_model/change_password_view_model/change_password_view_model_cubit.dart';
-import 'package:elevate_ecommerce_app/presentation/profile/view_model/change_password_view_model/change_password_view_model_event.dart';
+import 'package:elevate_ecommerce_app/presentation/profile/profile_view_model/change_password_view_model/change_password_view_model_cubit.dart';
+import 'package:elevate_ecommerce_app/presentation/profile/profile_view_model/change_password_view_model/change_password_view_model_event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

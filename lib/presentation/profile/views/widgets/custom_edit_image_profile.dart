@@ -1,23 +1,15 @@
-import 'dart:io';
-import 'package:dio/dio.dart';
 import 'package:elevate_ecommerce_app/core/constants/app_colors.dart';
-import 'package:elevate_ecommerce_app/presentation/profile/view_model/edit_profile_view_model/edit_profile_cubit.dart';
-import 'package:elevate_ecommerce_app/presentation/profile/view_model/edit_profile_view_model/edit_profile_event.dart';
+import 'package:elevate_ecommerce_app/presentation/profile/profile_view_model/edit_profile_view_model/edit_profile_cubit.dart';
+import 'package:elevate_ecommerce_app/presentation/profile/profile_view_model/edit_profile_view_model/edit_profile_event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
-class CustomEditImageProfile extends StatefulWidget {
+class CustomEditImageProfile extends StatelessWidget {
   const CustomEditImageProfile({super.key});
-  @override
-  State<CustomEditImageProfile> createState() => _CustomEditImageProfileState();
-}
 
-class _CustomEditImageProfileState extends State<CustomEditImageProfile> {
-  File? _image;
-  final ImagePicker _picker = ImagePicker();
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.sizeOf(context);
@@ -51,14 +43,7 @@ class _CustomEditImageProfileState extends State<CustomEditImageProfile> {
                     borderRadius: BorderRadius.circular(4),
                   ),
                   child: GestureDetector(
-                    onTap: () async {
-                      // final pickedFile = await _picker.pickImage(
-                      //   source: ImageSource.gallery,
-                      // );
-                      // if (pickedFile != null) {
-                      //   _image = File(pickedFile.path);
-                      // }
-                      // final file = await MultipartFile.fromFile(_image!.path);
+                    onTap: () {
                       context.read<EditProfileCubit>().doIntent(
                         EditProfileUploadImageEvent(
                           imageSource: ImageSource.gallery,

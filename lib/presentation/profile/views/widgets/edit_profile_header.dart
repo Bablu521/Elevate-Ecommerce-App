@@ -10,7 +10,12 @@ class EditProfileHeader extends StatelessWidget {
     final local = AppLocalizations.of(context);
     return Row(
       children: [
-        const Icon(Icons.arrow_back_ios_rounded),
+        GestureDetector(
+          onTap: () {
+            Navigator.maybePop(context);
+          },
+          child: const Icon(Icons.arrow_back_ios_rounded),
+        ),
         Text(
           local.editProfile,
           style: theme.textTheme.bodyLarge?.copyWith(

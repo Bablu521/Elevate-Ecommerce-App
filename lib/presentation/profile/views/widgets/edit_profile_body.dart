@@ -2,8 +2,8 @@ import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/updat
 import 'package:elevate_ecommerce_app/core/utils/helper_function.dart';
 import 'package:elevate_ecommerce_app/core/utils/loaders/loaders.dart';
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
-import 'package:elevate_ecommerce_app/presentation/profile/view_model/edit_profile_view_model/edit_profile_cubit.dart';
-import 'package:elevate_ecommerce_app/presentation/profile/view_model/edit_profile_view_model/edit_profile_event.dart';
+import 'package:elevate_ecommerce_app/presentation/profile/profile_view_model/edit_profile_view_model/edit_profile_cubit.dart';
+import 'package:elevate_ecommerce_app/presentation/profile/profile_view_model/edit_profile_view_model/edit_profile_event.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/views/widgets/custom_edit_image_profile.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/views/widgets/custom_profile_radio.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/views/widgets/edit_profile_header.dart';
@@ -12,14 +12,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class EditProfilePage extends StatefulWidget {
-  const EditProfilePage({super.key});
+class EditProfileBody extends StatefulWidget {
+  const EditProfileBody({super.key});
 
   @override
-  State<EditProfilePage> createState() => _EditProfilePageState();
+  State<EditProfileBody> createState() => _EditProfileBodyState();
 }
 
-class _EditProfilePageState extends State<EditProfilePage> {
+class _EditProfileBodyState extends State<EditProfileBody> {
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController lastNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();

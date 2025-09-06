@@ -10,7 +10,7 @@ import 'package:elevate_ecommerce_app/domin/entities/upload_image_entity.dart';
 import 'package:elevate_ecommerce_app/domin/use_cases/get_profile_info_use_case.dart';
 import 'package:elevate_ecommerce_app/domin/use_cases/update_profile_info_use_case.dart';
 import 'package:elevate_ecommerce_app/domin/use_cases/upload_profile_image_use_case.dart';
-import 'package:elevate_ecommerce_app/presentation/profile/view_model/edit_profile_view_model/edit_profile_event.dart';
+import 'package:elevate_ecommerce_app/presentation/profile/profile_view_model/edit_profile_view_model/edit_profile_event.dart';
 import 'package:equatable/equatable.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:injectable/injectable.dart';
