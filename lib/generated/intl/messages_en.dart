@@ -28,6 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "alreadyHaveAnAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account? ",
     ),
+    "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "badCertificate": MessageLookupByLibrary.simpleMessage(
       "Bad certificate. Please check your device date/time.",
     ),
@@ -36,6 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "cart": MessageLookupByLibrary.simpleMessage("Cart"),
     "categories": MessageLookupByLibrary.simpleMessage("Categories"),
+    "changeLanguage": MessageLookupByLibrary.simpleMessage("Change Language"),
     "close": MessageLookupByLibrary.simpleMessage("close"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm password"),
     "connectionError": MessageLookupByLibrary.simpleMessage(
@@ -44,6 +46,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "connectionTimeout": MessageLookupByLibrary.simpleMessage(
       "Connection timeout. Please try again later.",
     ),
+    "continueAsGuest": MessageLookupByLibrary.simpleMessage(
+      "Continue as guest",
+    ),
     "creatingAnAccountYouAgreeToOur": MessageLookupByLibrary.simpleMessage(
       "Creating an account, you agree to our ",
     ),
@@ -51,10 +56,15 @@ class MessageLookup extends MessageLookupByLibrary {
       "Request was cancelled. Please retry.",
     ),
     "discount": MessageLookupByLibrary.simpleMessage("Discount"),
+    "dontHaveAccount": MessageLookupByLibrary.simpleMessage(
+      "Dont\'t have an account?",
+    ),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "emailHintText": MessageLookupByLibrary.simpleMessage("Enter your Email"),
     "emailIsRequired": MessageLookupByLibrary.simpleMessage(
       "email is required",
     ),
+    "emailLabel": MessageLookupByLibrary.simpleMessage("Email"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
     "enterFirstName": MessageLookupByLibrary.simpleMessage("Enter first name"),
     "enterLastName": MessageLookupByLibrary.simpleMessage("Enter last name"),
@@ -86,13 +96,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "filter": MessageLookupByLibrary.simpleMessage("Filter"),
     "firstName": MessageLookupByLibrary.simpleMessage("First name"),
     "flowery": MessageLookupByLibrary.simpleMessage("Flowery"),
+    "forgetPassword": MessageLookupByLibrary.simpleMessage("Forget password?"),
     "gender": MessageLookupByLibrary.simpleMessage("Gender"),
+    "guestMode": MessageLookupByLibrary.simpleMessage("Guest Mode"),
     "highestPrice": MessageLookupByLibrary.simpleMessage("Highest Price"),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
     "language": MessageLookupByLibrary.simpleMessage("Language"),
     "lastName": MessageLookupByLibrary.simpleMessage("Last name"),
     "loading": MessageLookupByLibrary.simpleMessage("Loading..."),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
+    "loginToSaveCartAndManageProfile": MessageLookupByLibrary.simpleMessage(
+      "Login or create a free account to save your cart, checkout faster, manage your profile, and track your orders.",
+    ),
     "logout": MessageLookupByLibrary.simpleMessage("Logout"),
     "lowesPrice": MessageLookupByLibrary.simpleMessage("Lowes Price"),
     "male": MessageLookupByLibrary.simpleMessage("Male"),
@@ -111,10 +126,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
     "ok": MessageLookupByLibrary.simpleMessage("Ok"),
     "old": MessageLookupByLibrary.simpleMessage("Old"),
+    "or": MessageLookupByLibrary.simpleMessage("or"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "passwordHintText": MessageLookupByLibrary.simpleMessage(
+      "Enter your Password",
+    ),
     "passwordIsRequired": MessageLookupByLibrary.simpleMessage(
       "password is required",
     ),
+    "passwordLabel": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordNotMatched": MessageLookupByLibrary.simpleMessage(
       "password Not Matched",
     ),
@@ -126,6 +146,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "registeredSuccessfully": MessageLookupByLibrary.simpleMessage(
       "Registered Successfully!",
     ),
+    "rememberMe": MessageLookupByLibrary.simpleMessage("Remember me"),
     "savedAddress": MessageLookupByLibrary.simpleMessage("Saved address"),
     "search": MessageLookupByLibrary.simpleMessage("Search"),
     "sendTimeout": MessageLookupByLibrary.simpleMessage(
