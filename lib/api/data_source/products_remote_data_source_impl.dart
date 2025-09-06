@@ -16,7 +16,7 @@ class ProductsRemoteDataSourceImpl implements ProductsRemoteDataSource {
   Future<ApiResult<List<ProductEntity>>> getAllProducts() async {
     return safeApiCall(
       () => _apiClient.getAllProducts(),
-      (response) => response.products!.map(ProductMapper.fromDTO).toList(),
+      (response) => response.products!.map((dto) => dto.toEntity()).toList(),
     );
   }
 
@@ -26,7 +26,7 @@ class ProductsRemoteDataSourceImpl implements ProductsRemoteDataSource {
   ) async {
     return safeApiCall(
       () => _apiClient.getProductsByCategory(category),
-      (response) => response.products!.map(ProductMapper.fromDTO).toList(),
+      (response) => response.products!.map((dto) => dto.toEntity()).toList(),
     );
   }
 
@@ -36,7 +36,7 @@ class ProductsRemoteDataSourceImpl implements ProductsRemoteDataSource {
   ) async {
     return safeApiCall(
       () => _apiClient.getProductsByOccasion(occasion),
-      (response) => response.products!.map(ProductMapper.fromDTO).toList(),
+      (response) => response.products!.map((dto) => dto.toEntity()).toList(),
     );
   }
 }

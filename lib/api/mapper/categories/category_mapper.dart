@@ -1,17 +1,17 @@
 import 'package:elevate_ecommerce_app/api/models/responses/categories/category_dto.dart';
 import 'package:elevate_ecommerce_app/domin/entities/category_entity.dart';
 
-abstract class CategoryMapper {
-  static CategoryEntity fromDTO(CategoryDTO dto) {
+extension CategoryMapper on CategoryDTO {
+  CategoryEntity toEntity() {
     return CategoryEntity(
-      Id: dto.Id,
-      name: dto.name,
-      slug: dto.slug,
-      image: dto.image,
-      createdAt: dto.createdAt,
-      updatedAt: dto.updatedAt,
-      isSuperAdmin: dto.isSuperAdmin,
-      productsCount: dto.productsCount,
+      Id: Id,
+      name: name,
+      slug: slug,
+      image: image,
+      createdAt: createdAt,
+      updatedAt: updatedAt,
+      isSuperAdmin: isSuperAdmin,
+      productsCount: productsCount,
     );
   }
 }

@@ -2,13 +2,14 @@ import 'package:bloc/bloc.dart';
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/domin/entities/category_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/product_entity.dart';
-import 'package:elevate_ecommerce_app/domin/use_case/get_all_categories_use_case.dart';
-import 'package:elevate_ecommerce_app/domin/use_case/get_all_products_use_case.dart';
-import 'package:elevate_ecommerce_app/domin/use_case/get_products_by_category_use_case.dart';
+import 'package:elevate_ecommerce_app/domin/use_cases/get_all_categories_use_case.dart';
+import 'package:elevate_ecommerce_app/domin/use_cases/get_all_products_use_case.dart';
 import 'package:elevate_ecommerce_app/presentation/categories/view_models/categories_events.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
+
+import '../../../domin/use_cases/get_products_by_category_use_case.dart';
 
 part 'categories_state.dart';
 
@@ -115,6 +116,7 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
       vsync: tabControllerVsync,
     );
     tabController!.addListener(() {
+      searchController.text = "";
       selectedTabIndex.value = tabController!.index;
       if (tabController!.index == 0) {
         _getAllProducts();

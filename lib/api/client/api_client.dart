@@ -9,8 +9,6 @@ import 'package:elevate_ecommerce_app/api/models/responses/products/all_products
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 
-import '../../core/constants/api_end_points.dart';
-
 part 'api_client.g.dart';
 
 @injectable
@@ -27,20 +25,19 @@ abstract class ApiClient {
   @POST(Endpoints.signIn)
   Future<LoginResponseDto> login(@Body() LoginRequestModel loginRequestModel);
 
-
-  @GET(ApiEndPoints.categories)
+  @GET(Endpoints.categories)
   Future<AllCategoriesResponse> getAllCategories();
 
-  @GET(ApiEndPoints.products)
+  @GET(Endpoints.products)
   Future<AllProductsResponse> getAllProducts();
 
-  @GET(ApiEndPoints.products)
+  @GET(Endpoints.products)
   Future<AllProductsResponse> getProductsByCategory(
-    @Query("category") String category,
+    @Query(Endpoints.categoryQuery) String category,
   );
 
-  @GET(ApiEndPoints.products)
+  @GET(Endpoints.products)
   Future<AllProductsResponse> getProductsByOccasion(
-    @Query("occasion") String occasion,
+    @Query(Endpoints.occasionQuery) String occasion,
   );
 }

@@ -15,9 +15,8 @@ class CategoriesRemoteDataSourceImpl implements CategoriesRemoteDataSource {
   @override
   Future<ApiResult<List<CategoryEntity>>> getAllCategories() {
     return safeApiCall(
-          () => _apiClient.getAllCategories(),
-          (response) => response.categories!.map(CategoryMapper.fromDTO).toList(),
+      () => _apiClient.getAllCategories(),
+      (response) => response.categories!.map((dto) => dto.toEntity()).toList(),
     );
   }
-
 }

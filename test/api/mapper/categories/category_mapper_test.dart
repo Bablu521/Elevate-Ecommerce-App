@@ -18,7 +18,7 @@ void main() {
           productsCount: null,
         );
 
-        var result = CategoryMapper.fromDTO(categoryDto);
+        var result = categoryDto.toEntity();
 
         expect(result.Id, null);
         expect(result.name, null);
@@ -46,7 +46,7 @@ void main() {
           productsCount: 0,
         );
 
-        var result = CategoryMapper.fromDTO(categoryDto);
+        var result = categoryDto.toEntity();
 
         expect(result.Id, categoryDto.Id);
         expect(result.name, categoryDto.name);

@@ -1,7 +1,7 @@
 import '../../core/api_result/api_result.dart';
 import '../../domin/entities/product_entity.dart';
 
-abstract class ProductsRemoteDataSource {
+abstract interface class ProductsRemoteDataSource {
   Future<ApiResult<List<ProductEntity>>> getAllProducts();
 
   Future<ApiResult<List<ProductEntity>>> getProductsByCategory(String category);

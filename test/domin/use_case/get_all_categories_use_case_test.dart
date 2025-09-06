@@ -1,7 +1,7 @@
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/domin/entities/category_entity.dart';
 import 'package:elevate_ecommerce_app/domin/repositories/categories_repo.dart';
-import 'package:elevate_ecommerce_app/domin/use_case/get_all_categories_use_case.dart';
+import 'package:elevate_ecommerce_app/domin/use_cases/get_all_categories_use_case.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';

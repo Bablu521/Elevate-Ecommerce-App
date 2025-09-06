@@ -72,7 +72,7 @@ void main() {
         expect(
           result.data,
           equals(
-            expectedResult.categories!.map(CategoryMapper.fromDTO).toList(),
+            expectedResult.categories!.map((dto) => dto.toEntity()).toList(),
           ),
         );
       },
