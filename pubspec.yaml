@@ -127,3 +127,7 @@ flutter:
 flutter_intl:
   enabled: true
   class_name: AppLocalizations
+  arb_dir: lib/l10n        # مسار ملفات ARB
+  output_dir: lib/generated   # مسار الملفات المولدة
+  template_arbs:
+    - intl_en.arb  
