@@ -49,22 +49,6 @@ class _ProfilePageState extends State<ProfilePage> {
                 ],
               ),
             );
-          } else if (state.editProfile == true) {
-            return Container(
-              child: Column(
-                children: [
-                  const Text("edit profile page"),
-                  ElevatedButton(
-                    onPressed: () {
-                      context.read<ProfileViewModel>().doIntent(
-                        EditProfilePageEvent(editProfilePage: false),
-                      );
-                    },
-                    child: Icon(Icons.arrow_back),
-                  ),
-                ],
-              ),
-            );
           }
           return SafeArea(
             child: SingleChildScrollView(
@@ -128,9 +112,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                             GestureDetector(
                               onTap: () {
-                                context.read<ProfileViewModel>().doIntent(
-                                  EditProfilePageEvent(editProfilePage: true),
-                                );
+                                // Navigate to editProfilePage
                               },
                               child: Image.asset(AppImages.penImage),
                             ),

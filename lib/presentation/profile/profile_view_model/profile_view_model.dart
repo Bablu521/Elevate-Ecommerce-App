@@ -19,9 +19,6 @@ class ProfileViewModel extends Cubit<ProfileStates> {
     switch (event) {
       case OnLoadProfileEvent():
         _editProfile();
-
-      case EditProfilePageEvent():
-        _updateProfile(event.editProfilePage);
     }
   }
 
@@ -51,9 +48,5 @@ class ProfileViewModel extends Cubit<ProfileStates> {
           );
       }
     }
-  }
-
-  void _updateProfile(bool editProfilePage) {
-    emit(state.copyWith(editProfile: editProfilePage));
   }
 }

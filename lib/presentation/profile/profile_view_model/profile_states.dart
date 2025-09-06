@@ -4,7 +4,6 @@ import 'package:equatable/equatable.dart';
 class ProfileStates extends Equatable {
   final bool profileListIsLoading;
   final String? profileListErrorMessage;
-  final bool editProfile;
   final bool? isLogged;
   final EditProfileEntity? profileListSuccess;
 
@@ -12,7 +11,6 @@ class ProfileStates extends Equatable {
     this.profileListIsLoading = false,
     this.profileListErrorMessage,
     this.profileListSuccess,
-    this.editProfile = false,
     this.isLogged,
   });
 
@@ -20,7 +18,6 @@ class ProfileStates extends Equatable {
     bool? profileListIsLoading,
     String? profileListErrorMessage,
     EditProfileEntity? profileListSuccess,
-    bool? editProfile,
     bool? isLogged,
   }) {
     return ProfileStates(
@@ -28,7 +25,6 @@ class ProfileStates extends Equatable {
       profileListErrorMessage:
           profileListErrorMessage ?? this.profileListErrorMessage,
       profileListSuccess: profileListSuccess ?? this.profileListSuccess,
-      editProfile: editProfile ?? this.editProfile,
       isLogged: isLogged,
     );
   }
@@ -38,7 +34,6 @@ class ProfileStates extends Equatable {
     profileListIsLoading,
     profileListErrorMessage,
     profileListSuccess,
-    editProfile,
     isLogged,
   ];
 
