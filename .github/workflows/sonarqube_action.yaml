@@ -52,4 +52,4 @@ jobs:
             -Dsonar.projectKey=Bablu521_Elevate-Ecommerce-App
             -Dsonar.sources=lib,pubspec.yaml
             -Dsonar.tests=test
-            -Dsonar.dart.analyzer.mode=FLUTTER
+

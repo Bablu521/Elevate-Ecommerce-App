@@ -59,6 +59,8 @@ class AuthRepoImpl implements AuthRepo {
       }
     }
 
+
+
     @override
     Future<void> guestUserLogin() async {
       await _handleUserInfo(
@@ -67,6 +69,8 @@ class AuthRepoImpl implements AuthRepo {
         userStatus: ConstKeys.kUserGuest,
       );
     }
+
+  
 
     @override
     Future<bool> getUserStatus() async {

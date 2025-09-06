@@ -1,6 +1,6 @@
 import 'package:elevate_ecommerce_app/core/router/route_names.dart';
 import 'package:elevate_ecommerce_app/presentation/auth/register/views/screen/register_view.dart';
-
+import 'package:elevate_ecommerce_app/presentation/cart/views/screen/cart_page.dart';
 import 'package:flutter/material.dart';
 import '../../presentation/auth/login/views/login_view.dart';
 
@@ -16,6 +16,11 @@ abstract class AppRouter {
         return MaterialPageRoute(builder: (_) => const MainHome());
       case RouteNames.register:
         return MaterialPageRoute(builder: (_) => RegisterView());
+      case RouteNames.cart:
+        return MaterialPageRoute(
+          builder: (_) => const CartPage(),
+          settings: settings,
+        );
 
       default:
         return MaterialPageRoute(builder: (_) => const LoginView());

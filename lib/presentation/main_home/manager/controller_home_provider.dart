@@ -1,4 +1,4 @@
-import 'package:elevate_ecommerce_app/presentation/cart/views/cart_page.dart';
+import 'package:elevate_ecommerce_app/presentation/cart/views/screen/cart_page.dart';
 import 'package:elevate_ecommerce_app/presentation/categories/views/categories_page.dart';
 import 'package:elevate_ecommerce_app/presentation/home/views/home_page.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/views/profile_page.dart';

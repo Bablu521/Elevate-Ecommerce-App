@@ -26,4 +26,5 @@ abstract class TokenStorage {
   static Future<void> deleteToken() async {
     await _storage.delete(key: ConstKeys.keyUserToken);
   }
+
 }

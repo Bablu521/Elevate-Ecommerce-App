@@ -5,7 +5,7 @@ import 'package:injectable/injectable.dart';
 
 @Injectable(as: AuthLocalDataSource)
 class AuthLocalDataSourceImpl implements AuthLocalDataSource {
-  final FlutterSecureStorage secureStorage;
+final FlutterSecureStorage secureStorage;
 
   AuthLocalDataSourceImpl(this.secureStorage);
 
@@ -43,3 +43,4 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
     await secureStorage.delete(key: ConstKeys.keyRememberMe);
   }
 }
+
