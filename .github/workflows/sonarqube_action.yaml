@@ -27,7 +27,7 @@ jobs:
         run: flutter pub get
 
       - name: Generate localization files
-        run: flutter gen-l10n
+        run: flutter gen-l10n --template-arb-file=lib/l10n/intl_en.arb
 
       - name: Generate JSON serialization and mocks
         run: flutter pub run build_runner build --delete-conflicting-outputs
