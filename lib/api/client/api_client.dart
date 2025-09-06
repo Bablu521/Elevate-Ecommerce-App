@@ -6,6 +6,9 @@ import 'package:elevate_ecommerce_app/api/models/responses/login_response/login_
 import 'package:elevate_ecommerce_app/core/constants/end_points.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
+
+import '../../core/constants/end_points.dart';
+import '../models/responses/auth/profile/edit_profile.dart';
 part 'api_client.g.dart';
 
 @injectable
@@ -13,6 +16,11 @@ part 'api_client.g.dart';
 abstract class ApiClient {
   @factoryMethod
   factory ApiClient(Dio dio) = _ApiClient;
+
+  @PUT(Endpoints.editProfile)
+  Future<EditProfileDto> editProfile(
+      @Header("Authorization") String token,
+      );
 
   @POST(Endpoints.register)
   Future<RegisterResponseDto> register(

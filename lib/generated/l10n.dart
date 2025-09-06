@@ -599,6 +599,56 @@ class AppLocalizations {
     return Intl.message('Loading...', name: 'loading', desc: '', args: []);
   }
 
+  /// `Flowery`
+  String get flowery {
+    return Intl.message('Flowery', name: 'flowery', desc: '', args: []);
+  }
+
+  /// `My orders`
+  String get myOrders {
+    return Intl.message('My orders', name: 'myOrders', desc: '', args: []);
+  }
+
+  /// `Saved address`
+  String get savedAddress {
+    return Intl.message(
+      'Saved address',
+      name: 'savedAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notifications`
+  String get notifications {
+    return Intl.message(
+      'Notifications',
+      name: 'notifications',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message('Language', name: 'language', desc: '', args: []);
+  }
+
+  /// `About us`
+  String get aboutUs {
+    return Intl.message('About us', name: 'aboutUs', desc: '', args: []);
+  }
+
+  /// `Logout`
+  String get logout {
+    return Intl.message('Logout', name: 'logout', desc: '', args: []);
+  }
+
+  /// `English`
+  String get english {
+    return Intl.message('English', name: 'english', desc: '', args: []);
+  }
+
   /// `Guest Mode`
   String get guestMode {
     return Intl.message('Guest Mode', name: 'guestMode', desc: '', args: []);
@@ -618,13 +668,31 @@ class AppLocalizations {
   String get or {
     return Intl.message('or', name: 'or', desc: '', args: []);
   }
+
+  /// `Change Language`
+  String get changeLanguage {
+    return Intl.message(
+      'Change Language',
+      name: 'changeLanguage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Arabic`
+  String get arabic {
+    return Intl.message('Arabic', name: 'arabic', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppLocalizations> {
   const AppLocalizationDelegate();
 
   List<Locale> get supportedLocales {
-    return const <Locale>[Locale.fromSubtags(languageCode: 'en')];
+    return const <Locale>[
+      Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'ar'),
+    ];
   }
 
   @override

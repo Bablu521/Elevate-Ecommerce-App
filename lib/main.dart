@@ -1,11 +1,13 @@
 import 'package:elevate_ecommerce_app/core/constants/const_keys.dart';
 import 'package:elevate_ecommerce_app/core/di/di.dart';
+import 'package:elevate_ecommerce_app/core/provider/app_config_provider.dart';
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:provider/provider.dart';
 import 'core/app_theme.dart';
 import 'core/router/app_router.dart';
 import 'core/router/route_names.dart';
@@ -16,14 +18,23 @@ void main() async {
   configureDependencies();
   Bloc.observer = MyBlocObserver();
   final bool isRememberMe = await getRememberMe();
-  runApp(MyApp(isRememberMe: isRememberMe));
+  final String local = await getLocal();
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => AppConfigProvider(),
+
+      child: MyApp(isRememberMe: isRememberMe, local: local),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key, required this.isRememberMe});
+  const MyApp({super.key, required this.isRememberMe, required this.local});
   final bool isRememberMe;
+  final String local;
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<AppConfigProvider>(context);
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
@@ -42,7 +53,7 @@ class MyApp extends StatelessWidget {
             GlobalCupertinoLocalizations.delegate,
           ],
           supportedLocales: AppLocalizations.delegate.supportedLocales,
-          locale: const Locale("en"),
+          locale: Locale(local),
         );
       },
     );
@@ -55,4 +66,13 @@ Future<bool> getRememberMe() async {
     key: ConstKeys.keyRememberMe,
   );
   return rememberMeValue == "true";
+}
+
+Future<String> getLocal() async {
+  final FlutterSecureStorage _secureStorage = getIt.get<FlutterSecureStorage>();
+  final String local =
+      await _secureStorage.read(key: ConstKeys.local) ??
+      ConstKeys.kEnglishLanguage;
+
+  return local;
 }
