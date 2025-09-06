@@ -8,8 +8,6 @@ import 'package:elevate_ecommerce_app/generated/l10n.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/profile_view_model/profile_event.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/profile_view_model/profile_states.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/profile_view_model/profile_view_model.dart';
-import 'package:elevate_ecommerce_app/presentation/profile/view_model/edit_profile_view_model/edit_profile_cubit.dart';
-import 'package:elevate_ecommerce_app/presentation/profile/view_model/edit_profile_view_model/edit_profile_event.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/views/widgets/custom_button_sheet.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/views/widgets/edit_profile_page.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/views/widgets/profile_roe.dart';

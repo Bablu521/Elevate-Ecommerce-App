@@ -17,10 +17,11 @@ abstract class AppRouter {
         return MaterialPageRoute(builder: (_) => const MainHome());
       case RouteNames.register:
         return MaterialPageRoute(builder: (_) => RegisterView());
-      case RouteNames.changePassword:
-        return MaterialPageRoute(builder: (_) => ChangePasswordView());
       case RouteNames.editProfile:
         return MaterialPageRoute(builder: (_) => EditProfilePage());
+
+      case RouteNames.changePassword:
+        return MaterialPageRoute(builder: (_) => ChangePasswordView());
 
       default:
         return MaterialPageRoute(builder: (_) => const LoginView());

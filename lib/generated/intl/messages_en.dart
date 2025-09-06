@@ -22,155 +22,150 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-    "aboutUs": MessageLookupByLibrary.simpleMessage("About us"),
-    "addToCart": MessageLookupByLibrary.simpleMessage("Add to cart"),
-    "all": MessageLookupByLibrary.simpleMessage("All"),
-    "alreadyHaveAnAccount": MessageLookupByLibrary.simpleMessage(
-      "Already have an account? ",
-    ),
-    "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
-    "badCertificate": MessageLookupByLibrary.simpleMessage(
-      "Bad certificate. Please check your device date/time.",
-    ),
-    "badResponse": MessageLookupByLibrary.simpleMessage(
-      "Unexpected error response from server",
-    ),
-    "cart": MessageLookupByLibrary.simpleMessage("Cart"),
-    "categories": MessageLookupByLibrary.simpleMessage("Categories"),
-    "change": MessageLookupByLibrary.simpleMessage("Change"),
-    "changeLanguage": MessageLookupByLibrary.simpleMessage("Change Language"),
-    "close": MessageLookupByLibrary.simpleMessage("close"),
-    "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm password"),
-    "connectionError": MessageLookupByLibrary.simpleMessage(
-      "Network error. Please check your internet connection.",
-    ),
-    "connectionTimeout": MessageLookupByLibrary.simpleMessage(
-      "Connection timeout. Please try again later.",
-    ),
-    "continueAsGuest": MessageLookupByLibrary.simpleMessage(
-      "Continue as guest",
-    ),
-    "creatingAnAccountYouAgreeToOur": MessageLookupByLibrary.simpleMessage(
-      "Creating an account, you agree to our ",
-    ),
-    "currentPassword": MessageLookupByLibrary.simpleMessage("Current password"),
-    "dioErrorCancel": MessageLookupByLibrary.simpleMessage(
-      "Request was cancelled. Please retry.",
-    ),
-    "discount": MessageLookupByLibrary.simpleMessage("Discount"),
-    "dontHaveAccount": MessageLookupByLibrary.simpleMessage(
-      "Dont\'t have an account?",
-    ),
-    "editProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
-    "email": MessageLookupByLibrary.simpleMessage("Email"),
-    "emailHintText": MessageLookupByLibrary.simpleMessage("Enter your Email"),
-    "emailIsRequired": MessageLookupByLibrary.simpleMessage(
-      "email is required",
-    ),
-    "emailLabel": MessageLookupByLibrary.simpleMessage("Email"),
-    "english": MessageLookupByLibrary.simpleMessage("English"),
-    "enterFirstName": MessageLookupByLibrary.simpleMessage("Enter first name"),
-    "enterLastName": MessageLookupByLibrary.simpleMessage("Enter last name"),
-    "enterNumbersOnly": MessageLookupByLibrary.simpleMessage(
-      "Enter numbers only",
-    ),
-    "enterPassword": MessageLookupByLibrary.simpleMessage("Enter password"),
-    "enterPhoneNumber": MessageLookupByLibrary.simpleMessage(
-      "Enter phone number",
-    ),
-    "enterValidEgyptianPhoneNumber": MessageLookupByLibrary.simpleMessage(
-      "Enter valid Egyptian Phone number",
-    ),
-    "enterValidEmail": MessageLookupByLibrary.simpleMessage(
-      "enter valid email",
-    ),
-    "enterValidUsername": MessageLookupByLibrary.simpleMessage(
-      "Enter valid username",
-    ),
-    "enterValueMustEqual11Digit": MessageLookupByLibrary.simpleMessage(
-      "Enter value must equal 11 digit",
-    ),
-    "enterYourEmail": MessageLookupByLibrary.simpleMessage("Enter your email"),
-    "error": MessageLookupByLibrary.simpleMessage("Error"),
-    "failedToParseResponse": MessageLookupByLibrary.simpleMessage(
-      "Failed to parse error response.",
-    ),
-    "female": MessageLookupByLibrary.simpleMessage("Female"),
-    "filter": MessageLookupByLibrary.simpleMessage("Filter"),
-    "firstName": MessageLookupByLibrary.simpleMessage("First name"),
-    "flowery": MessageLookupByLibrary.simpleMessage("Flowery"),
-    "forgetPassword": MessageLookupByLibrary.simpleMessage("Forget password?"),
-    "gender": MessageLookupByLibrary.simpleMessage("Gender"),
-    "guestMode": MessageLookupByLibrary.simpleMessage("Guest Mode"),
-    "highestPrice": MessageLookupByLibrary.simpleMessage("Highest Price"),
-    "home": MessageLookupByLibrary.simpleMessage("Home"),
-    "language": MessageLookupByLibrary.simpleMessage("Language"),
-    "lastName": MessageLookupByLibrary.simpleMessage("Last name"),
-    "loading": MessageLookupByLibrary.simpleMessage("Loading..."),
-    "login": MessageLookupByLibrary.simpleMessage("Login"),
-    "loginToSaveCartAndManageProfile": MessageLookupByLibrary.simpleMessage(
-      "Login or create a free account to save your cart, checkout faster, manage your profile, and track your orders.",
-    ),
-    "logout": MessageLookupByLibrary.simpleMessage("Logout"),
-    "lowesPrice": MessageLookupByLibrary.simpleMessage("Lowes Price"),
-    "male": MessageLookupByLibrary.simpleMessage("Male"),
-    "myOrders": MessageLookupByLibrary.simpleMessage("My orders"),
-    "newPassword": MessageLookupByLibrary.simpleMessage("New password"),
-    "newWord": MessageLookupByLibrary.simpleMessage("New"),
-    "no": MessageLookupByLibrary.simpleMessage("No"),
-    "noCategoriesAvailable": MessageLookupByLibrary.simpleMessage(
-      "No categories available",
-    ),
-    "noProductsAvailable": MessageLookupByLibrary.simpleMessage(
-      "No products available",
-    ),
-    "noResponse": MessageLookupByLibrary.simpleMessage(
-      "No response received from server.",
-    ),
-    "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
-    "ok": MessageLookupByLibrary.simpleMessage("Ok"),
-    "old": MessageLookupByLibrary.simpleMessage("Old"),
-    "or": MessageLookupByLibrary.simpleMessage("or"),
-    "password": MessageLookupByLibrary.simpleMessage("Password"),
-    "passwordHintText": MessageLookupByLibrary.simpleMessage(
-      "Enter your Password",
-    ),
-    "passwordIsRequired": MessageLookupByLibrary.simpleMessage(
-      "password is required",
-    ),
-    "passwordLabel": MessageLookupByLibrary.simpleMessage("Password"),
-    "passwordNotMatched": MessageLookupByLibrary.simpleMessage(
-      "password Not Matched",
-    ),
-    "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone number"),
-    "profile": MessageLookupByLibrary.simpleMessage("Profile"),
-    "receiveTimeout": MessageLookupByLibrary.simpleMessage(
-      "Server took too long to respond.",
-    ),
-    "registeredSuccessfully": MessageLookupByLibrary.simpleMessage(
-      "Registered Successfully!",
-    ),
-    "rememberMe": MessageLookupByLibrary.simpleMessage("Remember me"),
-    "resetPassword": MessageLookupByLibrary.simpleMessage("Reset password"),
-    "savedAddress": MessageLookupByLibrary.simpleMessage("Saved address"),
-    "search": MessageLookupByLibrary.simpleMessage("Search"),
-    "sendTimeout": MessageLookupByLibrary.simpleMessage(
-      "Request timed out. Please try again.",
-    ),
-    "signUp": MessageLookupByLibrary.simpleMessage("Sign up"),
-    "sortBy": MessageLookupByLibrary.simpleMessage("Sort by"),
-    "termsAndConditions": MessageLookupByLibrary.simpleMessage(
-      "Terms&Conditions",
-    ),
-    "thisFieldIsRequired": MessageLookupByLibrary.simpleMessage(
-      "This field is required",
-    ),
-    "unknown": MessageLookupByLibrary.simpleMessage("Unknown"),
-    "unknownError": MessageLookupByLibrary.simpleMessage(
-      "An unexpected error occurred:",
-    ),
-    "update": MessageLookupByLibrary.simpleMessage("Update"),
-    "welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
-    "yes": MessageLookupByLibrary.simpleMessage("Yes"),
-  };
+        "aboutUs": MessageLookupByLibrary.simpleMessage("About us"),
+        "addToCart": MessageLookupByLibrary.simpleMessage("Add to cart"),
+        "all": MessageLookupByLibrary.simpleMessage("All"),
+        "alreadyHaveAnAccount":
+            MessageLookupByLibrary.simpleMessage("Already have an account? "),
+        "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
+        "badCertificate": MessageLookupByLibrary.simpleMessage(
+            "Bad certificate. Please check your device date/time."),
+        "badResponse": MessageLookupByLibrary.simpleMessage(
+            "Unexpected error response from server"),
+        "cart": MessageLookupByLibrary.simpleMessage("Cart"),
+        "cartIsEmpty": MessageLookupByLibrary.simpleMessage("Cart is empty"),
+        "categories": MessageLookupByLibrary.simpleMessage("Categories"),
+        "change": MessageLookupByLibrary.simpleMessage("Change"),
+        "changeLanguage":
+            MessageLookupByLibrary.simpleMessage("Change Language"),
+        "checkout": MessageLookupByLibrary.simpleMessage("Checkout"),
+        "clearCart": MessageLookupByLibrary.simpleMessage("Clear Cart"),
+        "close": MessageLookupByLibrary.simpleMessage("close"),
+        "confirmPassword":
+            MessageLookupByLibrary.simpleMessage("Confirm password"),
+        "connectionError": MessageLookupByLibrary.simpleMessage(
+            "Network error. Please check your internet connection."),
+        "connectionTimeout": MessageLookupByLibrary.simpleMessage(
+            "Connection timeout. Please try again later."),
+        "continueAsGuest":
+            MessageLookupByLibrary.simpleMessage("Continue as guest"),
+        "creatingAnAccountYouAgreeToOur": MessageLookupByLibrary.simpleMessage(
+            "Creating an account, you agree to our "),
+        "currentPassword":
+            MessageLookupByLibrary.simpleMessage("Current password"),
+        "deliverTo": MessageLookupByLibrary.simpleMessage("Deliver to"),
+        "deliveryFee": MessageLookupByLibrary.simpleMessage("Delivery Fee"),
+        "dioErrorCancel": MessageLookupByLibrary.simpleMessage(
+            "Request was cancelled. Please retry."),
+        "discount": MessageLookupByLibrary.simpleMessage("Discount"),
+        "dontHaveAccount":
+            MessageLookupByLibrary.simpleMessage("Dont\'t have an account?"),
+        "eGP": MessageLookupByLibrary.simpleMessage("EGP"),
+        "editProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
+        "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "emailHintText":
+            MessageLookupByLibrary.simpleMessage("Enter your Email"),
+        "emailIsRequired":
+            MessageLookupByLibrary.simpleMessage("email is required"),
+        "emailLabel": MessageLookupByLibrary.simpleMessage("Email"),
+        "english": MessageLookupByLibrary.simpleMessage("English"),
+        "enterFirstName":
+            MessageLookupByLibrary.simpleMessage("Enter first name"),
+        "enterLastName":
+            MessageLookupByLibrary.simpleMessage("Enter last name"),
+        "enterNumbersOnly":
+            MessageLookupByLibrary.simpleMessage("Enter numbers only"),
+        "enterPassword": MessageLookupByLibrary.simpleMessage("Enter password"),
+        "enterPhoneNumber":
+            MessageLookupByLibrary.simpleMessage("Enter phone number"),
+        "enterValidEgyptianPhoneNumber": MessageLookupByLibrary.simpleMessage(
+            "Enter valid Egyptian Phone number"),
+        "enterValidEmail":
+            MessageLookupByLibrary.simpleMessage("enter valid email"),
+        "enterValidUsername":
+            MessageLookupByLibrary.simpleMessage("Enter valid username"),
+        "enterValueMustEqual11Digit": MessageLookupByLibrary.simpleMessage(
+            "Enter value must equal 11 digit"),
+        "enterYourEmail":
+            MessageLookupByLibrary.simpleMessage("Enter your email"),
+        "error": MessageLookupByLibrary.simpleMessage("Error"),
+        "failedToParseResponse": MessageLookupByLibrary.simpleMessage(
+            "Failed to parse error response."),
+        "fakeAddress":
+            MessageLookupByLibrary.simpleMessage("2XVP+XC - Sheikh Zayed....."),
+        "female": MessageLookupByLibrary.simpleMessage("Female"),
+        "filter": MessageLookupByLibrary.simpleMessage("Filter"),
+        "firstName": MessageLookupByLibrary.simpleMessage("First name"),
+        "flowery": MessageLookupByLibrary.simpleMessage("Flowery"),
+        "forgetPassword":
+            MessageLookupByLibrary.simpleMessage("Forget password?"),
+        "gender": MessageLookupByLibrary.simpleMessage("Gender"),
+        "guestMode": MessageLookupByLibrary.simpleMessage("Guest Mode"),
+        "highestPrice": MessageLookupByLibrary.simpleMessage("Highest Price"),
+        "home": MessageLookupByLibrary.simpleMessage("Home"),
+        "items": MessageLookupByLibrary.simpleMessage("items"),
+        "language": MessageLookupByLibrary.simpleMessage("Language"),
+        "lastName": MessageLookupByLibrary.simpleMessage("Last name"),
+        "loading": MessageLookupByLibrary.simpleMessage("Loading..."),
+        "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "loginToSaveCartAndManageProfile": MessageLookupByLibrary.simpleMessage(
+            "Login or create a free account to save your cart, checkout faster, manage your profile, and track your orders."),
+        "logout": MessageLookupByLibrary.simpleMessage("Logout"),
+        "lowesPrice": MessageLookupByLibrary.simpleMessage("Lowes Price"),
+        "male": MessageLookupByLibrary.simpleMessage("Male"),
+        "myOrders": MessageLookupByLibrary.simpleMessage("My orders"),
+        "newPassword": MessageLookupByLibrary.simpleMessage("New password"),
+        "newWord": MessageLookupByLibrary.simpleMessage("New"),
+        "no": MessageLookupByLibrary.simpleMessage("No"),
+        "noCategoriesAvailable":
+            MessageLookupByLibrary.simpleMessage("No categories available"),
+        "noProductsAvailable":
+            MessageLookupByLibrary.simpleMessage("No products available"),
+        "noResponse": MessageLookupByLibrary.simpleMessage(
+            "No response received from server."),
+        "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
+        "ok": MessageLookupByLibrary.simpleMessage("Ok"),
+        "old": MessageLookupByLibrary.simpleMessage("Old"),
+        "or": MessageLookupByLibrary.simpleMessage("or"),
+        "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "passwordHintText":
+            MessageLookupByLibrary.simpleMessage("Enter your Password"),
+        "passwordIsRequired":
+            MessageLookupByLibrary.simpleMessage("password is required"),
+        "passwordLabel": MessageLookupByLibrary.simpleMessage("Password"),
+        "passwordNotMatched":
+            MessageLookupByLibrary.simpleMessage("password Not Matched"),
+        "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone number"),
+        "pinkRoseBouquet":
+            MessageLookupByLibrary.simpleMessage("15 Pink Rose Bouquet"),
+        "productDescription":
+            MessageLookupByLibrary.simpleMessage("Product description"),
+        "productTitle": MessageLookupByLibrary.simpleMessage("Product Title"),
+        "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+        "receiveTimeout": MessageLookupByLibrary.simpleMessage(
+            "Server took too long to respond."),
+        "redRoses": MessageLookupByLibrary.simpleMessage("Red roses"),
+        "registeredSuccessfully":
+            MessageLookupByLibrary.simpleMessage("Registered Successfully!"),
+        "rememberMe": MessageLookupByLibrary.simpleMessage("Remember me"),
+        "resetPassword": MessageLookupByLibrary.simpleMessage("Reset password"),
+        "savedAddress": MessageLookupByLibrary.simpleMessage("Saved address"),
+        "search": MessageLookupByLibrary.simpleMessage("Search"),
+        "sendTimeout": MessageLookupByLibrary.simpleMessage(
+            "Request timed out. Please try again."),
+        "signUp": MessageLookupByLibrary.simpleMessage("Sign up"),
+        "sortBy": MessageLookupByLibrary.simpleMessage("Sort by"),
+        "subTotal": MessageLookupByLibrary.simpleMessage("Sub Total"),
+        "termsAndConditions":
+            MessageLookupByLibrary.simpleMessage("Terms&Conditions"),
+        "thisFieldIsRequired":
+            MessageLookupByLibrary.simpleMessage("This field is required"),
+        "total": MessageLookupByLibrary.simpleMessage("Total"),
+        "unknown": MessageLookupByLibrary.simpleMessage("Unknown"),
+        "unknownError": MessageLookupByLibrary.simpleMessage(
+            "An unexpected error occurred:"),
+        "update": MessageLookupByLibrary.simpleMessage("Update"),
+        "welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
+        "yes": MessageLookupByLibrary.simpleMessage("Yes")
+      };
 }
