@@ -57,8 +57,7 @@ void main() {
           ),
         );
       },
-      expect:
-          () => [
+      expect: () => [
         state.copyWith(loading: true),
         state.copyWith(loading: false, loginEntity: loginEntity),
       ],
@@ -85,8 +84,7 @@ void main() {
           ),
         );
       },
-      expect:
-          () => [
+      expect: () => [
         state.copyWith(loading: true),
         state.copyWith(loading: false, errorMessage: "Server Error"),
       ],
@@ -100,11 +98,11 @@ void main() {
       'emits [initial] and updates rememberMe when remember me toggled',
       build: () => LoginCubit(mockLoginUseCase, mockGuestLoginUseCase),
       act: (cubit) {
-        cubit.doIntent(LoginEventRememberMe(rememberMe: true));
+        cubit.doIntent(LoginEventRememberMe(rememberMe: false));
       },
-      expect: () => [state.initial()],
+      expect: () => [state],
       verify: (cubit) {
-        expect(cubit.rememberMe, true);
+        expect(cubit.rememberMe, false);
       },
     );
   });

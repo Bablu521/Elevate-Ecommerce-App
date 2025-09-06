@@ -5,14 +5,27 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i3;
 
+import 'package:dio/dio.dart' as _i16;
 import 'package:elevate_ecommerce_app/api/models/requestes/login_requests/login_request.dart'
     as _i9;
+import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/change_password_request/change_password_request.dart'
+    as _i12;
+import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/update_profile_info_request/update_profile_info_request.dart'
+    as _i14;
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart' as _i4;
+import 'package:elevate_ecommerce_app/domin/entities/change_password_entity.dart'
+    as _i11;
 import 'package:elevate_ecommerce_app/domin/entities/login_entity.dart' as _i8;
+import 'package:elevate_ecommerce_app/domin/entities/profile_info_entity.dart'
+    as _i10;
 import 'package:elevate_ecommerce_app/domin/entities/register_entity.dart'
     as _i5;
 import 'package:elevate_ecommerce_app/domin/entities/requests/register_request_entity.dart'
     as _i6;
+import 'package:elevate_ecommerce_app/domin/entities/update_profile_entity.dart'
+    as _i13;
+import 'package:elevate_ecommerce_app/domin/entities/upload_image_entity.dart'
+    as _i15;
 import 'package:elevate_ecommerce_app/domin/repositories/auth_repo.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i7;
@@ -89,4 +102,68 @@ class MockAuthRepo extends _i1.Mock implements _i2.AuthRepo {
             returnValue: _i3.Future<bool>.value(false),
           )
           as _i3.Future<bool>);
+
+  @override
+  _i3.Future<_i4.ApiResult<_i10.ProfileInfoEntity>> getProfileInfo() =>
+      (super.noSuchMethod(
+            Invocation.method(#getProfileInfo, []),
+            returnValue:
+                _i3.Future<_i4.ApiResult<_i10.ProfileInfoEntity>>.value(
+                  _i7.dummyValue<_i4.ApiResult<_i10.ProfileInfoEntity>>(
+                    this,
+                    Invocation.method(#getProfileInfo, []),
+                  ),
+                ),
+          )
+          as _i3.Future<_i4.ApiResult<_i10.ProfileInfoEntity>>);
+
+  @override
+  _i3.Future<_i4.ApiResult<_i11.ChangePasswordEntity>> changePassword({
+    required _i12.ChangePasswordRequest? request,
+  }) =>
+      (super.noSuchMethod(
+            Invocation.method(#changePassword, [], {#request: request}),
+            returnValue:
+                _i3.Future<_i4.ApiResult<_i11.ChangePasswordEntity>>.value(
+                  _i7.dummyValue<_i4.ApiResult<_i11.ChangePasswordEntity>>(
+                    this,
+                    Invocation.method(#changePassword, [], {#request: request}),
+                  ),
+                ),
+          )
+          as _i3.Future<_i4.ApiResult<_i11.ChangePasswordEntity>>);
+
+  @override
+  _i3.Future<_i4.ApiResult<_i13.UpdateProfileEntity>> updateProfileInfo({
+    required _i14.UpdateProfileInfoRequest? request,
+  }) =>
+      (super.noSuchMethod(
+            Invocation.method(#updateProfileInfo, [], {#request: request}),
+            returnValue:
+                _i3.Future<_i4.ApiResult<_i13.UpdateProfileEntity>>.value(
+                  _i7.dummyValue<_i4.ApiResult<_i13.UpdateProfileEntity>>(
+                    this,
+                    Invocation.method(#updateProfileInfo, [], {
+                      #request: request,
+                    }),
+                  ),
+                ),
+          )
+          as _i3.Future<_i4.ApiResult<_i13.UpdateProfileEntity>>);
+
+  @override
+  _i3.Future<_i4.ApiResult<_i15.UploadImageEntity>> uploadImageProfile({
+    required _i16.MultipartFile? photo,
+  }) =>
+      (super.noSuchMethod(
+            Invocation.method(#uploadImageProfile, [], {#photo: photo}),
+            returnValue:
+                _i3.Future<_i4.ApiResult<_i15.UploadImageEntity>>.value(
+                  _i7.dummyValue<_i4.ApiResult<_i15.UploadImageEntity>>(
+                    this,
+                    Invocation.method(#uploadImageProfile, [], {#photo: photo}),
+                  ),
+                ),
+          )
+          as _i3.Future<_i4.ApiResult<_i15.UploadImageEntity>>);
 }

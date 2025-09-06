@@ -8,6 +8,7 @@ abstract final class ConstKeys {
   static const String robotoFont = "Roboto";
   static const String outfitFont = "Outfit";
   static const String interFont = "Inter";
+  static const String queryPhoto = "photo";
   static const String local = "local";
   static const String kEnglishLanguage = "en";
   static const String kArabicLanguage = "ar";

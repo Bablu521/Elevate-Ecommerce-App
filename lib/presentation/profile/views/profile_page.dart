@@ -7,7 +7,10 @@ import 'package:elevate_ecommerce_app/generated/l10n.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/profile_view_model/profile_event.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/profile_view_model/profile_states.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/profile_view_model/profile_view_model.dart';
+import 'package:elevate_ecommerce_app/presentation/profile/view_model/edit_profile_view_model/edit_profile_cubit.dart';
+import 'package:elevate_ecommerce_app/presentation/profile/view_model/edit_profile_view_model/edit_profile_event.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/views/widgets/custom_button_sheet.dart';
+import 'package:elevate_ecommerce_app/presentation/profile/views/widgets/edit_profile_page.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/views/widgets/profile_roe.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -50,20 +53,11 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             );
           } else if (state.editProfile == true) {
-            return Container(
-              child: Column(
-                children: [
-                  const Text("edit profile page"),
-                  ElevatedButton(
-                    onPressed: () {
-                      context.read<ProfileViewModel>().doIntent(
-                        EditProfilePageEvent(editProfilePage: false),
-                      );
-                    },
-                    child: Icon(Icons.arrow_back),
-                  ),
-                ],
-              ),
+            return BlocProvider(
+              create: (context) =>
+                  getIt.get<EditProfileCubit>()
+                    ..doIntent(EditProfileGetInfoUser()),
+              child: const EditProfilePage(),
             );
           }
           return SafeArea(

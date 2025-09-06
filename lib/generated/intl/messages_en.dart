@@ -37,6 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "cart": MessageLookupByLibrary.simpleMessage("Cart"),
     "categories": MessageLookupByLibrary.simpleMessage("Categories"),
+    "change": MessageLookupByLibrary.simpleMessage("Change"),
     "changeLanguage": MessageLookupByLibrary.simpleMessage("Change Language"),
     "close": MessageLookupByLibrary.simpleMessage("close"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm password"),
@@ -52,6 +53,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "creatingAnAccountYouAgreeToOur": MessageLookupByLibrary.simpleMessage(
       "Creating an account, you agree to our ",
     ),
+    "currentPassword": MessageLookupByLibrary.simpleMessage("Current password"),
     "dioErrorCancel": MessageLookupByLibrary.simpleMessage(
       "Request was cancelled. Please retry.",
     ),
@@ -59,6 +61,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "dontHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Dont\'t have an account?",
     ),
+    "editProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "emailHintText": MessageLookupByLibrary.simpleMessage("Enter your Email"),
     "emailIsRequired": MessageLookupByLibrary.simpleMessage(
@@ -112,6 +115,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "lowesPrice": MessageLookupByLibrary.simpleMessage("Lowes Price"),
     "male": MessageLookupByLibrary.simpleMessage("Male"),
     "myOrders": MessageLookupByLibrary.simpleMessage("My orders"),
+    "newPassword": MessageLookupByLibrary.simpleMessage("New password"),
     "newWord": MessageLookupByLibrary.simpleMessage("New"),
     "no": MessageLookupByLibrary.simpleMessage("No"),
     "noCategoriesAvailable": MessageLookupByLibrary.simpleMessage(
@@ -147,6 +151,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Registered Successfully!",
     ),
     "rememberMe": MessageLookupByLibrary.simpleMessage("Remember me"),
+    "resetPassword": MessageLookupByLibrary.simpleMessage("Reset password"),
     "savedAddress": MessageLookupByLibrary.simpleMessage("Saved address"),
     "search": MessageLookupByLibrary.simpleMessage("Search"),
     "sendTimeout": MessageLookupByLibrary.simpleMessage(
@@ -164,6 +169,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unknownError": MessageLookupByLibrary.simpleMessage(
       "An unexpected error occurred:",
     ),
+    "update": MessageLookupByLibrary.simpleMessage("Update"),
     "welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
     "yes": MessageLookupByLibrary.simpleMessage("Yes"),
   };
