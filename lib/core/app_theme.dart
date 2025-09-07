@@ -27,6 +27,11 @@ abstract class AppTheme {
         fontSize: 18.sp,
         fontWeight: FontWeight.w500,
       ),
+      labelSmall: getTextStyle(
+        fontSize: 12.sp,
+        fontWeight: FontWeight.w400,
+        fontFamily: ConstKeys.interFont,
+      ),
     ),
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.white,
@@ -53,7 +58,7 @@ abstract class AppTheme {
       ),
       floatingLabelStyle: WidgetStateTextStyle.resolveWith((states) {
         if (states.contains(WidgetState.error)) {
-          return getTextStyle(color: AppColors.red); 
+          return getTextStyle(color: AppColors.red);
         }
         return getTextStyle(color: AppColors.gray);
       }),

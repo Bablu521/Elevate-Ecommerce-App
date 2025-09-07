@@ -115,6 +115,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "noResponse": MessageLookupByLibrary.simpleMessage(
       "No response received from server.",
     ),
+    "notification": MessageLookupByLibrary.simpleMessage("Notification"),
     "ok": MessageLookupByLibrary.simpleMessage("Ok"),
     "old": MessageLookupByLibrary.simpleMessage("Old"),
     "or": MessageLookupByLibrary.simpleMessage("or"),

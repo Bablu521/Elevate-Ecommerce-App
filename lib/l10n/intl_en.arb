@@ -72,5 +72,6 @@
   "loading": "Loading...",
   "guestMode": "Guest Mode",
   "loginToSaveCartAndManageProfile": "Login or create a free account to save your cart, checkout faster, manage your profile, and track your orders.",
-  "or": "or"
+  "or": "or",
+  "notification": "Notification"
 }
