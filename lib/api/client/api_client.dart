@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:elevate_ecommerce_app/api/models/requestes/address_request_dto/address_request_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/register_request_dto/register_request_dto.dart';
+import 'package:elevate_ecommerce_app/api/models/responses/addresses_response_dto/addresses_response_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/register_response_dto/register_response_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/login_requests/login_request.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/login_response/login_response_dto.dart';
@@ -22,4 +24,20 @@ abstract class ApiClient {
   @POST(Endpoints.signIn)
   Future<LoginResponseDto> login(@Body() LoginRequestModel loginRequestModel);
 
+  @GET(Endpoints.address)
+  Future<AddressesResponseDto> getLoggedUserAddresses();
+
+  @PATCH(Endpoints.address)
+  Future<AddressesResponseDto> addAddress(
+    @Body() AddressRequestDto addressRequestDto,
+  );
+
+  @PATCH('${Endpoints.address}/{id}')
+  Future<AddressesResponseDto> updateAddress(
+    @Body() AddressRequestDto addressRequestDto,
+    @Path("id") String addressId,
+  );
+
+  @DELETE('${Endpoints.address}/{id}')
+  Future<AddressesResponseDto> removeAddress(@Path("id") String addressId);
 }
