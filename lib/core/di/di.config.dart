@@ -53,13 +53,11 @@ extension GetItInjectableX on _i174.GetIt {
       () => secureStorageModule.secureStorage,
     );
     gh.factory<_i508.ApiClient>(() => _i508.ApiClient.new(gh<_i361.Dio>()));
+    gh.factory<_i891.AuthLocalDataSource>(
+      () => _i914.AuthLocalDataSourceImpl(gh<_i558.FlutterSecureStorage>()),
+    );
     gh.factory<_i697.AuthRemoteDataSource>(
       () => _i222.AuthRemoteDataSourceImpl(gh<_i508.ApiClient>()),
-    );
-    gh.factory<_i891.AuthLocalDataSource>(
-      () => _i914.AuthLocalDataSourceImpl(
-        secureStorage: gh<_i558.FlutterSecureStorage>(),
-      ),
     );
     gh.factory<_i340.AuthRepo>(
       () => _i653.AuthRepoImpl(

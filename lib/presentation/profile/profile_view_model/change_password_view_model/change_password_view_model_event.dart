@@ -2,6 +2,8 @@ import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/chang
 
 sealed class ChangePasswordViewModelEvent {}
 
+class ObscureTextEven extends ChangePasswordViewModelEvent {}
+
 class ChangePasswordEvent extends ChangePasswordViewModelEvent {
   final ChangePasswordRequest changePasswordRequest;
 

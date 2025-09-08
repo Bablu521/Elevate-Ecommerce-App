@@ -70,11 +70,21 @@ void main() {
       },
       expect: () => [
         state.copyWith(isLoading: true),
-        state.copyWith(errorMessage: "An unexpected error occurred: fake_dio_error"),
+        state.copyWith(
+          errorMessage: "An unexpected error occurred: fake_dio_error",
+        ),
       ],
       verify: (bloc) {
         verify(fakeUseCase.call(fakeRequest)).called(1);
       },
+    );
+    blocTest(
+      "test emit obscure text",
+      build: () => changePasswordViewModelCubit,
+      act: (bloc) {
+        bloc.doIntent(ObscureTextEven());
+      },
+      expect: () => [state.copyWith(obscureText: false)],
     );
   });
 }

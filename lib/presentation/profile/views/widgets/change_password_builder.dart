@@ -3,6 +3,7 @@ import 'package:elevate_ecommerce_app/core/utils/validations.dart';
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/profile_view_model/change_password_view_model/change_password_view_model_cubit.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/profile_view_model/change_password_view_model/change_password_view_model_event.dart';
+import 'package:elevate_ecommerce_app/presentation/profile/views/widgets/custom_change_password_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -29,37 +30,31 @@ class ChangePasswordBuilder extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: Column(
           children: [
-            TextFormField(
-              style: theme.textTheme.bodyMedium,
-              controller: currentPasswordController,
-              decoration: InputDecoration(
-                label: Text(local.currentPassword),
-                hintText: local.currentPassword,
-              ),
+            CustomChangePasswordTextField(
+              textEditingController: currentPasswordController,
+              label: local.currentPassword,
+              hintText: local.currentPassword,
               validator: Validations.validatePassword,
+              obscureText: true,
             ),
             SizedBox(height: 24.h),
-            TextFormField(
-              style: theme.textTheme.bodyMedium,
-              controller: newPasswordController,
-              decoration: InputDecoration(
-                label: Text(local.newPassword),
-                hintText: local.newPassword,
-              ),
+            CustomChangePasswordTextField(
+              textEditingController: newPasswordController,
+              label: local.newPassword,
+              hintText: local.newPassword,
               validator: Validations.validatePassword,
+              obscureText: true,
             ),
             SizedBox(height: 24.h),
-            TextFormField(
-              style: theme.textTheme.bodyMedium,
-              controller: confirmPasswordController,
-              decoration: InputDecoration(
-                label: Text(local.confirmPassword),
-                hintText: local.confirmPassword,
-              ),
+            CustomChangePasswordTextField(
+              textEditingController: confirmPasswordController,
+              label: local.confirmPassword,
+              hintText: local.confirmPassword,
               validator: (value) => Validations.validateConfirmPassword(
                 value,
                 newPasswordController.text,
               ),
+              obscureText: true,
             ),
             SizedBox(height: 48.h),
             ValueListenableBuilder<TextEditingValue>(

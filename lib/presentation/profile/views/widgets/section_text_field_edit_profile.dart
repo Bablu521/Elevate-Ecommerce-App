@@ -4,7 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SectionTextFieldEditProfile extends StatelessWidget {
-  const SectionTextFieldEditProfile({super.key, required this.firstNameController, required this.lastNameController, required this.emailController, required this.phoneController});
+  const SectionTextFieldEditProfile({
+    super.key,
+    required this.firstNameController,
+    required this.lastNameController,
+    required this.emailController,
+    required this.phoneController,
+  });
   final TextEditingController firstNameController;
   final TextEditingController lastNameController;
   final TextEditingController emailController;

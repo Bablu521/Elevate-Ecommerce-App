@@ -1,0 +1,43 @@
+#!/bin/sh
+# ===== Pre-Push Hook =====
+# This script replicates CI checks locally before allowing push
+
+echo "🚀 Running pre-push checks..."
+
+# 1. Validate branch name
+branch_name=$(git rev-parse --abbrev-ref HEAD)
+pattern="^(feature|bugfix|hotfix|release)/ECOM-[0-9]+/.+"
+
+echo "🔍 Checking branch name..."
+if ! echo "$branch_name" | grep -Eq "$pattern"; then
+  echo "❌ Invalid branch name: $branch_name"
+  echo "✅ Must follow: feature/ECOM-123/desc  OR  bugfix/ECOM-456/desc"
+  exit 1
+fi
+echo "✅ Branch name valid!"
+
+# 2. Install dependencies
+echo "📦 Running flutter pub get..."
+flutter pub get || { echo "❌ pub get failed"; exit 1; }
+
+# 3. Generate intl files
+echo "🌍 Generating intl files..."
+flutter pub run intl_utils:generate || { echo "❌ intl generation failed"; exit 1; }
+
+# 4. Run code generation
+echo "⚙️ Running build_runner..."
+flutter pub run build_runner build --delete-conflicting-outputs || { echo "❌ build_runner failed"; exit 1; }
+
+# 5. Format check
+echo "🎨 Checking formatting..."
+flutter format --set-exit-if-changed . || { echo "❌ Code formatting failed"; exit 1; }
+
+# 6. Static analysis
+echo "🔎 Running flutter analyze..."
+flutter analyze || { echo "❌ Analyzer issues found"; exit 1; }
+
+# 7. Run unit tests
+echo "🧪 Running tests..."
+flutter test --coverage || { echo "❌ Tests failed"; exit 1; }
+
+echo "✅ All checks passed. Proceeding with push."

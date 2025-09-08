@@ -14,10 +14,13 @@ class ChangePasswordViewModelCubit extends Cubit<ChangePasswordViewModelState> {
   ChangePasswordViewModelCubit(this._changePasswordProfileUseCase)
     : super(ChangePasswordViewModelState());
   final ChangePasswordProfileUseCase _changePasswordProfileUseCase;
+  bool _obscureValue = true;
   Future<void> doIntent(ChangePasswordViewModelEvent event) async {
     switch (event) {
       case ChangePasswordEvent():
         await _changePassword(request: event.changePasswordRequest);
+      case ObscureTextEven():
+        _obscureText();
     }
   }
 
@@ -30,5 +33,10 @@ class ChangePasswordViewModelCubit extends Cubit<ChangePasswordViewModelState> {
       case ApiErrorResult<ChangePasswordEntity>():
         emit(state.copyWith(errorMessage: response.errorMessage));
     }
+  }
+
+  void _obscureText() {
+    _obscureValue = !_obscureValue;
+    emit(state.copyWith(obscureText: _obscureValue));
   }
 }
