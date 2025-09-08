@@ -30,7 +30,7 @@ flutter pub run build_runner build --delete-conflicting-outputs || { echo "❌ b
 
 # 5. Format check
 echo "🎨 Checking formatting..."
-flutter format --set-exit-if-changed . || { echo "❌ Code formatting failed"; exit 1; }
+dart format --set-exit-if-changed . || { echo "❌ Code formatting failed"; exit 1; }
 
 # 6. Static analysis
 echo "🔎 Running flutter analyze..."
