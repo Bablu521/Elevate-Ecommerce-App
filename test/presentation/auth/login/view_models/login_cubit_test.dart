@@ -1,3 +1,4 @@
+import 'package:bloc_test/bloc_test.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/login_requests/login_request.dart';
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/domin/entities/login_entity.dart';
@@ -9,7 +10,7 @@ import 'package:elevate_ecommerce_app/presentation/auth/login/view_models/login_
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:bloc_test/bloc_test.dart';
+
 import '../../../../fixtures/login_fixtures.dart';
 import 'login_cubit_test.mocks.dart';
 
@@ -56,7 +57,8 @@ void main() {
           ),
         );
       },
-      expect: () => [
+      expect:
+          () => [
         state.copyWith(loading: true),
         state.copyWith(loading: false, loginEntity: loginEntity),
       ],
@@ -83,7 +85,8 @@ void main() {
           ),
         );
       },
-      expect: () => [
+      expect:
+          () => [
         state.copyWith(loading: true),
         state.copyWith(loading: false, errorMessage: "Server Error"),
       ],

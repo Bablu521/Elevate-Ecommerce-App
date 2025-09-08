@@ -34,9 +34,9 @@ import '../../presentation/auth/login/view_models/login_cubit.dart' as _i441;
 import '../../presentation/auth/register/view_models/register_view_model.dart'
     as _i490;
 import '../../presentation/profile/profile_view_model/change_password_view_model/change_password_view_model_cubit.dart'
-    as _i159;
+    as _i225;
 import '../../presentation/profile/profile_view_model/edit_profile_view_model/edit_profile_cubit.dart'
-    as _i697;
+    as _i633;
 import '../module/secure_storage_module.dart' as _i260;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -100,15 +100,15 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i490.RegisterViewModel>(
       () => _i490.RegisterViewModel(gh<_i638.RegisterUseCase>()),
     );
-    gh.factory<_i697.EditProfileCubit>(
-      () => _i697.EditProfileCubit(
+    gh.factory<_i633.EditProfileCubit>(
+      () => _i633.EditProfileCubit(
         gh<_i911.GetProfileInfoUseCase>(),
         gh<_i981.UpdateProfileInfoUseCase>(),
         gh<_i603.UploadProfileImageUseCase>(),
       ),
     );
-    gh.factory<_i159.ChangePasswordViewModelCubit>(
-      () => _i159.ChangePasswordViewModelCubit(
+    gh.factory<_i225.ChangePasswordViewModelCubit>(
+      () => _i225.ChangePasswordViewModelCubit(
         gh<_i257.ChangePasswordProfileUseCase>(),
       ),
     );
