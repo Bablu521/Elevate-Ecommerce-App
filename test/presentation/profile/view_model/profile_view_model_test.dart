@@ -1,4 +1,5 @@
 import 'package:bloc_test/bloc_test.dart';
+import 'package:elevate_ecommerce_app/domin/use_cases/get_user_status_use_case.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
@@ -9,16 +10,20 @@ import 'package:elevate_ecommerce_app/domin/use_case/edit_profile_use_case.dart'
 import 'package:elevate_ecommerce_app/presentation/profile/view_model/profile_view_model.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/view_model/profile_states.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/view_model/profile_event.dart';
+import 'package:elevate_ecommerce_app/presentation/profile/profile_view_model/profile_view_model.dart';
+import 'package:elevate_ecommerce_app/presentation/profile/profile_view_model/profile_states.dart';
+import 'package:elevate_ecommerce_app/presentation/profile/profile_view_model/profile_event.dart';
 
 import 'profile_view_model_test.mocks.dart';
 
-@GenerateMocks([EditProfileUseCase])
+@GenerateMocks([EditProfileUseCase, GetUserStatusUseCase])
 void main() {
 
   provideDummy<ApiResult<EditProfileEntity>>(
     ApiSuccessResult(
        EditProfileEntity(message: "dummy"),
     ),
+    ApiSuccessResult(EditProfileEntity(message: "dummy")),
   );
 
   group("ProfileViewModel test", () {

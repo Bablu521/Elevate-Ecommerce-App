@@ -239,26 +239,6 @@ class AppLocalizations {
     );
   }
 
-  /// `Home`
-  String get home {
-    return Intl.message('Home', name: 'home', desc: '', args: []);
-  }
-
-  /// `Categories`
-  String get categories {
-    return Intl.message('Categories', name: 'categories', desc: '', args: []);
-  }
-
-  /// `Cart`
-  String get cart {
-    return Intl.message('Cart', name: 'cart', desc: '', args: []);
-  }
-
-  /// `Profile`
-  String get profile {
-    return Intl.message('Profile', name: 'profile', desc: '', args: []);
-  }
-
   /// `Enter valid Egyptian Phone number`
   String get enterValidEgyptianPhoneNumber {
     return Intl.message(
@@ -439,149 +419,89 @@ class AppLocalizations {
     return Intl.message('Welcome', name: 'welcome', desc: '', args: []);
   }
 
-  /// `Add to cart`
-  String get addToCart {
-    return Intl.message('Add to cart', name: 'addToCart', desc: '', args: []);
+  /// `Email`
+  String get emailLabel {
+    return Intl.message('Email', name: 'emailLabel', desc: '', args: []);
   }
 
-  /// `Search`
-  String get search {
-    return Intl.message('Search', name: 'search', desc: '', args: []);
-  }
-
-  /// `All`
-  String get all {
-    return Intl.message('All', name: 'all', desc: '', args: []);
-  }
-
-  /// `Filter`
-  String get filter {
-    return Intl.message('Filter', name: 'filter', desc: '', args: []);
-  }
-
-  /// `Sort by`
-  String get sortBy {
-    return Intl.message('Sort by', name: 'sortBy', desc: '', args: []);
-  }
-
-  /// `Lowes Price`
-  String get lowesPrice {
-    return Intl.message('Lowes Price', name: 'lowesPrice', desc: '', args: []);
-  }
-
-  /// `Highest Price`
-  String get highestPrice {
+  /// `Enter your Email`
+  String get emailHintText {
     return Intl.message(
-      'Highest Price',
-      name: 'highestPrice',
+      'Enter your Email',
+      name: 'emailHintText',
       desc: '',
       args: [],
     );
   }
 
-  /// `New`
-  String get newWord {
-    return Intl.message('New', name: 'newWord', desc: '', args: []);
+  /// `Password`
+  String get passwordLabel {
+    return Intl.message('Password', name: 'passwordLabel', desc: '', args: []);
   }
 
-  /// `Old`
-  String get old {
-    return Intl.message('Old', name: 'old', desc: '', args: []);
-  }
-
-  /// `Discount`
-  String get discount {
-    return Intl.message('Discount', name: 'discount', desc: '', args: []);
-  }
-
-  /// `No categories available`
-  String get noCategoriesAvailable {
+  /// `Enter your Password`
+  String get passwordHintText {
     return Intl.message(
-      'No categories available',
-      name: 'noCategoriesAvailable',
+      'Enter your Password',
+      name: 'passwordHintText',
       desc: '',
       args: [],
     );
   }
 
-  /// `No products available`
-  String get noProductsAvailable {
+  /// `Remember me`
+  String get rememberMe {
+    return Intl.message('Remember me', name: 'rememberMe', desc: '', args: []);
+  }
+
+  /// `Forget password?`
+  String get forgetPassword {
     return Intl.message(
-      'No products available',
-      name: 'noProductsAvailable',
+      'Forget password?',
+      name: 'forgetPassword',
       desc: '',
       args: [],
     );
   }
 
-  /// `Ok`
-  String get ok {
-    return Intl.message('Ok', name: 'ok', desc: '', args: []);
-  }
-
-  /// `No`
-  String get no {
-    return Intl.message('No', name: 'no', desc: '', args: []);
-  }
-
-  /// `Yes`
-  String get yes {
-    return Intl.message('Yes', name: 'yes', desc: '', args: []);
-  }
-
-  /// `Loading...`
-  String get loading {
-    return Intl.message('Loading...', name: 'loading', desc: '', args: []);
-  }
-
-  /// `Flowery`
-  String get flowery {
-    return Intl.message('Flowery', name: 'flowery', desc: '', args: []);
-  }
-
-  /// `My orders`
-  String get myOrders {
-    return Intl.message('My orders', name: 'myOrders', desc: '', args: []);
-  }
-
-  /// `Saved address`
-  String get savedAddress {
+  /// `Dont't have an account?`
+  String get dontHaveAccount {
     return Intl.message(
-      'Saved address',
-      name: 'savedAddress',
+      'Dont\'t have an account?',
+      name: 'dontHaveAccount',
       desc: '',
       args: [],
     );
   }
 
-  /// `Notifications`
-  String get notifications {
+  /// `Continue as guest`
+  String get continueAsGuest {
     return Intl.message(
-      'Notifications',
-      name: 'notifications',
+      'Continue as guest',
+      name: 'continueAsGuest',
       desc: '',
       args: [],
     );
   }
 
-  /// `Language`
-  String get language {
-    return Intl.message('Language', name: 'language', desc: '', args: []);
+  /// `Home`
+  String get home {
+    return Intl.message('Home', name: 'home', desc: '', args: []);
   }
 
-  /// `About us`
-  String get aboutUs {
-    return Intl.message('About us', name: 'aboutUs', desc: '', args: []);
+  /// `Categories`
+  String get categories {
+    return Intl.message('Categories', name: 'categories', desc: '', args: []);
   }
 
-  /// `Logout`
-  String get logout {
-    return Intl.message('Logout', name: 'logout', desc: '', args: []);
+  /// `Cart`
+  String get cart {
+    return Intl.message('Cart', name: 'cart', desc: '', args: []);
   }
 
-  /// `English`
-  String get english {
-    return Intl.message('English', name: 'english', desc: '', args: []);
+  /// `Profile`
+  String get profile {
+    return Intl.message('Profile', name: 'profile', desc: '', args: []);
   }
 }
 
@@ -589,7 +509,10 @@ class AppLocalizationDelegate extends LocalizationsDelegate<AppLocalizations> {
   const AppLocalizationDelegate();
 
   List<Locale> get supportedLocales {
-    return const <Locale>[Locale.fromSubtags(languageCode: 'en')];
+    return const <Locale>[
+      Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'ar'),
+    ];
   }
 
   @override

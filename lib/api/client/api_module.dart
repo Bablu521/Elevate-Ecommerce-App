@@ -35,7 +35,6 @@ abstract class ApiModule {
           final String? token = await TokenStorage.getToken();
           if (token != null && token.isNotEmpty) {
             options.headers["Authorization"] = "Bearer $token";
-            print("🟢 Current Token: $token");
           }
           return handler.next(options);
         },

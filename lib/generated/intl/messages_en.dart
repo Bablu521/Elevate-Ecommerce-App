@@ -22,7 +22,6 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-    "aboutUs": MessageLookupByLibrary.simpleMessage("About us"),
     "addToCart": MessageLookupByLibrary.simpleMessage("Add to cart"),
     "all": MessageLookupByLibrary.simpleMessage("All"),
     "alreadyHaveAnAccount": MessageLookupByLibrary.simpleMessage(
@@ -44,6 +43,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "connectionTimeout": MessageLookupByLibrary.simpleMessage(
       "Connection timeout. Please try again later.",
     ),
+    "continueAsGuest": MessageLookupByLibrary.simpleMessage(
+      "Continue as guest",
+    ),
     "creatingAnAccountYouAgreeToOur": MessageLookupByLibrary.simpleMessage(
       "Creating an account, you agree to our ",
     ),
@@ -51,11 +53,15 @@ class MessageLookup extends MessageLookupByLibrary {
       "Request was cancelled. Please retry.",
     ),
     "discount": MessageLookupByLibrary.simpleMessage("Discount"),
+    "dontHaveAccount": MessageLookupByLibrary.simpleMessage(
+      "Dont\'t have an account?",
+    ),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "emailHintText": MessageLookupByLibrary.simpleMessage("Enter your Email"),
     "emailIsRequired": MessageLookupByLibrary.simpleMessage(
       "email is required",
     ),
-    "english": MessageLookupByLibrary.simpleMessage("English"),
+    "emailLabel": MessageLookupByLibrary.simpleMessage("Email"),
     "enterFirstName": MessageLookupByLibrary.simpleMessage("Enter first name"),
     "enterLastName": MessageLookupByLibrary.simpleMessage("Enter last name"),
     "enterNumbersOnly": MessageLookupByLibrary.simpleMessage(
@@ -85,18 +91,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "female": MessageLookupByLibrary.simpleMessage("Female"),
     "filter": MessageLookupByLibrary.simpleMessage("Filter"),
     "firstName": MessageLookupByLibrary.simpleMessage("First name"),
-    "flowery": MessageLookupByLibrary.simpleMessage("Flowery"),
+    "forgetPassword": MessageLookupByLibrary.simpleMessage("Forget password?"),
     "gender": MessageLookupByLibrary.simpleMessage("Gender"),
     "highestPrice": MessageLookupByLibrary.simpleMessage("Highest Price"),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
-    "language": MessageLookupByLibrary.simpleMessage("Language"),
     "lastName": MessageLookupByLibrary.simpleMessage("Last name"),
     "loading": MessageLookupByLibrary.simpleMessage("Loading..."),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
-    "logout": MessageLookupByLibrary.simpleMessage("Logout"),
     "lowesPrice": MessageLookupByLibrary.simpleMessage("Lowes Price"),
     "male": MessageLookupByLibrary.simpleMessage("Male"),
-    "myOrders": MessageLookupByLibrary.simpleMessage("My orders"),
     "newWord": MessageLookupByLibrary.simpleMessage("New"),
     "no": MessageLookupByLibrary.simpleMessage("No"),
     "noCategoriesAvailable": MessageLookupByLibrary.simpleMessage(
@@ -108,13 +111,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "noResponse": MessageLookupByLibrary.simpleMessage(
       "No response received from server.",
     ),
-    "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
     "ok": MessageLookupByLibrary.simpleMessage("Ok"),
     "old": MessageLookupByLibrary.simpleMessage("Old"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "passwordHintText": MessageLookupByLibrary.simpleMessage(
+      "Enter your Password",
+    ),
     "passwordIsRequired": MessageLookupByLibrary.simpleMessage(
       "password is required",
     ),
+    "passwordLabel": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordNotMatched": MessageLookupByLibrary.simpleMessage(
       "password Not Matched",
     ),
@@ -126,7 +132,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "registeredSuccessfully": MessageLookupByLibrary.simpleMessage(
       "Registered Successfully!",
     ),
-    "savedAddress": MessageLookupByLibrary.simpleMessage("Saved address"),
+    "rememberMe": MessageLookupByLibrary.simpleMessage("Remember me"),
     "search": MessageLookupByLibrary.simpleMessage("Search"),
     "sendTimeout": MessageLookupByLibrary.simpleMessage(
       "Request timed out. Please try again.",
