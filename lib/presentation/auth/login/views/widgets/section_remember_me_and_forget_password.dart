@@ -16,7 +16,6 @@ class SectionRememberMeAndForgetPassword extends StatefulWidget {
 
 class _SectionRememberMeAndForgetPasswordState
     extends State<SectionRememberMeAndForgetPassword> {
-
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);

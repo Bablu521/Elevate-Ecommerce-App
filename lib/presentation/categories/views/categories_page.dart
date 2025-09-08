@@ -7,11 +7,11 @@ class CategoriesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return
-        Center(child:Text(AppLocalizations.of(context).categories,
-          style: const TextStyle(color: Colors.black),
-
-        ),
+    return Center(
+      child: Text(
+        AppLocalizations.of(context).categories,
+        style: const TextStyle(color: Colors.black),
+      ),
     );
   }
 }

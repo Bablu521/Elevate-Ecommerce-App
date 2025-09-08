@@ -8,14 +8,10 @@ class ProfileInfoResponseDto {
   final String? message;
   final UserDto? user;
 
-  ProfileInfoResponseDto({
-    this.message,
-    this.user,
-  });
+  ProfileInfoResponseDto({this.message, this.user});
 
   factory ProfileInfoResponseDto.fromJson(Map<String, dynamic> json) =>
       _$ProfileInfoResponseDtoFromJson(json);
 
   Map<String, dynamic> toJson() => _$ProfileInfoResponseDtoToJson(this);
 }
-

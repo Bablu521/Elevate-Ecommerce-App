@@ -7,5 +7,4 @@ abstract class HelperFunction {
       Navigator.pop(context);
     }
   }
-
 }

@@ -12,32 +12,31 @@ class MainHome extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => ControllerHomeProvider(),
       child: Consumer<ControllerHomeProvider>(
-        builder:
-            (context, value, child) => Scaffold(
-              body: value.screens[value.currentIndex],
-              bottomNavigationBar: BottomNavigationBar(
-                currentIndex: value.currentIndex,
-                onTap: value.changePage,
-                items: [
-                  BottomNavigationBarItem(
-                    icon: const Icon(Icons.home_outlined),
-                    label: AppLocalizations.of(context).home,
-                  ),
-                  BottomNavigationBarItem(
-                    icon: const Icon(Icons.category_outlined),
-                    label: AppLocalizations.of(context).categories,
-                  ),
-                  BottomNavigationBarItem(
-                    icon: const Icon(Icons.shopping_cart_outlined),
-                    label: AppLocalizations.of(context).cart,
-                  ),
-                  BottomNavigationBarItem(
-                    icon: const Icon(Icons.person_outline_outlined),
-                    label: AppLocalizations.of(context).profile,
-                  ),
-                ],
+        builder: (context, value, child) => Scaffold(
+          body: value.screens[value.currentIndex],
+          bottomNavigationBar: BottomNavigationBar(
+            currentIndex: value.currentIndex,
+            onTap: value.changePage,
+            items: [
+              BottomNavigationBarItem(
+                icon: const Icon(Icons.home_outlined),
+                label: AppLocalizations.of(context).home,
               ),
-            ),
+              BottomNavigationBarItem(
+                icon: const Icon(Icons.category_outlined),
+                label: AppLocalizations.of(context).categories,
+              ),
+              BottomNavigationBarItem(
+                icon: const Icon(Icons.shopping_cart_outlined),
+                label: AppLocalizations.of(context).cart,
+              ),
+              BottomNavigationBarItem(
+                icon: const Icon(Icons.person_outline_outlined),
+                label: AppLocalizations.of(context).profile,
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

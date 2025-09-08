@@ -12,7 +12,7 @@ class EditProfileHeader extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            Navigator.pop(context , true);
+            Navigator.pop(context, true);
           },
           child: const Icon(Icons.arrow_back_ios_rounded),
         ),
@@ -23,9 +23,12 @@ class EditProfileHeader extends StatelessWidget {
           ),
         ),
         const Spacer(),
-        GestureDetector(onTap: () {
-          // Navigator.pushNamed(context, RouteNames.notifications);
-        }, child: const Icon(Icons.notifications_outlined)),
+        GestureDetector(
+          onTap: () {
+            // Navigator.pushNamed(context, RouteNames.notifications);
+          },
+          child: const Icon(Icons.notifications_outlined),
+        ),
       ],
     );
   }

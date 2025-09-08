@@ -31,4 +31,3 @@ Future<ApiResult<TOut>> safeApiCall<TIn, TOut>(
     return ApiErrorResult(e);
   }
 }
-

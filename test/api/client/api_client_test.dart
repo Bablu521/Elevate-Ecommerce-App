@@ -21,7 +21,7 @@ void main() {
   late ApiClient apiClient;
   late MockApiClient mockedApiClient;
   setUpAll(() {
-    dio = Dio(BaseOptions(baseUrl: "https://fakeapi.com" , ));
+    dio = Dio(BaseOptions(baseUrl: "https://fakeapi.com"));
     dioAdapter = DioAdapter(dio: dio);
     apiClient = ApiClient(dio);
     mockedApiClient = MockApiClient();

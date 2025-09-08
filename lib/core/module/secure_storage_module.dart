@@ -8,5 +8,3 @@ abstract class SecureStorageModule {
     aOptions: AndroidOptions(encryptedSharedPreferences: true),
   );
 }
-
-
