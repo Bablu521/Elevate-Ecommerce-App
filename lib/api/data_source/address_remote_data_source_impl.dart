@@ -16,7 +16,7 @@ class AddressRemoteDataSourceImpl implements AddressRemoteDataSource {
     return safeApiCall(
       () => _apiClient.getLoggedUserAddresses(),
       (response) =>
-          response.address!.map((item) => item.toAddressEntity()).toList(),
+          response.addresses!.map((item) => item.toAddressEntity()).toList(),
     );
   }
 
@@ -44,7 +44,7 @@ class AddressRemoteDataSourceImpl implements AddressRemoteDataSource {
         addressId,
       ),
       (response) =>
-          response.address!.map((item) => item.toAddressEntity()).toList(),
+          response.addresses!.map((item) => item.toAddressEntity()).toList(),
     );
   }
 

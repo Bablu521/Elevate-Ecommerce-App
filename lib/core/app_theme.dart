@@ -30,6 +30,8 @@ abstract class AppTheme {
     ),
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.white,
+      surfaceTintColor: Colors.transparent,
+      elevation: 0,
       titleTextStyle: getTextStyle(
         fontSize: 20.sp,
         fontWeight: FontWeight.w500,

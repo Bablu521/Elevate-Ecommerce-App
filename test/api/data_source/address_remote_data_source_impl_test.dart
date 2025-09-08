@@ -1,5 +1,6 @@
 import 'package:elevate_ecommerce_app/api/models/requestes/address_request_dto/address_request_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/addresses_response_dto/address_dto.dart';
+import 'package:elevate_ecommerce_app/api/models/responses/addresses_response_dto/address_response_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/addresses_response_dto/addresses_response_dto.dart';
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/domin/entities/address_entity.dart';
@@ -49,6 +50,11 @@ void main() {
     ];
     final expectedResult = const AddressesResponseDto(
       message: "fake-message",
+      addresses: expectedAddresses,
+    );
+
+    final expectedSuccess = const AddressResponseDto(
+      message: "fake-message",
       address: expectedAddresses,
     );
     final expectedError = "Server Error";
@@ -76,11 +82,11 @@ void main() {
         result as ApiSuccessResult<List<AddressEntity>>;
         expect(
           result.data,
-          expectedResult.address!.map((item) => item.toAddressEntity()).toList(),
+          expectedResult.addresses!.map((item) => item.toAddressEntity()).toList(),
         );
         expect(
           result.data.length,
-          expectedResult.address!.length
+          expectedResult.addresses!.length
         );
       },
     );
@@ -114,7 +120,7 @@ void main() {
         //Arrange
         when(
           mockedApiClient.addAddress(AddressRequestDto.fromDomain(addressRequestEntity)),
-        ).thenAnswer((_) async => expectedResult);
+        ).thenAnswer((_) async => expectedSuccess);
 
         //Call
         final result = await addressRemoteDataSourceImpl
@@ -126,11 +132,11 @@ void main() {
         result as ApiSuccessResult<List<AddressEntity>>;
         expect(
           result.data,
-          expectedResult.address!
+          expectedResult.addresses!
               .map((item) => item.toAddressEntity())
               .toList(),
         );
-        expect(result.data.length, expectedResult.address!.length);
+        expect(result.data.length, expectedResult.addresses!.length);
       },
     );
 
@@ -172,11 +178,11 @@ void main() {
         result as ApiSuccessResult<List<AddressEntity>>;
         expect(
           result.data,
-          expectedResult.address!
+          expectedResult.addresses!
               .map((item) => item.toAddressEntity())
               .toList(),
         );
-        expect(result.data.length, expectedResult.address!.length);
+        expect(result.data.length, expectedResult.addresses!.length);
       },
     );
 
@@ -206,7 +212,7 @@ void main() {
         //Arrange
         when(
           mockedApiClient.removeAddress(addressId),
-        ).thenAnswer((_) async => expectedResult);
+        ).thenAnswer((_) async => expectedSuccess);
 
         //Call
         final result = await addressRemoteDataSourceImpl
@@ -218,11 +224,11 @@ void main() {
         result as ApiSuccessResult<List<AddressEntity>>;
         expect(
           result.data,
-          expectedResult.address!
+          expectedResult.addresses!
               .map((item) => item.toAddressEntity())
               .toList(),
         );
-        expect(result.data.length, expectedResult.address!.length);
+        expect(result.data.length, expectedResult.addresses!.length);
       },
     );
 

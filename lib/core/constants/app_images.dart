@@ -8,4 +8,8 @@ abstract final class AppImages {
   static const String productTest = '$_rootImages/prodcutTest.png';
   static const String productTestImage = '$_rootImages/prodeuctTestImage.png';
   static const String lockAccessImage = '$_rootImages/heart-lock.png';
+  static const String deleteIconImage = '$_rootImages/deleteIcon.png';
+  static const String editIconImage = '$_rootImages/editIcon.png';
+  static const String locationIconImage = '$_rootImages/locationIcon.png';
+
 }
