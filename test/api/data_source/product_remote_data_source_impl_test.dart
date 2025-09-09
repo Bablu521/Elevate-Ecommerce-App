@@ -1,3 +1,4 @@
+import 'package:elevate_ecommerce_app/api/data_source/products_remote_data_source_impl.dart';
 import 'package:elevate_ecommerce_app/api/models/product_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/products_reponse_dto/metadata.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/products_reponse_dto/products_reponse_dto.dart';
@@ -5,7 +6,6 @@ import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/domin/entities/product_entity.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:elevate_ecommerce_app/api/client/api_client.dart';
-import 'package:elevate_ecommerce_app/api/data_source/product_remote_data_source_impl.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
@@ -15,7 +15,7 @@ import 'product_remote_data_source_impl_test.mocks.dart';
 void main() {
   group('test ProductRemoteDataSourceImpl', () {
     late MockApiClient mockedApiClient;
-    late ProductRemoteDataSourceImpl productRemoteDataSourceImpl;
+    late ProductsRemoteDataSourceImpl productRemoteDataSourceImpl;
     var occasionId = "fake-occasion-id";
     var categoryId = "fake-category-id";
     var expectedError = "Server Error";
@@ -23,7 +23,7 @@ void main() {
 
     setUp(() {
       mockedApiClient = MockApiClient();
-      productRemoteDataSourceImpl = ProductRemoteDataSourceImpl(
+      productRemoteDataSourceImpl = ProductsRemoteDataSourceImpl(
         mockedApiClient,
       );
       expectedResult = ProductsReponseDto(

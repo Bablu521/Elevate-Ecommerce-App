@@ -1,7 +1,7 @@
 import 'package:elevate_ecommerce_app/api/client/api_client.dart';
 import 'package:elevate_ecommerce_app/api/data_source/categories_remote_data_source_impl.dart';
 import 'package:elevate_ecommerce_app/api/mapper/categories/category_mapper.dart';
-import 'package:elevate_ecommerce_app/api/models/responses/categories/all_categories_response.dart';
+import 'package:elevate_ecommerce_app/api/models/responses/categories/categories_response.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/categories/category_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/meta_data.dart';
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
@@ -28,7 +28,7 @@ void main() {
     test(
       "when call getAllCategories it should return a list of CategoryEntity from api client with right parameters",
       () async {
-        var expectedResult = AllCategoriesResponse(
+        var expectedResult = CategoriesResponse(
           message: "fake-message",
           metadata: MetaData(
             currentPage: 1,

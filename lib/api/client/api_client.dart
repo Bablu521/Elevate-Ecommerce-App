@@ -6,6 +6,7 @@ import 'package:elevate_ecommerce_app/api/models/requestes/login_requests/login_
 import 'package:elevate_ecommerce_app/api/models/requestes/register_request_dto/register_request_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/auth/reset_password_response.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/auth/verify_reset_response.dart';
+import 'package:elevate_ecommerce_app/api/models/responses/categories/categories_response.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/login_response/login_response_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/register_response_dto/register_response_dto.dart';
 import 'package:elevate_ecommerce_app/core/constants/end_points.dart';
@@ -46,10 +47,13 @@ abstract class ApiClient {
       );
 
   @GET(Endpoints.products)
-  Future<AllProductsResponse> getAllProducts();
+  Future<ProductsReponseDto> getAllProducts();
 
   @GET(Endpoints.occasions)
   Future<OccasionsReponseDto> getAllOccasions();
+
+  @GET(Endpoints.categories)
+  Future<CategoriesResponse> getAllCategories();
 
   @GET(Endpoints.products)
   Future<ProductsReponseDto> getProductsByOccasion(

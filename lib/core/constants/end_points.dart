@@ -5,6 +5,7 @@ abstract class Endpoints {
   static const String verifyReset = "api/v1/auth/verifyResetCode";
   static const String resetPassword = "api/v1/auth/resetPassword";
   static const String occasions = "api/v1/occasions";
+  static const String categories = "api/v1/categories";
   static const String products = "api/v1/products";
   static const String categoryQuery = "category";
   static const String occasionQuery = "occasion";

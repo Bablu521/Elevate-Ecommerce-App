@@ -18,15 +18,15 @@ class ProductsRepoImpl implements ProductsRepo {
 
   @override
   Future<ApiResult<List<ProductEntity>>> getProductsByCategory(
-    String category,
+    String categoryId,
   ) {
-    return _productsRemoteDataSource.getProductsByCategory(category);
+    return _productsRemoteDataSource.getProductsByCategory(categoryId);
   }
 
   @override
   Future<ApiResult<List<ProductEntity>>> getProductsByOccasion(
-    String occasion,
+    String occasionId,
   ) {
-    return _productsRemoteDataSource.getProductsByOccasion(occasion);
+    return _productsRemoteDataSource.getProductsByOccasion(occasionId);
   }
 }

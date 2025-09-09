@@ -3,10 +3,10 @@ import 'package:json_annotation/json_annotation.dart';
 
 import 'category_dto.dart';
 
-part 'all_categories_response.g.dart';
+part 'categories_response.g.dart';
 
 @JsonSerializable()
-class AllCategoriesResponse {
+class CategoriesResponse {
   @JsonKey(name: "message")
   final String? message;
   @JsonKey(name: "metadata")
@@ -14,13 +14,13 @@ class AllCategoriesResponse {
   @JsonKey(name: "categories")
   final List<CategoryDTO>? categories;
 
-  AllCategoriesResponse({this.message, this.metadata, this.categories});
+  CategoriesResponse({this.message, this.metadata, this.categories});
 
-  factory AllCategoriesResponse.fromJson(Map<String, dynamic> json) {
-    return _$AllCategoriesResponseFromJson(json);
+  factory CategoriesResponse.fromJson(Map<String, dynamic> json) {
+    return _$CategoriesResponseFromJson(json);
   }
 
   Map<String, dynamic> toJson() {
-    return _$AllCategoriesResponseToJson(this);
+    return _$CategoriesResponseToJson(this);
   }
 }
