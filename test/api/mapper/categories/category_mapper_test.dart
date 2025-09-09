@@ -7,8 +7,8 @@ void main() {
     test(
       'when call fromDTO with null values it should return CategoryEntity with null values',
       () async {
-        var categoryDto = CategoryDTO(
-          Id: null,
+        final categoryDto = CategoryDTO(
+          id: null,
           name: null,
           slug: null,
           image: null,
@@ -18,9 +18,9 @@ void main() {
           productsCount: null,
         );
 
-        var result = categoryDto.toEntity();
+        final result = categoryDto.toEntity();
 
-        expect(result.Id, null);
+        expect(result.id, null);
         expect(result.name, null);
         expect(result.slug, null);
         expect(result.image, null);
@@ -34,9 +34,8 @@ void main() {
     test(
       'when call fromDTO with right values it should return CategoryEntity with right values',
       () {
-
-        var categoryDto = CategoryDTO(
-          Id: "fake-id",
+        final categoryDto = CategoryDTO(
+          id: "fake-id",
           name: "fake-name",
           slug: "fake-slug",
           image: "fake-image",
@@ -46,9 +45,9 @@ void main() {
           productsCount: 0,
         );
 
-        var result = categoryDto.toEntity();
+        final result = categoryDto.toEntity();
 
-        expect(result.Id, categoryDto.Id);
+        expect(result.id, categoryDto.id);
         expect(result.name, categoryDto.name);
         expect(result.slug, categoryDto.slug);
         expect(result.image, categoryDto.image);

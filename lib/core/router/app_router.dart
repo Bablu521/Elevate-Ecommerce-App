@@ -17,7 +17,7 @@ abstract class AppRouter {
       case RouteNames.register:
         return MaterialPageRoute(builder: (_) => RegisterView());
       case RouteNames.forgetPassword:
-        return MaterialPageRoute(builder: (_) => ForgetPasswordScreen());
+        return MaterialPageRoute(builder: (_) => const ForgetPasswordScreen());
       case RouteNames.occasion:
         return MaterialPageRoute(
           builder: (_) => const OccasionView(),

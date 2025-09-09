@@ -35,13 +35,13 @@ void main() {
         mockGetProductsByCategoryUseCase,
         mockGetAllProductsUseCase,
       );
-      state = CategoriesState();
+      state = const CategoriesState();
     });
 
     group("test GetAllCategoriesUseCase", () {
-      var expectedList = [
-        CategoryEntity(
-          Id: "1",
+      final expectedList = [
+        const CategoryEntity(
+          id: "1",
           name: "test",
           slug: "test",
           image: "test",
@@ -50,8 +50,8 @@ void main() {
           isSuperAdmin: false,
           productsCount: 10,
         ),
-        CategoryEntity(
-          Id: "2",
+        const CategoryEntity(
+          id: "2",
           name: "test2",
           slug: "test2",
           image: "test2",
@@ -62,7 +62,9 @@ void main() {
         ),
       ];
 
-      var expectedResult = ApiSuccessResult<List<CategoryEntity>>(expectedList);
+      final expectedResult = ApiSuccessResult<List<CategoryEntity>>(
+        expectedList,
+      );
       provideDummy<ApiResult<List<CategoryEntity>>>(expectedResult);
 
       blocTest<CategoriesViewModel, CategoriesState>(
@@ -74,18 +76,17 @@ void main() {
           ).thenAnswer((_) async => expectedResult);
           return bloc.doIntent(GetCategoriesEvent());
         },
-        expect:
-            () => <CategoriesState>[
-              state.copyWith(isLoading: true, errorMessage: null),
-              state.copyWith(categoriesList: expectedList, isLoading: false),
-            ],
+        expect: () => <CategoriesState>[
+          state.copyWith(isLoading: true, errorMessage: null),
+          state.copyWith(categoriesList: expectedList, isLoading: false),
+        ],
         verify: (_) {
           verify(mockGetAllCategoriesUseCase()).called(1);
         },
       );
 
-      var errorMessage = "Server Error";
-      var expectedError = ApiErrorResult<List<CategoryEntity>>(errorMessage);
+      final errorMessage = "Server Error";
+      final expectedError = ApiErrorResult<List<CategoryEntity>>(errorMessage);
       provideDummy<ApiResult<List<CategoryEntity>>>(expectedError);
 
       blocTest<CategoriesViewModel, CategoriesState>(
@@ -97,11 +98,10 @@ void main() {
           ).thenAnswer((_) async => expectedError);
           return bloc.doIntent(GetCategoriesEvent());
         },
-        expect:
-            () => [
-              state.copyWith(isLoading: true, errorMessage: null),
-              state.copyWith(errorMessage: errorMessage, isLoading: false),
-            ],
+        expect: () => [
+          state.copyWith(isLoading: true, errorMessage: null),
+          state.copyWith(errorMessage: errorMessage, isLoading: false),
+        ],
         verify: (_) {
           verify(mockGetAllCategoriesUseCase()).called(1);
         },
@@ -109,7 +109,7 @@ void main() {
     });
 
     group("test GetAllProductsUseCase", () {
-      var expectedList = [
+      final expectedList = [
         ProductEntity(
           rateAvg: 1,
           rateCount: 1,
@@ -152,7 +152,9 @@ void main() {
         ),
       ];
 
-      var expectedResult = ApiSuccessResult<List<ProductEntity>>(expectedList);
+      final expectedResult = ApiSuccessResult<List<ProductEntity>>(
+        expectedList,
+      );
       provideDummy<ApiResult<List<ProductEntity>>>(expectedResult);
 
       blocTest<CategoriesViewModel, CategoriesState>(
@@ -164,21 +166,17 @@ void main() {
           ).thenAnswer((_) async => expectedResult);
           return bloc.doIntent(GetAllProductsEvent());
         },
-        expect:
-            () => <CategoriesState>[
-              state.copyWith(isProductsLoading: true, errorMessage: null),
-              state.copyWith(
-                productsList: expectedList,
-                isProductsLoading: false,
-              ),
-            ],
+        expect: () => <CategoriesState>[
+          state.copyWith(isProductsLoading: true, errorMessage: null),
+          state.copyWith(productsList: expectedList, isProductsLoading: false),
+        ],
         verify: (_) {
           verify(mockGetAllProductsUseCase()).called(1);
         },
       );
 
-      var errorMessage = "Server Error";
-      var expectedError = ApiErrorResult<List<ProductEntity>>(errorMessage);
+      final errorMessage = "Server Error";
+      final expectedError = ApiErrorResult<List<ProductEntity>>(errorMessage);
       provideDummy<ApiResult<List<ProductEntity>>>(expectedError);
 
       blocTest<CategoriesViewModel, CategoriesState>(
@@ -190,14 +188,10 @@ void main() {
           ).thenAnswer((_) async => expectedError);
           return bloc.doIntent(GetAllProductsEvent());
         },
-        expect:
-            () => [
-              state.copyWith(isLoading: true, errorMessage: null),
-              state.copyWith(
-                errorMessage: errorMessage,
-                isProductsLoading: false,
-              ),
-            ],
+        expect: () => [
+          state.copyWith(isLoading: true, errorMessage: null),
+          state.copyWith(errorMessage: errorMessage, isProductsLoading: false),
+        ],
         verify: (_) {
           verify(mockGetAllProductsUseCase()).called(1);
         },
@@ -205,11 +199,11 @@ void main() {
     });
 
     group("test GetProductsByCategoryUseCase", () {
-      var categoryId = "1";
+      final categoryId = "1";
 
-      var categoriesList = [
-        CategoryEntity(
-          Id: "1",
+      final categoriesList = [
+        const CategoryEntity(
+          id: "1",
           name: "test",
           slug: "test",
           image: "test",
@@ -218,8 +212,8 @@ void main() {
           isSuperAdmin: false,
           productsCount: 10,
         ),
-        CategoryEntity(
-          Id: "2",
+        const CategoryEntity(
+          id: "2",
           name: "test2",
           slug: "test2",
           image: "test2",
@@ -230,7 +224,7 @@ void main() {
         ),
       ];
 
-      var expectedList = [
+      final expectedList = [
         ProductEntity(
           rateAvg: 1,
           rateCount: 1,
@@ -273,7 +267,9 @@ void main() {
         ),
       ];
 
-      var expectedResult = ApiSuccessResult<List<ProductEntity>>(expectedList);
+      final expectedResult = ApiSuccessResult<List<ProductEntity>>(
+        expectedList,
+      );
       provideDummy<ApiResult<List<ProductEntity>>>(expectedResult);
 
       blocTest<CategoriesViewModel, CategoriesState>(
@@ -287,18 +283,17 @@ void main() {
           bloc.selectedTabIndex.value = 1;
           return bloc.doIntent(GetProductsByCategoryEvent());
         },
-        expect:
-            () => <CategoriesState>[
+        expect: () => <CategoriesState>[
           state.copyWith(isProductsLoading: true, errorMessage: null),
-              state.copyWith(productsList: expectedList, isProductsLoading: false),
+          state.copyWith(productsList: expectedList, isProductsLoading: false),
         ],
         verify: (_) {
           verify(mockGetProductsByCategoryUseCase(categoryId)).called(1);
         },
       );
 
-      var errorMessage = "Server Error";
-      var expectedError = ApiErrorResult<List<ProductEntity>>(errorMessage);
+      final errorMessage = "Server Error";
+      final expectedError = ApiErrorResult<List<ProductEntity>>(errorMessage);
       provideDummy<ApiResult<List<ProductEntity>>>(expectedError);
 
       blocTest<CategoriesViewModel, CategoriesState>(
@@ -312,13 +307,9 @@ void main() {
           bloc.selectedTabIndex.value = 1;
           return bloc.doIntent(GetProductsByCategoryEvent());
         },
-        expect:
-            () => [
+        expect: () => [
           state.copyWith(isLoading: true, errorMessage: null),
-          state.copyWith(
-            errorMessage: errorMessage,
-            isProductsLoading: false,
-          ),
+          state.copyWith(errorMessage: errorMessage, isProductsLoading: false),
         ],
         verify: (_) {
           verify(mockGetProductsByCategoryUseCase(categoryId)).called(1);

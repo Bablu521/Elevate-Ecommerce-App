@@ -207,24 +207,24 @@ void main() {
       late ForgetPasswordRequestEntity forgetPasswordRequestEntity;
 
       setUp((){
-        forgetPasswordRequestEntity = ForgetPasswordRequestEntity(
+        forgetPasswordRequestEntity = const ForgetPasswordRequestEntity(
           email: "fake-email",
         );
       });
 
       test("when call forgetPassword it should return ForgetPasswordEntity from data source with right parameters", () async {
         //Arrange
-        var expectedEntity = ForgetPasswordEntity(
+        final expectedEntity = ForgetPasswordEntity(
           message: "fake-message",
           info: "fake-info",
         );
-        var expectedResult = ApiSuccessResult<ForgetPasswordEntity>(expectedEntity);
+        final expectedResult = ApiSuccessResult<ForgetPasswordEntity>(expectedEntity);
         provideDummy<ApiResult<ForgetPasswordEntity>>(expectedResult);
         when(
           mockAuthRemoteDataSource.forgetPassword(forgetPasswordRequestEntity),
         ).thenAnswer((_) async => expectedResult);
         //Act
-        var result = await authRepoImpl.forgetPassword(forgetPasswordRequestEntity);
+        final result = await authRepoImpl.forgetPassword(forgetPasswordRequestEntity);
         //Assert
         verify(
           mockAuthRemoteDataSource.forgetPassword(forgetPasswordRequestEntity),
@@ -237,15 +237,15 @@ void main() {
 
       test("when forgetPassword failed it should return an error result", () async {
         //Arrange
-        var expectedError = "Server Error";
-        var expectedResult = ApiErrorResult<ForgetPasswordEntity>(expectedError);
+        final expectedError = "Server Error";
+        final expectedResult = ApiErrorResult<ForgetPasswordEntity>(expectedError);
         provideDummy<ApiResult<ForgetPasswordEntity>>(expectedResult);
         when(
           mockAuthRemoteDataSource.forgetPassword(forgetPasswordRequestEntity),
         ).thenAnswer((_) async => expectedResult);
 
         //Call
-        var result = await authRepoImpl.forgetPassword(forgetPasswordRequestEntity);
+        final result = await authRepoImpl.forgetPassword(forgetPasswordRequestEntity);
 
         //Assert
         verify(
@@ -262,23 +262,23 @@ void main() {
       late VerifyResetRequestEntity verifyResetRequestEntity;
 
       setUp((){
-        verifyResetRequestEntity = VerifyResetRequestEntity(
+        verifyResetRequestEntity = const VerifyResetRequestEntity(
           resetCode: "fake-reset-code",
         );
       });
 
       test("when call verifyResetCode it should return VerifyResetEntity from data source with right parameters", () async {
         //Arrange
-        var expectedEntity = VerifyResetEntity(
+        final expectedEntity = VerifyResetEntity(
           status: "fake-status",
         );
-        var expectedResult = ApiSuccessResult<VerifyResetEntity>(expectedEntity);
+        final expectedResult = ApiSuccessResult<VerifyResetEntity>(expectedEntity);
         provideDummy<ApiResult<VerifyResetEntity>>(expectedResult);
         when(
           mockAuthRemoteDataSource.verifyResetCode(verifyResetRequestEntity),
         ).thenAnswer((_) async => expectedResult);
         //Act
-        var result = await authRepoImpl.verifyResetCode(verifyResetRequestEntity);
+        final result = await authRepoImpl.verifyResetCode(verifyResetRequestEntity);
         //Assert
         verify(
           mockAuthRemoteDataSource.verifyResetCode(verifyResetRequestEntity),
@@ -290,15 +290,15 @@ void main() {
 
       test("when verifyResetCode failed it should return an error result", () async {
         //Arrange
-        var expectedError = "Server Error";
-        var expectedResult = ApiErrorResult<VerifyResetEntity>(expectedError);
+        final expectedError = "Server Error";
+        final expectedResult = ApiErrorResult<VerifyResetEntity>(expectedError);
         provideDummy<ApiResult<VerifyResetEntity>>(expectedResult);
         when(
           mockAuthRemoteDataSource.verifyResetCode(verifyResetRequestEntity),
         ).thenAnswer((_) async => expectedResult);
 
         //Call
-        var result = await authRepoImpl.verifyResetCode(verifyResetRequestEntity);
+        final result = await authRepoImpl.verifyResetCode(verifyResetRequestEntity);
 
         //Assert
         verify(
@@ -315,7 +315,7 @@ void main() {
       late ResetPasswordRequestEntity resetPasswordRequestEntity;
 
       setUp((){
-        resetPasswordRequestEntity = ResetPasswordRequestEntity(
+        resetPasswordRequestEntity = const ResetPasswordRequestEntity(
             email: "fake-email",
             newPassword: "fake-new-password"
         );
@@ -323,16 +323,16 @@ void main() {
 
       test("when call resetPassword it should return ResetPasswordEntity from data source with right parameters", () async {
         //Arrange
-        var expectedEntity = ResetPasswordEntity(
+        final expectedEntity = ResetPasswordEntity(
             message: "fake-message"
         );
-        var expectedResult = ApiSuccessResult<ResetPasswordEntity>(expectedEntity);
+        final expectedResult = ApiSuccessResult<ResetPasswordEntity>(expectedEntity);
         provideDummy<ApiResult<ResetPasswordEntity>>(expectedResult);
         when(
           mockAuthRemoteDataSource.resetPassword(resetPasswordRequestEntity),
         ).thenAnswer((_) async => expectedResult);
         //Act
-        var result = await authRepoImpl.resetPassword(resetPasswordRequestEntity);
+        final result = await authRepoImpl.resetPassword(resetPasswordRequestEntity);
         //Assert
         verify(
           mockAuthRemoteDataSource.resetPassword(resetPasswordRequestEntity),
@@ -344,15 +344,15 @@ void main() {
 
       test("when resetPassword failed it should return an error result", () async {
         //Arrange
-        var expectedError = "Server Error";
-        var expectedResult = ApiErrorResult<ResetPasswordEntity>(expectedError);
+        final expectedError = "Server Error";
+        final expectedResult = ApiErrorResult<ResetPasswordEntity>(expectedError);
         provideDummy<ApiResult<ResetPasswordEntity>>(expectedResult);
         when(
           mockAuthRemoteDataSource.resetPassword(resetPasswordRequestEntity),
         ).thenAnswer((_) async => expectedResult);
 
         //Call
-        var result = await authRepoImpl.resetPassword(resetPasswordRequestEntity);
+        final result = await authRepoImpl.resetPassword(resetPasswordRequestEntity);
 
         //Assert
         verify(

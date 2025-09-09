@@ -9,7 +9,7 @@ class ProductDTO {
   @JsonKey(name: "rateCount")
   final int? rateCount;
   @JsonKey(name: "_id")
-  final String? Id;
+  final String? uId;
   @JsonKey(name: "title")
   final String? title;
   @JsonKey(name: "slug")
@@ -46,7 +46,7 @@ class ProductDTO {
   ProductDTO({
     this.rateAvg,
     this.rateCount,
-    this.Id,
+    this.uId,
     this.title,
     this.slug,
     this.description,

@@ -20,8 +20,8 @@ void main() {
     late MockGetProductsByOccasionUseCase mockedGetProductsByOccasionUseCase;
     late OccasionViewModel occasionViewModel;
     late OccasionStates state;
-    var occasionId = "fake-occasion-id";
-    var errorMsg = "Server Error";
+    final occasionId = "fake-occasion-id";
+    final errorMsg = "Server Error";
 
     setUp(() {
       mockedOccasionUseCase = MockOccasionUseCase();
@@ -30,9 +30,9 @@ void main() {
         mockedOccasionUseCase,
         mockedGetProductsByOccasionUseCase,
       );
-      state = OccasionStates();
+      state = const OccasionStates();
     });
-    var expectedOccasionEntity = [
+    final expectedOccasionEntity = [
       OccasionEntity(
         id: "fake-id-1",
         name: "fake-name-1",
@@ -54,7 +54,7 @@ void main() {
         productsCount: 0,
       ),
     ];
-    var expectedResult = ApiSuccessResult(expectedOccasionEntity);
+    final expectedResult = ApiSuccessResult(expectedOccasionEntity);
     provideDummy<ApiResult<List<OccasionEntity>>>(expectedResult);
     blocTest<OccasionViewModel, OccasionStates>(
       'call doIntent with OnLoadOccasionListEvent then load and successed',
@@ -65,21 +65,19 @@ void main() {
         ).thenAnswer((_) async => expectedResult);
         return occasionViewModel.doIntent(OnLoadOccasionListEvent());
       },
-      expect:
-          () => [
-            state.copyWith(occasionListIsLoading: true),
-            state.copyWith(
-              occasionListIsLoading: false,
-              occasionListSuccess: expectedOccasionEntity,
-            ),
-          ],
+      expect: () => [
+        state.copyWith(occasionListIsLoading: true),
+        state.copyWith(
+          occasionListIsLoading: false,
+          occasionListSuccess: expectedOccasionEntity,
+        ),
+      ],
       verify: (_) {
         verify(mockedOccasionUseCase.call()).called(1);
       },
     );
 
-    
-    var expectedError = ApiErrorResult<List<OccasionEntity>>(errorMsg);
+    final expectedError = ApiErrorResult<List<OccasionEntity>>(errorMsg);
     provideDummy<ApiResult<List<OccasionEntity>>>(expectedError);
     blocTest<OccasionViewModel, OccasionStates>(
       'call doIntent with OnLoadOccasionListEvent then load and failed',
@@ -90,19 +88,18 @@ void main() {
         ).thenAnswer((_) async => expectedError);
         return occasionViewModel.doIntent(OnLoadOccasionListEvent());
       },
-      expect:
-          () => [
-            state.copyWith(occasionListIsLoading: true),
-            state.copyWith(
-              occasionListIsLoading: false,
-              occasionListErrorMessage: errorMsg,
-            ),
-          ],
+      expect: () => [
+        state.copyWith(occasionListIsLoading: true),
+        state.copyWith(
+          occasionListIsLoading: false,
+          occasionListErrorMessage: errorMsg,
+        ),
+      ],
       verify: (_) {
         verify(mockedOccasionUseCase.call()).called(1);
       },
     );
-    var expectedProductEntity = [
+    final expectedProductEntity = [
       ProductEntity(
         rateAvg: 5,
         rateCount: 10,
@@ -144,7 +141,7 @@ void main() {
         sold: 10,
       ),
     ];
-    var expectedProducts = ApiSuccessResult(expectedProductEntity);
+    final expectedProducts = ApiSuccessResult(expectedProductEntity);
     provideDummy<ApiResult<List<ProductEntity>>>(expectedProducts);
     blocTest<OccasionViewModel, OccasionStates>(
       'call doIntent with OnLoadProductListEvent then load and successed',
@@ -155,20 +152,19 @@ void main() {
         ).thenAnswer((_) async => expectedProducts);
         return occasionViewModel.doIntent(OnLoadProductListEvent(occasionId));
       },
-      expect:
-          () => [
-            state.copyWith(productListIsLoading: true),
-            state.copyWith(
-              productListIsLoading: false,
-              productListSuccess: expectedProductEntity,
-            ),
-          ],
+      expect: () => [
+        state.copyWith(productListIsLoading: true),
+        state.copyWith(
+          productListIsLoading: false,
+          productListSuccess: expectedProductEntity,
+        ),
+      ],
       verify: (_) {
         verify(mockedGetProductsByOccasionUseCase.call(occasionId)).called(1);
       },
     );
 
-    var expectedfailure = ApiErrorResult<List<ProductEntity>>(errorMsg);
+    final expectedfailure = ApiErrorResult<List<ProductEntity>>(errorMsg);
     provideDummy<ApiResult<List<ProductEntity>>>(expectedfailure);
     blocTest<OccasionViewModel, OccasionStates>(
       'call doIntent with OnLoadProductListEvent then load and failed',
@@ -179,14 +175,13 @@ void main() {
         ).thenAnswer((_) async => expectedfailure);
         return occasionViewModel.doIntent(OnLoadProductListEvent(occasionId));
       },
-      expect:
-          () => [
-            state.copyWith(productListIsLoading: true),
-            state.copyWith(
-              productListIsLoading: false,
-              productListErrorMessage: errorMsg,
-            ),
-          ],
+      expect: () => [
+        state.copyWith(productListIsLoading: true),
+        state.copyWith(
+          productListIsLoading: false,
+          productListErrorMessage: errorMsg,
+        ),
+      ],
       verify: (_) {
         verify(mockedGetProductsByOccasionUseCase.call(occasionId)).called(1);
       },

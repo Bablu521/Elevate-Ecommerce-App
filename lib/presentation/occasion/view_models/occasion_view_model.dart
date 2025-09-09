@@ -13,7 +13,7 @@ class OccasionViewModel extends Cubit<OccasionStates> {
   final OccasionUseCase _occasionUseCase;
   final GetProductsByOccasionUseCase _getProductsByOccasionUseCase;
   OccasionViewModel(this._occasionUseCase, this._getProductsByOccasionUseCase)
-    : super(OccasionStates());
+    : super(const OccasionStates());
 
   void doIntent(OccasionEvent event) {
     switch (event) {
@@ -28,7 +28,7 @@ class OccasionViewModel extends Cubit<OccasionStates> {
 
   Future<void> _getAllOccasions() async {
     emit(state.copyWith(occasionListIsLoading: true));
-    var result = await _occasionUseCase.call();
+    final result = await _occasionUseCase.call();
     switch (result) {
       case ApiSuccessResult<List<OccasionEntity>>():
         emit(
@@ -49,7 +49,7 @@ class OccasionViewModel extends Cubit<OccasionStates> {
 
   Future<void> _getProductsByOccasion(String occasionId) async {
     emit(state.copyWith(productListIsLoading: true));
-    var result = await _getProductsByOccasionUseCase(occasionId);
+    final result = await _getProductsByOccasionUseCase(occasionId);
     switch (result) {
       case ApiSuccessResult<List<ProductEntity>>():
         emit(

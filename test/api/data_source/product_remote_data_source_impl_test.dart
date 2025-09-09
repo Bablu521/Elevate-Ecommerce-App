@@ -16,9 +16,9 @@ void main() {
   group('test ProductRemoteDataSourceImpl', () {
     late MockApiClient mockedApiClient;
     late ProductsRemoteDataSourceImpl productRemoteDataSourceImpl;
-    var occasionId = "fake-occasion-id";
-    var categoryId = "fake-category-id";
-    var expectedError = "Server Error";
+    final occasionId = "fake-occasion-id";
+    final categoryId = "fake-category-id";
+    final expectedError = "Server Error";
     late ProductsReponseDto expectedResult;
 
     setUp(() {
@@ -28,7 +28,7 @@ void main() {
       );
       expectedResult = ProductsReponseDto(
         message: "fake-message",
-        metadata: Metadata(
+        metadata:const  Metadata(
           currentPage: 1,
           limit: 10,
           totalPages: 1,
@@ -87,7 +87,7 @@ void main() {
         ).thenAnswer((_) async => expectedResult);
 
         //Act
-        var result = await productRemoteDataSourceImpl.getProductsByOccasion(
+        final result = await productRemoteDataSourceImpl.getProductsByOccasion(
           occasionId,
         );
 
@@ -110,7 +110,7 @@ void main() {
         ).thenThrow(Exception(expectedError));
 
         //Act
-        var result = await productRemoteDataSourceImpl.getProductsByOccasion(
+        final result = await productRemoteDataSourceImpl.getProductsByOccasion(
           occasionId,
         );
 
@@ -131,7 +131,7 @@ void main() {
         ).thenAnswer((_) async => expectedResult);
 
         //Act
-        var result = await productRemoteDataSourceImpl.getProductsByCategory(
+        final result = await productRemoteDataSourceImpl.getProductsByCategory(
           categoryId,
         );
 
@@ -157,7 +157,7 @@ void main() {
         ).thenThrow(Exception(expectedError));
 
         //Act
-        var result = await productRemoteDataSourceImpl.getProductsByCategory(
+        final result = await productRemoteDataSourceImpl.getProductsByCategory(
           categoryId,
         );
 

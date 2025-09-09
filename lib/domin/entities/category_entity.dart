@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class CategoryEntity extends Equatable {
-  final String? Id;
+  final String? id;
   final String? name;
   final String? slug;
   final String? image;
@@ -10,8 +10,8 @@ class CategoryEntity extends Equatable {
   final bool? isSuperAdmin;
   final int? productsCount;
 
-  CategoryEntity({
-    this.Id,
+  const CategoryEntity({
+    this.id,
     this.name,
     this.slug,
     this.image,
@@ -23,7 +23,7 @@ class CategoryEntity extends Equatable {
 
   @override
   List<Object?> get props => [
-    Id,
+    id,
     name,
     slug,
     image,

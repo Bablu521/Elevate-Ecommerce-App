@@ -4,6 +4,7 @@ import '../../../../domin/entities/auth/response/forget_password_entity.dart';
 import '../../../../domin/entities/auth/response/reset_password_entity.dart';
 import '../../../../domin/entities/auth/response/verify_reset_entity.dart';
 
+// ignore: must_be_immutable
 class ForgetPasswordState extends Equatable {
   bool isLoading;
   ForgetPasswordEntity? forgetPasswordResponse;

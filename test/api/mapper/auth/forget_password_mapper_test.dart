@@ -42,7 +42,7 @@ void main() {
       'when call fromDomain with null values should return ForgetPasswordRequest with empty values',
       () {
         //Arrange
-        final response = ForgetPasswordRequestEntity(email: null);
+        final response = const ForgetPasswordRequestEntity(email: null);
         //Act
         final result = response.fromDomain();
         //Assert
@@ -54,7 +54,7 @@ void main() {
       'when call fromDomain with non-null values should return ForgetPasswordRequest with right values',
       () {
         //Arrange
-        final response = ForgetPasswordRequestEntity(email: "fake-email");
+        final response = const ForgetPasswordRequestEntity(email: "fake-email");
         //Act
         final result = response.fromDomain();
         //Assert
@@ -95,7 +95,7 @@ void main() {
       'when call fromDomain with null values should return ResetPasswordRequest with empty values',
       () {
         //Arrange
-        final response = ResetPasswordRequestEntity(
+        final response = const ResetPasswordRequestEntity(
           email: null,
           newPassword: null,
         );
@@ -111,7 +111,7 @@ void main() {
       'when call fromDomain with non-null values should return ResetPasswordRequest with right values',
       () {
         //Arrange
-        final response = ResetPasswordRequestEntity(
+        final response = const ResetPasswordRequestEntity(
           email: "fake-email",
           newPassword: "fake-password",
         );
@@ -151,9 +151,9 @@ void main() {
 
     test(
       'when call fromDomain with null values should return VerifyResetRequest with empty values',
-          () {
+      () {
         //Arrange
-        final response = VerifyResetRequestEntity(resetCode: null);
+        final response = const VerifyResetRequestEntity(resetCode: null);
         //Act
         final result = response.fromDomain();
         //Assert
@@ -163,9 +163,9 @@ void main() {
 
     test(
       'when call fromDomain with non-null values should return VerifyResetRequest with right values',
-          () {
+      () {
         //Arrange
-        final response = VerifyResetRequestEntity(resetCode: "fake-reset-code");
+        final response = const VerifyResetRequestEntity(resetCode: "fake-reset-code");
         //Act
         final result = response.fromDomain();
         //Assert

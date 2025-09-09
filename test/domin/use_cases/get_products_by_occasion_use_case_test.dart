@@ -13,7 +13,7 @@ void main() {
   group('Test GetProductsByOccasionUseCase', () {
     late MockProductsRepo mockedProductRepo;
     late GetProductsByOccasionUseCase getProductsByOccasionUseCase;
-    var occasionId = "fake-occasion-id";
+    final occasionId = "fake-occasion-id";
     setUp(() {
       mockedProductRepo = MockProductsRepo();
       getProductsByOccasionUseCase = GetProductsByOccasionUseCase(
@@ -25,7 +25,7 @@ void main() {
       'when call getProductsByOccasion it should return a list of products from repo with right parameters',
       () async {
         //Arrange
-        var expectedProducts = [
+        final expectedProducts = [
           ProductEntity(
             rateAvg: 5,
             rateCount: 10,
@@ -67,14 +67,14 @@ void main() {
             sold: 10,
           ),
         ];
-        var expectedResult = ApiSuccessResult(expectedProducts);
+        final expectedResult = ApiSuccessResult(expectedProducts);
         provideDummy<ApiResult<List<ProductEntity>>>(expectedResult);
         when(
           mockedProductRepo.getProductsByOccasion(occasionId),
         ).thenAnswer((_) async => expectedResult);
 
         //Act
-        var result = await getProductsByOccasionUseCase.call(occasionId);
+        final result = await getProductsByOccasionUseCase.call(occasionId);
 
         //Assert
         verify(mockedProductRepo.getProductsByOccasion(occasionId)).called(1);
@@ -88,15 +88,15 @@ void main() {
       'when getProductsByOccasion failed it should return return an error result',
       () async {
         //Arrange
-        var expectedError = "Server Error";
-        var expectedResult = ApiErrorResult<List<ProductEntity>>(expectedError);
+        final expectedError = "Server Error";
+        final expectedResult = ApiErrorResult<List<ProductEntity>>(expectedError);
         provideDummy<ApiResult<List<ProductEntity>>>(expectedResult);
         when(
           mockedProductRepo.getProductsByOccasion(occasionId),
         ).thenAnswer((_) async => expectedResult);
 
         //Act
-        var result = await getProductsByOccasionUseCase.call(occasionId);
+        final result = await getProductsByOccasionUseCase.call(occasionId);
 
         //Assert
         verify(mockedProductRepo.getProductsByOccasion(occasionId)).called(1);

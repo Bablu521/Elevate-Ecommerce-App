@@ -4,7 +4,7 @@ import 'package:elevate_ecommerce_app/domin/entities/category_entity.dart';
 extension CategoryMapper on CategoryDTO {
   CategoryEntity toEntity() {
     return CategoryEntity(
-      Id: Id,
+      id: id,
       name: name,
       slug: slug,
       image: image,
