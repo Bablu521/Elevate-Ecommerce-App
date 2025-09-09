@@ -16,14 +16,6 @@ import 'package:injectable/injectable.dart' as _i526;
 
 import '../../api/client/api_client.dart' as _i508;
 import '../../api/client/api_module.dart' as _i272;
-import '../../api/data_source/profile/edit_profile_data_source_impl.dart'
-    as _i966;
-import '../../data/data_source/profile/edit_profile_remote_data_source.dart'
-    as _i1001;
-import '../../data/repositories/profile/edit_profile_impl.dart' as _i177;
-import '../../domin/repositories/profile/edit_profile_repo.dart' as _i251;
-import '../../domin/use_case/edit_profile_use_case.dart' as _i274;
-import '../../presentation/profile/view_model/profile_view_model.dart' as _i671;
 import '../../api/data_source/auth_local_data_source_impl.dart' as _i914;
 import '../../api/data_source/auth_remote_data_source_impl.dart' as _i222;
 import '../../api/data_source/profile/edit_profile_data_source_impl.dart'
@@ -37,6 +29,7 @@ import '../../data/repositories/profile/edit_profile_impl.dart' as _i177;
 import '../../domin/repositories/auth_repo.dart' as _i340;
 import '../../domin/repositories/profile/edit_profile_repo.dart' as _i251;
 import '../../domin/use_case/edit_profile_use_case.dart' as _i274;
+import '../../domin/use_case/logout_use_case.dart' as _i1025;
 import '../../domin/use_cases/get_user_status_use_case.dart' as _i799;
 import '../../domin/use_cases/guest_login_use_case.dart' as _i917;
 import '../../domin/use_cases/login_use_case.dart' as _i1073;
@@ -46,6 +39,7 @@ import '../../presentation/auth/register/view_models/register_view_model.dart'
     as _i490;
 import '../../presentation/profile/profile_view_model/profile_view_model.dart'
     as _i276;
+import '../../presentation/profile/view_model/profile_view_model.dart' as _i671;
 import '../module/secure_storage_module.dart' as _i260;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -62,8 +56,72 @@ extension GetItInjectableX on _i174.GetIt {
       () => secureStorageModule.secureStorage,
     );
     gh.factory<_i508.ApiClient>(() => _i508.ApiClient.new(gh<_i361.Dio>()));
+    gh.factory<_i891.AuthLocalDataSource>(
+      () => _i914.AuthLocalDataSourceImpl(gh<_i558.FlutterSecureStorage>()),
+    );
+    gh.factory<_i697.AuthRemoteDataSource>(
+      () => _i222.AuthRemoteDataSourceImpl(gh<_i508.ApiClient>()),
+    );
+    gh.factory<_i1001.EditProfileRemoteDataSource>(
+      () => _i966.EditProfileRemoteDataSourceImpl(
+        apiClient: gh<_i508.ApiClient>(),
+        secureStorage: gh<_i558.FlutterSecureStorage>(),
+      ),
+    );
+    gh.factory<_i340.AuthRepo>(
+      () => _i653.AuthRepoImpl(
+        gh<_i697.AuthRemoteDataSource>(),
+        gh<_i891.AuthLocalDataSource>(),
+      ),
+    );
+    gh.lazySingleton<_i799.GetUserStatusUseCase>(
+      () => _i799.GetUserStatusUseCase(gh<_i340.AuthRepo>()),
+    );
+    gh.lazySingleton<_i917.GuestLoginUseCase>(
+      () => _i917.GuestLoginUseCase(gh<_i340.AuthRepo>()),
+    );
+    gh.lazySingleton<_i1073.LoginUseCase>(
+      () => _i1073.LoginUseCase(gh<_i340.AuthRepo>()),
+    );
+    gh.factory<_i638.RegisterUseCase>(
+      () => _i638.RegisterUseCase(gh<_i340.AuthRepo>()),
+    );
+    gh.factory<_i441.LoginCubit>(
+      () => _i441.LoginCubit(
+        gh<_i1073.LoginUseCase>(),
+        gh<_i917.GuestLoginUseCase>(),
+      ),
+    );
+    gh.factory<_i490.RegisterViewModel>(
+      () => _i490.RegisterViewModel(gh<_i638.RegisterUseCase>()),
+    );
+    gh.factory<_i251.EditProfileRepo>(
+      () => _i177.EditProfileRepoImpl(
+        editProfileRemoteDataSource: gh<_i1001.EditProfileRemoteDataSource>(),
+      ),
+    );
+    gh.factory<_i274.EditProfileUseCase>(
+      () => _i274.EditProfileUseCase(
+        editProfileRepo: gh<_i251.EditProfileRepo>(),
+      ),
+    );
+    gh.factory<_i1025.LogOutUseCase>(
+      () => _i1025.LogOutUseCase(editProfileRepo: gh<_i251.EditProfileRepo>()),
+    );
+    gh.factory<_i671.ProfileViewModel>(
+      () => _i671.ProfileViewModel(gh<_i274.EditProfileUseCase>()),
+    );
+    gh.factory<_i276.ProfileViewModel>(
+      () => _i276.ProfileViewModel(
+        gh<_i274.EditProfileUseCase>(),
+        gh<_i799.GetUserStatusUseCase>(),
+        gh<_i1025.LogOutUseCase>(),
+      ),
+    );
     return this;
   }
 }
 
 class _$ApiModule extends _i272.ApiModule {}
+
+class _$SecureStorageModule extends _i260.SecureStorageModule {}

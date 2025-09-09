@@ -1,3 +1,4 @@
+
 {
   "connectionTimeout": "Connection timeout. Please try again later.",
   "sendTimeout": "Request timed out. Please try again.",
@@ -69,5 +70,18 @@
   "ok": "Ok",
   "no": "No",
   "yes": "Yes",
-  "loading": "Loading..."
+  "loading": "Loading...",
+  "flowery": "Flowery",
+  "myOrders": "My orders",
+  "savedAddress": "Saved address",
+  "notifications": "Notifications",
+  "language": "Language",
+  "aboutUs": "About us",
+  "logout": "Logout",
+  "english": "English",
+  "guestMode": "Guest Mode",
+  "loginToSaveCartAndManageProfile": "Login or create a free account to save your cart, checkout faster, manage your profile, and track your orders.",
+  "or": "or",
+  "changeLanguage": "Change Language",
+  "arabic" : "Arabic"
 }

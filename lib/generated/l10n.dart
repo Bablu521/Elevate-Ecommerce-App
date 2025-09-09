@@ -503,6 +503,186 @@ class AppLocalizations {
   String get profile {
     return Intl.message('Profile', name: 'profile', desc: '', args: []);
   }
+
+  /// `Add to cart`
+  String get addToCart {
+    return Intl.message('Add to cart', name: 'addToCart', desc: '', args: []);
+  }
+
+  /// `Search`
+  String get search {
+    return Intl.message('Search', name: 'search', desc: '', args: []);
+  }
+
+  /// `All`
+  String get all {
+    return Intl.message('All', name: 'all', desc: '', args: []);
+  }
+
+  /// `Filter`
+  String get filter {
+    return Intl.message('Filter', name: 'filter', desc: '', args: []);
+  }
+
+  /// `Sort by`
+  String get sortBy {
+    return Intl.message('Sort by', name: 'sortBy', desc: '', args: []);
+  }
+
+  /// `Lowes Price`
+  String get lowesPrice {
+    return Intl.message('Lowes Price', name: 'lowesPrice', desc: '', args: []);
+  }
+
+  /// `Highest Price`
+  String get highestPrice {
+    return Intl.message(
+      'Highest Price',
+      name: 'highestPrice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New`
+  String get newWord {
+    return Intl.message('New', name: 'newWord', desc: '', args: []);
+  }
+
+  /// `Old`
+  String get old {
+    return Intl.message('Old', name: 'old', desc: '', args: []);
+  }
+
+  /// `Discount`
+  String get discount {
+    return Intl.message('Discount', name: 'discount', desc: '', args: []);
+  }
+
+  /// `No categories available`
+  String get noCategoriesAvailable {
+    return Intl.message(
+      'No categories available',
+      name: 'noCategoriesAvailable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No products available`
+  String get noProductsAvailable {
+    return Intl.message(
+      'No products available',
+      name: 'noProductsAvailable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ok`
+  String get ok {
+    return Intl.message('Ok', name: 'ok', desc: '', args: []);
+  }
+
+  /// `No`
+  String get no {
+    return Intl.message('No', name: 'no', desc: '', args: []);
+  }
+
+  /// `Yes`
+  String get yes {
+    return Intl.message('Yes', name: 'yes', desc: '', args: []);
+  }
+
+  /// `Loading...`
+  String get loading {
+    return Intl.message('Loading...', name: 'loading', desc: '', args: []);
+  }
+
+  /// `Flowery`
+  String get flowery {
+    return Intl.message('Flowery', name: 'flowery', desc: '', args: []);
+  }
+
+  /// `My orders`
+  String get myOrders {
+    return Intl.message('My orders', name: 'myOrders', desc: '', args: []);
+  }
+
+  /// `Saved address`
+  String get savedAddress {
+    return Intl.message(
+      'Saved address',
+      name: 'savedAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notifications`
+  String get notifications {
+    return Intl.message(
+      'Notifications',
+      name: 'notifications',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message('Language', name: 'language', desc: '', args: []);
+  }
+
+  /// `About us`
+  String get aboutUs {
+    return Intl.message('About us', name: 'aboutUs', desc: '', args: []);
+  }
+
+  /// `Logout`
+  String get logout {
+    return Intl.message('Logout', name: 'logout', desc: '', args: []);
+  }
+
+  /// `English`
+  String get english {
+    return Intl.message('English', name: 'english', desc: '', args: []);
+  }
+
+  /// `Guest Mode`
+  String get guestMode {
+    return Intl.message('Guest Mode', name: 'guestMode', desc: '', args: []);
+  }
+
+  /// `Login or create a free account to save your cart, checkout faster, manage your profile, and track your orders.`
+  String get loginToSaveCartAndManageProfile {
+    return Intl.message(
+      'Login or create a free account to save your cart, checkout faster, manage your profile, and track your orders.',
+      name: 'loginToSaveCartAndManageProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `or`
+  String get or {
+    return Intl.message('or', name: 'or', desc: '', args: []);
+  }
+
+  /// `Change Language`
+  String get changeLanguage {
+    return Intl.message(
+      'Change Language',
+      name: 'changeLanguage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Arabic`
+  String get arabic {
+    return Intl.message('Arabic', name: 'arabic', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppLocalizations> {

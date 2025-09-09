@@ -20,26 +20,26 @@ class _ApiClient implements ApiClient {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<EditProfileDto> editProfile(String token) async {
+  Future<LogOutDto> logOut(String token) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{r'Authorization': token};
     _headers.removeWhere((k, v) => v == null);
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<EditProfileDto>(
-      Options(method: 'PUT', headers: _headers, extra: _extra)
+    final _options = _setStreamType<LogOutDto>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'api/v1/auth/editProfile',
+            'api/v1/auth/logout',
             queryParameters: queryParameters,
             data: _data,
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late EditProfileDto _value;
+    late LogOutDto _value;
     try {
-      _value = EditProfileDto.fromJson(_result.data!);
+      _value = LogOutDto.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

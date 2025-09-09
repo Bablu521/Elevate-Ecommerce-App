@@ -25,7 +25,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     );
 
   }
-  
+
   @override
   Future<LoginResponseDto> login({
     required LoginRequestModel loginRequest,

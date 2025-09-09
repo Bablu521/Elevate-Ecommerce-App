@@ -1,5 +1,6 @@
 import 'package:elevate_ecommerce_app/domin/models/response/editprofile.dart';
 import 'package:elevate_ecommerce_app/domin/use_case/edit_profile_use_case.dart';
+import 'package:elevate_ecommerce_app/domin/use_case/logout_use_case.dart';
 import 'package:elevate_ecommerce_app/domin/use_cases/get_user_status_use_case.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/profile_view_model/profile_event.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/profile_view_model/profile_states.dart';
@@ -7,18 +8,22 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../core/api_result/api_result.dart';
+import '../../../domin/models/response/logOutEntity.dart';
 
 @injectable
 class ProfileViewModel extends Cubit<ProfileStates> {
   final EditProfileUseCase _editProfileUseCase;
   final GetUserStatusUseCase _getUserStatusUseCase;
-  ProfileViewModel(this._editProfileUseCase, this._getUserStatusUseCase)
+  final LogOutUseCase _logoutUseCase;
+  ProfileViewModel(this._editProfileUseCase, this._getUserStatusUseCase,this._logoutUseCase)
     : super(ProfileStates());
 
   void doIntent(ProfileEvent event) {
     switch (event) {
       case OnLoadProfileEvent():
         _editProfile();
+      case OnLoadLogOutEvent():
+        _logOut();
     }
   }
 
@@ -49,4 +54,32 @@ class ProfileViewModel extends Cubit<ProfileStates> {
       }
     }
   }
+  late List<LogOutEntity> logOutListSuccess = [];
+
+
+
+  Future<void> _logOut() async {
+    emit(state.copyWith(logOutListIsLoading: true));
+    var result = await _logoutUseCase.call();
+    switch (result) {
+      case ApiSuccessResult<LogOutEntity>():
+        emit(
+          state.copyWith(
+            logOutListIsLoading: false,
+            logOuListSuccess: result.data,
+
+          ),
+
+        );
+
+      case ApiErrorResult<LogOutEntity>():
+        emit(
+          state.copyWith(
+            logOutListIsLoading: false,
+            logOuListErrorMessage: result.errorMessage,
+          ),
+        );
+    }
+  }
+
 }

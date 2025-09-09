@@ -22,7 +22,6 @@ void main() async {
   runApp(
     ChangeNotifierProvider(
       create: (context) => AppConfigProvider(),
-
       child: MyApp(isRememberMe: isRememberMe, local: local),
     ),
   );
@@ -53,7 +52,7 @@ class MyApp extends StatelessWidget {
             GlobalCupertinoLocalizations.delegate,
           ],
           supportedLocales: AppLocalizations.delegate.supportedLocales,
-          locale: Locale(local),
+          locale: Locale(provider.local ?? ConstKeys.kEnglishLanguage),
         );
       },
     );

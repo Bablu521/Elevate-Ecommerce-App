@@ -2,17 +2,26 @@
 import 'package:elevate_ecommerce_app/domin/models/response/editprofile.dart';
 import 'package:equatable/equatable.dart';
 
+import '../../../domin/models/response/logOutEntity.dart';
+
 class ProfileStates extends Equatable {
   final bool profileListIsLoading;
   final String? profileListErrorMessage;
 
- final EditProfileEntity? profileListSuccess;
+  final EditProfileEntity? profileListSuccess;
+
+  final bool logOutListIsLoading;
+  final String? logOuListErrorMessage;
+  final LogOutEntity? logOuListSuccess;
 
 
-   const ProfileStates({
+  const ProfileStates({
     this.profileListIsLoading = false,
     this.profileListErrorMessage,
     this.profileListSuccess,
+    this.logOutListIsLoading = false,
+    this.logOuListErrorMessage,
+    this.logOuListSuccess,
 
   });
 
@@ -20,12 +29,19 @@ class ProfileStates extends Equatable {
     bool? profileListIsLoading,
     String? profileListErrorMessage,
     EditProfileEntity? profileListSuccess,
+    bool? logOutListIsLoading,
+    String? logOuListErrorMessage,
+    LogOutEntity? logOuListSuccess,
 
   }) {
     return ProfileStates(
       profileListIsLoading: profileListIsLoading ?? this.profileListIsLoading,
       profileListErrorMessage: profileListErrorMessage ?? this.profileListErrorMessage,
       profileListSuccess: profileListSuccess ?? this.profileListSuccess,
+
+      logOutListIsLoading: logOutListIsLoading ?? this.logOutListIsLoading,
+      logOuListErrorMessage: logOuListErrorMessage ?? this.logOuListErrorMessage,
+      logOuListSuccess: logOuListSuccess ?? this.logOuListSuccess,
 
     );
   }
@@ -35,6 +51,9 @@ class ProfileStates extends Equatable {
     profileListIsLoading,
     profileListErrorMessage,
     profileListSuccess,
+    logOutListIsLoading,
+    logOuListErrorMessage,
+    logOuListSuccess
 
   ];
 
