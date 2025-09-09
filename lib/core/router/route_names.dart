@@ -8,5 +8,6 @@ abstract class RouteNames {
   static const String cart = "/cart";
   static const String checkOut = "/checkOut";
   static const String bestSeller = "/bestSellerView";
+  static const String occasion = "/occasionView";
   static const String productDetails = "/productDetailsView";
 }

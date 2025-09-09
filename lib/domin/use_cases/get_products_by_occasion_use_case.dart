@@ -1,16 +1,14 @@
+import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
+import 'package:elevate_ecommerce_app/domin/entities/product_entity.dart';
+import 'package:elevate_ecommerce_app/domin/repositories/product_repo.dart';
 import 'package:injectable/injectable.dart';
-
-import '../../core/api_result/api_result.dart';
-import '../entities/product_entity.dart';
-import '../repositories/products_repo.dart';
 
 @injectable
 class GetProductsByOccasionUseCase {
-  final ProductsRepo _productsRepo;
+  final ProductRepo _productRepo;
+  GetProductsByOccasionUseCase(this._productRepo);
 
-  GetProductsByOccasionUseCase(this._productsRepo);
-
-  Future<ApiResult<List<ProductEntity>>> call(String occasion) async {
-    return await _productsRepo.getProductsByOccasion(occasion);
+  Future<ApiResult<List<ProductEntity>>> call(String occasionId) {
+    return _productRepo.getProductsByOccasion(occasionId);
   }
 }
