@@ -284,11 +284,41 @@ class AppLocalizations {
     );
   }
 
+  /// `Email`
+  String get email {
+    return Intl.message('Email', name: 'email', desc: '', args: []);
+  }
+
+  /// `Enter your email`
+  String get enterYourEmail {
+    return Intl.message(
+      'Enter your email',
+      name: 'enterYourEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message('Password', name: 'password', desc: '', args: []);
+  }
+
   /// `Enter password`
   String get enterPassword {
     return Intl.message(
       'Enter password',
       name: 'enterPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm password`
+  String get confirmPassword {
+    return Intl.message(
+      'Confirm password',
+      name: 'confirmPassword',
       desc: '',
       args: [],
     );
@@ -389,141 +419,161 @@ class AppLocalizations {
     return Intl.message('Welcome', name: 'welcome', desc: '', args: []);
   }
 
-  /// `Password`
-  String get password {
-    return Intl.message('Password', name: 'password', desc: '', args: []);
+  /// `Email`
+  String get emailLabel {
+    return Intl.message('Email', name: 'emailLabel', desc: '', args: []);
   }
 
-  /// `Forget Password`
+  /// `Enter your Email`
+  String get emailHintText {
+    return Intl.message(
+      'Enter your Email',
+      name: 'emailHintText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get passwordLabel {
+    return Intl.message('Password', name: 'passwordLabel', desc: '', args: []);
+  }
+
+  /// `Enter your Password`
+  String get passwordHintText {
+    return Intl.message(
+      'Enter your Password',
+      name: 'passwordHintText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remember me`
+  String get rememberMe {
+    return Intl.message('Remember me', name: 'rememberMe', desc: '', args: []);
+  }
+
+  /// `Forget password?`
   String get forgetPassword {
     return Intl.message(
-      'Forget Password',
+      'Forget password?',
       name: 'forgetPassword',
       desc: '',
       args: [],
     );
   }
 
-  /// `Please enter your email associated to your account`
-  String get pleaseEnterYourEmail {
+  /// `Dont't have an account?`
+  String get dontHaveAccount {
     return Intl.message(
-      'Please enter your email associated to your account',
-      name: 'pleaseEnterYourEmail',
+      'Dont\'t have an account?',
+      name: 'dontHaveAccount',
       desc: '',
       args: [],
     );
   }
 
-  /// `Email`
-  String get email {
-    return Intl.message('Email', name: 'email', desc: '', args: []);
-  }
-
-  /// `Enter your email`
-  String get enterYourEmail {
+  /// `Continue as guest`
+  String get continueAsGuest {
     return Intl.message(
-      'Enter your email',
-      name: 'enterYourEmail',
+      'Continue as guest',
+      name: 'continueAsGuest',
       desc: '',
       args: [],
     );
   }
 
-  /// `Confirm`
-  String get confirm {
-    return Intl.message('Confirm', name: 'confirm', desc: '', args: []);
+  /// `Home`
+  String get home {
+    return Intl.message('Home', name: 'home', desc: '', args: []);
   }
 
-  /// `Email Verification`
-  String get emailVerification {
+  /// `Categories`
+  String get categories {
+    return Intl.message('Categories', name: 'categories', desc: '', args: []);
+  }
+
+  /// `Cart`
+  String get cart {
+    return Intl.message('Cart', name: 'cart', desc: '', args: []);
+  }
+
+  /// `Profile`
+  String get profile {
+    return Intl.message('Profile', name: 'profile', desc: '', args: []);
+  }
+
+  /// `Add to cart`
+  String get addToCart {
+    return Intl.message('Add to cart', name: 'addToCart', desc: '', args: []);
+  }
+
+  /// `Search`
+  String get search {
+    return Intl.message('Search', name: 'search', desc: '', args: []);
+  }
+
+  /// `All`
+  String get all {
+    return Intl.message('All', name: 'all', desc: '', args: []);
+  }
+
+  /// `Filter`
+  String get filter {
+    return Intl.message('Filter', name: 'filter', desc: '', args: []);
+  }
+
+  /// `Sort by`
+  String get sortBy {
+    return Intl.message('Sort by', name: 'sortBy', desc: '', args: []);
+  }
+
+  /// `Lowes Price`
+  String get lowesPrice {
+    return Intl.message('Lowes Price', name: 'lowesPrice', desc: '', args: []);
+  }
+
+  /// `Highest Price`
+  String get highestPrice {
     return Intl.message(
-      'Email Verification',
-      name: 'emailVerification',
+      'Highest Price',
+      name: 'highestPrice',
       desc: '',
       args: [],
     );
   }
 
-  /// `Please enter your code that send to your email address`
-  String get pleaseEnterYourVerificationCode {
+  /// `New`
+  String get newWord {
+    return Intl.message('New', name: 'newWord', desc: '', args: []);
+  }
+
+  /// `Old`
+  String get old {
+    return Intl.message('Old', name: 'old', desc: '', args: []);
+  }
+
+  /// `Discount`
+  String get discount {
+    return Intl.message('Discount', name: 'discount', desc: '', args: []);
+  }
+
+  /// `No categories available`
+  String get noCategoriesAvailable {
     return Intl.message(
-      'Please enter your code that send to your email address',
-      name: 'pleaseEnterYourVerificationCode',
+      'No categories available',
+      name: 'noCategoriesAvailable',
       desc: '',
       args: [],
     );
   }
 
-  /// `Invalid code`
-  String get invalidCode {
+  /// `No products available`
+  String get noProductsAvailable {
     return Intl.message(
-      'Invalid code',
-      name: 'invalidCode',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Didn't receive code?`
-  String get didNotReceiveCode {
-    return Intl.message(
-      'Didn\'t receive code?',
-      name: 'didNotReceiveCode',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Resend`
-  String get resend {
-    return Intl.message('Resend', name: 'resend', desc: '', args: []);
-  }
-
-  /// `Reset Password`
-  String get resetPassword {
-    return Intl.message(
-      'Reset Password',
-      name: 'resetPassword',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Password must not be empty and must contain 6 characters with upper case letter and one number at least`
-  String get passwordMustNotEmpty {
-    return Intl.message(
-      'Password must not be empty and must contain 6 characters with upper case letter and one number at least',
-      name: 'passwordMustNotEmpty',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `New password`
-  String get newPassword {
-    return Intl.message(
-      'New password',
-      name: 'newPassword',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Enter your password`
-  String get enterYourPassword {
-    return Intl.message(
-      'Enter your password',
-      name: 'enterYourPassword',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Confirm password`
-  String get confirmPassword {
-    return Intl.message(
-      'Confirm password',
-      name: 'confirmPassword',
+      'No products available',
+      name: 'noProductsAvailable',
       desc: '',
       args: [],
     );
@@ -549,19 +599,24 @@ class AppLocalizations {
     return Intl.message('Loading...', name: 'loading', desc: '', args: []);
   }
 
-  /// `Success`
-  String get success {
-    return Intl.message('Success', name: 'success', desc: '', args: []);
+  /// `Guest Mode`
+  String get guestMode {
+    return Intl.message('Guest Mode', name: 'guestMode', desc: '', args: []);
   }
 
-  /// `Password reset successfully`
-  String get passwordResetSuccessfully {
+  /// `Login or create a free account to save your cart, checkout faster, manage your profile, and track your orders.`
+  String get loginToSaveCartAndManageProfile {
     return Intl.message(
-      'Password reset successfully',
-      name: 'passwordResetSuccessfully',
+      'Login or create a free account to save your cart, checkout faster, manage your profile, and track your orders.',
+      name: 'loginToSaveCartAndManageProfile',
       desc: '',
       args: [],
     );
+  }
+
+  /// `or`
+  String get or {
+    return Intl.message('or', name: 'or', desc: '', args: []);
   }
 }
 

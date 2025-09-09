@@ -14,4 +14,3 @@ class AppIcons {
   static const String noProfilePhoto =
       '$_rootIcons/man-user-circle-black-icon.png';
 }
-// This class holds the paths to various icon assets used in the application.

@@ -23,7 +23,10 @@ abstract class AppTheme {
       bodySmall: getTextStyle(),
       bodyMedium: getTextStyle(fontSize: 16.sp, fontWeight: FontWeight.w400),
       bodyLarge: getTextStyle(fontSize: 20.sp, fontWeight: FontWeight.w600),
-      headlineMedium: getTextStyle(fontSize: 18.sp, fontWeight: FontWeight.w500),
+      headlineMedium: getTextStyle(
+        fontSize: 18.sp,
+        fontWeight: FontWeight.w500,
+      ),
     ),
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.white,
@@ -50,7 +53,7 @@ abstract class AppTheme {
       ),
       floatingLabelStyle: WidgetStateTextStyle.resolveWith((states) {
         if (states.contains(WidgetState.error)) {
-          return getTextStyle(color: AppColors.red);
+          return getTextStyle(color: AppColors.red); 
         }
         return getTextStyle(color: AppColors.gray);
       }),
@@ -60,16 +63,24 @@ abstract class AppTheme {
       enabledBorder: getOutlineInputBorder(color: AppColors.gray),
       errorBorder: getOutlineInputBorder(color: AppColors.red),
     ),
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      selectedIconTheme: IconThemeData(
+        color: AppColors.red,
+        applyTextScaling: true,
+      ),
+      selectedItemColor: AppColors.red,
+      unselectedItemColor: AppColors.gray,
+      showSelectedLabels: true,
+      showUnselectedLabels: true,
+      type: BottomNavigationBarType.shifting,
+    ),
 
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.mainColor,
         disabledBackgroundColor: AppColors.black[30],
         foregroundColor: AppColors.white,
-        textStyle: getTextStyle(
-          fontSize: 16.sp,
-          fontWeight: FontWeight.w500,
-        ),
+        textStyle: getTextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
       ),
     ),
