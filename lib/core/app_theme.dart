@@ -53,7 +53,7 @@ abstract class AppTheme {
       ),
       floatingLabelStyle: WidgetStateTextStyle.resolveWith((states) {
         if (states.contains(WidgetState.error)) {
-          return getTextStyle(color: AppColors.red);
+          return getTextStyle(color: AppColors.red); 
         }
         return getTextStyle(color: AppColors.gray);
       }),

@@ -1,3 +1,4 @@
+import 'package:bloc_test/bloc_test.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/login_requests/login_request.dart';
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/domin/entities/login_entity.dart';
@@ -9,7 +10,7 @@ import 'package:elevate_ecommerce_app/presentation/auth/login/view_models/login_
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:bloc_test/bloc_test.dart';
+
 import '../../../../fixtures/login_fixtures.dart';
 import 'login_cubit_test.mocks.dart';
 
@@ -22,6 +23,9 @@ void main() {
     late MockGuestLoginUseCase mockGuestLoginUseCase;
     late LoginEntity loginEntity;
     late LoginState state;
+    late ApiErrorResult<LoginEntity> expectedError;
+    late ApiSuccessResult<LoginEntity> expectedResult;
+
     setUp(() {
       mockLoginUseCase = MockLoginUseCase();
       mockGuestLoginUseCase = MockGuestLoginUseCase();
@@ -29,12 +33,13 @@ void main() {
       loginEntity = LoginTestFixtures.fakeLoginEntity();
       loginRequestModel = LoginTestFixtures.fakeLoginRequest();
       state = LoginState();
+      expectedError = ApiErrorResult<LoginEntity>("Server Error");
+      expectedResult = ApiSuccessResult<LoginEntity>(loginEntity);
     });
     provideDummy<ApiResult<LoginEntity>>(
       ApiErrorResult<LoginEntity>("Server Error"),
     );
-    var expectedError = ApiErrorResult<LoginEntity>("Server Error");
-    var expectedResult = ApiSuccessResult<LoginEntity>(loginEntity);
+
     blocTest<LoginCubit, LoginState>(
       'emits [loading, success] when login succeeds',
       build: () {
@@ -54,9 +59,9 @@ void main() {
       },
       expect:
           () => [
-            state.copyWith(loading: true),
-            state.copyWith(loading: false, loginEntity: loginEntity),
-          ],
+        state.copyWith(loading: true),
+        state.copyWith(loading: false, loginEntity: loginEntity),
+      ],
       verify: (_) {
         verify(
           mockLoginUseCase.call(requestModel: loginRequestModel),
@@ -82,9 +87,9 @@ void main() {
       },
       expect:
           () => [
-            state.copyWith(loading: true),
-            state.copyWith(loading: false, errorMessage: "Server Error"),
-          ],
+        state.copyWith(loading: true),
+        state.copyWith(loading: false, errorMessage: "Server Error"),
+      ],
       verify: (_) {
         verify(
           mockLoginUseCase.call(requestModel: anyNamed('requestModel')),

@@ -7,7 +7,8 @@ import 'package:injectable/injectable.dart';
 class AuthLocalDataSourceImpl implements AuthLocalDataSource {
   final FlutterSecureStorage secureStorage;
 
-  AuthLocalDataSourceImpl({required this.secureStorage});
+  AuthLocalDataSourceImpl(this.secureStorage);
+
   Future<void> _saveValue({required String key, required String value}) async {
     await secureStorage.write(key: key, value: value);
   }
@@ -28,5 +29,17 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
   @override
   Future<void> saveUserToken({required String token}) {
     return _saveValue(key: ConstKeys.keyUserToken, value: token);
+  }
+
+  @override
+  Future<bool> getUserStatus() async {
+    final status = await secureStorage.read(key: ConstKeys.keyUserStatus);
+    return status == ConstKeys.kUserLogin;
+  }
+
+  @override
+  Future<void> userLogout() async {
+    await secureStorage.delete(key: ConstKeys.keyUserToken);
+    await secureStorage.delete(key: ConstKeys.keyRememberMe);
   }
 }
