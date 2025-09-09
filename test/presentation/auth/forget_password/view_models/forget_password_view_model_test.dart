@@ -196,7 +196,6 @@ void main() {
 
       var expectedEntity = ResetPasswordEntity(
         message: "fake-message",
-        token: "fake-token",
       );
 
       var expectedResult = ApiSuccessResult<ResetPasswordEntity>(

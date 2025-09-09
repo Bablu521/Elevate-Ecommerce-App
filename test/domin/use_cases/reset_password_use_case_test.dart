@@ -28,8 +28,7 @@ void main() {
     test("when call ResetPasswordUseCase it should return ResetPasswordEntity from repo with correct parameters", () async {
       //Arrange
       var expectedEntity = ResetPasswordEntity(
-          message: "fake-message",
-          token: "fake-token"
+          message: "fake-message"
       );
       var expectedResult = ApiSuccessResult<ResetPasswordEntity>(expectedEntity);
       provideDummy<ApiResult<ResetPasswordEntity>>(expectedResult);
@@ -45,7 +44,6 @@ void main() {
       expect(result, isA<ApiSuccessResult<ResetPasswordEntity>>());
       result as ApiSuccessResult<ResetPasswordEntity>;
       expect(result.data.message, equals(expectedEntity.message));
-      expect(result.data.token, equals(expectedEntity.token));
     });
 
     test(

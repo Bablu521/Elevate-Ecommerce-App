@@ -20,7 +20,7 @@ class ForgetPasswordScreen extends StatefulWidget {
 class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
   late final ForgetPasswordViewModel _forgetPasswordViewModel;
 
-  bool isDialogShowing = false;
+  bool isDialogVisible = false;
 
   @override
   void initState() {
@@ -35,7 +35,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
         title: Text(AppLocalizations.of(context).password),
         leading: IconButton(
           onPressed: () => Navigator.of(context).pop(),
-          icon: Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios),
         ),
       ),
       body: Padding(
@@ -43,28 +43,34 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
         child: BlocConsumer<ForgetPasswordViewModel, ForgetPasswordState>(
           bloc: _forgetPasswordViewModel,
           listener: (context, state) {
-            if (isDialogShowing) {
-              Navigator.of(context).pop();
-              isDialogShowing = false;
+            if (!state.isLoading && isDialogVisible) {
+              Navigator.of(context, rootNavigator: true).pop();
+              isDialogVisible = false;
             }
-            if (state.isLoading){
-              isDialogShowing = true;
+
+            if (state.isLoading && !isDialogVisible) {
+              isDialogVisible = true;
               CustomDialog.loading(context: context);
-            }
-            if (state.errorMessage != null) {
+            } else if (state.errorMessage != null &&
+                state.errorMessage!.isNotEmpty) {
               CustomDialog.positiveButton(
                 context: context,
                 title: AppLocalizations.of(context).error,
                 message: state.errorMessage,
               );
             }
+
             if (state.isSuccess) {
               CustomDialog.positiveButton(
                 context: context,
                 title: AppLocalizations.of(context).success,
                 message: AppLocalizations.of(context).passwordResetSuccessfully,
                 cancelable: false,
-                positiveOnClick: () => Navigator.pushNamedAndRemoveUntil(context, RouteNames.login, (route) => false),
+                positiveOnClick: () => Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  RouteNames.login,
+                  (route) => false,
+                ),
               );
             }
           },
@@ -75,9 +81,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
               );
             } else if (state.pageNumber == 1) {
               if (state.validateResetCode) {
-                _forgetPasswordViewModel
-                    .verifyResetCodeFormKey
-                    .currentState
+                _forgetPasswordViewModel.verifyResetCodeFormKey.currentState
                     ?.validate();
               }
               return ForgetPasswordResetCode(
@@ -88,7 +92,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                 forgetPasswordViewModel: _forgetPasswordViewModel,
               );
             } else {
-              return Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
             }
           },
         ),

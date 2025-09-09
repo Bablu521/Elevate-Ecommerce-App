@@ -48,8 +48,8 @@ class ForgetPasswordViewModel extends Cubit<ForgetPasswordState> {
   }
 
   Future<void> _forgetPassword() async {
-    emit(state.copyWith(isLoading: true));
-    var result = await _forgetPasswordUseCase(
+    emit(state.copyWith(isLoading: true, errorMessage: ""));
+    final result = await _forgetPasswordUseCase(
       ForgetPasswordRequestEntity(email: emailController.text),
     );
     switch (result) {
@@ -59,7 +59,6 @@ class ForgetPasswordViewModel extends Cubit<ForgetPasswordState> {
             isLoading: false,
             forgetPasswordResponse: result.data,
             pageNumber: 1,
-            errorMessage: null,
           ),
         );
       case ApiErrorResult<ForgetPasswordEntity>():
@@ -70,8 +69,8 @@ class ForgetPasswordViewModel extends Cubit<ForgetPasswordState> {
   }
 
   Future<void> _verifyResetCode() async {
-    emit(state.copyWith(isLoading: true));
-    var result = await _verifyResetCodeUseCase(
+    emit(state.copyWith(isLoading: true, errorMessage: ""));
+    final result = await _verifyResetCodeUseCase(
       VerifyResetRequestEntity(resetCode: resetCodeController.text),
     );
     switch (result) {
@@ -81,7 +80,6 @@ class ForgetPasswordViewModel extends Cubit<ForgetPasswordState> {
             isLoading: false,
             verifyResetResponse: result.data,
             pageNumber: 2,
-            errorMessage: null,
           ),
         );
       case ApiErrorResult<VerifyResetEntity>():
@@ -90,28 +88,27 @@ class ForgetPasswordViewModel extends Cubit<ForgetPasswordState> {
   }
 
   Future<void> _resetPassword() async {
-      emit(state.copyWith(isLoading: true));
-      var result = await _resetPasswordUseCase(
-        ResetPasswordRequestEntity(
-          email: emailController.text,
-          newPassword: newPasswordController.text,
-        ),
-      );
-      switch (result) {
-        case ApiSuccessResult<ResetPasswordEntity>():
-          emit(
-            state.copyWith(
-              isLoading: false,
-              resetPasswordResponse: result.data,
-              errorMessage: null,
-              isSuccess: true,
-            ),
-          );
-        case ApiErrorResult<ResetPasswordEntity>():
-          emit(
-            state.copyWith(isLoading: false, errorMessage: result.errorMessage),
-          );
-      }
+    emit(state.copyWith(isLoading: true, errorMessage: ""));
+    final result = await _resetPasswordUseCase(
+      ResetPasswordRequestEntity(
+        email: emailController.text,
+        newPassword: newPasswordController.text,
+      ),
+    );
+    switch (result) {
+      case ApiSuccessResult<ResetPasswordEntity>():
+        emit(
+          state.copyWith(
+            isLoading: false,
+            resetPasswordResponse: result.data,
+            isSuccess: true,
+          ),
+        );
+      case ApiErrorResult<ResetPasswordEntity>():
+        emit(
+          state.copyWith(isLoading: false, errorMessage: result.errorMessage),
+        );
+    }
   }
 
   @override
