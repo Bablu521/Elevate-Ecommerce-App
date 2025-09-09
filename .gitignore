@@ -95,3 +95,5 @@ lib/generated/intl/messages_all.dart
 lib/generated/l10n.dart
 # Ignore dependency lock file
 pubspec.lock
+# Ignore test report 
+coverage/lcov.info
