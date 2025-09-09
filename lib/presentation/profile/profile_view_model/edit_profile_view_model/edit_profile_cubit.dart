@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/update_profile_info_request/update_profile_info_request.dart';
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
@@ -12,6 +11,7 @@ import 'package:elevate_ecommerce_app/domin/use_cases/update_profile_info_use_ca
 import 'package:elevate_ecommerce_app/domin/use_cases/upload_profile_image_use_case.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/profile_view_model/edit_profile_view_model/edit_profile_event.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:injectable/injectable.dart';
 
@@ -23,7 +23,7 @@ class EditProfileCubit extends Cubit<EditProfileState> {
     this._getProfileInfoUseCase,
     this._updateProfileInfoUseCase,
     this._uploadProfileImageUseCase,
-  ) : super(EditProfileState());
+  ) : super(const EditProfileState());
   final GetProfileInfoUseCase _getProfileInfoUseCase;
   final UpdateProfileInfoUseCase _updateProfileInfoUseCase;
   final UploadProfileImageUseCase _uploadProfileImageUseCase;

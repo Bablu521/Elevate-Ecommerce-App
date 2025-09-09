@@ -1,10 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/update_profile_info_request/update_profile_info_request.dart';
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/data/repositories/auth_repo_impl.dart';
-import 'package:elevate_ecommerce_app/domin/entities/update_profile_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/upload_image_entity.dart';
-import 'package:elevate_ecommerce_app/domin/use_cases/update_profile_info_use_case.dart';
 import 'package:elevate_ecommerce_app/domin/use_cases/upload_profile_image_use_case.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';

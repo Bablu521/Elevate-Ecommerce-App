@@ -33,7 +33,7 @@ void main() {
     setUp(() {
       fakeUseCase = MockChangePasswordProfileUseCase();
       changePasswordViewModelCubit = ChangePasswordViewModelCubit(fakeUseCase);
-      state = ChangePasswordViewModelState();
+      state =const  ChangePasswordViewModelState();
       provideDummy<ApiResult<ChangePasswordEntity>>(
         ApiSuccessResult<ChangePasswordEntity>(changePasswordEntity),
       );

@@ -5,7 +5,6 @@ import 'package:elevate_ecommerce_app/api/models/responses/login_response/login_
 import 'package:elevate_ecommerce_app/api/models/responses/profile/upload_image_response/upload_image_response_dto.dart';
 import 'package:elevate_ecommerce_app/core/constants/end_points.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:http_mock_adapter/src/types.dart';
 import 'package:mockito/annotations.dart';
 import 'package:http_mock_adapter/http_mock_adapter.dart';
 import 'package:mockito/mockito.dart';

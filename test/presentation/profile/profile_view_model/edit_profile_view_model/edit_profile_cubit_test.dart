@@ -41,7 +41,7 @@ void main() {
       updateProfileInfoUseCase,
       uploadProfileImageUseCase,
     );
-    state = EditProfileState();
+    state =const EditProfileState();
   });
   group("test get profile info emit state", () {
     final ProfileInfoEntity profileInfoEntity =

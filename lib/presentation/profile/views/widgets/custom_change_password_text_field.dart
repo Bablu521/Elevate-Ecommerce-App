@@ -4,6 +4,7 @@ import 'package:elevate_ecommerce_app/presentation/profile/profile_view_model/ch
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+// ignore: must_be_immutable
 class CustomChangePasswordTextField extends StatelessWidget {
   CustomChangePasswordTextField({
     super.key,

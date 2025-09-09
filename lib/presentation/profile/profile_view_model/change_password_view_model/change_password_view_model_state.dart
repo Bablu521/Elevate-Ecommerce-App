@@ -1,16 +1,17 @@
 part of 'change_password_view_model_cubit.dart';
 
+// ignore: must_be_immutable
 class ChangePasswordViewModelState extends Equatable {
-  ChangePasswordViewModelState({
+  const ChangePasswordViewModelState({
     this.changePasswordEntity,
     this.errorMessage,
     this.isLoading = false,
     this.obscureText = true,
   });
-  bool isLoading;
+  final bool isLoading;
   final String? errorMessage;
   final ChangePasswordEntity? changePasswordEntity;
-  bool obscureText;
+  final bool obscureText;
   ChangePasswordViewModelState copyWith({
     bool? isLoading,
     String? errorMessage,
