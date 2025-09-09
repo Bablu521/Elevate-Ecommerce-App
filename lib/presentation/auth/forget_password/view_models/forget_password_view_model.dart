@@ -48,7 +48,7 @@ class ForgetPasswordViewModel extends Cubit<ForgetPasswordState> {
   }
 
   Future<void> _forgetPassword() async {
-    emit(state.copyWith(isLoading: true, errorMessage: ""));
+    emit(state.copyWith(isLoading: true));
     final result = await _forgetPasswordUseCase(
       ForgetPasswordRequestEntity(email: emailController.text),
     );
@@ -69,7 +69,7 @@ class ForgetPasswordViewModel extends Cubit<ForgetPasswordState> {
   }
 
   Future<void> _verifyResetCode() async {
-    emit(state.copyWith(isLoading: true, errorMessage: ""));
+    emit(state.copyWith(isLoading: true));
     final result = await _verifyResetCodeUseCase(
       VerifyResetRequestEntity(resetCode: resetCodeController.text),
     );
@@ -88,7 +88,7 @@ class ForgetPasswordViewModel extends Cubit<ForgetPasswordState> {
   }
 
   Future<void> _resetPassword() async {
-    emit(state.copyWith(isLoading: true, errorMessage: ""));
+    emit(state.copyWith(isLoading: true));
     final result = await _resetPasswordUseCase(
       ResetPasswordRequestEntity(
         email: emailController.text,

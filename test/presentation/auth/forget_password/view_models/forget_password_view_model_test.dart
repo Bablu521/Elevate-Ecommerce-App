@@ -79,7 +79,6 @@ void main() {
                 isLoading: false,
                 forgetPasswordResponse: expectedEntity,
                 pageNumber: 1,
-                errorMessage: null,
               ),
             ],
         verify: (_) {
@@ -147,7 +146,6 @@ void main() {
                 isLoading: false,
                 verifyResetResponse: expectedEntity,
                 pageNumber: 2,
-                errorMessage: null,
               ),
             ],
         verify: (_) {
@@ -220,7 +218,6 @@ void main() {
               state.copyWith(
                 isLoading: false,
                 resetPasswordResponse: expectedEntity,
-                errorMessage: null,
                 isSuccess: true,
               ),
             ],

@@ -42,7 +42,7 @@ class ForgetPasswordState extends Equatable {
       verifyResetResponse: verifyResetResponse ?? this.verifyResetResponse,
       resetPasswordResponse:
           resetPasswordResponse ?? this.resetPasswordResponse,
-      errorMessage: errorMessage ?? this.errorMessage,
+      errorMessage: errorMessage,
       pageNumber: pageNumber ?? this.pageNumber,
       isSuccess: isSuccess ?? this.isSuccess,
       validateResetCode: validateResetCode ?? this.validateResetCode,

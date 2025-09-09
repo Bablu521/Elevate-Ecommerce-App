@@ -51,8 +51,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
             if (state.isLoading && !isDialogVisible) {
               isDialogVisible = true;
               CustomDialog.loading(context: context);
-            } else if (state.errorMessage != null &&
-                state.errorMessage!.isNotEmpty) {
+            } else if (state.errorMessage != null) {
               CustomDialog.positiveButton(
                 context: context,
                 title: AppLocalizations.of(context).error,
