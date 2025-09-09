@@ -72,5 +72,18 @@
   "loading": "Loading...",
   "guestMode": "Guest Mode",
   "loginToSaveCartAndManageProfile": "Login or create a free account to save your cart, checkout faster, manage your profile, and track your orders.",
-  "or": "or"
+  "or": "or",
+  "pleaseEnterYourEmail": "Please enter your email associated to your account",
+  "confirm": "Confirm",
+  "emailVerification": "Email Verification",
+  "pleaseEnterYourVerificationCode": "Please enter your code that send to your email address",
+  "invalidCode": "Invalid code",
+  "didNotReceiveCode": "Didn't receive code?",
+  "resend": "Resend",
+  "resetPassword": "Reset Password",
+  "passwordMustNotEmpty": "Password must not be empty and must contain 6 characters with upper case letter and one number at least",
+  "newPassword": "New password",
+  "enterYourPassword": "Enter your password",
+  "success": "Success",
+  "passwordResetSuccessfully": "Password reset successfully"
 }
