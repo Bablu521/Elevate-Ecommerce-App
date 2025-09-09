@@ -1,25 +1,25 @@
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
+import 'package:elevate_ecommerce_app/data/data_source/products_remote_data_source.dart';
+import 'package:elevate_ecommerce_app/data/repositories/products_repo_impl.dart';
 import 'package:elevate_ecommerce_app/domin/entities/product_entity.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:elevate_ecommerce_app/data/repositories/product_repo_impl.dart';
-import 'package:elevate_ecommerce_app/data/data_source/product_remote_data_source.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
 import 'product_repo_impl_test.mocks.dart';
 
-@GenerateMocks([ProductRemoteDataSource])
+@GenerateMocks([ProductsRemoteDataSource])
 void main() {
   group('test ProductRepoImpl', () {
-    late MockProductRemoteDataSource mockedProductRemoteDataSource;
-    late ProductRepoImpl productRepoImpl;
+    late MockProductsRemoteDataSource mockedProductRemoteDataSource;
+    late ProductsRepoImpl productRepoImpl;
     var occasionId = "fake-occasion-id";
     var categoryId = "fake-category-id";
     var expectedError = "Server Error";
     late List<ProductEntity> expectedProducts;
     setUp(() {
-      mockedProductRemoteDataSource = MockProductRemoteDataSource();
-      productRepoImpl = ProductRepoImpl(mockedProductRemoteDataSource);
+      mockedProductRemoteDataSource = MockProductsRemoteDataSource();
+      productRepoImpl = ProductsRepoImpl(mockedProductRemoteDataSource);
       expectedProducts = [
         ProductEntity(
           rateAvg: 5,

@@ -1,21 +1,21 @@
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/domin/entities/product_entity.dart';
+import 'package:elevate_ecommerce_app/domin/repositories/products_repo.dart';
 import 'package:elevate_ecommerce_app/domin/use_cases/get_products_by_category_use_case.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:elevate_ecommerce_app/domin/repositories/product_repo.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
 import 'get_products_by_category_use_case_test.mocks.dart';
 
-@GenerateMocks([ProductRepo])
+@GenerateMocks([ProductsRepo])
 void main() {
   group('Test GetProductsByCategoryUseCase', () {
-    late MockProductRepo mockedProductRepo;
+    late MockProductsRepo mockedProductRepo;
     late GetProductsByCategoryUseCase getProductsByCategoryUseCase;
     var categoryId = "fake-category-id";
     setUp(() {
-      mockedProductRepo = MockProductRepo();
+      mockedProductRepo = MockProductsRepo();
       getProductsByCategoryUseCase = GetProductsByCategoryUseCase(
         mockedProductRepo,
       );
