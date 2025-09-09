@@ -8,7 +8,7 @@ class ForgetPasswordRequest extends Equatable {
   @JsonKey(name: "email")
   final String? email;
 
-  ForgetPasswordRequest ({
+  const ForgetPasswordRequest ({
     this.email,
   });
 

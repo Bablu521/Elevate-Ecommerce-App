@@ -28,7 +28,7 @@ void main() {
     test(
       "when call getAllCategories it should return a list of CategoryEntity from api client with right parameters",
       () async {
-        var expectedResult = CategoriesResponse(
+        final expectedResult = CategoriesResponse(
           message: "fake-message",
           metadata: MetaData(
             currentPage: 1,
@@ -38,7 +38,7 @@ void main() {
           ),
           categories: [
             CategoryDTO(
-              Id: "fake-id-1",
+              id: "fake-id-1",
               name: "fake-name-1",
               slug: "fake-slug-1",
               image: "fake-image-1",
@@ -48,7 +48,7 @@ void main() {
               productsCount: 1,
             ),
             CategoryDTO(
-              Id: "fake-id-2",
+              id: "fake-id-2",
               name: "fake-name-2",
               slug: "fake-slug-2",
               image: "fake-image-2",
@@ -64,7 +64,7 @@ void main() {
           mockApiClient.getAllCategories(),
         ).thenAnswer((_) async => expectedResult);
 
-        var result = await categoriesRemoteDataSourceImpl.getAllCategories();
+        final result = await categoriesRemoteDataSourceImpl.getAllCategories();
 
         verify(mockApiClient.getAllCategories()).called(1);
         expect(result, isA<ApiSuccessResult<List<CategoryEntity>>>());
@@ -81,12 +81,12 @@ void main() {
     test(
       'when getAllCategories failed it should return an error result',
       () async {
-        var expectedError = "Server Error";
+        final expectedError = "Server Error";
         when(
           mockApiClient.getAllCategories(),
         ).thenThrow(Exception(expectedError));
 
-        var result = await categoriesRemoteDataSourceImpl.getAllCategories();
+        final result = await categoriesRemoteDataSourceImpl.getAllCategories();
 
         verify(mockApiClient.getAllCategories()).called(1);
         expect(result, isA<ApiErrorResult<List<CategoryEntity>>>());

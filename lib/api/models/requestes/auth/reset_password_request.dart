@@ -10,7 +10,7 @@ class ResetPasswordRequest extends Equatable {
   @JsonKey(name: "newPassword")
   final String? newPassword;
 
-  ResetPasswordRequest ({
+  const ResetPasswordRequest ({
     this.email,
     this.newPassword,
   });
@@ -24,7 +24,6 @@ class ResetPasswordRequest extends Equatable {
   }
 
   @override
-  // TODO: implement props
   List<Object?> get props => [email, newPassword];
 }
 

@@ -1,4 +1,3 @@
-import 'package:bloc/bloc.dart';
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/domin/entities/category_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/product_entity.dart';
@@ -7,6 +6,7 @@ import 'package:elevate_ecommerce_app/domin/use_cases/get_all_products_use_case.
 import 'package:elevate_ecommerce_app/presentation/categories/view_models/categories_events.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../domin/use_cases/get_products_by_category_use_case.dart';
@@ -23,7 +23,7 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
     this._getAllCategoriesUseCase,
     this._getProductsByCategoryUseCase,
     this._getAllProductsUseCase,
-  ) : super(CategoriesState());
+  ) : super(const CategoriesState());
 
   late final String categoryId;
   late final TickerProvider tabControllerVsync;
@@ -68,10 +68,15 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
     switch (result) {
       case ApiSuccessResult<List<ProductEntity>>():
         productsList = result.data;
-        emit(state.copyWith(productsList: result.data, isProductsLoading: false));
+        emit(
+          state.copyWith(productsList: result.data, isProductsLoading: false),
+        );
       case ApiErrorResult<List<ProductEntity>>():
         emit(
-          state.copyWith(errorMessage: result.errorMessage, isProductsLoading: false),
+          state.copyWith(
+            errorMessage: result.errorMessage,
+            isProductsLoading: false,
+          ),
         );
     }
   }
@@ -79,15 +84,20 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
   Future<void> _getProductsByCategory() async {
     emit(state.copyWith(isProductsLoading: true, errorMessage: null));
     final result = await _getProductsByCategoryUseCase(
-      categoriesList![selectedTabIndex.value - 1].Id!,
+      categoriesList![selectedTabIndex.value - 1].id!,
     );
     switch (result) {
       case ApiSuccessResult<List<ProductEntity>>():
         productsList = result.data;
-        emit(state.copyWith(productsList: result.data, isProductsLoading: false));
+        emit(
+          state.copyWith(productsList: result.data, isProductsLoading: false),
+        );
       case ApiErrorResult<List<ProductEntity>>():
         emit(
-          state.copyWith(errorMessage: result.errorMessage, isProductsLoading: false),
+          state.copyWith(
+            errorMessage: result.errorMessage,
+            isProductsLoading: false,
+          ),
         );
     }
   }
@@ -96,17 +106,18 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
     emit(state.copyWith(isProductsLoading: true));
     List<ProductEntity> tempList;
     if (searchController.text.isNotEmpty) {
-      tempList =
-          productsList!
-              .where(
-                (product) => product.title!.toLowerCase().contains(
-                  searchController.text.toLowerCase(),
-                ),
-              )
-              .toList();
+      tempList = productsList!
+          .where(
+            (product) => product.title!.toLowerCase().contains(
+              searchController.text.toLowerCase(),
+            ),
+          )
+          .toList();
       emit(state.copyWith(productsList: tempList, isProductsLoading: false));
     } else {
-      emit(state.copyWith(productsList: productsList, isProductsLoading: false));
+      emit(
+        state.copyWith(productsList: productsList, isProductsLoading: false),
+      );
     }
   }
 
@@ -125,12 +136,12 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
       }
     });
 
-    if (categoryId.isEmpty){
+    if (categoryId.isEmpty) {
       _getAllProducts();
       return;
     }
     categoriesList!.asMap().forEach((index, category) {
-      if (category.Id == categoryId) {
+      if (category.id == categoryId) {
         tabController!.index = index + 1;
       }
     });

@@ -8,7 +8,7 @@ class VerifyResetRequest extends Equatable {
   @JsonKey(name: "resetCode")
   final String? resetCode;
 
-  VerifyResetRequest ({
+  const VerifyResetRequest ({
     this.resetCode,
   });
 

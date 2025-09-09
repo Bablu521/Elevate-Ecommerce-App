@@ -136,7 +136,7 @@ void main() {
       late ForgetPasswordRequest forgetPasswordRequest;
 
       setUp(() {
-        forgetPasswordRequestEntity = ForgetPasswordRequestEntity(
+        forgetPasswordRequestEntity = const ForgetPasswordRequestEntity(
           email: "fake-email",
         );
         forgetPasswordRequest = forgetPasswordRequestEntity.fromDomain();
@@ -146,7 +146,7 @@ void main() {
         "when call forgetPassword it should return ForgetPasswordEntity from Api with correct parameters",
         () async {
           //Arrange
-          var expectedResult = ForgetPasswordResponse(
+          final expectedResult = ForgetPasswordResponse(
             message: "fake-message",
             info: "fake-info",
           );
@@ -154,7 +154,7 @@ void main() {
             mockApiClient.forgetPassword(forgetPasswordRequest),
           ).thenAnswer((_) async => expectedResult);
           //Act
-          var result = await authRemoteDataSourceImpl.forgetPassword(
+          final result = await authRemoteDataSourceImpl.forgetPassword(
             forgetPasswordRequestEntity,
           );
           //Assert
@@ -173,12 +173,12 @@ void main() {
         "when forgetPassword failed it should return an error result",
         () async {
           //Arrange
-          var expectedError = "Server Error";
+          final expectedError = "Server Error";
           when(
             mockApiClient.forgetPassword(forgetPasswordRequest),
           ).thenThrow(Exception(expectedError));
           //Act
-          var result = await authRemoteDataSourceImpl.forgetPassword(
+          final result = await authRemoteDataSourceImpl.forgetPassword(
             forgetPasswordRequestEntity,
           );
           //Assert
@@ -195,7 +195,7 @@ void main() {
       late VerifyResetRequest verifyResetRequest;
 
       setUp(() {
-        verifyResetRequestEntity = VerifyResetRequestEntity(
+        verifyResetRequestEntity = const VerifyResetRequestEntity(
           resetCode: "fake-reset-code",
         );
         verifyResetRequest = verifyResetRequestEntity.fromDomain();
@@ -205,12 +205,12 @@ void main() {
         "when call verifyResetCode it should return VerifyResetEntity from Api with correct parameters",
         () async {
           //Arrange
-          var expectedResult = VerifyResetResponse(status: "fake-status");
+          final expectedResult = VerifyResetResponse(status: "fake-status");
           when(
             mockApiClient.verifyResetCode(verifyResetRequest),
           ).thenAnswer((_) async => expectedResult);
           //Act
-          var result = await authRemoteDataSourceImpl.verifyResetCode(
+          final result = await authRemoteDataSourceImpl.verifyResetCode(
             verifyResetRequestEntity,
           );
           //Assert
@@ -225,12 +225,12 @@ void main() {
         "when verifyResetCode failed it should return an error result",
         () async {
           //Arrange
-          var expectedError = "Server Error";
+          final expectedError = "Server Error";
           when(
             mockApiClient.verifyResetCode(verifyResetRequest),
           ).thenThrow(Exception(expectedError));
           //Act
-          var result = await authRemoteDataSourceImpl.verifyResetCode(
+          final result = await authRemoteDataSourceImpl.verifyResetCode(
             verifyResetRequestEntity,
           );
           //Assert
@@ -247,7 +247,7 @@ void main() {
       late ResetPasswordRequest resetPasswordRequest;
 
       setUp(() {
-        resetPasswordRequestEntity = ResetPasswordRequestEntity(
+        resetPasswordRequestEntity = const ResetPasswordRequestEntity(
           email: "fake-email",
           newPassword: "fake-new-password",
         );
@@ -258,7 +258,7 @@ void main() {
         "when call resetPassword it should return ResetPasswordEntity from Api with correct parameters",
         () async {
           //Arrange
-          var expectedResult = ResetPasswordResponse(
+          final expectedResult = ResetPasswordResponse(
             message: "fake-message",
             token: "fake-token",
           );
@@ -266,7 +266,7 @@ void main() {
             mockApiClient.resetPassword(resetPasswordRequest),
           ).thenAnswer((_) async => expectedResult);
           //Act
-          var result = await authRemoteDataSourceImpl.resetPassword(
+          final result = await authRemoteDataSourceImpl.resetPassword(
             resetPasswordRequestEntity,
           );
           //Assert
@@ -284,12 +284,12 @@ void main() {
         "when resetPassword failed it should return an error result",
         () async {
           //Arrange
-          var expectedError = "Server Error";
+          final expectedError = "Server Error";
           when(
             mockApiClient.resetPassword(resetPasswordRequest),
           ).thenThrow(Exception(expectedError));
           //Act
-          var result = await authRemoteDataSourceImpl.resetPassword(
+          final result = await authRemoteDataSourceImpl.resetPassword(
             resetPasswordRequestEntity,
           );
           //Assert

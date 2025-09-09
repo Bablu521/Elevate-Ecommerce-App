@@ -1,22 +1,15 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:elevate_ecommerce_app/core/constants/app_colors.dart';
+import 'package:elevate_ecommerce_app/core/constants/app_images.dart';
+import 'package:elevate_ecommerce_app/core/router/route_names.dart';
+import 'package:elevate_ecommerce_app/domin/entities/product_entity.dart';
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomProductItems extends StatelessWidget {
-  final String title;
-  final String imgCover;
-  final num priceAfterDiscount;
-  final num price;
-
-  const CustomProductItems({
-    super.key,
-    required this.title,
-    required this.imgCover,
-    required this.priceAfterDiscount,
-    required this.price,
-  });
-
+  final ProductEntity productEntity;
+  const CustomProductItems({super.key, required this.productEntity});
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -32,11 +25,14 @@ class CustomProductItems extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.network(
-              imgCover,
-              fit: BoxFit.fitWidth,
+            CachedNetworkImage(
+              imageUrl: productEntity.imgCover ?? AppImages.productTestImage,
+              fit: BoxFit.cover,
               width: double.infinity,
-              height: MediaQuery.of(context).size.height / 6,
+              height: 131.h,
+              placeholder: (context, url) =>
+                  const Center(child: CircularProgressIndicator()),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
             ),
             const SizedBox(height: 8),
             Expanded(
@@ -46,7 +42,7 @@ class CustomProductItems extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      title,
+                      productEntity.title ?? local.product,
                       overflow: TextOverflow.ellipsis,
                       style: Theme.of(
                         context,
@@ -59,13 +55,13 @@ class CustomProductItems extends StatelessWidget {
                         children: [
                           Text(
                             overflow: TextOverflow.ellipsis,
-                            "EGP ${priceAfterDiscount.toString()}",
+                            "EGP ${productEntity.priceAfterDiscount.toString()}",
                             style: theme.textTheme.bodySmall?.copyWith(
                               fontWeight: FontWeight.w500,
                             ),
                           ),
                           Text(
-                            price.toString(),
+                            productEntity.price.toString(),
                             overflow: TextOverflow.ellipsis,
                             style: theme.textTheme.bodySmall?.copyWith(
                               fontSize: 12.sp,
@@ -76,7 +72,7 @@ class CustomProductItems extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            "${((price - priceAfterDiscount) / price * 100).toInt()}%",
+                            "${((productEntity.price ?? 0 - productEntity.priceAfterDiscount!) / productEntity.price!.toInt() * 100).toInt()}%",
                             overflow: TextOverflow.ellipsis,
                             style: theme.textTheme.bodySmall?.copyWith(
                               fontSize: 12.sp,
@@ -93,20 +89,27 @@ class CustomProductItems extends StatelessWidget {
             ),
             SizedBox(height: 8.h),
             SizedBox(
-              height: 30.h,
-              width: 147.w,
+              height: 36.h,
+              width: double.infinity,
               child: ElevatedButton.icon(
-                onPressed: () {},
-                icon: const Icon(Icons.shopping_cart_outlined, size: 18),
+                onPressed: () {
+                  Navigator.of(context).pushNamed(
+                    RouteNames.productDetails,
+                    arguments: productEntity,
+                  );
+                },
+                icon: Icon(Icons.shopping_cart_outlined, size: 16.sp),
                 label: Text(
                   local.addToCart,
                   style: theme.textTheme.bodySmall?.copyWith(
                     fontSize: 13.sp,
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.w600,
                     color: AppColors.white,
                   ),
                 ),
-                style: ElevatedButton.styleFrom(),
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(horizontal: 8.w),
+                ),
               ),
             ),
           ],

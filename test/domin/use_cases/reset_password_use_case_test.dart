@@ -19,7 +19,7 @@ void main() {
     setUp((){
       mockAuthRepo = MockAuthRepo();
       resetPasswordUseCase = ResetPasswordUseCase(mockAuthRepo);
-      resetPasswordRequestEntity = ResetPasswordRequestEntity(
+      resetPasswordRequestEntity = const ResetPasswordRequestEntity(
         email: "fake-email",
         newPassword: "fake-new-password"
       );
@@ -27,17 +27,17 @@ void main() {
 
     test("when call ResetPasswordUseCase it should return ResetPasswordEntity from repo with correct parameters", () async {
       //Arrange
-      var expectedEntity = ResetPasswordEntity(
+      final expectedEntity = ResetPasswordEntity(
           message: "fake-message"
       );
-      var expectedResult = ApiSuccessResult<ResetPasswordEntity>(expectedEntity);
+      final expectedResult = ApiSuccessResult<ResetPasswordEntity>(expectedEntity);
       provideDummy<ApiResult<ResetPasswordEntity>>(expectedResult);
       when(
         mockAuthRepo.resetPassword(resetPasswordRequestEntity),
       ).thenAnswer((_) async => expectedResult);
 
       //Act
-      var result = await resetPasswordUseCase(resetPasswordRequestEntity);
+      final result = await resetPasswordUseCase(resetPasswordRequestEntity);
 
       //Assert
       verify(mockAuthRepo.resetPassword(resetPasswordRequestEntity)).called(1);
@@ -50,15 +50,15 @@ void main() {
       'when ResetPasswordUseCase failed it should return an error result',
           () async {
         //Arrange
-        var expectedError = "Server Error";
-        var expectedResult = ApiErrorResult<ResetPasswordEntity>(expectedError);
+        final expectedError = "Server Error";
+        final expectedResult = ApiErrorResult<ResetPasswordEntity>(expectedError);
         provideDummy<ApiResult<ResetPasswordEntity>>(expectedResult);
         when(
           mockAuthRepo.resetPassword(resetPasswordRequestEntity),
         ).thenAnswer((_) async => expectedResult);
 
         //Act
-        var result = await resetPasswordUseCase(resetPasswordRequestEntity);
+        final result = await resetPasswordUseCase(resetPasswordRequestEntity);
 
         //Assert
         verify(mockAuthRepo.resetPassword(resetPasswordRequestEntity)).called(1);

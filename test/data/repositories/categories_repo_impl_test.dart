@@ -22,9 +22,9 @@ void main() {
     test(
       'when call getAllCategories it should return a list of CategoryEntity from data source with right parameters',
       () async {
-        var expectedList = [
+        final expectedList = const [
           CategoryEntity(
-            Id: "fake-id-1",
+            id: "fake-id-1",
             name: "fake-name-1",
             slug: "fake-slug-1",
             image: "fake-image-1",
@@ -34,7 +34,7 @@ void main() {
             productsCount: 1,
           ),
           CategoryEntity(
-            Id: "fake-id-2",
+            id: "fake-id-2",
             name: "fake-name-2",
             slug: "fake-slug-2",
             image: "fake-image-2",
@@ -44,7 +44,7 @@ void main() {
             productsCount: 2,
           ),
         ];
-        var expectedResult = ApiSuccessResult<List<CategoryEntity>>(
+        final expectedResult = ApiSuccessResult<List<CategoryEntity>>(
           expectedList,
         );
         provideDummy<ApiResult<List<CategoryEntity>>>(expectedResult);
@@ -52,7 +52,7 @@ void main() {
           mockCategoriesRemoteDataSource.getAllCategories(),
         ).thenAnswer((_) async => expectedResult);
 
-        var result = await categoriesRepoImpl.getAllCategories();
+        final result = await categoriesRepoImpl.getAllCategories();
 
         verify(mockCategoriesRemoteDataSource.getAllCategories()).called(1);
         expect(result, isA<ApiSuccessResult<List<CategoryEntity>>>());
@@ -64,8 +64,8 @@ void main() {
     test(
       'when getAllCategories failed it should return an error result',
       () async {
-        var expectedError = "Server Error";
-        var expectedResult = ApiErrorResult<List<CategoryEntity>>(
+        final expectedError = "Server Error";
+        final expectedResult = ApiErrorResult<List<CategoryEntity>>(
           expectedError,
         );
         provideDummy<ApiResult<List<CategoryEntity>>>(expectedResult);
@@ -73,7 +73,7 @@ void main() {
           mockCategoriesRemoteDataSource.getAllCategories(),
         ).thenAnswer((_) async => expectedResult);
 
-        var result = await categoriesRepoImpl.getAllCategories();
+        final result = await categoriesRepoImpl.getAllCategories();
 
         verify(mockCategoriesRemoteDataSource.getAllCategories()).called(1);
         expect(result, isA<ApiErrorResult<List<CategoryEntity>>>());

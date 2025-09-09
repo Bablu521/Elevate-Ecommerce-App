@@ -13,6 +13,8 @@ import '../widgets/forget_password_form.dart';
 import '../widgets/forget_password_reset_code.dart';
 
 class ForgetPasswordScreen extends StatefulWidget {
+  const ForgetPasswordScreen({super.key});
+
   @override
   State<ForgetPasswordScreen> createState() => _ForgetPasswordScreenState();
 }

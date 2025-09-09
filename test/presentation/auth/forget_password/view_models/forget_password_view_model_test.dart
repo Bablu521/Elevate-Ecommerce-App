@@ -47,17 +47,17 @@ void main() {
       late ForgetPasswordRequestEntity forgetPasswordRequestEntity;
 
       setUp(() {
-        forgetPasswordRequestEntity = ForgetPasswordRequestEntity(
+        forgetPasswordRequestEntity = const ForgetPasswordRequestEntity(
           email: "fake-email",
         );
       });
 
-      var expectedEntity = ForgetPasswordEntity(
+      final expectedEntity = ForgetPasswordEntity(
         message: "fake-message",
         info: "fake-info",
       );
 
-      var expectedResult = ApiSuccessResult<ForgetPasswordEntity>(
+      final expectedResult = ApiSuccessResult<ForgetPasswordEntity>(
         expectedEntity,
       );
       provideDummy<ApiResult<ForgetPasswordEntity>>(expectedResult);
@@ -72,15 +72,14 @@ void main() {
           bloc.emailController.text = "fake-email";
           return bloc.doIntent(ForgetPasswordEvent());
         },
-        expect:
-            () => <ForgetPasswordState>[
-              state.copyWith(isLoading: true),
-              state.copyWith(
-                isLoading: false,
-                forgetPasswordResponse: expectedEntity,
-                pageNumber: 1,
-              ),
-            ],
+        expect: () => <ForgetPasswordState>[
+          state.copyWith(isLoading: true),
+          state.copyWith(
+            isLoading: false,
+            forgetPasswordResponse: expectedEntity,
+            pageNumber: 1,
+          ),
+        ],
         verify: (_) {
           verify(
             mockForgetPasswordUseCase(forgetPasswordRequestEntity),
@@ -88,8 +87,8 @@ void main() {
         },
       );
 
-      var errorMessage = "Server Error";
-      var expectedError = ApiErrorResult<ForgetPasswordEntity>(errorMessage);
+      final errorMessage = "Server Error";
+      final expectedError = ApiErrorResult<ForgetPasswordEntity>(errorMessage);
       provideDummy<ApiResult<ForgetPasswordEntity>>(expectedError);
 
       blocTest<ForgetPasswordViewModel, ForgetPasswordState>(
@@ -102,11 +101,10 @@ void main() {
           bloc.emailController.text = "fake-email";
           return bloc.doIntent(ForgetPasswordEvent());
         },
-        expect:
-            () => [
-              state.copyWith(isLoading: true),
-              state.copyWith(isLoading: false, errorMessage: errorMessage),
-            ],
+        expect: () => [
+          state.copyWith(isLoading: true),
+          state.copyWith(isLoading: false, errorMessage: errorMessage),
+        ],
         verify: (_) {
           verify(
             mockForgetPasswordUseCase(forgetPasswordRequestEntity),
@@ -119,14 +117,16 @@ void main() {
       late VerifyResetRequestEntity verifyResetRequestEntity;
 
       setUp(() {
-        verifyResetRequestEntity = VerifyResetRequestEntity(
+        verifyResetRequestEntity = const VerifyResetRequestEntity(
           resetCode: "fake-reset-code",
         );
       });
 
-      var expectedEntity = VerifyResetEntity(status: "fake-status");
+      final expectedEntity = VerifyResetEntity(status: "fake-status");
 
-      var expectedResult = ApiSuccessResult<VerifyResetEntity>(expectedEntity);
+      final expectedResult = ApiSuccessResult<VerifyResetEntity>(
+        expectedEntity,
+      );
       provideDummy<ApiResult<VerifyResetEntity>>(expectedResult);
 
       blocTest<ForgetPasswordViewModel, ForgetPasswordState>(
@@ -139,15 +139,14 @@ void main() {
           bloc.resetCodeController.text = "fake-reset-code";
           return bloc.doIntent(VerifyResetCodeEvent());
         },
-        expect:
-            () => <ForgetPasswordState>[
-              state.copyWith(isLoading: true),
-              state.copyWith(
-                isLoading: false,
-                verifyResetResponse: expectedEntity,
-                pageNumber: 2,
-              ),
-            ],
+        expect: () => <ForgetPasswordState>[
+          state.copyWith(isLoading: true),
+          state.copyWith(
+            isLoading: false,
+            verifyResetResponse: expectedEntity,
+            pageNumber: 2,
+          ),
+        ],
         verify: (_) {
           verify(
             mockVerifyResetCodeUseCase(verifyResetRequestEntity),
@@ -155,8 +154,8 @@ void main() {
         },
       );
 
-      var errorMessage = "Server Error";
-      var expectedError = ApiErrorResult<VerifyResetEntity>(errorMessage);
+      final errorMessage = "Server Error";
+      final expectedError = ApiErrorResult<VerifyResetEntity>(errorMessage);
       provideDummy<ApiResult<VerifyResetEntity>>(expectedError);
 
       blocTest<ForgetPasswordViewModel, ForgetPasswordState>(
@@ -169,11 +168,10 @@ void main() {
           bloc.resetCodeController.text = "fake-reset-code";
           return bloc.doIntent(VerifyResetCodeEvent());
         },
-        expect:
-            () => [
-              state.copyWith(isLoading: true),
-              state.copyWith(isLoading: false, validateResetCode: true),
-            ],
+        expect: () => [
+          state.copyWith(isLoading: true),
+          state.copyWith(isLoading: false, validateResetCode: true),
+        ],
         verify: (_) {
           verify(
             mockVerifyResetCodeUseCase(verifyResetRequestEntity),
@@ -186,17 +184,15 @@ void main() {
       late ResetPasswordRequestEntity resetPasswordRequestEntity;
 
       setUp(() {
-        resetPasswordRequestEntity = ResetPasswordRequestEntity(
+        resetPasswordRequestEntity = const ResetPasswordRequestEntity(
           email: "fake-email",
           newPassword: "fake-new-password",
         );
       });
 
-      var expectedEntity = ResetPasswordEntity(
-        message: "fake-message",
-      );
+      final expectedEntity = ResetPasswordEntity(message: "fake-message");
 
-      var expectedResult = ApiSuccessResult<ResetPasswordEntity>(
+      final expectedResult = ApiSuccessResult<ResetPasswordEntity>(
         expectedEntity,
       );
       provideDummy<ApiResult<ResetPasswordEntity>>(expectedResult);
@@ -212,15 +208,14 @@ void main() {
           bloc.newPasswordController.text = "fake-new-password";
           return bloc.doIntent(ResetPasswordEvent());
         },
-        expect:
-            () => <ForgetPasswordState>[
-              state.copyWith(isLoading: true),
-              state.copyWith(
-                isLoading: false,
-                resetPasswordResponse: expectedEntity,
-                isSuccess: true,
-              ),
-            ],
+        expect: () => <ForgetPasswordState>[
+          state.copyWith(isLoading: true),
+          state.copyWith(
+            isLoading: false,
+            resetPasswordResponse: expectedEntity,
+            isSuccess: true,
+          ),
+        ],
         verify: (_) {
           verify(
             mockResetPasswordUseCase(resetPasswordRequestEntity),
@@ -228,8 +223,8 @@ void main() {
         },
       );
 
-      var errorMessage = "Server Error";
-      var expectedError = ApiErrorResult<ResetPasswordEntity>(errorMessage);
+      final errorMessage = "Server Error";
+      final expectedError = ApiErrorResult<ResetPasswordEntity>(errorMessage);
       provideDummy<ApiResult<ResetPasswordEntity>>(expectedError);
 
       blocTest<ForgetPasswordViewModel, ForgetPasswordState>(
@@ -243,11 +238,10 @@ void main() {
           bloc.newPasswordController.text = "fake-new-password";
           return bloc.doIntent(ResetPasswordEvent());
         },
-        expect:
-            () => [
-              state.copyWith(isLoading: true),
-              state.copyWith(isLoading: false, errorMessage: errorMessage),
-            ],
+        expect: () => [
+          state.copyWith(isLoading: true),
+          state.copyWith(isLoading: false, errorMessage: errorMessage),
+        ],
         verify: (_) {
           verify(
             mockResetPasswordUseCase(resetPasswordRequestEntity),

@@ -16,7 +16,7 @@ class OccasionView extends StatelessWidget {
           onTap: () {
             Navigator.of(context).maybePop();
           },
-          child: Icon(Icons.arrow_back_ios),
+          child: const Icon(Icons.arrow_back_ios),
         ),
         title: Column(
           mainAxisAlignment: MainAxisAlignment.end,

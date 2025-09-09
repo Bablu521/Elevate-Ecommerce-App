@@ -19,25 +19,25 @@ void main() {
     setUp((){
       mockAuthRepo = MockAuthRepo();
       forgetPasswordUseCase = ForgetPasswordUseCase(mockAuthRepo);
-      forgetPasswordRequestEntity = ForgetPasswordRequestEntity(
+      forgetPasswordRequestEntity =const  ForgetPasswordRequestEntity(
         email: "fake-email",
       );
     });
 
     test("when call ForgetPasswordUseCase it should return ForgetPasswordEntity from repo with correct parameters", () async {
       //Arrange
-      var expectedEntity = ForgetPasswordEntity(
+      final expectedEntity = ForgetPasswordEntity(
         message: "fake-message",
         info: "fake-info"
       );
-      var expectedResult = ApiSuccessResult<ForgetPasswordEntity>(expectedEntity);
+      final expectedResult = ApiSuccessResult<ForgetPasswordEntity>(expectedEntity);
       provideDummy<ApiResult<ForgetPasswordEntity>>(expectedResult);
       when(
         mockAuthRepo.forgetPassword(forgetPasswordRequestEntity),
       ).thenAnswer((_) async => expectedResult);
 
       //Act
-      var result = await forgetPasswordUseCase(forgetPasswordRequestEntity);
+      final result = await forgetPasswordUseCase(forgetPasswordRequestEntity);
 
       //Assert
       verify(mockAuthRepo.forgetPassword(forgetPasswordRequestEntity)).called(1);
@@ -51,15 +51,15 @@ void main() {
       'when ForgetPasswordUseCase failed it should return an error result',
           () async {
         //Arrange
-        var expectedError = "Server Error";
-        var expectedResult = ApiErrorResult<ForgetPasswordEntity>(expectedError);
+        final expectedError = "Server Error";
+        final expectedResult = ApiErrorResult<ForgetPasswordEntity>(expectedError);
         provideDummy<ApiResult<ForgetPasswordEntity>>(expectedResult);
         when(
           mockAuthRepo.forgetPassword(forgetPasswordRequestEntity),
         ).thenAnswer((_) async => expectedResult);
 
         //Act
-        var result = await forgetPasswordUseCase(forgetPasswordRequestEntity);
+        final result = await forgetPasswordUseCase(forgetPasswordRequestEntity);
 
         //Assert
         verify(mockAuthRepo.forgetPassword(forgetPasswordRequestEntity)).called(1);
