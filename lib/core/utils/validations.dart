@@ -65,7 +65,7 @@ class Validations {
   }
 
   static String? validatePhoneNumber(String? val) {
-    final regex = RegExp(r'^(?:\+2)?01[0125][0-9]{8}$');
+    final regex = RegExp(r'^(?:\+2)?01[0125][0-9]{8}$'); 
 
     if (val == null || val.trim().isEmpty) {
       return AppLocalizations().thisFieldIsRequired;
