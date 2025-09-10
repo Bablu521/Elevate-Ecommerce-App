@@ -21,7 +21,7 @@ abstract class AppRouter {
       case RouteNames.savedAddress:
         return MaterialPageRoute(builder: (_) => const SavedAddressView(),settings: settings);
       case RouteNames.addAddress:
-        return MaterialPageRoute(builder: (_) => const AddAddressView(),settings: settings);
+        return MaterialPageRoute(builder: (_) => AddAddressView(),settings: settings);
 
       default:
         return MaterialPageRoute(builder: (_) => const LoginView());

@@ -11,5 +11,5 @@ abstract final class AppImages {
   static const String deleteIconImage = '$_rootImages/deleteIcon.png';
   static const String editIconImage = '$_rootImages/editIcon.png';
   static const String locationIconImage = '$_rootImages/locationIcon.png';
-
+  static const String markerIconImage = '$_rootImages/markerIcon.png';
 }

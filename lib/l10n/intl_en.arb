@@ -85,5 +85,14 @@
   "city": "City",
   "area": "Area",
   "saveAddress": "Save address",
-  "street": "Street"
+  "street": "Street",
+  "selectedLocation": "Selected Location",
+  "locationServicesAreDisabled": "Location services are disabled.",
+  "locationPermissionDenied": "Location permission denied.",
+  "locationPermissionPermanentlyDenied": "Location permission permanently denied.",
+  "failedToGetLocation": "Failed to get location:",
+  "cityDropdown": "city_dropdown",
+  "areaDropdown": "area_dropdown",
+  "addressAddedSuccessfully": "Address Added Successfully",
+  "pleaseSelect": "Please Select"
 }

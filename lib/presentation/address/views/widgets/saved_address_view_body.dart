@@ -63,7 +63,7 @@ class _SavedAddressViewBodyState extends State<SavedAddressViewBody> {
               height: 50.h,
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
                   Navigator.pushNamed(context, RouteNames.addAddress);
                 },
                 child: Text(AppLocalizations.of(context).addNewAddress),

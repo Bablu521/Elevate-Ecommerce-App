@@ -6,3 +6,5 @@ class OnRemoveAddressEvent extends AddressEvents {
   final String addressId;
   OnRemoveAddressEvent({required this.addressId});
 }
+
+class OnAddAddressEvent extends AddressEvents {}

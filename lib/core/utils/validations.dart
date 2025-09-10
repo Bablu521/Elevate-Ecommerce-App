@@ -105,4 +105,11 @@ class Validations {
 
     return null;
   }
+
+   static String? validateDropdown(String? value) {
+    if (value == null || value.isEmpty) {
+      return AppLocalizations().pleaseSelect;
+    }
+    return null;
+  }
 }
