@@ -61,7 +61,7 @@ class _CartPageState extends State<CartPage> {
                     const CustomCartAddress(),
                     SizedBox(height: 8.h),
                     Align(
-                      alignment: AlignmentGeometry.centerRight,
+                      alignment: Alignment.centerRight,
                       child: TextButton(
                         onPressed: () {
                           cartViewModel.doIntent(OnClearUserCartEvent());

@@ -30,6 +30,7 @@ void main() {
       mockGuestLoginUseCase = MockGuestLoginUseCase();
       loginRequestModel = LoginTestFixtures.fakeLoginRequest();
       state = const LoginState();
+      state = const LoginState();
       expectedError = ApiErrorResult<LoginEntity>("Server Error");
       expectedResult = ApiSuccessResult<LoginEntity>(loginEntity);
     });
@@ -54,8 +55,7 @@ void main() {
           ),
         );
       },
-      expect:
-          () => [
+      expect: () => [
         state.copyWith(loading: true),
         state.copyWith(loading: false, loginEntity: loginEntity),
       ],
@@ -82,8 +82,7 @@ void main() {
           ),
         );
       },
-      expect:
-          () => [
+      expect: () => [
         state.copyWith(loading: true),
         state.copyWith(loading: false, errorMessage: "Server Error"),
       ],
