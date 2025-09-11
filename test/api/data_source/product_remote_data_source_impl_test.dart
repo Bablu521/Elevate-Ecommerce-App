@@ -1,3 +1,4 @@
+import 'package:elevate_ecommerce_app/api/data_source/products_remote_data_source_impl.dart';
 import 'package:elevate_ecommerce_app/api/models/product_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/products_reponse_dto/metadata.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/products_reponse_dto/products_reponse_dto.dart';
@@ -5,7 +6,6 @@ import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/domin/entities/product_entity.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:elevate_ecommerce_app/api/client/api_client.dart';
-import 'package:elevate_ecommerce_app/api/data_source/product_remote_data_source_impl.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
@@ -15,20 +15,20 @@ import 'product_remote_data_source_impl_test.mocks.dart';
 void main() {
   group('test ProductRemoteDataSourceImpl', () {
     late MockApiClient mockedApiClient;
-    late ProductRemoteDataSourceImpl productRemoteDataSourceImpl;
-    var occasionId = "fake-occasion-id";
-    var categoryId = "fake-category-id";
-    var expectedError = "Server Error";
+    late ProductsRemoteDataSourceImpl productRemoteDataSourceImpl;
+    final occasionId = "fake-occasion-id";
+    final categoryId = "fake-category-id";
+    final expectedError = "Server Error";
     late ProductsReponseDto expectedResult;
 
     setUp(() {
       mockedApiClient = MockApiClient();
-      productRemoteDataSourceImpl = ProductRemoteDataSourceImpl(
+      productRemoteDataSourceImpl = ProductsRemoteDataSourceImpl(
         mockedApiClient,
       );
       expectedResult = ProductsReponseDto(
         message: "fake-message",
-        metadata: Metadata(
+        metadata:const  Metadata(
           currentPage: 1,
           limit: 10,
           totalPages: 1,
@@ -87,7 +87,7 @@ void main() {
         ).thenAnswer((_) async => expectedResult);
 
         //Act
-        var result = await productRemoteDataSourceImpl.getProductsByOccasion(
+        final result = await productRemoteDataSourceImpl.getProductsByOccasion(
           occasionId,
         );
 
@@ -110,7 +110,7 @@ void main() {
         ).thenThrow(Exception(expectedError));
 
         //Act
-        var result = await productRemoteDataSourceImpl.getProductsByOccasion(
+        final result = await productRemoteDataSourceImpl.getProductsByOccasion(
           occasionId,
         );
 
@@ -131,7 +131,7 @@ void main() {
         ).thenAnswer((_) async => expectedResult);
 
         //Act
-        var result = await productRemoteDataSourceImpl.getProductsByCategory(
+        final result = await productRemoteDataSourceImpl.getProductsByCategory(
           categoryId,
         );
 
@@ -157,7 +157,7 @@ void main() {
         ).thenThrow(Exception(expectedError));
 
         //Act
-        var result = await productRemoteDataSourceImpl.getProductsByCategory(
+        final result = await productRemoteDataSourceImpl.getProductsByCategory(
           categoryId,
         );
 

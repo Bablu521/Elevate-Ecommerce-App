@@ -8,7 +8,7 @@ void main() {
       'when call toProductEntity with null values it should return ProductEntity with null values',
       () async {
         //Arrange
-        ProductDto productDto = const ProductDto(
+        final ProductDto productDto = const ProductDto(
           rateAvg: null,
           rateCount: null,
           id: null,
@@ -30,7 +30,7 @@ void main() {
         );
 
         //Act
-        ProductEntity result = productDto.toProductEntity();
+        final ProductEntity result = productDto.toProductEntity();
 
         //Assert
         expect(result.rateAvg, equals(null));
@@ -58,7 +58,7 @@ void main() {
       'when call toProductEntity with right values it should return ProductEntity with right values',
       () {
         //Arrange
-        ProductDto productDto = ProductDto(
+        final ProductDto productDto = ProductDto(
           rateAvg: 5,
           rateCount: 10,
           id: "fake-id",
@@ -80,7 +80,7 @@ void main() {
         );
 
         //Act
-        ProductEntity result = productDto.toProductEntity();
+        final ProductEntity result = productDto.toProductEntity();
 
         //Assert
         expect(result.rateAvg, equals(productDto.rateAvg));

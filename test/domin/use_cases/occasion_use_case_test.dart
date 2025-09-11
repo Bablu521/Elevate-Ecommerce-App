@@ -22,7 +22,7 @@ void main() {
       'when call getAllOccasions it should return a list of occasions from repo with right parameters',
       () async {
         //Arrange
-        var expectedOccasions = [
+        final expectedOccasions = [
           OccasionEntity(
             id: "fake-id-1",
             name: "fake-name-1",
@@ -44,14 +44,14 @@ void main() {
             productsCount: 0,
           ),
         ];
-        var expectedResult = ApiSuccessResult(expectedOccasions);
+        final expectedResult = ApiSuccessResult(expectedOccasions);
         provideDummy<ApiResult<List<OccasionEntity>>>(expectedResult);
         when(
           mockedOccasionRepo.getAllOccasions(),
         ).thenAnswer((_) async => expectedResult);
 
         //Act
-        var result = await occasionUseCase.call();
+        final result = await occasionUseCase.call();
 
         //Assert
         verify(mockedOccasionRepo.getAllOccasions()).called(1);
@@ -65,8 +65,8 @@ void main() {
       "when getAllOccasions failed it should return an error result",
       () async {
         //Arrange
-        var expectedError = "Server Error";
-        var expectedResult = ApiErrorResult<List<OccasionEntity>>(
+        final expectedError = "Server Error";
+        final expectedResult = ApiErrorResult<List<OccasionEntity>>(
           expectedError,
         );
         provideDummy<ApiResult<List<OccasionEntity>>>(expectedResult);
@@ -75,7 +75,7 @@ void main() {
         ).thenAnswer((_) async => expectedResult);
 
         //Call
-        var result = await occasionUseCase.call();
+        final result = await occasionUseCase.call();
 
         //Assert
         verify(mockedOccasionRepo.getAllOccasions()).called(1);

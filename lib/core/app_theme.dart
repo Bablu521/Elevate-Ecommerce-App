@@ -28,6 +28,11 @@ abstract class AppTheme {
         fontWeight: FontWeight.w500,
       ),
       headlineSmall: getTextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500),
+      labelSmall: getTextStyle(
+        fontSize: 13.sp,
+        fontWeight: FontWeight.w500,
+        fontFamily: ConstKeys.interFont,
+      ),
     ),
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.white,
@@ -63,6 +68,17 @@ abstract class AppTheme {
       focusedBorder: getOutlineInputBorder(color: AppColors.gray),
       enabledBorder: getOutlineInputBorder(color: AppColors.gray),
       errorBorder: getOutlineInputBorder(color: AppColors.red),
+    ),
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      selectedIconTheme: IconThemeData(
+        color: AppColors.red,
+        applyTextScaling: true,
+      ),
+      selectedItemColor: AppColors.red,
+      unselectedItemColor: AppColors.gray,
+      showSelectedLabels: true,
+      showUnselectedLabels: true,
+      type: BottomNavigationBarType.shifting,
     ),
 
     elevatedButtonTheme: ElevatedButtonThemeData(

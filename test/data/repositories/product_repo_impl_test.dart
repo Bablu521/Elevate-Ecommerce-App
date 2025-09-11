@@ -1,25 +1,25 @@
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
+import 'package:elevate_ecommerce_app/data/data_source/products_remote_data_source.dart';
+import 'package:elevate_ecommerce_app/data/repositories/products_repo_impl.dart';
 import 'package:elevate_ecommerce_app/domin/entities/product_entity.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:elevate_ecommerce_app/data/repositories/product_repo_impl.dart';
-import 'package:elevate_ecommerce_app/data/data_source/product_remote_data_source.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
 import 'product_repo_impl_test.mocks.dart';
 
-@GenerateMocks([ProductRemoteDataSource])
+@GenerateMocks([ProductsRemoteDataSource])
 void main() {
   group('test ProductRepoImpl', () {
-    late MockProductRemoteDataSource mockedProductRemoteDataSource;
-    late ProductRepoImpl productRepoImpl;
-    var occasionId = "fake-occasion-id";
-    var categoryId = "fake-category-id";
-    var expectedError = "Server Error";
+    late MockProductsRemoteDataSource mockedProductRemoteDataSource;
+    late ProductsRepoImpl productRepoImpl;
+    final occasionId = "fake-occasion-id";
+    final categoryId = "fake-category-id";
+    final expectedError = "Server Error";
     late List<ProductEntity> expectedProducts;
     setUp(() {
-      mockedProductRemoteDataSource = MockProductRemoteDataSource();
-      productRepoImpl = ProductRepoImpl(mockedProductRemoteDataSource);
+      mockedProductRemoteDataSource = MockProductsRemoteDataSource();
+      productRepoImpl = ProductsRepoImpl(mockedProductRemoteDataSource);
       expectedProducts = [
         ProductEntity(
           rateAvg: 5,
@@ -66,7 +66,7 @@ void main() {
     test(
       'when call getProductsByOccasion it should return a list of products from data source with right parameters',
       () async {
-        var expectedResult = ApiSuccessResult<List<ProductEntity>>(
+        final expectedResult = ApiSuccessResult<List<ProductEntity>>(
           expectedProducts,
         );
         provideDummy<ApiResult<List<ProductEntity>>>(expectedResult);
@@ -75,7 +75,7 @@ void main() {
         ).thenAnswer((_) async => expectedResult);
 
         //Act
-        var result = await productRepoImpl.getProductsByOccasion(occasionId);
+        final result = await productRepoImpl.getProductsByOccasion(occasionId);
 
         //Assert
         verify(
@@ -90,7 +90,7 @@ void main() {
     test(
       'when getProductsByOccasion failed it should return an error result',
       () async {
-        var expectedResult = ApiErrorResult<List<ProductEntity>>(
+        final expectedResult = ApiErrorResult<List<ProductEntity>>(
           expectedError,
         );
         provideDummy<ApiResult<List<ProductEntity>>>(expectedResult);
@@ -99,7 +99,7 @@ void main() {
         ).thenAnswer((_) async => expectedResult);
 
         //Act
-        var result = await productRepoImpl.getProductsByOccasion(occasionId);
+        final result = await productRepoImpl.getProductsByOccasion(occasionId);
 
         //Assert
         verify(
@@ -114,7 +114,7 @@ void main() {
     test(
       'when call getProductsByCategory it should return a list of products from data source with right parameters',
       () async {
-        var expectedResult = ApiSuccessResult<List<ProductEntity>>(
+        final expectedResult = ApiSuccessResult<List<ProductEntity>>(
           expectedProducts,
         );
         provideDummy<ApiResult<List<ProductEntity>>>(expectedResult);
@@ -123,7 +123,7 @@ void main() {
         ).thenAnswer((_) async => expectedResult);
 
         //Act
-        var result = await productRepoImpl.getProductsByCategory(categoryId);
+        final result = await productRepoImpl.getProductsByCategory(categoryId);
 
         //Assert
         verify(
@@ -138,14 +138,16 @@ void main() {
     test(
       'when getProductsByCategory failed it should return an error result',
       () async {
-        var expectedResult = ApiErrorResult<List<ProductEntity>>(expectedError);
+        final expectedResult = ApiErrorResult<List<ProductEntity>>(
+          expectedError,
+        );
         provideDummy<ApiResult<List<ProductEntity>>>(expectedResult);
         when(
           mockedProductRemoteDataSource.getProductsByCategory(categoryId),
         ).thenAnswer((_) async => expectedResult);
 
         //Act
-        var result = await productRepoImpl.getProductsByCategory(categoryId);
+        final result = await productRepoImpl.getProductsByCategory(categoryId);
 
         //Assert
         verify(
