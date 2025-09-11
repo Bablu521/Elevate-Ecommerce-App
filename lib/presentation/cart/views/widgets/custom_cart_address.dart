@@ -16,16 +16,21 @@ class CustomCartAddress extends StatelessWidget {
           width: 24.w,
           height: 24.h,
           decoration: const BoxDecoration(
-            image: DecorationImage(image: AssetImage(AppImages.locationIconImage)),
+            image: DecorationImage(
+              image: AssetImage(AppImages.locationIconImage),
+            ),
           ),
         ),
         SizedBox(width: 4.w),
-        Text(
-          AppLocalizations.of(context).deliverTo,
-          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-            color: AppColors.gray,
-            fontWeight: FontWeight.w500,
-            fontFamily: ConstKeys.robotoFont,
+        Flexible(
+          child: Text(
+            AppLocalizations.of(context).deliverTo,
+            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+              color: AppColors.gray,
+              fontWeight: FontWeight.w500,
+              fontFamily: ConstKeys.robotoFont,
+            ),
+            overflow: TextOverflow.ellipsis,
           ),
         ),
         SizedBox(width: 8.w),

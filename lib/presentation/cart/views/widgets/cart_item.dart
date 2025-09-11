@@ -21,7 +21,6 @@ class CartItem extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 12.h),
       child: Container(
         padding: const EdgeInsets.all(8),
-        height: 117.h,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(8.r)),
           border: Border.all(color: AppColors.gray, width: 0.5.w),
@@ -118,7 +117,8 @@ class CartItem extends StatelessWidget {
                               children: [
                                 InkWell(
                                   onTap: () {
-                                    (cartItem.quantity != null && cartItem.quantity! > 1)
+                                    (cartItem.quantity != null &&
+                                            cartItem.quantity! > 1)
                                         ? cartViewModel.doIntent(
                                             OnDecrementProductFromCartEvent(
                                               addProductToCartRequestEntity:
