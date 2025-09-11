@@ -12,4 +12,6 @@ abstract final class AppImages {
   static const String lockAccessImage = '$_rootImages/heart-lock.png';
   static const String fakeImgUrl =
       "https://flower.elevateegy.com/uploads/fefa790a-f0c1-42a0-8699-34e8fc065812-cover_image.png";
+  static const String locationIconImage = '$_rootImages/locationIcon.png';
+  static const String deleteIconImage = '$_rootImages/deleteIcon.png';
 }

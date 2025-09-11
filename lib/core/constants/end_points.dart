@@ -10,4 +10,5 @@ abstract class Endpoints {
   static const String categoryQuery = "category";
   static const String occasionQuery = "occasion";
   static const String bestSeller = "api/v1/best-seller";
+  static const String cart = "api/v1/cart";
 }

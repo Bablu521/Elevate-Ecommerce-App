@@ -54,28 +54,30 @@ class AuthRepoImpl implements AuthRepo {
     }
   }
 
-  Future<void> _handleUserInfo({
-    required bool rememberMe,
-    required String token,
-    required String userStatus,
-  }) async {
-    try {
-      await _authLocalDataSource.saveUserRememberMe(rememberMe: rememberMe);
-      await _authLocalDataSource.saveUserToken(token: token);
-      await _authLocalDataSource.saveUserStatus(userStatus: userStatus);
-    } catch (e, stack) {
-      log("Error saving user info locally: $e", stackTrace: stack);
+    Future<void> _handleUserInfo({
+      required bool rememberMe,
+      required String token,
+      required String userStatus,
+    }) async {
+      try {
+        await _authLocalDataSource.saveUserRememberMe(rememberMe: rememberMe);
+        await _authLocalDataSource.saveUserToken(token: token);
+        await _authLocalDataSource.saveUserStatus(userStatus: userStatus);
+      } catch (e, stack) {
+        log("Error saving user info locally: $e", stackTrace: stack);
+      }
     }
-  }
 
-  @override
-  Future<void> guestUserLogin() async {
-    await _handleUserInfo(
-      rememberMe: true,
-      token: ConstKeys.kNoToken,
-      userStatus: ConstKeys.kUserGuest,
-    );
-  }
+
+    @override
+    Future<void> guestUserLogin() async {
+      await _handleUserInfo(
+        rememberMe: true,
+        token: ConstKeys.kNoToken,
+        userStatus: ConstKeys.kUserGuest,
+      );
+    }
+
 
   @override
   Future<bool> getUserStatus() async {
