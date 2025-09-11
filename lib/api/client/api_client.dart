@@ -6,6 +6,7 @@ import 'package:elevate_ecommerce_app/api/models/requestes/login_requests/login_
 import 'package:elevate_ecommerce_app/api/models/requestes/register_request_dto/register_request_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/auth/reset_password_response.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/auth/verify_reset_response.dart';
+import 'package:elevate_ecommerce_app/api/models/responses/best_seller/best_seller_response_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/categories/categories_response.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/login_response/login_response_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/register_response_dto/register_response_dto.dart';
@@ -27,24 +28,24 @@ abstract class ApiClient {
 
   @POST(Endpoints.register)
   Future<RegisterResponseDto> register(
-      @Body() RegisterRequestDto registerRequestDto,
-      );
+    @Body() RegisterRequestDto registerRequestDto,
+  );
 
   @POST(Endpoints.signIn)
   Future<LoginResponseDto> login(@Body() LoginRequestModel loginRequestModel);
 
   @POST(Endpoints.forgetPassword)
   Future<ForgetPasswordResponse> forgetPassword(
-      @Body() ForgetPasswordRequest body,
-      );
+    @Body() ForgetPasswordRequest body,
+  );
 
   @POST(Endpoints.verifyReset)
   Future<VerifyResetResponse> verifyResetCode(@Body() VerifyResetRequest body);
 
   @PUT(Endpoints.resetPassword)
   Future<ResetPasswordResponse> resetPassword(
-      @Body() ResetPasswordRequest body,
-      );
+    @Body() ResetPasswordRequest body,
+  );
 
   @GET(Endpoints.products)
   Future<ProductsReponseDto> getAllProducts();
@@ -57,11 +58,13 @@ abstract class ApiClient {
 
   @GET(Endpoints.products)
   Future<ProductsReponseDto> getProductsByOccasion(
-      @Query(Endpoints.occasionQuery) String occasionId,
-      );
+    @Query(Endpoints.occasionQuery) String occasionId,
+  );
 
   @GET(Endpoints.products)
   Future<ProductsReponseDto> getProductsByCategory(
-      @Query(Endpoints.categoryQuery) String categoryId,
-      );
+    @Query(Endpoints.categoryQuery) String categoryId,
+  );
+  @GET(Endpoints.bestSeller)
+  Future<BestSellerResponseDto> getBestSeller();
 }
