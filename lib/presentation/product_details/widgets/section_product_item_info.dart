@@ -1,10 +1,11 @@
 import 'package:elevate_ecommerce_app/core/constants/app_colors.dart';
+import 'package:elevate_ecommerce_app/domin/entities/product_entity.dart';
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class SectionProductItemInfo extends StatelessWidget {
-  const SectionProductItemInfo({super.key});
-
+  const SectionProductItemInfo({super.key, required this.productEntity});
+  final ProductEntity productEntity;
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -23,7 +24,7 @@ class SectionProductItemInfo extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "EGP 1,500",
+                    "EGP ${productEntity.price}",
                     style: theme.textTheme.bodyLarge?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
@@ -69,7 +70,7 @@ class SectionProductItemInfo extends StatelessWidget {
             ),
           ),
           Text(
-            "Lorem ipsum dolor sit amet consectetur. Id sit morbi ornare morbi duis rhoncus orci massa.",
+            productEntity.description ?? local.description,
             style: theme.textTheme.headlineSmall,
           ),
           const SizedBox(height: 24),

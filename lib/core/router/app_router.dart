@@ -1,8 +1,9 @@
 import 'package:elevate_ecommerce_app/core/router/route_names.dart';
+import 'package:elevate_ecommerce_app/domin/entities/product_entity.dart';
 import 'package:elevate_ecommerce_app/presentation/auth/register/views/screen/register_view.dart';
 import 'package:elevate_ecommerce_app/presentation/best_seller/view/screen/best_seller_view.dart';
 import 'package:elevate_ecommerce_app/presentation/cart/views/screen/cart_page.dart';
-import 'package:elevate_ecommerce_app/presentation/home/product_details/screen/product_details_view.dart';
+import 'package:elevate_ecommerce_app/presentation/product_details/screen/product_details_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../presentation/auth/forget_password/views/screen/forget_password_screen.dart';
@@ -34,7 +35,10 @@ abstract class AppRouter {
       case RouteNames.bestSeller:
         return MaterialPageRoute(builder: (_) => const BestSellerView());
       case RouteNames.productDetails:
-        return MaterialPageRoute(builder: (_) => const ProductDetailsView());
+        final ProductEntity productEntity = settings.arguments as ProductEntity;
+        return MaterialPageRoute(
+          builder: (_) => ProductDetailsView(productEntity: productEntity),
+        );
 
       default:
         return MaterialPageRoute(builder: (_) => const LoginView());

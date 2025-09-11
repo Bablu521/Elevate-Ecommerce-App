@@ -1,11 +1,12 @@
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
-import 'package:elevate_ecommerce_app/presentation/home/product_details/widgets/section_product_image_item.dart';
-import 'package:elevate_ecommerce_app/presentation/home/product_details/widgets/section_product_item_info.dart';
+import 'package:elevate_ecommerce_app/presentation/product_details/widgets/section_product_image_item.dart';
+import 'package:elevate_ecommerce_app/presentation/product_details/widgets/section_product_item_info.dart';
 import 'package:flutter/material.dart';
 
+import 'package:elevate_ecommerce_app/domin/entities/product_entity.dart';
 class ProductDetailsBody extends StatelessWidget {
-  const ProductDetailsBody({super.key});
-
+  const ProductDetailsBody({super.key, required this.productEntity});
+  final ProductEntity productEntity;
   @override
   Widget build(BuildContext context) {
     final local = AppLocalizations.of(context);
@@ -13,8 +14,8 @@ class ProductDetailsBody extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            SectionProductImageItem(),
-            SectionProductItemInfo(),
+            SectionProductImageItem(items: productEntity.images ?? []),
+            SectionProductItemInfo(productEntity: productEntity),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: SizedBox(
