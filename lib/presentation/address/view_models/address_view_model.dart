@@ -57,6 +57,9 @@ class AddressViewModel extends Cubit<AddressStates> {
       case OnAddAddressEvent():
         _addAddress();
         break;
+      case OnUpdateAddressEvent():
+        _updateAddress(event.addressId);
+        break;
     }
   }
 
@@ -135,6 +138,39 @@ class AddressViewModel extends Cubit<AddressStates> {
           state.copyWith(
             addressListIsLoading: false,
             addressListSuccess: result.data,
+            addressAdded: true
+          ),
+        );
+      case ApiErrorResult<List<AddressEntity>>():
+        emit(
+          state.copyWith(
+            addressListIsLoading: false,
+            addressListErrorMessage: result.errorMessage,
+          ),
+        );
+    }
+  }
+
+  Future<void> _updateAddress(String addressId) async {
+    emit(state.copyWith(addressListIsLoading: true));
+    final result = await _updateAddressUseCase.call(
+      AddressRequestEntity(
+        street: addressContoller.text,
+        phone: phoneNumberContoller.text,
+        username: recipientNameContoller.text,
+        city: selectedCity,
+        lat: selectedLat.toString(),
+        long: selectedLng.toString(),
+      ),
+      addressId,
+    );
+    switch (result) {
+      case ApiSuccessResult<List<AddressEntity>>():
+        emit(
+          state.copyWith(
+            addressListIsLoading: false,
+            addressListSuccess: result.data,
+            addressUpdated: true
           ),
         );
       case ApiErrorResult<List<AddressEntity>>():

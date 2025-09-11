@@ -32,9 +32,7 @@ abstract class ApiModule {
     dio.interceptors.add(
       InterceptorsWrapper(
         onRequest: (options, handler) async {
-          // final String? token = await TokenStorage.getToken();
-          final String? token =
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjhiMzMxYjJhOGJjYTMwN2Y5ZTFlMDg1Iiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NTcyOTc0NzB9.iUroh_QxiEcU8cjQUEmvdnYGsYMzTIS5AjYZylOzdMs";
+          final String? token = await TokenStorage.getToken();
           if (token != null && token.isNotEmpty) {
             options.headers["Authorization"] = "Bearer $token";
           }

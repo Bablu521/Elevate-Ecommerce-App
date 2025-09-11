@@ -5,6 +5,7 @@ import 'package:elevate_ecommerce_app/domin/entities/address_entity.dart';
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
 import 'package:elevate_ecommerce_app/presentation/address/view_models/address_events.dart';
 import 'package:elevate_ecommerce_app/presentation/address/view_models/address_view_model.dart';
+import 'package:elevate_ecommerce_app/presentation/address/views/screens/add_address_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -107,7 +108,13 @@ class SavedAddressListViewItem extends StatelessWidget {
                   SizedBox(width: 7.w),
                   InkWell(
                     onTap: () {
-                      //edit address
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder:(context)=> AddAddressView(
+                            addressEntity: address
+                          )
+                        )
+                      );
                     },
                     child: Container(
                       width: 18.w,

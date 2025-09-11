@@ -2,10 +2,10 @@ import 'package:elevate_ecommerce_app/domin/entities/area_entity.dart';
 import 'package:equatable/equatable.dart';
 
 class AreaDto extends Equatable {
-  final String id;
-  final String cityId;
-  final String nameEn;
-  final String nameAr;
+  final String? id;
+  final String? cityId;
+  final String? nameEn;
+  final String? nameAr;
 
   const AreaDto({
     required this.id,

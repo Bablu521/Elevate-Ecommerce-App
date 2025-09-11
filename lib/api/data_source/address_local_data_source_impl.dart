@@ -4,7 +4,6 @@ import 'package:elevate_ecommerce_app/api/models/city_dto.dart';
 import 'package:elevate_ecommerce_app/data/data_source/address_local_data_source.dart';
 import 'package:elevate_ecommerce_app/domin/entities/area_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/city_entity.dart';
-import 'package:elevate_ecommerce_app/generated/l10n.dart';
 import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
 
@@ -18,7 +17,7 @@ class AddressLocalDataSourceImpl implements AddressLocalDataSource{
       final List<dynamic> data = json.decode(jsonString)[2]['data'];
       return data.map((e) => CityDto.fromJson(e).toEntity()).toList();
     } catch (e) {
-      throw Exception("${AppLocalizations().failedToGetLocation} $e");
+      throw Exception(e);
     }
   }
 
@@ -29,7 +28,7 @@ class AddressLocalDataSourceImpl implements AddressLocalDataSource{
       final List<dynamic> data = json.decode(jsonString)[2]['data'];
       return data.map((e) => AreaDto.fromJson(e).toEntity()).toList();
     } catch (e) {
-      throw Exception("${AppLocalizations().failedToGetLocation} $e");
+      throw Exception(e);
     }
   }
 

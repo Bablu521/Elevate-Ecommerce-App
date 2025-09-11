@@ -1,3 +1,4 @@
+
 sealed class AddressEvents {}
 
 class OnLoadLoggedUserAddressesEvent extends AddressEvents {}
@@ -8,3 +9,8 @@ class OnRemoveAddressEvent extends AddressEvents {
 }
 
 class OnAddAddressEvent extends AddressEvents {}
+
+class OnUpdateAddressEvent extends AddressEvents {
+  final String addressId;
+  OnUpdateAddressEvent({required this.addressId});
+}

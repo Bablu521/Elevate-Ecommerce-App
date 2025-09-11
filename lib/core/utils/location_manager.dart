@@ -32,3 +32,4 @@ class LocationManager {
     return await Geolocator.getCurrentPosition();
   }
 }
+

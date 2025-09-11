@@ -94,5 +94,15 @@
   "cityDropdown": "city_dropdown",
   "areaDropdown": "area_dropdown",
   "addressAddedSuccessfully": "Address Added Successfully",
-  "pleaseSelect": "Please Select"
+  "addressUpdatedSuccessfully": "Address Updated Successfully",
+  "pleaseSelect": "Please Select",
+  "updateAddress": "Update Address",
+  "locationIsDisabled": "Location Is Disabled",
+  "locationPermissionIsDenied": "Location Permission Is Denied",
+  "enableGPS": "enable GPS",
+  "enableGPSMessage": "enable GPS Message",
+  "locationPermission": "Location Permission",
+  "locationPermissionMessage": "Location Permission Message",
+  "cancel": "cancel",
+  "openSettings": "Open Settings"
 }
