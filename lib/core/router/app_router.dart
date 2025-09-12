@@ -4,7 +4,6 @@ import 'package:elevate_ecommerce_app/presentation/auth/register/views/screen/re
 import 'package:elevate_ecommerce_app/presentation/best_seller/view/screen/best_seller_view.dart';
 import 'package:elevate_ecommerce_app/presentation/cart/views/screen/cart_page.dart';
 import 'package:elevate_ecommerce_app/presentation/occasion/views/screen/occasion_view.dart';
-import 'package:elevate_ecommerce_app/presentation/product_details/view/screen/product_details_view.dart';
 import 'package:flutter/material.dart';
 import '../../presentation/address/views/screens/saved_address_view.dart';
 import '../../presentation/address/views/screens/add_address_view.dart';

@@ -9,7 +9,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class AddAddressForm extends StatelessWidget {
   final AddressViewModel addressViewModel;
   final VoidCallback validateForm;
-  const AddAddressForm({super.key,required this.addressViewModel,required this.validateForm});
+  const AddAddressForm({
+    super.key,
+    required this.addressViewModel,
+    required this.validateForm,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +61,7 @@ class AddAddressForm extends StatelessWidget {
                   builder: (context, cities, child) {
                     return DropdownButtonFormField<String>(
                       key: ValueKey(AppLocalizations.of(context).cityDropdown),
-                      initialValue: addressViewModel.getValidCityId(),
+                      value: addressViewModel.getValidCityId(),
                       isExpanded: true,
                       style: Theme.of(context).textTheme.bodySmall,
                       validator: Validations.validateDropdown,
@@ -96,7 +100,7 @@ class AddAddressForm extends StatelessWidget {
                       key: ValueKey(
                         '${AppLocalizations.of(context).areaDropdown}${areas.hashCode}',
                       ),
-                      initialValue: addressViewModel.getValidAreaId(),
+                      value: addressViewModel.getValidAreaId(),
                       isExpanded: true,
                       style: Theme.of(context).textTheme.bodySmall,
                       validator: Validations.validateDropdown,
@@ -115,7 +119,7 @@ class AddAddressForm extends StatelessWidget {
                             (item) => DropdownMenuItem<String>(
                               value: item.id,
                               child: Text(
-                                item.nameEn??"",
+                                item.nameEn ?? "",
                                 overflow: TextOverflow.ellipsis,
                               ),
                             ),
