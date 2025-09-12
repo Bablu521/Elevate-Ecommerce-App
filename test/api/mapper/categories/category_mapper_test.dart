@@ -1,4 +1,3 @@
-import 'package:elevate_ecommerce_app/api/mapper/categories/category_mapper.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/categories/category_dto.dart';
 import 'package:flutter_test/flutter_test.dart';
 

@@ -14,4 +14,6 @@ abstract final class AppImages {
       "https://flower.elevateegy.com/uploads/fefa790a-f0c1-42a0-8699-34e8fc065812-cover_image.png";
   static const String locationIconImage = '$_rootImages/locationIcon.png';
   static const String deleteIconImage = '$_rootImages/deleteIcon.png';
+  static const String editIconImage = '$_rootImages/editIcon.png';
+  static const String markerIconImage = '$_rootImages/markerIcon.png';
 }
