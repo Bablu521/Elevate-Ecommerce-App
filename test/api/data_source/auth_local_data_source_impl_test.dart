@@ -15,9 +15,7 @@ void main() {
 
     setUp(() {
       mockSecureStorage = MockFlutterSecureStorage();
-      authLocalDataSource = AuthLocalDataSourceImpl(
-        mockSecureStorage,
-      );
+      authLocalDataSource = AuthLocalDataSourceImpl(mockSecureStorage);
     });
     test("should save rememberMe correctly", () async {
       // Arrange
@@ -63,7 +61,7 @@ void main() {
     });
 
     test("should read correctly", () async {
-      // Arrange 
+      // Arrange
       when(
         mockSecureStorage.read(key: ConstKeys.keyUserStatus),
       ).thenAnswer((_) async => ConstKeys.kUserLogin);
