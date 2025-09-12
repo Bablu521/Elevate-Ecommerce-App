@@ -1,4 +1,3 @@
-import 'package:bloc/bloc.dart';
 import 'package:elevate_ecommerce_app/api/mapper/orders/orders_mapper.dart';
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/domin/entities/address_entity.dart';
@@ -9,6 +8,7 @@ import 'package:elevate_ecommerce_app/domin/use_cases/checkout_credit_order_use_
 import 'package:elevate_ecommerce_app/domin/use_cases/get_logged_user_cart_use_case.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 

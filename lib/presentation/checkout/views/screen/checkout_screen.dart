@@ -16,7 +16,7 @@ import '../widget/checkout_payment_method_widget.dart';
 import '../widget/checkout_webview_screen.dart';
 
 class CheckoutScreen extends StatefulWidget {
-  CheckoutScreen({super.key});
+  const CheckoutScreen({super.key});
 
   @override
   State<CheckoutScreen> createState() => _CheckoutScreenState();

@@ -8,9 +8,9 @@ import '../../../../generated/l10n.dart';
 import '../../view_models/checkout_events.dart';
 
 class CheckoutDeliveryAddressWidget extends StatelessWidget {
-  CheckoutViewModel checkoutViewModel;
+  final CheckoutViewModel checkoutViewModel;
 
-  CheckoutDeliveryAddressWidget({super.key, required this.checkoutViewModel});
+  const CheckoutDeliveryAddressWidget({super.key, required this.checkoutViewModel});
 
   @override
   Widget build(BuildContext context) {

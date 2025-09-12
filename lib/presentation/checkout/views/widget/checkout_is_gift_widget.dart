@@ -7,9 +7,9 @@ import '../../../../core/utils/validations.dart';
 import '../../../../generated/l10n.dart';
 
 class CheckoutIsGiftWidget extends StatelessWidget {
-  CheckoutViewModel checkoutViewModel;
+  final CheckoutViewModel checkoutViewModel;
 
-  CheckoutIsGiftWidget({super.key, required this.checkoutViewModel});
+  const CheckoutIsGiftWidget({super.key, required this.checkoutViewModel});
 
   @override
   Widget build(BuildContext context) {

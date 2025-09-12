@@ -41,7 +41,7 @@ abstract class AppRouter {
           builder: (_) => ProductDetailsView(productEntity: productEntity),
         );
       case RouteNames.checkOut:
-        return MaterialPageRoute(builder: (_) => CheckoutScreen());
+        return MaterialPageRoute(builder: (_) => const CheckoutScreen());
       default:
         return MaterialPageRoute(builder: (_) => const LoginView());
     }

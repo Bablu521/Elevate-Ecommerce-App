@@ -7,9 +7,9 @@ import '../../../../core/constants/app_colors.dart';
 import '../../view_models/checkout_events.dart';
 
 class CheckoutFooterWidget extends StatelessWidget {
-  CheckoutViewModel checkoutViewModel;
+  final CheckoutViewModel checkoutViewModel;
 
-  CheckoutFooterWidget({super.key, required this.checkoutViewModel});
+  const CheckoutFooterWidget({super.key, required this.checkoutViewModel});
 
   @override
   Widget build(BuildContext context) {

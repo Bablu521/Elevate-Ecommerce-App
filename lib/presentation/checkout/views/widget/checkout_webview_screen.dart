@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class CheckoutWebviewScreen extends StatelessWidget {
-  CheckoutViewModel checkoutViewModel;
+  final CheckoutViewModel checkoutViewModel;
 
-  CheckoutWebviewScreen({super.key, required this.checkoutViewModel});
+  const CheckoutWebviewScreen({super.key, required this.checkoutViewModel});
 
   @override
   Widget build(BuildContext context) {
