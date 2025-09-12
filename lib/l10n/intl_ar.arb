@@ -82,5 +82,8 @@
   "loginToSaveCartAndManageProfile": "سجل الدخول أو أنشئ حسابًا مجانيًا لحفظ سلتك، الدفع بسرعة، إدارة ملفك الشخصي، وتتبع طلباتك.",
   "or": "أو",
   "changeLanguage": "تغيير اللغة",
-  "arabic": "العربية"
+  "arabic": "العربية",
+  "trackOrder" : "سير الطلب",
+  "active" : "نشط",
+  "completed" : "أكتمل"
 }

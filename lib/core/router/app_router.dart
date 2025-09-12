@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../../presentation/auth/login/views/login_view.dart';
 
 import '../../presentation/main_home/view/main_home.dart';
+import '../../presentation/order_page/views/orders_page.dart';
 
 
 abstract class AppRouter {
@@ -16,6 +17,9 @@ abstract class AppRouter {
         return MaterialPageRoute(builder: (_) => const MainHome());
       case RouteNames.register:
         return MaterialPageRoute(builder: (_) => RegisterView());
+
+        case RouteNames.ordersPage:
+        return MaterialPageRoute(builder: (_) => const OrdersPage());
 
       default:
         return MaterialPageRoute(builder: (_) => const LoginView());

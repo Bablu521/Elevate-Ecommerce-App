@@ -83,5 +83,8 @@
   "loginToSaveCartAndManageProfile": "Login or create a free account to save your cart, checkout faster, manage your profile, and track your orders.",
   "or": "or",
   "changeLanguage": "Change Language",
-  "arabic" : "Arabic"
+  "arabic" : "Arabic",
+  "trackOrder" : "Track order",
+  "active" : "Active",
+  "completed" : "Completed"
 }
