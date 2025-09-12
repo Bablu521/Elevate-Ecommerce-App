@@ -107,5 +107,6 @@
   "guestMode": "Guest Mode",
   "loginToSaveCartAndManageProfile": "Login or create a free account to save your cart, checkout faster, manage your profile, and track your orders.",
   "or": "or",
-  "bestSeller" : "Best seller"
+  "bestSeller": "Best seller",
+  "added": "Added"
 }

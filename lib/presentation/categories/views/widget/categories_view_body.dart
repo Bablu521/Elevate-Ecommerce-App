@@ -51,10 +51,12 @@ class CategoriesViewBody extends StatelessWidget {
                     children: [
                       CategoriesTabBarView(
                         categoriesViewModel: categoriesViewModel,
+                        state: categoriesViewModel.state,
                       ),
                       ...?categoriesViewModel.state.categoriesList?.map(
                         (_) => CategoriesTabBarView(
                           categoriesViewModel: categoriesViewModel,
+                          state: categoriesViewModel.state,
                         ),
                       ),
                     ],

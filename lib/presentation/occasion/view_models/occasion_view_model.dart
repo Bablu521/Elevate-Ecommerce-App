@@ -1,6 +1,10 @@
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
+import 'package:elevate_ecommerce_app/core/base_state/base_state.dart';
+import 'package:elevate_ecommerce_app/domin/entities/cart_response_entity/cart_response_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/occasion_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/product_entity.dart';
+import 'package:elevate_ecommerce_app/domin/entities/requests/add_product_to_cart_request_entity.dart';
+import 'package:elevate_ecommerce_app/domin/use_cases/add_product_to_cart_use_case.dart';
 import 'package:elevate_ecommerce_app/domin/use_cases/get_products_by_occasion_use_case.dart';
 import 'package:elevate_ecommerce_app/domin/use_cases/occasion_use_case.dart';
 import 'package:elevate_ecommerce_app/presentation/occasion/view_models/occasion_events.dart';
@@ -12,8 +16,13 @@ import 'package:injectable/injectable.dart';
 class OccasionViewModel extends Cubit<OccasionStates> {
   final OccasionUseCase _occasionUseCase;
   final GetProductsByOccasionUseCase _getProductsByOccasionUseCase;
-  OccasionViewModel(this._occasionUseCase, this._getProductsByOccasionUseCase)
-    : super(const OccasionStates());
+  final AddProductToCartUseCase _addProductToCartUseCase;
+
+  OccasionViewModel(
+    this._occasionUseCase,
+    this._getProductsByOccasionUseCase,
+    this._addProductToCartUseCase,
+  ) : super(const OccasionStates());
 
   void doIntent(OccasionEvent event) {
     switch (event) {
@@ -21,6 +30,8 @@ class OccasionViewModel extends Cubit<OccasionStates> {
         _getAllOccasions();
       case OnLoadProductListEvent(occasionId: final occasionId):
         _getProductsByOccasion(occasionId);
+      case OccasionAddToCartEvent():
+        _addToCart(event.productId);
     }
   }
 
@@ -63,6 +74,37 @@ class OccasionViewModel extends Cubit<OccasionStates> {
           state.copyWith(
             productListIsLoading: false,
             productListErrorMessage: result.errorMessage,
+          ),
+        );
+    }
+  }
+
+  Future<void> _addToCart(String? id) async {
+    emit(
+      state.copyWith(
+        cartStates: {...state.cartStates, id: BaseState.loading()},
+      ),
+    );
+    final result = await _addProductToCartUseCase.call(
+      AddProductToCartRequestEntity(product: id, quantity: 1),
+    );
+    switch (result) {
+      case ApiSuccessResult<CartResponseEntity>():
+        emit(
+          state.copyWith(
+            cartStates: {
+              ...state.cartStates,
+              id: BaseState.success(result.data),
+            },
+          ),
+        );
+      case ApiErrorResult<CartResponseEntity>():
+        emit(
+          state.copyWith(
+            cartStates: {
+              ...state.cartStates,
+              id: BaseState.error(result.errorMessage),
+            },
           ),
         );
     }
