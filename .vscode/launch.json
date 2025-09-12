@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "name": "Flutter (lib\\api\\client\\api_client.dart)",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib\\api\\client\\api_client.dart"
+        }
+    ]
+}

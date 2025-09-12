@@ -15,8 +15,8 @@ class LoginListener extends StatelessWidget {
         if (state.loading == true) {
           showDialog(
             context: context,
-            builder:
-                (context) => const Center(child: CircularProgressIndicator()),
+            builder: (context) =>
+                const Center(child: CircularProgressIndicator()),
           );
         } else if (state.loginEntity != null) {
           if (Navigator.canPop(context)) Navigator.pop(context);
@@ -25,7 +25,6 @@ class LoginListener extends StatelessWidget {
             context: context,
           );
           Navigator.pushReplacementNamed(context, RouteNames.home);
-
         } else if (state.errorMessage != null) {
           Navigator.pop(context);
           Loaders.showErrorMessage(

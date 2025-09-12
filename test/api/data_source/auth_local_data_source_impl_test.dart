@@ -16,7 +16,7 @@ void main() {
     setUp(() {
       mockSecureStorage = MockFlutterSecureStorage();
       authLocalDataSource = AuthLocalDataSourceImpl(
-         mockSecureStorage,
+        mockSecureStorage,
       );
     });
     test("should save rememberMe correctly", () async {
