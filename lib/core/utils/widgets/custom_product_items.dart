@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:elevate_ecommerce_app/core/base_state/base_state.dart';
 import 'package:elevate_ecommerce_app/core/constants/app_colors.dart';
 import 'package:elevate_ecommerce_app/core/constants/app_images.dart';
 import 'package:elevate_ecommerce_app/core/router/route_names.dart';
@@ -9,7 +10,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomProductItems extends StatelessWidget {
   final ProductEntity productEntity;
-  const CustomProductItems({super.key, required this.productEntity});
+  final void Function()? onPressedButton;
+  final BaseState? cartState;
+  const CustomProductItems({
+    super.key,
+    required this.productEntity,
+    this.onPressedButton,
+    this.cartState,
+  });
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -98,23 +106,41 @@ class CustomProductItems extends StatelessWidget {
                 height: 36.h,
                 width: double.infinity,
                 child: ElevatedButton.icon(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed(
-                      RouteNames.productDetails,
-                      arguments: productEntity,
-                    );
-                  },
-                  icon: Icon(Icons.shopping_cart_outlined, size: 16.sp),
-                  label: Text(
-                    local.addToCart,
-                    style: theme.textTheme.bodySmall?.copyWith(
-                      fontSize: 13.sp,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.white,
-                    ),
-                  ),
+                  onPressed: onPressedButton,
+                  icon: (cartState?.isLoading ?? false)
+                      ? null
+                      : Icon(
+                          cartState?.data == null
+                              ? Icons.shopping_cart_outlined
+                              : Icons.add_task_outlined,
+                          size: 16.sp,
+                        ),
+                  label: (cartState?.isLoading ?? false)
+                      ? SizedBox(
+                          width: 16.sp,
+                          height: 16.sp,
+                          child: const Center(
+                            child: CircularProgressIndicator(
+                              strokeWidth: 2,
+                              color: Colors.white,
+                            ),
+                          ),
+                        )
+                      : Text(
+                          cartState?.data == null
+                              ? local.addToCart
+                              : local.added,
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            fontSize: 13.sp,
+                            fontWeight: FontWeight.w600,
+                            color: AppColors.white,
+                          ),
+                        ),
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.symmetric(horizontal: 8.w),
+                    backgroundColor: cartState?.data == null
+                        ? theme.colorScheme.primary
+                        : AppColors.green,
                   ),
                 ),
               ),

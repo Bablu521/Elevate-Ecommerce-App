@@ -107,7 +107,6 @@
   "guestMode": "Guest Mode",
   "loginToSaveCartAndManageProfile": "Login or create a free account to save your cart, checkout faster, manage your profile, and track your orders.",
   "or": "or",
-  "bestSeller" : "Best seller",
   "savedAddress": "Saved address",
   "addNewAddress": "Add new address",
   "address": "Address",
@@ -140,4 +139,6 @@
   "locationPermissionMessage": "Location Permission Message",
   "cancel": "cancel",
   "openSettings": "Open Settings"
+  "bestSeller": "Best seller",
+  "added": "Added"
 }
