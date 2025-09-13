@@ -26,7 +26,7 @@ class BestSellerBody extends StatelessWidget {
                 crossAxisCount: 2,
                 mainAxisSpacing: 17,
                 crossAxisSpacing: 17,
-                childAspectRatio: 160 / 260,
+                childAspectRatio: 163 / 240,
               ),
               itemBuilder: (context, index) {
                 final product = state.stateBestSellerListProduct!.data![index];

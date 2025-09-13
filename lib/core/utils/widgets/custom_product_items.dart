@@ -39,14 +39,15 @@ class CustomProductItems extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CachedNetworkImage(
-                imageUrl: productEntity.imgCover ?? AppImages.productTestImage,
-                fit: BoxFit.cover,
-                width: double.infinity,
-                height: 131.h,
-                placeholder: (context, url) =>
-                    const Center(child: CircularProgressIndicator()),
-                errorWidget: (context, url, error) => const Icon(Icons.error),
+              AspectRatio(
+                aspectRatio: 147 / 131,
+                child: CachedNetworkImage(
+                  imageUrl: productEntity.imgCover ?? AppImages.productTestImage,
+                  fit: BoxFit.cover,
+                  placeholder: (context, url) =>
+                      const Center(child: CircularProgressIndicator()),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                ),
               ),
               const SizedBox(height: 8),
               Expanded(
@@ -63,13 +64,12 @@ class CustomProductItems extends StatelessWidget {
                         ).textTheme.bodySmall!.copyWith(fontSize: 12.sp),
                       ),
                       const SizedBox(height: 4),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width / 4,
-                        child: Wrap(
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
                               overflow: TextOverflow.ellipsis,
-                              "EGP ${productEntity.priceAfterDiscount.toString()}",
+                              "${AppLocalizations.of(context).eGP} ${productEntity.priceAfterDiscount.toString()}",
                               style: theme.textTheme.bodySmall?.copyWith(
                                 fontWeight: FontWeight.w500,
                               ),
@@ -86,7 +86,7 @@ class CustomProductItems extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              "${((productEntity.price ?? 0 - productEntity.priceAfterDiscount!) / productEntity.price!.toInt() * 100).toInt()}%",
+                              "${(((productEntity.price ?? 0) - (productEntity.priceAfterDiscount ?? 0)) / (productEntity.price ?? 1) * 100).toInt()}%",
                               overflow: TextOverflow.ellipsis,
                               style: theme.textTheme.bodySmall?.copyWith(
                                 fontSize: 12.sp,
@@ -95,7 +95,6 @@ class CustomProductItems extends StatelessWidget {
                               ),
                             ),
                           ],
-                        ),
                       ),
                     ],
                   ),
