@@ -63,7 +63,7 @@ void main() {
     });
 
     test("should read correctly", () async {
-      // Arrange 
+      // Arrange
       when(
         mockSecureStorage.read(key: ConstKeys.keyUserStatus),
       ).thenAnswer((_) async => ConstKeys.kUserLogin);

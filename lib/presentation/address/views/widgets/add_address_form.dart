@@ -57,7 +57,7 @@ class AddAddressForm extends StatelessWidget {
                   builder: (context, cities, child) {
                     return DropdownButtonFormField<String>(
                       key: ValueKey(AppLocalizations.of(context).cityDropdown),
-                      initialValue: addressViewModel.getValidCityId(),
+                      value: addressViewModel.getValidCityId(),
                       isExpanded: true,
                       style: Theme.of(context).textTheme.bodySmall,
                       validator: Validations.validateDropdown,
@@ -96,7 +96,7 @@ class AddAddressForm extends StatelessWidget {
                       key: ValueKey(
                         '${AppLocalizations.of(context).areaDropdown}${areas.hashCode}',
                       ),
-                      initialValue: addressViewModel.getValidAreaId(),
+                      value: addressViewModel.getValidAreaId(),
                       isExpanded: true,
                       style: Theme.of(context).textTheme.bodySmall,
                       validator: Validations.validateDropdown,

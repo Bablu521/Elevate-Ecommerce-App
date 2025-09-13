@@ -29,8 +29,8 @@ abstract class AppTheme {
       ),
       headlineSmall: getTextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500),
       labelSmall: getTextStyle(
-        fontSize: 13.sp,
-        fontWeight: FontWeight.w500,
+        fontSize: 12.sp,
+        fontWeight: FontWeight.w400,
         fontFamily: ConstKeys.interFont,
       ),
     ),

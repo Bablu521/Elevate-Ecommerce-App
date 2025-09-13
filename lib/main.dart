@@ -34,8 +34,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: AppTheme.lightTheme,
           onGenerateRoute: AppRouter.onGenerateRoute,
-          // initialRoute: isRememberMe ? RouteNames.home : RouteNames.login,
-          initialRoute: RouteNames.savedAddress,
+          initialRoute: isRememberMe ? RouteNames.home : RouteNames.login,
           localizationsDelegates: [
             AppLocalizations.delegate,
             GlobalMaterialLocalizations.delegate,
