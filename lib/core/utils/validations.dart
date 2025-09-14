@@ -4,7 +4,7 @@ class Validations {
   Validations._();
 
   static String? validateEmail(String? val) {
-    RegExp emailRegex = RegExp(
+    final RegExp emailRegex = RegExp(
       r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
     );
     if (val == null) {
@@ -19,7 +19,7 @@ class Validations {
   }
 
   static String? validatePassword(String? val) {
-    RegExp passwordRegex = RegExp(
+    final RegExp passwordRegex = RegExp(
       r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[#?!@$%^&*-]).{8,}$',
     );
     if (val == null) {
@@ -44,7 +44,7 @@ class Validations {
   }
 
   static String? validateUsername(String? val) {
-    RegExp usernameRegex = RegExp(r'^[a-zA-Z0-9,.-]+$');
+    final RegExp usernameRegex = RegExp(r'^[a-zA-Z0-9,.-]+$');
     if (val == null) {
       return AppLocalizations().thisFieldIsRequired;
     } else if (val.isEmpty) {
@@ -65,7 +65,7 @@ class Validations {
   }
 
   static String? validatePhoneNumber(String? val) {
-    final regex = RegExp(r'^(?:\+2)?01[0125][0-9]{8}$');
+    final regex = RegExp(r'^(?:\+2)?01[0125][0-9]{8}$'); 
 
     if (val == null || val.trim().isEmpty) {
       return AppLocalizations().thisFieldIsRequired;
@@ -76,5 +76,40 @@ class Validations {
     } else {
       return null;
     }
+  }
+
+  static String? validateAddress(String? val) {
+    final RegExp addressRegex = RegExp(r"^[\p{L}\d\s,.\-\/#]+$", unicode: true);
+
+    if (val == null || val.trim().isEmpty) {
+      return AppLocalizations().pleaseEnterAddress;
+    }
+
+    if (!addressRegex.hasMatch(val.trim())) {
+      return AppLocalizations().pleaseEnterValidAddress;
+    }
+
+    return null;
+  }
+
+  static String? validateRecipientName(String? val) {
+    final RegExp addressRegex = RegExp(r"^[\p{L}\d\s,.\-\/#]+$", unicode: true);
+
+    if (val == null || val.trim().isEmpty) {
+      return AppLocalizations().pleaseEnterValidRecipient;
+    }
+
+    if (!addressRegex.hasMatch(val.trim())) {
+      return AppLocalizations().pleaseEnterValidRecipient;
+    }
+
+    return null;
+  }
+
+   static String? validateDropdown(String? value) {
+    if (value == null || value.isEmpty) {
+      return AppLocalizations().pleaseSelect;
+    }
+    return null;
   }
 }

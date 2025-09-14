@@ -8,7 +8,7 @@ void main() {
       'when call toOccasOccasionEntity with null values it should return OccasionEntity with null values',
       () async {
         //Arrange
-        OccasionDto occasionDto = const OccasionDto(
+        final OccasionDto occasionDto = const OccasionDto(
           id: null,
           name: null,
           slug: null,
@@ -20,7 +20,7 @@ void main() {
         );
 
         //Act
-        OccasionEntity result = occasionDto.toOccasOccasionEntity();
+        final OccasionEntity result = occasionDto.toOccasOccasionEntity();
 
         //Assert
         expect(result.id, null);
@@ -38,7 +38,7 @@ void main() {
       'when call toOccasOccasionEntity with right values it should return OccasionEntity with right values',
       () {
         //Arrange
-        OccasionDto occasionDto = OccasionDto(
+        final OccasionDto occasionDto = OccasionDto(
           id: "fake-id",
           name: "fake-name",
           slug: "fake-slug",
@@ -50,7 +50,7 @@ void main() {
         );
 
         //Act
-        OccasionEntity result = occasionDto.toOccasOccasionEntity();
+        final OccasionEntity result = occasionDto.toOccasOccasionEntity();
 
         //Assert
         expect(result.id, occasionDto.id);

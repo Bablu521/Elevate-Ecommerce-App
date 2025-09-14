@@ -27,9 +27,9 @@ void main() {
       'when call getAllOccasions it should return a list of occasions from api client with right parameters',
       () async {
         //Arrange
-        var expectedResult = OccasionsReponseDto(
+        final expectedResult = OccasionsReponseDto(
           message: "fake-message",
-          metadata: Metadata(
+          metadata: const Metadata(
             currentPage: 1,
             limit: 10,
             totalPages: 1,
@@ -63,7 +63,7 @@ void main() {
         ).thenAnswer((_) async => expectedResult);
 
         //Call
-        var result = await occasionRemoteDataSourceImpl.getAllOccasions();
+        final result = await occasionRemoteDataSourceImpl.getAllOccasions();
 
         //Assert
         verify(mockedApiClient.getAllOccasions()).called(1);
@@ -79,13 +79,13 @@ void main() {
       'when getAllOccasions failed it should return an error result',
       () async {
         //Arrange
-        var expectedError = "Server Error";
+        final expectedError = "Server Error";
         when(
           mockedApiClient.getAllOccasions(),
         ).thenThrow(Exception(expectedError));
 
         //Call
-        var result = await occasionRemoteDataSourceImpl.getAllOccasions();
+        final result = await occasionRemoteDataSourceImpl.getAllOccasions();
 
         //Assert
         verify(mockedApiClient.getAllOccasions()).called(1);
