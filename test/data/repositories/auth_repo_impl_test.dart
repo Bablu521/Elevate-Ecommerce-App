@@ -20,6 +20,7 @@ import 'package:elevate_ecommerce_app/api/models/responses/login_response/login_
 import 'package:elevate_ecommerce_app/data/data_source/auth_local_data_source.dart';
 import 'package:elevate_ecommerce_app/domin/entities/login_entity.dart';
 import '../../fixtures/login_fixtures.dart';
+import 'auth_repo_impl_test.mocks.dart';
 
 @GenerateMocks([AuthRemoteDataSource, AuthLocalDataSource])
 void main() {

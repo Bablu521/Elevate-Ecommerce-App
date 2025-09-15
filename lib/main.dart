@@ -68,9 +68,9 @@ Future<bool> getRememberMe() async {
 }
 
 Future<String> getLocal() async {
-  final FlutterSecureStorage _secureStorage = getIt.get<FlutterSecureStorage>();
+  final FlutterSecureStorage secureStorage = getIt.get<FlutterSecureStorage>();
   final String local =
-      await _secureStorage.read(key: ConstKeys.local) ??
+      await secureStorage.read(key: ConstKeys.local) ??
       ConstKeys.kEnglishLanguage;
 
   return local;

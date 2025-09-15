@@ -18,5 +18,5 @@ abstract final class AppImages {
   static const String markerIconImage = '$_rootImages/markerIcon.png';
   static const String kNotificationImage = '$_rootImages/Heart-eyes.png';
   static const String penImage = '$_rootImages/noto-v1_pen.png';
-  static const String profileImageTest = '$_rootImages/profile_test_image.jpg';
+  static const String profileImageTest = '$_rootImages/profile_empty_photo.jpg';
 }

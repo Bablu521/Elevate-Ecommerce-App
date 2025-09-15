@@ -1,0 +1,30 @@
+import 'package:elevate_ecommerce_app/core/constants/app_colors.dart';
+import 'package:elevate_ecommerce_app/generated/l10n.dart';
+import 'package:flutter/material.dart';
+
+class MainProfileHeader extends StatelessWidget {
+  const MainProfileHeader({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        ImageIcon(
+          const AssetImage("assets/icons/Vector.png"),
+          size: 20,
+          color: AppColors.mainColor,
+        ),
+        Text(
+          AppLocalizations.of(context).flowery,
+          style: TextStyle(
+            height: 2,
+            fontWeight: FontWeight.normal,
+            color: AppColors.mainColor,
+          ),
+        ),
+        const Spacer(),
+        const Icon(Icons.notifications_none, color: AppColors.gray),
+      ],
+    );
+  }
+}
