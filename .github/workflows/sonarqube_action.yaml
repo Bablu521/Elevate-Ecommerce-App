@@ -25,6 +25,13 @@ jobs:
       - run: flutter --version
       - name: Install packages
         run: flutter pub get
+
+      - name: Generate intl files
+        run: flutter pub run intl_utils:generate
+
+
+      - name: Generate JSON serialization and mocks
+        run: flutter pub run build_runner build --delete-conflicting-outputs
       # Add Flutter to PATH
       - name: Add Flutter to PATH
         run: echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
@@ -45,11 +52,4 @@ jobs:
             -Dsonar.projectKey=Bablu521_Elevate-Ecommerce-App
             -Dsonar.sources=lib,pubspec.yaml
             -Dsonar.tests=test
-            -Dsonar.dart.analyzer.mode=FLUTTER
-      - name: SonarQube Quality Gate check
-        id: sonarqube-quality-gate-check
-        uses: sonarsource/sonarqube-quality-gate-action@master
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        continue-on-error: true
+
