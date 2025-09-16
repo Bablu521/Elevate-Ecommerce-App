@@ -206,6 +206,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         itemCount: state.occasionListSuccess.length,
                       ),
                     ),
+
+                    SizedBox(height: 16.h),
                   ],
                 ),
               );

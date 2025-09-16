@@ -17,7 +17,7 @@ class SectionHeader extends StatelessWidget {
       children: [
         Text(
           title,
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+          style: Theme.of(context).textTheme.headlineMedium,
         ),
         TextButton(
           onPressed: onTap,
