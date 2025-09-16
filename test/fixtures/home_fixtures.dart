@@ -1,6 +1,6 @@
 import 'package:elevate_ecommerce_app/api/models/responses/best_seller/best_seller_product_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/best_seller/best_seller_response_dto.dart';
-import 'package:elevate_ecommerce_app/domin/entities/best_seller_entity.dart';
+import 'package:elevate_ecommerce_app/domin/entities/best_seller_product_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/cart_response_entity/cart_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/cart_response_entity/cart_response_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/requests/add_product_to_cart_request_entity.dart';

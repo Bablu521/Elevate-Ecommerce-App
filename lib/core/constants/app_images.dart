@@ -17,4 +17,5 @@ abstract final class AppImages {
   static const String editIconImage = '$_rootImages/editIcon.png';
   static const String markerIconImage = '$_rootImages/markerIcon.png';
   static const String kNotificationImage = '$_rootImages/Heart-eyes.png';
+  static const String floweryIcon = '$_rootImages/flowery_ic.svg';
 }

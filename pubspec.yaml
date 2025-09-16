@@ -120,6 +120,9 @@ flutter:
     - family: Outfit
       fonts:
         - asset: assets/fonts/Outfit.ttf
+    - family: IMFellEnglish
+      fonts:
+        - asset: assets/fonts/IMFellEnglish.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:

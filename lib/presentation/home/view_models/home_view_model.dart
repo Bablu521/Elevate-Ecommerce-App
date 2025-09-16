@@ -10,14 +10,13 @@ import 'home_event.dart';
 @injectable
 class HomeViewModel extends Cubit<HomeStates> {
   final GetHomeUseCase _getHomeUseCase;
-  HomeViewModel(this._getHomeUseCase, )
-      : super(HomeStates());
+
+  HomeViewModel(this._getHomeUseCase) : super(const HomeStates());
 
   void doIntent(HomeEvent event) {
     switch (event) {
       case OnLoadHomeListEvent():
         _getHome();
-
     }
   }
 
@@ -25,18 +24,17 @@ class HomeViewModel extends Cubit<HomeStates> {
 
   Future<void> _getHome() async {
     emit(state.copyWith(homeListIsLoading: true));
-    var result = await _getHomeUseCase.call();
+    final result = await _getHomeUseCase.call();
     switch (result) {
       case ApiSuccessResult<HomeEntity>():
         emit(
           state.copyWith(
             homeListIsLoading: false,
             categoriesListSuccess: result.data.categories ?? [],
-            occasionListSuccess: result.data.occasions ??[],
-            productListSuccess: result.data.products??[],
-            bestSellerListSuccess: result.data.bestSeller??[],
+            occasionListSuccess: result.data.occasions ?? [],
+            productListSuccess: result.data.products ?? [],
+            bestSellerListSuccess: result.data.bestSeller ?? [],
           ),
-
         );
 
       case ApiErrorResult<HomeEntity>():
@@ -48,6 +46,4 @@ class HomeViewModel extends Cubit<HomeStates> {
         );
     }
   }
-
-
 }

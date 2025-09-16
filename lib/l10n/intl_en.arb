@@ -95,7 +95,6 @@
   "clearCart": "Clear Cart",
   "redRoses": "Red roses",
   "pinkRoseBouquet": "15 Pink Rose Bouquet",
-  "eGP": "EGP",
   "subTotal": "Sub Total",
   "deliveryFee": "Delivery Fee",
   "total": "Total",
@@ -142,5 +141,8 @@
   "openSettings": "Open Settings",
   "bestSeller": "Best seller",
   "added": "Added",
-  "delivertosheikhzayed": "Deliver to 2XVP+XC - Sheikh Zayed"
+  "deliverToSheikhZayed": "Deliver to 2XVP+XC - Sheikh Zayed",
+  "viewAll": "View All",
+  "flowery": "Flowery",
+  "egp": "EGP"
 }

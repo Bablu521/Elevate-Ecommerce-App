@@ -105,7 +105,7 @@ class CartItem extends StatelessWidget {
                         Column(
                           children: [
                             Text(
-                              "${AppLocalizations.of(context).eGP} ${product!.price}",
+                              "${AppLocalizations.of(context).egp} ${product!.price}",
                               style: Theme.of(context).textTheme.bodySmall!
                                   .copyWith(fontWeight: FontWeight.w600),
                             ),

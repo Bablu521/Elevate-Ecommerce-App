@@ -1,5 +1,5 @@
 import 'package:elevate_ecommerce_app/api/models/responses/best_seller/best_seller_product_dto.dart';
-import 'package:elevate_ecommerce_app/domin/entities/best_seller_entity.dart';
+import 'package:elevate_ecommerce_app/domin/entities/best_seller_product_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/product_entity.dart';
 
 extension BestSellerMapper on BestSellerProductDto {

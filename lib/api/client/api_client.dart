@@ -22,6 +22,8 @@ import 'package:elevate_ecommerce_app/api/models/responses/cart_response_dto/car
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 
+import '../models/responses/home_response_dto/home_response_dto.dart';
+
 part 'api_client.g.dart';
 
 @injectable

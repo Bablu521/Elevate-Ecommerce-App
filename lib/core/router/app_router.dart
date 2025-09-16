@@ -7,10 +7,10 @@ import 'package:elevate_ecommerce_app/presentation/cart/views/screen/cart_page.d
 import 'package:elevate_ecommerce_app/presentation/notifications/view/notifications_view.dart';
 import 'package:elevate_ecommerce_app/presentation/occasion/views/screen/occasion_view.dart';
 import 'package:elevate_ecommerce_app/presentation/product_details/view/screen/product_details_view.dart';
-
 import 'package:flutter/material.dart';
-import '../../presentation/address/views/screens/saved_address_view.dart';
+
 import '../../presentation/address/views/screens/add_address_view.dart';
+import '../../presentation/address/views/screens/saved_address_view.dart';
 import '../../presentation/auth/login/views/login_view.dart';
 import '../../presentation/main_home/view/main_home.dart';
 
@@ -21,8 +21,6 @@ abstract class AppRouter {
         return MaterialPageRoute(builder: (_) => const LoginView());
       case RouteNames.home:
         return MaterialPageRoute(builder: (_) => const MainHome());
-      case RouteNames.home:
-        return MaterialPageRoute(builder: (_) => HomeScreen());
       case RouteNames.register:
         return MaterialPageRoute(builder: (_) => RegisterView());
       case RouteNames.cart:

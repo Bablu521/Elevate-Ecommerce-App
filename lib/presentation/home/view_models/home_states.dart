@@ -32,10 +32,10 @@
 //
 //
 // }
-import 'package:elevate_ecommerce_app/domin/entities/categories_entity.dart';
 import 'package:equatable/equatable.dart';
 
-import '../../../domin/entities/best_seller_entity.dart';
+import '../../../domin/entities/best_seller_product_entity.dart';
+import '../../../domin/entities/category_entity.dart';
 import '../../../domin/entities/occasion_entity.dart';
 import '../../../domin/entities/product_entity.dart';
 
@@ -43,12 +43,12 @@ class HomeStates extends Equatable {
   final bool homeListIsLoading;
   final String? homeListErrorMessage;
 
-  final List<CategoriesEntity> categoriesListSuccess;
+  final List<CategoryEntity> categoriesListSuccess;
   final List<OccasionEntity> occasionListSuccess;
   final List<ProductEntity> productListSuccess;
-  final List<BestSellerEntity> bestSellerListSuccess;
+  final List<BestSellerProductEntity> bestSellerListSuccess;
 
-  HomeStates({
+  const HomeStates({
     this.homeListIsLoading = false,
     this.homeListErrorMessage,
     this.categoriesListSuccess = const [],
@@ -60,18 +60,20 @@ class HomeStates extends Equatable {
   HomeStates copyWith({
     bool? homeListIsLoading,
     String? homeListErrorMessage,
-    List<CategoriesEntity>? categoriesListSuccess,
+    List<CategoryEntity>? categoriesListSuccess,
     List<OccasionEntity>? occasionListSuccess,
     List<ProductEntity>? productListSuccess,
-    List<BestSellerEntity>? bestSellerListSuccess,
+    List<BestSellerProductEntity>? bestSellerListSuccess,
   }) {
     return HomeStates(
       homeListIsLoading: homeListIsLoading ?? this.homeListIsLoading,
       homeListErrorMessage: homeListErrorMessage ?? this.homeListErrorMessage,
-      categoriesListSuccess: categoriesListSuccess ?? this.categoriesListSuccess,
+      categoriesListSuccess:
+          categoriesListSuccess ?? this.categoriesListSuccess,
       occasionListSuccess: occasionListSuccess ?? this.occasionListSuccess,
       productListSuccess: productListSuccess ?? this.productListSuccess,
-      bestSellerListSuccess: bestSellerListSuccess ?? this.bestSellerListSuccess,
+      bestSellerListSuccess:
+          bestSellerListSuccess ?? this.bestSellerListSuccess,
     );
   }
 

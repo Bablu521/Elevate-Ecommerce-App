@@ -69,7 +69,7 @@ class CustomProductItems extends StatelessWidget {
                           children: [
                             Text(
                               overflow: TextOverflow.ellipsis,
-                              "${AppLocalizations.of(context).eGP} ${productEntity.priceAfterDiscount.toString()}",
+                              "${AppLocalizations.of(context).egp} ${productEntity.priceAfterDiscount.toString()}",
                               style: theme.textTheme.bodySmall?.copyWith(
                                 fontWeight: FontWeight.w500,
                               ),
