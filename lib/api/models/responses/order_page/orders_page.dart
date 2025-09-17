@@ -1,7 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-
 import 'order_data.dart';
-
 part 'orders_page.g.dart';
 
 @JsonSerializable()

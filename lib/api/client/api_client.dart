@@ -40,14 +40,7 @@ abstract class ApiClient {
   factory ApiClient(Dio dio) = _ApiClient;
 
   @GET(Endpoints.getOrders)
-  Future<OrdersPageDto> getOrders(
-      // @Header("Authorization") String token,
-      // @Query("page") int page,
-      // @Query("limit") int limit,
-      );
-
-
-
+  Future<OrdersPageDto> getOrders();
 
   @GET(Endpoints.cart)
   Future<CartResponseDto> getLoggedUserCart();

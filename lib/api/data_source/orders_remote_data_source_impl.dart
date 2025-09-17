@@ -7,11 +7,8 @@ import '../mapper/order/order_page_mapper.dart';
 
 @Injectable(as:OrdersRemoteDataSource)
 class OrdersRemoteDataSourceImpl extends OrdersRemoteDataSource{
-
   ApiClient apiClient;
-
   OrdersRemoteDataSourceImpl({required this.apiClient,});
-
 
 
   @override
@@ -19,10 +16,8 @@ class OrdersRemoteDataSourceImpl extends OrdersRemoteDataSource{
     try{
       final response = await apiClient.getOrders(
       );
-
       final  responseEntity=OrderPageMapper.toOrdersPageEntity(orderdto: response);
       return ApiSuccessResult(responseEntity );
-
     }
     catch (e){
       return ApiErrorResult(e);
