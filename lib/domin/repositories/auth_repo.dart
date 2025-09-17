@@ -1,4 +1,5 @@
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
+import 'package:elevate_ecommerce_app/domin/entities/logout_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/profile_info_entity.dart';
 
 import '../../api/models/requestes/login_requests/login_request.dart';
@@ -36,4 +37,5 @@ abstract interface class AuthRepo {
   Future<ApiResult<ResetPasswordEntity>> resetPassword(
     ResetPasswordRequestEntity request,
   );
+  Future<ApiResult<LogoutEntity>> logout();
 }

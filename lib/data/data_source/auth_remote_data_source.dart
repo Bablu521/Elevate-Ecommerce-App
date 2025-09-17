@@ -1,4 +1,5 @@
 import 'package:elevate_ecommerce_app/api/models/responses/profile/profile_info_response/profile_info_response_dto.dart';
+import 'package:elevate_ecommerce_app/domin/entities/logout_entity.dart';
 
 import '../../api/models/requestes/login_requests/login_request.dart';
 import '../../api/models/responses/login_response/login_response_dto.dart';
@@ -30,4 +31,5 @@ abstract interface class AuthRemoteDataSource {
   Future<ApiResult<ResetPasswordEntity>> resetPassword(
     ResetPasswordRequestEntity request,
   );
+  Future<ApiResult<LogoutEntity>> logout();
 }

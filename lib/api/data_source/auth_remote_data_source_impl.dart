@@ -1,10 +1,13 @@
 import 'package:elevate_ecommerce_app/api/client/api_client.dart';
+import 'package:elevate_ecommerce_app/api/mapper/auth/logout_mapper.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/register_request_dto/register_request_dto.dart';
+import 'package:elevate_ecommerce_app/api/models/responses/logout/logout_model.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/profile/profile_info_response/profile_info_response_dto.dart';
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/data/data_source/auth_remote_data_source.dart';
 import 'package:elevate_ecommerce_app/domin/entities/auth/response/forget_password_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/auth/response/reset_password_entity.dart';
+import 'package:elevate_ecommerce_app/domin/entities/logout_entity.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domin/entities/auth/request/forget_password_request_entity.dart';
@@ -73,6 +76,14 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   ) async {
     return safeApiCall(
       () => _apiClient.verifyResetCode(request.fromDomain()),
+      (response) => response.toEntity(),
+    );
+  }
+
+  @override
+  Future<ApiResult<LogoutEntity>> logout() async {
+    return safeApiCall<LogoutModel, LogoutEntity>(
+      () => _apiClient.logout(),
       (response) => response.toEntity(),
     );
   }

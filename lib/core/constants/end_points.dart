@@ -13,6 +13,6 @@ abstract class Endpoints {
   static const String bestSeller = "api/v1/best-seller";
   static const String cart = "api/v1/cart";
   static const String address = "api/v1/addresses";
-  static const String logOut = "api/v1/auth/logout";
+  static const String logout = "api/v1/auth/logout";
   static const String profileData = "api/v1/auth/profile-data";
 }

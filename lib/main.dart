@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:elevate_ecommerce_app/core/constants/const_keys.dart';
 import 'package:elevate_ecommerce_app/core/di/di.dart';
 import 'package:elevate_ecommerce_app/core/provider/app_config_provider.dart';
@@ -18,19 +20,18 @@ void main() async {
   configureDependencies();
   Bloc.observer = MyBlocObserver();
   final bool isRememberMe = await getRememberMe();
-  final String local = await getLocal();
+
   runApp(
     ChangeNotifierProvider(
-      create: (context) => AppConfigProvider(),
-      child: MyApp(isRememberMe: isRememberMe, local: local),
+      create: (context) => AppConfigProvider()..getLocal(),
+      child: MyApp(isRememberMe: isRememberMe),
     ),
   );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key, required this.isRememberMe, required this.local});
+  const MyApp({super.key, required this.isRememberMe});
   final bool isRememberMe;
-  final String local;
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<AppConfigProvider>(context);
@@ -64,14 +65,6 @@ Future<bool> getRememberMe() async {
   final String? rememberMeValue = await secureStorage.read(
     key: ConstKeys.keyRememberMe,
   );
+  log(rememberMeValue.toString());
   return rememberMeValue == "true";
-}
-
-Future<String> getLocal() async {
-  final FlutterSecureStorage secureStorage = getIt.get<FlutterSecureStorage>();
-  final String local =
-      await secureStorage.read(key: ConstKeys.local) ??
-      ConstKeys.kEnglishLanguage;
-
-  return local;
 }

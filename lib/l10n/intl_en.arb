@@ -1,4 +1,3 @@
-
 {
   "connectionTimeout": "Connection timeout. Please try again later.",
   "sendTimeout": "Request timed out. Please try again.",
@@ -117,7 +116,7 @@
   "loginToSaveCartAndManageProfile": "Login or create a free account to save your cart, checkout faster, manage your profile, and track your orders.",
   "or": "or",
   "changeLanguage": "Change Language",
-  "arabic" : "Arabic",
+  "arabic": "Arabic",
   "notification": "Notification",
   "savedAddress": "Saved address",
   "addNewAddress": "Add new address",
@@ -152,7 +151,6 @@
   "cancel": "cancel",
   "openSettings": "Open Settings",
   "bestSeller": "Best seller",
-  "added": "Added"
+  "added": "Added",
+  "DoYouSureLogout": "Do you sure you want to logout?"
 }
-
-

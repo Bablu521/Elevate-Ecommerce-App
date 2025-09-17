@@ -1,14 +1,15 @@
-// import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
-// import 'package:elevate_ecommerce_app/domin/models/response/logOutEntity.dart';
-// import 'package:elevate_ecommerce_app/domin/repositories/profile/edit_profile_repo.dart';
-// import 'package:injectable/injectable.dart';
-// @injectable
-// class LogOutUseCase{
-//   EditProfileRepo editProfileRepo;
-//   LogOutUseCase({required this.editProfileRepo});
+import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
+import 'package:elevate_ecommerce_app/domin/entities/logout_entity.dart';
+import 'package:elevate_ecommerce_app/domin/repositories/auth_repo.dart';
 
-//   Future<ApiResult<LogOutEntity>> call()async{
-//     return await editProfileRepo.logOut();
-//   }
+import 'package:injectable/injectable.dart';
 
-// }
+@injectable
+class LogoutUseCase {
+  final AuthRepo _authRepo;
+  LogoutUseCase(this._authRepo);
+
+  Future<ApiResult<LogoutEntity>> call() async {
+    return await _authRepo.logout();
+  }
+}

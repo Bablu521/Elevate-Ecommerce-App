@@ -13,8 +13,7 @@ abstract class ProfileMapper {
       lastName: response.user?.lastName ?? '',
       gender: response.user?.gender ?? '',
       phone: response.user?.phone ?? '',
-      imagePath: response.user?.photo ?? AppImages.profileImageTest,
+      imagePath: response.user?.photo ?? AppImages.profileImageEmpty,
     );
   }
-
 }
