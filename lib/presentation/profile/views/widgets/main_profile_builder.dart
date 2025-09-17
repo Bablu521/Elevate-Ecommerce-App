@@ -72,6 +72,9 @@ class MainProfileBuilder extends StatelessWidget {
               ),
               text: local.myOrders,
               secondWidget: const Icon(Icons.arrow_forward_ios_outlined),
+              onTap: () {
+                Navigator.pushNamed(context, RouteNames.ordersPage);
+              },
             ),
             CustomProfileItem(
               firstWidget: Icon(
