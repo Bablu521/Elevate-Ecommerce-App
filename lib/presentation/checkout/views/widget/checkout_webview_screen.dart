@@ -10,7 +10,7 @@ class CheckoutWebviewScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: WebViewWidget(controller: checkoutViewModel.webViewController!),
+      body: WebViewWidget(controller: checkoutViewModel.webViewController),
     );
   }
 }

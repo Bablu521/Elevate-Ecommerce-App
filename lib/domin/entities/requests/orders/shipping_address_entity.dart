@@ -7,7 +7,7 @@ class ShippingAddressEntity extends Equatable {
   final String? lat;
   final String? long;
 
-  ShippingAddressEntity({
+  const ShippingAddressEntity({
     this.street,
     this.phone,
     this.city,

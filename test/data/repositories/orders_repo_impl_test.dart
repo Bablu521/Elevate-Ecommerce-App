@@ -22,7 +22,7 @@ void main() {
     });
 
     group("test checkoutCashOrder", () {
-      final expectedRequestEntity = ShippingAddressEntity(
+      final expectedRequestEntity = const ShippingAddressEntity(
         street: "fake-street",
         phone: "fake-phone",
         city: "fake-city",
@@ -80,7 +80,7 @@ void main() {
     });
 
     group("test checkoutCreditOrder", () {
-      final expectedRequestEntity = ShippingAddressEntity(
+      final expectedRequestEntity = const ShippingAddressEntity(
         street: "fake-street",
         phone: "fake-phone",
         city: "fake-city",

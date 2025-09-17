@@ -16,7 +16,7 @@ class ShippingAddressDTO extends Equatable {
   @JsonKey(name: "long")
   final String? long;
 
-  ShippingAddressDTO({
+  const ShippingAddressDTO({
     this.street,
     this.phone,
     this.city,

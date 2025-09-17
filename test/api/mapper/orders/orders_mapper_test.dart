@@ -14,7 +14,7 @@ void main() {
       test(
         'when call toOrderRequest with null values it should return OrderRequest with null values',
         () async {
-          final expectedResult = ShippingAddressEntity(
+          final expectedResult = const ShippingAddressEntity(
             street: null,
             phone: null,
             city: null,
@@ -35,7 +35,7 @@ void main() {
       test(
         'when call toOrderRequest with right values it should return OrderRequest with right values',
         () {
-          final expectedResult = ShippingAddressEntity(
+          final expectedResult = const ShippingAddressEntity(
             street: "fake-street",
             phone: "fake-phone",
             city: "fake-city",

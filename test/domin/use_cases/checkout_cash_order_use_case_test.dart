@@ -20,7 +20,7 @@ void main() {
       checkoutCashOrderUseCase = CheckoutCashOrderUseCase(mockOrdersRepo);
     });
 
-    final expectedRequestEntity = ShippingAddressEntity(
+    final expectedRequestEntity = const ShippingAddressEntity(
       street: "fake-street",
       phone: "fake-phone",
       city: "fake-city",
