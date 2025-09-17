@@ -17,6 +17,7 @@ import 'package:elevate_ecommerce_app/api/models/responses/logout/logout_model.d
 import 'package:elevate_ecommerce_app/api/models/responses/occasions_reponse_dto/occasions_reponse_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/products_reponse_dto/products_reponse_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/profile/profile_info_response/profile_info_response_dto.dart';
+import 'package:elevate_ecommerce_app/api/models/responses/order_page/orders_page.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/register_response_dto/register_response_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/change_password_request/change_password_request.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/update_profile_info_request/update_profile_info_request.dart';
@@ -37,6 +38,9 @@ part 'api_client.g.dart';
 abstract class ApiClient {
   @factoryMethod
   factory ApiClient(Dio dio) = _ApiClient;
+
+  @GET(Endpoints.getOrders)
+  Future<OrdersPageDto> getOrders();
 
   @GET(Endpoints.cart)
   Future<CartResponseDto> getLoggedUserCart();
@@ -126,6 +130,7 @@ abstract class ApiClient {
 
   @DELETE('${Endpoints.address}/{id}')
   Future<AddressResponseDto> removeAddress(@Path("id") String addressId);
+  
   @GET(Endpoints.logout)
   Future<LogoutModel> logout();
 }

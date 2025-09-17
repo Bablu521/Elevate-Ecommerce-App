@@ -26,4 +26,5 @@ abstract final class AppImages {
   static const String transactionOrder =
       '$_rootIcons/Transaction-order (交易清单).png';
   static const String languageIcon = '$_rootIcons/ax_vector.png';
+  static const String orderImage = '$_rootImages/kTestFlower.png';
 }

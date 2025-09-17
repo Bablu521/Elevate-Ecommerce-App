@@ -155,5 +155,8 @@
   "openSettings": "Open Settings",
   "bestSeller": "Best seller",
   "added": "Added",
-  "DoYouSureLogout": "Do you sure you want to logout?"
+  "DoYouSureLogout": "Do you sure you want to logout?",
+  "trackOrder": "Track order",
+  "active": "Active",
+  "completed": "Completed"
 }

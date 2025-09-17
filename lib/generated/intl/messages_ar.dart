@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "DoYouSureLogout": MessageLookupByLibrary.simpleMessage(
             "هل أنت متأكد أنك تريد تسجيل الخروج؟"),
         "aboutUs": MessageLookupByLibrary.simpleMessage("من نحن"),
+        "active": MessageLookupByLibrary.simpleMessage("نشط"),
         "addNewAddress":
             MessageLookupByLibrary.simpleMessage("إضافة عنوان جديد"),
         "addToCart": MessageLookupByLibrary.simpleMessage("أضف إلى السلة"),
@@ -62,6 +63,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "cityDropdown": MessageLookupByLibrary.simpleMessage("قائمة المدن"),
         "clearCart": MessageLookupByLibrary.simpleMessage("مسح السلة"),
         "close": MessageLookupByLibrary.simpleMessage("إغلاق"),
+        "completed": MessageLookupByLibrary.simpleMessage("أكتمل"),
         "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
@@ -243,6 +245,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "thisFieldIsRequired":
             MessageLookupByLibrary.simpleMessage("هذا الحقل مطلوب"),
         "total": MessageLookupByLibrary.simpleMessage("الإجمالي"),
+        "trackOrder": MessageLookupByLibrary.simpleMessage("سير الطلب"),
         "unknown": MessageLookupByLibrary.simpleMessage("غير معروف"),
         "unknownError":
             MessageLookupByLibrary.simpleMessage("حدث خطأ غير متوقع:"),

@@ -18,4 +18,5 @@ abstract class Endpoints {
   static const String cart = "api/v1/cart";
   static const String address = "api/v1/addresses";
   static const String logout = "api/v1/auth/logout";
+  static const String getOrders = "api/v1/orders";
 }
