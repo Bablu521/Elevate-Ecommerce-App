@@ -57,23 +57,21 @@ class CustomButtonSheet extends StatelessWidget {
                     Card(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16),
-                        child: Row(
-                          children: [
-                            Text(
+                        child: RadioGroup<String>(
+                          groupValue: provider.local,
+                          onChanged: (value) => provider.changeLocal,
+                          child: RadioMenuButton<String>(
+                            value: ConstKeys.kEnglishLanguage,
+                            groupValue: provider.local,
+                            onChanged: (value) => provider.changeLocal(value!),
+                            child: Text(
                               local.english,
                               style: theme.textTheme.bodyMedium?.copyWith(
                                 fontWeight: FontWeight.w500,
                                 fontFamily: ConstKeys.outfitFont,
                               ),
                             ),
-                            const Spacer(),
-                            Radio(
-                              value: ConstKeys.kEnglishLanguage,
-                              groupValue: provider.local,
-                              onChanged: (value) =>
-                                  provider.changeLocal(value!),
-                            ),
-                          ],
+                          ),
                         ),
                       ),
                     ),
@@ -82,19 +80,22 @@ class CustomButtonSheet extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: Row(
                           children: [
-                            Text(
-                              local.arabic,
-                              style: theme.textTheme.bodyMedium?.copyWith(
-                                fontWeight: FontWeight.w500,
-                                fontFamily: ConstKeys.outfitFont,
-                              ),
-                            ),
-                            const Spacer(),
-                            Radio(
-                              value: ConstKeys.kArabicLanguage,
+                            RadioGroup<String>(
                               groupValue: provider.local,
-                              onChanged: (value) =>
-                                  provider.changeLocal(value!),
+                              onChanged: (value) => provider.changeLocal,
+                              child: RadioMenuButton<String>(
+                                value: ConstKeys.kArabicLanguage,
+                                groupValue: provider.local,
+                                onChanged: (value) =>
+                                    provider.changeLocal(value!),
+                                child: Text(
+                                  local.arabic,
+                                  style: theme.textTheme.bodyMedium?.copyWith(
+                                    fontWeight: FontWeight.w500,
+                                    fontFamily: ConstKeys.outfitFont,
+                                  ),
+                                ),
+                              ),
                             ),
                           ],
                         ),
