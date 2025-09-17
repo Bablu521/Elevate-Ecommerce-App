@@ -1,5 +1,6 @@
 abstract class Endpoints {
   static const String register = "api/v1/auth/signup";
+  static const String editProfile = "api/v1/auth/editProfile";
   static const String signIn = "api/v1/auth/signin";
   static const String forgetPassword = "api/v1/auth/forgotPassword";
   static const String verifyReset = "api/v1/auth/verifyResetCode";
@@ -12,4 +13,6 @@ abstract class Endpoints {
   static const String bestSeller = "api/v1/best-seller";
   static const String cart = "api/v1/cart";
   static const String address = "api/v1/addresses";
+  static const String logout = "api/v1/auth/logout";
+  static const String profileData = "api/v1/auth/profile-data";
 }

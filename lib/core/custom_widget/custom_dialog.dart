@@ -109,9 +109,7 @@ class CustomDialog {
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.white,
-                        side: BorderSide(
-                          color: AppColors.black,
-                        )
+                        side: BorderSide(color: AppColors.mainColor),
                       ),
                       onPressed: () {
                         if (negativeOnClick != null) {
@@ -123,7 +121,7 @@ class CustomDialog {
                       child: Text(
                         negativeText ?? AppLocalizations.of(ctx).no,
                         style: Theme.of(ctx).textTheme.bodyMedium?.copyWith(
-                          color: AppColors.white,
+                          color: AppColors.mainColor,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

@@ -2,6 +2,7 @@ abstract final class AppImages {
   AppImages._();
 
   static const String _rootImages = 'assets/images';
+  static const String _rootIcons = 'assets/icons';
   static const String productDetailsTestImage = "assets/Images/prodcutTest.png";
   static const String loading = "assets/animations/eYr0JZUKw0.json";
   static const String logo = '$_rootImages/Logo_flower.png';
@@ -17,4 +18,11 @@ abstract final class AppImages {
   static const String editIconImage = '$_rootImages/editIcon.png';
   static const String markerIconImage = '$_rootImages/markerIcon.png';
   static const String kNotificationImage = '$_rootImages/Heart-eyes.png';
+  static const String penImage = '$_rootImages/noto-v1_pen.png';
+  static const String profileImageEmpty =
+      '$_rootImages/profile_empty_photo.jpg';
+  static const String profileLogoIcon = '$_rootIcons/Vector.png';
+  static const String transactionOrder =
+      '$_rootIcons/Transaction-order (交易清单).png';
+  static const String languageIcon = '$_rootIcons/ax_vector.png';
 }

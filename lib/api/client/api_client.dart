@@ -13,8 +13,10 @@ import 'package:elevate_ecommerce_app/api/models/responses/auth/verify_reset_res
 import 'package:elevate_ecommerce_app/api/models/responses/best_seller/best_seller_response_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/categories/categories_response.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/login_response/login_response_dto.dart';
+import 'package:elevate_ecommerce_app/api/models/responses/logout/logout_model.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/occasions_reponse_dto/occasions_reponse_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/products_reponse_dto/products_reponse_dto.dart';
+import 'package:elevate_ecommerce_app/api/models/responses/profile/profile_info_response/profile_info_response_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/register_response_dto/register_response_dto.dart';
 import 'package:elevate_ecommerce_app/core/constants/end_points.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/add_product_to_cart_request_dto/add_product_to_cart_request_dto.dart';
@@ -35,7 +37,7 @@ abstract class ApiClient {
 
   @POST(Endpoints.cart)
   Future<CartResponseDto> addProductToCart(
-    @Body() AddProductToCartRequestDto addProductToCartRequestDto
+    @Body() AddProductToCartRequestDto addProductToCartRequestDto,
   );
 
   @DELETE('${Endpoints.cart}/{id}')
@@ -64,6 +66,8 @@ abstract class ApiClient {
   Future<ResetPasswordResponse> resetPassword(
     @Body() ResetPasswordRequest body,
   );
+  @GET(Endpoints.profileData)
+  Future<ProfileInfoResponseDto> getProfileData();
 
   @GET(Endpoints.occasions)
   Future<OccasionsReponseDto> getAllOccasions();
@@ -78,17 +82,14 @@ abstract class ApiClient {
     @Query(Endpoints.categoryQuery) String categoryId,
   );
 
-   @GET(Endpoints.products)
+  @GET(Endpoints.products)
   Future<ProductsReponseDto> getAllProducts();
-
-  
 
   @GET(Endpoints.categories)
   Future<CategoriesResponse> getAllCategories();
 
-   @GET(Endpoints.bestSeller)
+  @GET(Endpoints.bestSeller)
   Future<BestSellerResponseDto> getBestSeller();
-
 
   @GET(Endpoints.address)
   Future<AddressesResponseDto> getLoggedUserAddresses();
@@ -106,5 +107,6 @@ abstract class ApiClient {
 
   @DELETE('${Endpoints.address}/{id}')
   Future<AddressResponseDto> removeAddress(@Path("id") String addressId);
-
+  @GET(Endpoints.logout)
+  Future<LogoutModel> logout();
 }

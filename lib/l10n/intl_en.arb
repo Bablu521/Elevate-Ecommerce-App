@@ -104,9 +104,19 @@
   "productTitle": "Product Title",
   "productDescription": "Product description",
   "cartIsEmpty": "Cart is empty",
+  "flowery": "Flowery",
+  "myOrders": "My orders",
+  "savedAddress": "Saved address",
+  "notifications": "Notifications",
+  "language": "Language",
+  "aboutUs": "About us",
+  "logout": "Logout",
+  "english": "English",
   "guestMode": "Guest Mode",
   "loginToSaveCartAndManageProfile": "Login or create a free account to save your cart, checkout faster, manage your profile, and track your orders.",
   "or": "or",
+  "changeLanguage": "Change Language",
+  "arabic": "Arabic",
   "notification": "Notification",
   "savedAddress": "Saved address",
   "addNewAddress": "Add new address",
@@ -141,6 +151,6 @@
   "cancel": "cancel",
   "openSettings": "Open Settings",
   "bestSeller": "Best seller",
-  "added": "Added"
+  "added": "Added",
+  "DoYouSureLogout": "Do you sure you want to logout?"
 }
-

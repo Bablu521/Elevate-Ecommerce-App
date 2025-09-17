@@ -11,6 +11,7 @@ import 'package:mockito/mockito.dart';
 
 import '../../fixtures/home_fixtures.dart';
 import '../../fixtures/login_fixtures.dart';
+import '../../fixtures/profile_fixtures.dart';
 import 'api_client_test.mocks.dart';
 
 @GenerateMocks([ApiClient])
@@ -63,5 +64,24 @@ void main() {
         equals(fakeResponse.bestSeller?[0].price),
       );
     });
+  });
+  group("ApiClient Integration Tests", () {
+    test("getProfileData returns ProfileInfoResponseDto", () async {
+      // Arrange (Mock server response)
+      final mockJson = ProfileFixtures.fakeProfileInfoResponse;
+
+      dioAdapter.onGet(
+        Endpoints.profileData,
+        (server) => server.reply(200, mockJson),
+      );
+
+      // Act
+      final result = await apiClient.getProfileData();
+
+      // Assert
+      expect(result.message, equals(mockJson.message));
+      expect(result.user?.email, equals(mockJson.user?.email));
+    });
+
   });
 }
