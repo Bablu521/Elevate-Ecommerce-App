@@ -1,6 +1,5 @@
 import 'package:elevate_ecommerce_app/api/client/api_client.dart';
 import 'package:elevate_ecommerce_app/api/mapper/orders/orders_mapper.dart';
-import 'package:elevate_ecommerce_app/api/models/requestes/orders/order_request.dart';
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/domin/entities/requests/orders/shipping_address_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/responses/orders/cash_order_entity.dart';
@@ -20,9 +19,7 @@ class OrdersRemoteDataSourceImpl implements OrdersRemoteDataSource {
     ShippingAddressEntity shippingAddressEntity,
   ) {
     return safeApiCall(
-      () => _apiClient.checkoutCashOrder(
-        OrderRequest(shippingAddress: shippingAddressEntity.fromDomain()),
-      ),
+      () => _apiClient.checkoutCashOrder(shippingAddressEntity.toOrderRequest()),
       (response) => response.toEntity(),
     );
   }
@@ -32,9 +29,7 @@ class OrdersRemoteDataSourceImpl implements OrdersRemoteDataSource {
     ShippingAddressEntity shippingAddressEntity,
   ) {
     return safeApiCall(
-      () => _apiClient.checkoutCreditOrder(
-        OrderRequest(shippingAddress: shippingAddressEntity.fromDomain()),
-      ),
+      () => _apiClient.checkoutCreditOrder(shippingAddressEntity.toOrderRequest()),
       (response) => response.toEntity(),
     );
   }

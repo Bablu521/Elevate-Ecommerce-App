@@ -1,6 +1,6 @@
 import 'package:elevate_ecommerce_app/core/constants/app_colors.dart';
-import 'package:elevate_ecommerce_app/presentation/checkout/views/widget/checkout_delivery_time_widget.dart';
-import 'package:elevate_ecommerce_app/presentation/checkout/views/widget/checkout_is_gift_widget.dart';
+import 'package:elevate_ecommerce_app/presentation/checkout/views/widget/checkout_delivery_time_section.dart';
+import 'package:elevate_ecommerce_app/presentation/checkout/views/widget/checkout_is_gift_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,9 +10,9 @@ import '../../../../core/di/di.dart';
 import '../../../../generated/l10n.dart';
 import '../../view_models/checkout_events.dart';
 import '../../view_models/checkout_view_model.dart';
-import '../widget/checkout_delivery_address_widget.dart';
-import '../widget/checkout_footer_widget.dart';
-import '../widget/checkout_payment_method_widget.dart';
+import '../widget/checkout_delivery_address_section.dart';
+import '../widget/checkout_footer_section.dart';
+import '../widget/checkout_payment_method_section.dart';
 import '../widget/checkout_webview_screen.dart';
 
 class CheckoutScreen extends StatefulWidget {
@@ -85,11 +85,11 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             child: Column(
               spacing: 24.h,
               children: [
-                const CheckoutDeliveryTimeWidget(),
-                CheckoutDeliveryAddressWidget(
+                const CheckoutDeliveryTimeSection(),
+                CheckoutDeliveryAddressSection(
                   checkoutViewModel: checkoutViewModel,
                 ),
-                CheckoutPaymentMethodWidget(
+                CheckoutPaymentMethodSection(
                   checkoutViewModel: checkoutViewModel,
                 ),
                 ValueListenableBuilder(
@@ -97,14 +97,14 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   builder: (context, value, child) {
                     return Visibility(
                       visible: value == 1,
-                      child: CheckoutIsGiftWidget(
+                      child: CheckoutIsGiftSection(
                         checkoutViewModel: checkoutViewModel,
                       ),
                     );
                   },
                 ),
                 if (state.subTotal != 0) ...[
-                  CheckoutFooterWidget(checkoutViewModel: checkoutViewModel),
+                  CheckoutFooterSection(checkoutViewModel: checkoutViewModel),
                 ] else ...[
                   const CircularProgressIndicator(),
                 ],

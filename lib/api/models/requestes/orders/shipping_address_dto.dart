@@ -1,8 +1,10 @@
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
+
 part 'shipping_address_dto.g.dart';
 
 @JsonSerializable()
-class ShippingAddressDTO {
+class ShippingAddressDTO extends Equatable {
   @JsonKey(name: "street")
   final String? street;
   @JsonKey(name: "phone")
@@ -14,7 +16,7 @@ class ShippingAddressDTO {
   @JsonKey(name: "long")
   final String? long;
 
-  ShippingAddressDTO ({
+  ShippingAddressDTO({
     this.street,
     this.phone,
     this.city,
@@ -29,4 +31,7 @@ class ShippingAddressDTO {
   Map<String, dynamic> toJson() {
     return _$ShippingAddressDTOToJson(this);
   }
+
+  @override
+  List<Object?> get props => [street, phone, city, lat, long];
 }

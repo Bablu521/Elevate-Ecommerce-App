@@ -1,14 +1,15 @@
 import 'package:elevate_ecommerce_app/api/models/requestes/orders/shipping_address_dto.dart';
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'order_request.g.dart';
 
 @JsonSerializable()
-class OrderRequest {
+class OrderRequest extends Equatable {
   @JsonKey(name: "shippingAddress")
   final ShippingAddressDTO? shippingAddress;
 
-  OrderRequest ({
+  const OrderRequest({
     this.shippingAddress,
   });
 
@@ -19,4 +20,7 @@ class OrderRequest {
   Map<String, dynamic> toJson() {
     return _$OrderRequestToJson(this);
   }
+
+  @override
+  List<Object?> get props => [shippingAddress];
 }
