@@ -80,6 +80,9 @@ class MainProfileBuilder extends StatelessWidget {
               ),
               text: local.savedAddress,
               secondWidget: const Icon(Icons.arrow_forward_ios_outlined),
+              onTap: () {
+                Navigator.pushNamed(context, RouteNames.savedAddress);
+              },
             ),
             Divider(color: AppColors.gray, height: 0.h, thickness: 0.8),
             const SectionAppConfigProfile(),
