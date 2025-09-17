@@ -16,81 +16,82 @@ class OrdersPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => getIt<OrderViewModel>()..doIntent(OnLoadOrdersEvent()),
-
-      child: BlocBuilder<OrderViewModel, OrdersStates>(
-        builder: (context, state) {
-          final vm = context.read<OrderViewModel>();
-          final activeOrders = vm.activeOrders;
-          final completedOrders = vm.completedOrders;
-
-          if (state.isLogged == false) {
-            return const UserGuestModePage();
-          } else if (state.ordersListIsLoading == true) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (state.ordersListErrorMessage != null) {
-            return Center(child: Text(state.ordersListErrorMessage ?? "error"));
-          } else {
-            return DefaultTabController(
-              length: 2,
-              child: Scaffold(
-                appBar: AppBar(
-                  leading: InkWell(
-                    onTap: Navigator.of(context).maybePop,
-                    child: const Icon(Icons.arrow_back_ios),
-                  ),
-                  title: Text(
-                    AppLocalizations.of(context).myOrders,
-                    style: Theme.of(context).appBarTheme.titleTextStyle,
-                  ),
-                  bottom: TabBar(
-                    indicator: UnderlineTabIndicator(
-                      borderSide: BorderSide(
-                        width: 3,
-                        color: AppColors.mainColor,
-                      ),
-                      insets: const EdgeInsets.symmetric(horizontal: 135),
-                    ),
-
-                    dividerHeight: 1.5,
-                    dividerColor: AppColors.gray.withAlpha(100),
-                    indicatorSize: TabBarIndicatorSize.label,
-                    indicatorColor: AppColors.mainColor,
-                    indicatorWeight: 2,
-
-                    labelColor: AppColors.mainColor,
-                    unselectedLabelColor: Colors.grey,
-                    tabs: [
-                      Tab(child: Text(AppLocalizations.of(context).active)),
-                      Tab(child: Text(AppLocalizations.of(context).completed)),
-                    ],
-                  ),
-                ),
-                body: TabBarView(
-                  children: [
-                    ///Active orders
-                    ListView.builder(
-                      itemBuilder: (context, index) {
-                        return OrderWidget(orders: activeOrders[index]);
-                      },
-                      itemCount: activeOrders.length,
-                      padding: const EdgeInsets.all(16),
-                    ),
-
-                    ///Completed Orders
-                    ListView.builder(
-                      itemBuilder: (context, index) {
-                        return OrderWidget(orders: completedOrders[index]);
-                      },
-                      itemCount: completedOrders.length,
-                      padding: const EdgeInsets.all(16),
-                    ),
-                  ],
-                ),
+      child: DefaultTabController(
+        length: 2,
+        child: Scaffold(
+          appBar: AppBar(
+            leading: InkWell(
+              onTap: Navigator.of(context).maybePop,
+              child: const Icon(Icons.arrow_back_ios),
+            ),
+            title: Text(
+              AppLocalizations.of(context).myOrders,
+              style: Theme.of(context).appBarTheme.titleTextStyle,
+            ),
+            bottom: TabBar(
+              indicator: UnderlineTabIndicator(
+                borderSide: BorderSide(width: 3, color: AppColors.mainColor),
+                insets: const EdgeInsets.symmetric(horizontal: 135),
               ),
-            );
-          }
-        },
+              dividerHeight: 1.5,
+              dividerColor: AppColors.gray.withAlpha(100),
+              indicatorSize: TabBarIndicatorSize.label,
+              indicatorColor: AppColors.mainColor,
+              indicatorWeight: 2,
+              labelColor: AppColors.mainColor,
+              unselectedLabelColor: Colors.grey,
+              tabs: [
+                Tab(child: Text(AppLocalizations.of(context).active)),
+                Tab(child: Text(AppLocalizations.of(context).completed)),
+              ],
+            ),
+          ),
+          body: BlocBuilder<OrderViewModel, OrdersStates>(
+            builder: (context, state) {
+              final vm = context.read<OrderViewModel>();
+              final activeOrders = vm.activeOrders;
+              final completedOrders = vm.completedOrders;
+
+              if (state.isLogged == false) {
+                return const UserGuestModePage();
+              }
+
+              if (state.ordersListIsLoading == true) {
+                return const Center(child: CircularProgressIndicator());
+              }
+
+              if (state.ordersListErrorMessage != null) {
+                return Center(
+                  child: Text(state.ordersListErrorMessage ?? "error"),
+                );
+              }
+
+              return TabBarView(
+                children: [
+                  /// Active orders
+                  ListView.builder(
+                    itemBuilder: (context, index) {
+                      return OrderWidget(orders: activeOrders[index]);
+                    },
+                    itemCount: activeOrders.length,
+                    padding: const EdgeInsets.all(16),
+                  ),
+
+                  /// Completed orders
+                  ListView.builder(
+                    itemBuilder: (context, index) {
+                      return OrderWidget(orders: completedOrders[index]);
+                    },
+                    itemCount: completedOrders.length,
+                    padding: const EdgeInsets.all(16),
+                  ),
+                ],
+              );
+            },
+          ),
+        ),
       ),
     );
   }
 }
+

@@ -7,7 +7,6 @@ import 'package:elevate_ecommerce_app/presentation/cart/views/screen/cart_page.d
 import 'package:elevate_ecommerce_app/presentation/notifications/view/notifications_view.dart';
 import 'package:elevate_ecommerce_app/presentation/occasion/views/screen/occasion_view.dart';
 import 'package:elevate_ecommerce_app/presentation/product_details/view/screen/product_details_view.dart';
-
 import 'package:elevate_ecommerce_app/presentation/profile/views/change_password_view.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/views/edit_profile_view.dart';
 import 'package:flutter/material.dart';

@@ -9,14 +9,11 @@ import '../../../core/api_result/api_result.dart';
 @injectable
 class OrderViewModel extends Cubit<OrdersStates> {
   final GetOrdersUseCase _useCase;
-  OrderViewModel(this._useCase, )
-      : super(const OrdersStates());
-
+  OrderViewModel(this._useCase) : super(const OrdersStates());
   void doIntent(OrdersEvent event) {
     switch (event) {
       case OnLoadOrdersEvent():
         _getOrders();
-
     }
   }
 
@@ -31,9 +28,7 @@ class OrderViewModel extends Cubit<OrdersStates> {
           state.copyWith(
             ordersListIsLoading: false,
             ordersListSuccess: result.data,
-
           ),
-
         );
 
       case ApiErrorResult<OrdersPageEntity>():
@@ -43,24 +38,20 @@ class OrderViewModel extends Cubit<OrdersStates> {
             ordersListErrorMessage: result.errorMessage,
           ),
         );
-
-
     }
   }
 
   List<OrdersEntity> get activeOrders {
     return state.ordersListSuccess?.orders
-        ?.where((order) => order.isPaid == false)
-        .toList() ??
+            ?.where((order) => order.isPaid == false)
+            .toList() ??
         [];
   }
 
   List<OrdersEntity> get completedOrders {
     return state.ordersListSuccess?.orders
-        ?.where((order) => order.isPaid == true)
-        .toList() ??
+            ?.where((order) => order.isPaid == true)
+            .toList() ??
         [];
   }
-
-
 }
