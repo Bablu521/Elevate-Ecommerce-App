@@ -7,17 +7,17 @@ part 'addresses_response_dto.g.dart';
 
 @JsonSerializable()
 class AddressesResponseDto extends Equatable {
-  final String? message;
-  final List<AddressDto>? addresses;
+	final String? message;
+	final List<AddressDto>? addresses;
 
-  const AddressesResponseDto({this.message, this.addresses});
+	const AddressesResponseDto({this.message, this.addresses});
 
-  factory AddressesResponseDto.fromJson(Map<String, dynamic> json) {
-    return _$AddressesResponseDtoFromJson(json);
-  }
+	factory AddressesResponseDto.fromJson(Map<String, dynamic> json) {
+		return _$AddressesResponseDtoFromJson(json);
+	}
 
-  Map<String, dynamic> toJson() => _$AddressesResponseDtoToJson(this);
+	Map<String, dynamic> toJson() => _$AddressesResponseDtoToJson(this);
 
-  @override
-  List<Object?> get props => [message, addresses];
+	@override
+	List<Object?> get props => [message, addresses];
 }

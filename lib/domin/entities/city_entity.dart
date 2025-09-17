@@ -10,3 +10,4 @@ class CityEntity extends Equatable {
   @override
   List<Object?> get props => [id,nameEn,nameAr];
 }
+

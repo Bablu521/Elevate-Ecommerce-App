@@ -29,15 +29,15 @@ class AddressRequestDto extends Equatable {
   Map<String, dynamic> toJson() => _$AddressRequestDtoToJson(this);
 
   factory AddressRequestDto.fromDomain(
-      AddressRequestEntity addressRequestEntity,
-      ) {
+    AddressRequestEntity addressRequestEntity,
+  ) {
     return AddressRequestDto(
-        street:addressRequestEntity.street,
-        phone:addressRequestEntity.phone,
-        city:addressRequestEntity.city,
-        lat:addressRequestEntity.lat,
-        long:addressRequestEntity.long,
-        username:addressRequestEntity.username
+      street:addressRequestEntity.street,
+      phone:addressRequestEntity.phone,
+      city:addressRequestEntity.city,
+      lat:addressRequestEntity.lat,
+      long:addressRequestEntity.long,
+      username:addressRequestEntity.username
     );
   }
 

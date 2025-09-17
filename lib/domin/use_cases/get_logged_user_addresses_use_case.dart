@@ -12,3 +12,4 @@ class GetLoggedUserAddressesUseCase {
     return _addressRepo.getLoggedUserAddresses();
   }
 }
+

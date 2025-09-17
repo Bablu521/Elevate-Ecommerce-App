@@ -1,6 +1,10 @@
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
+import 'package:elevate_ecommerce_app/core/base_state/base_state.dart';
+import 'package:elevate_ecommerce_app/domin/entities/cart_response_entity/cart_response_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/category_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/product_entity.dart';
+import 'package:elevate_ecommerce_app/domin/entities/requests/add_product_to_cart_request_entity.dart';
+import 'package:elevate_ecommerce_app/domin/use_cases/add_product_to_cart_use_case.dart';
 import 'package:elevate_ecommerce_app/domin/use_cases/get_all_categories_use_case.dart';
 import 'package:elevate_ecommerce_app/domin/use_cases/get_all_products_use_case.dart';
 import 'package:elevate_ecommerce_app/presentation/categories/view_models/categories_events.dart';
@@ -18,11 +22,12 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
   final GetAllCategoriesUseCase _getAllCategoriesUseCase;
   final GetAllProductsUseCase _getAllProductsUseCase;
   final GetProductsByCategoryUseCase _getProductsByCategoryUseCase;
-
+  final AddProductToCartUseCase _addProductToCartUseCase;
   CategoriesViewModel(
     this._getAllCategoriesUseCase,
     this._getProductsByCategoryUseCase,
     this._getAllProductsUseCase,
+    this._addProductToCartUseCase,
   ) : super(const CategoriesState());
 
   late final String categoryId;
@@ -45,6 +50,8 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
         _productsSearch();
       case InitTabBarEvent():
         _initTabBarController();
+      case CategoriesAddToCartEvent():
+        _addToCart(events.productId);
     }
   }
 
@@ -149,6 +156,37 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
       _getAllProducts();
     } else {
       _getProductsByCategory();
+    }
+  }
+
+  Future<void> _addToCart(String? id) async {
+    emit(
+      state.copyWith(
+        cartStates: {...state.cartStates, id: BaseState.loading()},
+      ),
+    );
+    final result = await _addProductToCartUseCase.call(
+      AddProductToCartRequestEntity(product: id, quantity: 1),
+    );
+    switch (result) {
+      case ApiSuccessResult<CartResponseEntity>():
+        emit(
+          state.copyWith(
+            cartStates: {
+              ...state.cartStates,
+              id: BaseState.success(result.data),
+            },
+          ),
+        );
+      case ApiErrorResult<CartResponseEntity>():
+        emit(
+          state.copyWith(
+            cartStates: {
+              ...state.cartStates,
+              id: BaseState.error(result.errorMessage),
+            },
+          ),
+        );
     }
   }
 }

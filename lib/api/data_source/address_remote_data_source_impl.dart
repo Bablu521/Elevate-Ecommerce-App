@@ -14,36 +14,36 @@ class AddressRemoteDataSourceImpl implements AddressRemoteDataSource {
   @override
   Future<ApiResult<List<AddressEntity>>> getLoggedUserAddresses() {
     return safeApiCall(
-          () => _apiClient.getLoggedUserAddresses(),
-          (response) =>
+      () => _apiClient.getLoggedUserAddresses(),
+      (response) =>
           response.addresses!.map((item) => item.toAddressEntity()).toList(),
     );
   }
 
   @override
   Future<ApiResult<List<AddressEntity>>> addAddress(
-      AddressRequestEntity addressRequestEntity,
-      ) {
+    AddressRequestEntity addressRequestEntity,
+  ) {
     return safeApiCall(
-          () => _apiClient.addAddress(
+      () => _apiClient.addAddress(
         AddressRequestDto.fromDomain(addressRequestEntity),
       ),
-          (response) =>
+      (response) =>
           response.address!.map((item) => item.toAddressEntity()).toList(),
     );
   }
 
   @override
   Future<ApiResult<List<AddressEntity>>> updateAddress(
-      AddressRequestEntity addressRequestEntity,
-      String addressId,
-      ) {
+    AddressRequestEntity addressRequestEntity,
+    String addressId,
+  ) {
     return safeApiCall(
-          () => _apiClient.updateAddress(
+      () => _apiClient.updateAddress(
         AddressRequestDto.fromDomain(addressRequestEntity),
         addressId,
       ),
-          (response) =>
+      (response) =>
           response.addresses!.map((item) => item.toAddressEntity()).toList(),
     );
   }
@@ -51,8 +51,8 @@ class AddressRemoteDataSourceImpl implements AddressRemoteDataSource {
   @override
   Future<ApiResult<List<AddressEntity>>> removeAddress(String addressId) {
     return safeApiCall(
-          () => _apiClient.removeAddress(addressId),
-          (response) =>
+      () => _apiClient.removeAddress(addressId),
+      (response) =>
           response.address!.map((item) => item.toAddressEntity()).toList(),
     );
   }

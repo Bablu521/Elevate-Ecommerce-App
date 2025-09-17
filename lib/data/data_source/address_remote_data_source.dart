@@ -7,14 +7,14 @@ abstract interface class AddressRemoteDataSource {
   Future<ApiResult<List<AddressEntity>>> getLoggedUserAddresses();
 
   Future<ApiResult<List<AddressEntity>>> addAddress(
-      AddressRequestEntity addressRequestEntity,
-      );
+    AddressRequestEntity addressRequestEntity,
+  );
 
   Future<ApiResult<List<AddressEntity>>> updateAddress(
-      AddressRequestEntity addressRequestEntity,
-      String addressId,
-      );
+    AddressRequestEntity addressRequestEntity,
+    String addressId,
+  );
 
   Future<ApiResult<List<AddressEntity>>> removeAddress(String addressId);
-
+  
 }

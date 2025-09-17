@@ -20,3 +20,4 @@ class AddressRequestEntity extends Equatable {
   @override
   List<Object?> get props => [street, phone, city, lat, long, username];
 }
+

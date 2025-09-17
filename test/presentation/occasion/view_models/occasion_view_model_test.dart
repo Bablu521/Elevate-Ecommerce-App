@@ -1,6 +1,11 @@
+import 'package:dio/dio.dart';
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
+import 'package:elevate_ecommerce_app/core/base_state/base_state.dart';
+import 'package:elevate_ecommerce_app/domin/entities/cart_response_entity/cart_response_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/occasion_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/product_entity.dart';
+import 'package:elevate_ecommerce_app/domin/entities/requests/add_product_to_cart_request_entity.dart';
+import 'package:elevate_ecommerce_app/domin/use_cases/add_product_to_cart_use_case.dart';
 import 'package:elevate_ecommerce_app/presentation/occasion/view_models/occasion_events.dart';
 import 'package:elevate_ecommerce_app/presentation/occasion/view_models/occasion_states.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -11,13 +16,19 @@ import 'package:mockito/annotations.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:mockito/mockito.dart';
 
+import '../../../fixtures/home_fixtures.dart';
 import 'occasion_view_model_test.mocks.dart';
 
-@GenerateMocks([OccasionUseCase, GetProductsByOccasionUseCase])
+@GenerateMocks([
+  OccasionUseCase,
+  GetProductsByOccasionUseCase,
+  AddProductToCartUseCase,
+])
 void main() {
   group('test OccasionViewModel', () {
     late MockOccasionUseCase mockedOccasionUseCase;
     late MockGetProductsByOccasionUseCase mockedGetProductsByOccasionUseCase;
+    late MockAddProductToCartUseCase mockAddProductToCartUseCase;
     late OccasionViewModel occasionViewModel;
     late OccasionStates state;
     final occasionId = "fake-occasion-id";
@@ -26,9 +37,11 @@ void main() {
     setUp(() {
       mockedOccasionUseCase = MockOccasionUseCase();
       mockedGetProductsByOccasionUseCase = MockGetProductsByOccasionUseCase();
+      mockAddProductToCartUseCase = MockAddProductToCartUseCase();
       occasionViewModel = OccasionViewModel(
         mockedOccasionUseCase,
         mockedGetProductsByOccasionUseCase,
+        mockAddProductToCartUseCase,
       );
       state = const OccasionStates();
     });
@@ -184,6 +197,95 @@ void main() {
       ],
       verify: (_) {
         verify(mockedGetProductsByOccasionUseCase.call(occasionId)).called(1);
+      },
+    );
+  });
+  group("test add to cart emit state", () {
+    late MockOccasionUseCase mockedOccasionUseCase;
+    late MockGetProductsByOccasionUseCase mockedGetProductsByOccasionUseCase;
+    late MockAddProductToCartUseCase mockAddProductToCartUseCase;
+    late OccasionViewModel occasionViewModel;
+    late OccasionStates state;
+    final CartResponseEntity cartResponseEntity =
+        HomeFixtures.fakeCartResponseEntity;
+    final AddProductToCartRequestEntity request =
+        HomeFixtures.addToCartRequestEntity;
+    final DioException dioException = DioException(
+      requestOptions: RequestOptions(),
+      message: "fake_dio_error",
+    );
+    setUp(() {
+      mockedOccasionUseCase = MockOccasionUseCase();
+      mockedGetProductsByOccasionUseCase = MockGetProductsByOccasionUseCase();
+      mockAddProductToCartUseCase = MockAddProductToCartUseCase();
+      occasionViewModel = OccasionViewModel(
+        mockedOccasionUseCase,
+        mockedGetProductsByOccasionUseCase,
+        mockAddProductToCartUseCase,
+      );
+      state = const OccasionStates();
+      provideDummy<ApiResult<CartResponseEntity>>(
+        ApiSuccessResult<CartResponseEntity>(cartResponseEntity),
+      );
+      provideDummy<ApiResult<CartResponseEntity>>(
+        ApiErrorResult<CartResponseEntity>(dioException),
+      );
+    });
+    blocTest(
+      "test emit loading and success",
+      build: () => occasionViewModel,
+      act: (bloc) {
+        when(mockAddProductToCartUseCase.call(request)).thenAnswer(
+          (_) async => ApiSuccessResult<CartResponseEntity>(cartResponseEntity),
+        );
+        bloc.doIntent(OccasionAddToCartEvent(productId: request.product));
+      },
+      expect: () => [
+        state.copyWith(
+          cartStates: {
+            ...state.cartStates,
+            request.product: BaseState.loading(),
+          },
+        ),
+        state.copyWith(
+          cartStates: {
+            ...state.cartStates,
+            request.product: BaseState.success(cartResponseEntity),
+          },
+        ),
+      ],
+
+      verify: (bloc) {
+        verify(mockAddProductToCartUseCase.call(request)).called(1);
+      },
+    );
+    blocTest(
+      "test emit loading and failure",
+      build: () => occasionViewModel,
+      act: (bloc) {
+        when(mockAddProductToCartUseCase.call(request)).thenAnswer(
+          (_) async => ApiErrorResult<CartResponseEntity>(dioException),
+        );
+        bloc.doIntent(OccasionAddToCartEvent(productId: request.product));
+      },
+      expect: () => [
+        state.copyWith(
+          cartStates: {
+            ...state.cartStates,
+            request.product: BaseState.loading(),
+          },
+        ),
+        state.copyWith(
+          cartStates: {
+            ...state.cartStates,
+            request.product: BaseState.error(
+              "An unexpected error occurred: fake_dio_error",
+            ),
+          },
+        ),
+      ],
+      verify: (bloc) {
+        verify(mockAddProductToCartUseCase.call(request)).called(1);
       },
     );
   });

@@ -83,12 +83,16 @@ linux/flutter/ephemeral/
 # ------------------------------
 app.*.symbols
 app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+
 # Ignore intl generated files
 lib/generated/intl/messages_*.dart
 lib/generated/intl/messages_all.dart
 lib/generated/l10n.dart
+
 # Ignore dependency lock file
 pubspec.lock
-# Ignore Flutter coverage reports
-coverage/
-coverage/lcov.info

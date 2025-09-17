@@ -77,4 +77,39 @@ class Validations {
       return null;
     }
   }
+
+  static String? validateAddress(String? val) {
+    final RegExp addressRegex = RegExp(r"^[\p{L}\d\s,.\-\/#]+$", unicode: true);
+
+    if (val == null || val.trim().isEmpty) {
+      return AppLocalizations().pleaseEnterAddress;
+    }
+
+    if (!addressRegex.hasMatch(val.trim())) {
+      return AppLocalizations().pleaseEnterValidAddress;
+    }
+
+    return null;
+  }
+
+  static String? validateRecipientName(String? val) {
+    final RegExp addressRegex = RegExp(r"^[\p{L}\d\s,.\-\/#]+$", unicode: true);
+
+    if (val == null || val.trim().isEmpty) {
+      return AppLocalizations().pleaseEnterValidRecipient;
+    }
+
+    if (!addressRegex.hasMatch(val.trim())) {
+      return AppLocalizations().pleaseEnterValidRecipient;
+    }
+
+    return null;
+  }
+
+   static String? validateDropdown(String? value) {
+    if (value == null || value.isEmpty) {
+      return AppLocalizations().pleaseSelect;
+    }
+    return null;
+  }
 }

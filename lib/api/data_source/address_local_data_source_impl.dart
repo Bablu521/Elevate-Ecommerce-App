@@ -12,7 +12,7 @@ class AddressLocalDataSourceImpl implements AddressLocalDataSource{
 
   @override
   Future<List<CityEntity>> loadAllCities() async {
-    try {
+     try {
       final jsonString = await rootBundle.loadString('assets/files/cities.json');
       final List<dynamic> data = json.decode(jsonString)[2]['data'];
       return data.map((e) => CityDto.fromJson(e).toEntity()).toList();
@@ -23,7 +23,7 @@ class AddressLocalDataSourceImpl implements AddressLocalDataSource{
 
   @override
   Future<List<AreaEntity>> loadAllAreas() async {
-    try {
+     try {
       final jsonString = await rootBundle.loadString('assets/files/states.json');
       final List<dynamic> data = json.decode(jsonString)[2]['data'];
       return data.map((e) => AreaDto.fromJson(e).toEntity()).toList();
@@ -31,5 +31,4 @@ class AddressLocalDataSourceImpl implements AddressLocalDataSource{
       throw Exception(e);
     }
   }
-
 }

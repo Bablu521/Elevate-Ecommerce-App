@@ -1,3 +1,4 @@
+import 'package:elevate_ecommerce_app/domin/entities/category_entity.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'category_dto.g.dart';
@@ -38,5 +39,18 @@ class CategoryDTO {
 
   Map<String, dynamic> toJson() {
     return _$CategoryDTOToJson(this);
+  }
+
+  CategoryEntity toEntity() {
+    return CategoryEntity(
+      id: id,
+      name: name,
+      slug: slug,
+      image: image,
+      createdAt: createdAt,
+      updatedAt: updatedAt,
+      isSuperAdmin: isSuperAdmin,
+      productsCount: productsCount,
+    );
   }
 }

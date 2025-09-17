@@ -26,7 +26,19 @@ class RegisterEntity extends Equatable {
     this.addresses,
     this.createdAt,
   });
-  
+
   @override
-  List<Object?> get props => [firstName,lastName,email,gender,phone,photo,role,wishlist,id,addresses,createdAt];
+  List<Object?> get props => [
+    firstName,
+    lastName,
+    email,
+    gender,
+    phone,
+    photo,
+    role,
+    wishlist,
+    id,
+    addresses,
+    createdAt,
+  ];
 }

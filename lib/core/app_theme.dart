@@ -26,16 +26,19 @@ abstract class AppTheme {
       headlineMedium: getTextStyle(
         fontSize: 18.sp,
         fontWeight: FontWeight.w500,
+        fontFamily: ConstKeys.interFont,
       ),
       headlineSmall: getTextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500),
       labelSmall: getTextStyle(
-        fontSize: 13.sp,
-        fontWeight: FontWeight.w500,
+        fontSize: 12.sp,
+        fontWeight: FontWeight.w400,
         fontFamily: ConstKeys.interFont,
       ),
     ),
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.white,
+      surfaceTintColor: Colors.transparent,
+      elevation: 0,
       titleTextStyle: getTextStyle(
         fontSize: 20.sp,
         fontWeight: FontWeight.w500,

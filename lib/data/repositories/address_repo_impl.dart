@@ -13,9 +13,9 @@ class AddressRepoImpl implements AddressRepo {
   final AddressRemoteDataSource _addressRemoteDataSource;
   final AddressLocalDataSource _addressLocalDataSource;
   const AddressRepoImpl(
-      this._addressRemoteDataSource,
-      this._addressLocalDataSource,
-      );
+    this._addressRemoteDataSource,
+    this._addressLocalDataSource,
+  );
 
   @override
   Future<ApiResult<List<AddressEntity>>> getLoggedUserAddresses() {
@@ -24,16 +24,16 @@ class AddressRepoImpl implements AddressRepo {
 
   @override
   Future<ApiResult<List<AddressEntity>>> addAddress(
-      AddressRequestEntity addressRequestEntity,
-      ) {
+    AddressRequestEntity addressRequestEntity,
+  ) {
     return _addressRemoteDataSource.addAddress(addressRequestEntity);
   }
 
   @override
   Future<ApiResult<List<AddressEntity>>> updateAddress(
-      AddressRequestEntity addressRequestEntity,
-      String addressId,
-      ) {
+    AddressRequestEntity addressRequestEntity,
+    String addressId,
+  ) {
     return _addressRemoteDataSource.updateAddress(
       addressRequestEntity,
       addressId,
