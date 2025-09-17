@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/update_profile_info_request/update_profile_info_request.dart';
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
+import 'package:elevate_ecommerce_app/core/base_state/base_state.dart';
 import 'package:elevate_ecommerce_app/domin/entities/profile_info_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/update_profile_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/upload_image_entity.dart';

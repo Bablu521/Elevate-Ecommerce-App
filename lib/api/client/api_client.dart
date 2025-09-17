@@ -91,7 +91,6 @@ abstract class ApiClient {
   Future<ChangePasswordResponseDto> changePassword(
     @Body() ChangePasswordRequest request,
   );
-  @GET(Endpoints.profileData)
   @PUT(Endpoints.editProfileData)
   Future<UpdateProfileInfoResponseDto> updateProfileData(
     @Body() UpdateProfileInfoRequest request,

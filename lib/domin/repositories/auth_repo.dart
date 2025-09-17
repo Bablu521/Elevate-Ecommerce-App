@@ -5,8 +5,6 @@ import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/domin/entities/logout_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/profile_info_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/change_password_entity.dart';
-import 'package:elevate_ecommerce_app/domin/entities/profile_info_entity.dart';
-
 import '../../api/models/requestes/login_requests/login_request.dart';
 import '../entities/auth/request/forget_password_request_entity.dart';
 import '../entities/auth/request/reset_password_request_entity.dart';

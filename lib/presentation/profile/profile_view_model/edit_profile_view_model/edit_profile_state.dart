@@ -20,8 +20,7 @@ class EditProfileState extends Equatable {
   }) {
     return EditProfileState(
       profileInfoState: profileInfoState ?? this.profileInfoState,
-      updateProfileInfoState:
-          updateProfileInfoState ?? this.updateProfileInfoState,
+      updateProfileInfoState: updateProfileInfoState,
       uploadImageProfileState:
           uploadImageProfileState ?? this.uploadImageProfileState,
       localPickedImage: localPickedImage ?? this.localPickedImage,
@@ -35,18 +34,4 @@ class EditProfileState extends Equatable {
     uploadImageProfileState,
     localPickedImage,
   ];
-}
-
-class BaseState<T> extends Equatable {
-  final bool isLoading;
-  final String? errorMessage;
-  final T? data;
-
-  const BaseState({this.data, this.errorMessage, this.isLoading = false});
-  factory BaseState.loading() => const BaseState(isLoading: true);
-  factory BaseState.success(T data) => BaseState(data: data);
-  factory BaseState.error(String errorMessage) =>
-      BaseState(errorMessage: errorMessage);
-  @override
-  List<Object?> get props => [isLoading, errorMessage, data];
 }

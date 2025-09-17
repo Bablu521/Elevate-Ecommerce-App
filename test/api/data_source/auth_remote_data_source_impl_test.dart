@@ -18,7 +18,6 @@ import 'package:elevate_ecommerce_app/api/models/responses/auth/forget_password_
 import 'package:elevate_ecommerce_app/api/models/responses/auth/reset_password_response.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/auth/verify_reset_response.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/login_response/login_response_dto.dart';
-import 'package:elevate_ecommerce_app/api/models/responses/profile/profile_info_response/profile_info_response_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/register_response_dto/register_response_dto.dart';
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/domin/entities/auth/request/forget_password_request_entity.dart';
@@ -35,7 +34,6 @@ import 'package:mockito/mockito.dart';
 import '../../fixtures/profile_fixtures.dart';
 
 import '../../fixtures/login_fixtures.dart';
-import '../../fixtures/profile_fixtures.dart';
 import 'auth_remote_data_source_impl_test.mocks.dart';
 
 @GenerateMocks([ApiClient])

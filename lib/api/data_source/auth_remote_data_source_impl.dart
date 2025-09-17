@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:elevate_ecommerce_app/api/client/api_client.dart';
+import 'package:elevate_ecommerce_app/api/mapper/auth/logout_mapper.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/change_password_request/change_password_request.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/update_profile_info_request/update_profile_info_request.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/register_request_dto/register_request_dto.dart';

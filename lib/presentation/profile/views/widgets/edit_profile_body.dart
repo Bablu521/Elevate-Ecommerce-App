@@ -1,11 +1,12 @@
 import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/update_profile_info_request/update_profile_info_request.dart';
+import 'package:elevate_ecommerce_app/core/constants/const_keys.dart';
 import 'package:elevate_ecommerce_app/core/utils/helper_function.dart';
 import 'package:elevate_ecommerce_app/core/utils/loaders/loaders.dart';
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/profile_view_model/edit_profile_view_model/edit_profile_cubit.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/profile_view_model/edit_profile_view_model/edit_profile_event.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/views/widgets/custom_edit_image_profile.dart';
-import 'package:elevate_ecommerce_app/presentation/profile/views/widgets/custom_profile_radio.dart';
+import 'package:elevate_ecommerce_app/presentation/profile/views/widgets/custom_edit_profile_radio.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/views/widgets/edit_profile_header.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/views/widgets/section_text_field_edit_profile.dart';
 import 'package:flutter/material.dart';
@@ -45,25 +46,15 @@ class _EditProfileBodyState extends State<EditProfileBody> {
         phoneController.text != initialPhone;
   }
 
+  bool _isInitialized = false;
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final local = AppLocalizations.of(context);
+
     return BlocConsumer<EditProfileCubit, EditProfileState>(
       listener: (context, state) {
-        if (state.updateProfileInfoState?.data != null) {
-          final profile = state.updateProfileInfoState!.data!;
-          firstNameController.text = profile.firstName;
-          lastNameController.text = profile.lastName;
-          emailController.text = profile.email;
-          phoneController.text = profile.phone;
-          initialFirstName = firstNameController.text;
-          initialLastName = lastNameController.text;
-          initialEmail = emailController.text;
-          initialPhone = phoneController.text;
-        }
-        if (state.profileInfoState?.data != null &&
-            state.updateProfileInfoState?.data == null) {
+        if (!_isInitialized && state.profileInfoState?.data != null) {
           final profile = state.profileInfoState!.data!;
           firstNameController.text = profile.firstName;
           lastNameController.text = profile.lastName;
@@ -73,6 +64,7 @@ class _EditProfileBodyState extends State<EditProfileBody> {
           initialLastName = lastNameController.text;
           initialEmail = emailController.text;
           initialPhone = phoneController.text;
+          _isInitialized = true;
         }
 
         if (state.updateProfileInfoState?.isLoading == true) {
@@ -119,7 +111,8 @@ class _EditProfileBodyState extends State<EditProfileBody> {
                   ),
                   SizedBox(height: 24.h),
                   CustomProfileRadio(
-                    gender: state.profileInfoState?.data?.gender ?? "male",
+                    gender:
+                        state.profileInfoState?.data?.gender ?? ConstKeys.kMale,
                   ),
                   SizedBox(height: 48.h),
                   SizedBox(

@@ -1,6 +1,7 @@
 import 'package:elevate_ecommerce_app/core/constants/app_colors.dart';
 import 'package:elevate_ecommerce_app/core/constants/app_images.dart';
 import 'package:elevate_ecommerce_app/core/custom_widget/custom_dialog.dart';
+import 'package:elevate_ecommerce_app/core/router/route_names.dart';
 import 'package:elevate_ecommerce_app/domin/entities/profile_info_entity.dart';
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/profile_view_model/main_profile_view_model/main_profile_event.dart';
@@ -38,8 +39,19 @@ class MainProfileBuilder extends StatelessWidget {
                   ),
                 ),
                 GestureDetector(
-                  onTap: () {
-                    // Navigate to editProfilePage
+                  onTap: () async {
+                    final viewModel = Provider.of<MainProfileViewModel>(
+                      context,
+                      listen: false,
+                    );
+                    final updateDate = await Navigator.pushNamed(
+                      context,
+                      RouteNames.editProfile,
+                    );
+
+                    if (updateDate == true) {
+                      viewModel.doIntent(GetProfileInfoEvent());
+                    }
                   },
                   child: Image.asset(AppImages.penImage),
                 ),

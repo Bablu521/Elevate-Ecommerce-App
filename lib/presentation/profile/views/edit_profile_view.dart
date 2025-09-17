@@ -13,7 +13,7 @@ class EditProfileView extends StatelessWidget {
     return BlocProvider(
       create: (context) =>
           getIt.get<EditProfileCubit>()..doIntent(EditProfileGetInfoUser()),
-      child: const EditProfileBody(),
+      child: const Material(child: EditProfileBody()),
     );
   }
 }
