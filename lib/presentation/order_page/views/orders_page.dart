@@ -45,6 +45,10 @@ class OrdersPage extends StatelessWidget {
               length: 2,
               child: Scaffold(
                 appBar: AppBar(
+                   leading: InkWell(
+                    onTap: Navigator.of(context).maybePop,
+                    child: const Icon(Icons.arrow_back_ios),
+                  ),
                   title: Text(
                     AppLocalizations
                         .of(context)
@@ -59,7 +63,7 @@ class OrdersPage extends StatelessWidget {
                       borderSide: BorderSide(
                           width: 3, color: AppColors.mainColor),
                       insets: const EdgeInsets.symmetric(
-                        horizontal: 135, // نص الشاشة
+                        horizontal: 135,
                       ),),
 
                     dividerHeight: 1.5,
@@ -94,7 +98,7 @@ class OrdersPage extends StatelessWidget {
                        return OrderWidget(orders: activeOrders[index],);
                     },
                       itemCount:activeOrders.length,
-                      padding: EdgeInsets.all(16),
+                      padding: const EdgeInsets.all(16),
                     ),
                      ///Completed Orders
                     ListView.builder(itemBuilder: (context, index) {

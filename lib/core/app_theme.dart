@@ -20,16 +20,25 @@ abstract class AppTheme {
       onSurface: AppColors.mainColor,
     ),
     textTheme: TextTheme(
-      bodySmall: getTextStyle(),
+      bodySmall: getTextStyle(fontSize: 12.sp, fontWeight: FontWeight.w400),
       bodyMedium: getTextStyle(fontSize: 16.sp, fontWeight: FontWeight.w400),
       bodyLarge: getTextStyle(fontSize: 20.sp, fontWeight: FontWeight.w600),
       headlineMedium: getTextStyle(
         fontSize: 18.sp,
         fontWeight: FontWeight.w500,
+        fontFamily: ConstKeys.interFont,
+      ),
+      headlineSmall: getTextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500),
+      labelSmall: getTextStyle(
+        fontSize: 12.sp,
+        fontWeight: FontWeight.w400,
+        fontFamily: ConstKeys.interFont,
       ),
     ),
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.white,
+      surfaceTintColor: Colors.transparent,
+      elevation: 0,
       titleTextStyle: getTextStyle(
         fontSize: 20.sp,
         fontWeight: FontWeight.w500,
@@ -53,7 +62,7 @@ abstract class AppTheme {
       ),
       floatingLabelStyle: WidgetStateTextStyle.resolveWith((states) {
         if (states.contains(WidgetState.error)) {
-          return getTextStyle(color: AppColors.red); 
+          return getTextStyle(color: AppColors.red);
         }
         return getTextStyle(color: AppColors.gray);
       }),

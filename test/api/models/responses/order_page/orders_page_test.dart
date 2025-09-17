@@ -5,8 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('when call edit orderPage with null value return orderPage with null value', () {
-    // TODO: Implement test
-    OrdersPageDto ordersPageDto =OrdersPageDto(
+    final OrdersPageDto ordersPageDto =OrdersPageDto(
       orders: null,
       message: null,
     );
@@ -16,13 +15,12 @@ void main() {
   });
   test('when call orderPage with non-null value '
       'return orderPage with right value', () {
-    // TODO: Implement test
-    OrdersPageDto ordersPageDto =OrdersPageDto(
+    final OrdersPageDto ordersPageDto =OrdersPageDto(
       orders: [OrdersDto()] ,
       message: "message",
     );
 
-    var result =OrderPageMapper.toOrdersPageEntity(orderdto: ordersPageDto);
+    final result =OrderPageMapper.toOrdersPageEntity(orderdto: ordersPageDto);
     expect(result.message, equals(ordersPageDto.message));
     // expect(result.user, equals(editProfileDto.user?.toUserEntity()));
   });

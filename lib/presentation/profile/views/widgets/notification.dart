@@ -12,21 +12,17 @@ class _NotificationTileState extends State<NotificationTile> {
 
   @override
   Widget build(BuildContext context) {
-    return
-     ListTile(
-        leading: Switch(
-          value: isOn,
-          onChanged: (value) {
-            setState(() {
-              isOn = value;
-            });
-          },
-          activeColor: Colors.transparent,
-          activeTrackColor: Colors.pink,
-        ),
-
-
-
+    return ListTile(
+      leading: Switch(
+        value: isOn,
+        onChanged: (value) {
+          setState(() {
+            isOn = value;
+          });
+        },
+        activeThumbColor: Colors.transparent,
+        activeTrackColor: Colors.pink,
+      ),
     );
   }
 }

@@ -1,4 +1,4 @@
-import 'package:elevate_ecommerce_app/domin/models/response/order_page/orders_page.dart';
+import 'package:elevate_ecommerce_app/domin/entities/orders_page_entity.dart';
 import 'package:elevate_ecommerce_app/domin/use_cases/get_orders_use_case.dart';
 import 'package:elevate_ecommerce_app/presentation/order_page/view_model/orders_event.dart';
 import 'package:elevate_ecommerce_app/presentation/order_page/view_model/orders_state.dart';
@@ -24,7 +24,7 @@ class OrderViewModel extends Cubit<OrdersStates> {
 
   Future<void> _getOrders() async {
     emit(state.copyWith(ordersListIsLoading: true));
-    var result = await _useCase.call();
+    final result = await _useCase.call();
     switch (result) {
       case ApiSuccessResult<OrdersPageEntity>():
         emit(

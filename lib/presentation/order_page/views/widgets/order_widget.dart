@@ -1,12 +1,14 @@
 import 'package:elevate_ecommerce_app/core/constants/app_colors.dart';
-import 'package:elevate_ecommerce_app/domin/models/response/order_page/orders_page.dart';
+import 'package:elevate_ecommerce_app/core/constants/app_images.dart';
+import 'package:elevate_ecommerce_app/domin/entities/orders_page_entity.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/utils/widgets/custom_widget.dart';
 
 class OrderWidget extends StatelessWidget {
 
   final OrdersEntity orders;
-  const OrderWidget({required this.orders});
+  const OrderWidget({super.key, required this.orders});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class OrderWidget extends StatelessWidget {
 
                 ClipRRect(
                   child:
-                  Image.asset("assets/icons/orderimage.png")
+                  Image.asset(AppImages.orderImage)
                 ),
                 const SizedBox(width: 32),
 
@@ -45,25 +47,26 @@ class OrderWidget extends StatelessWidget {
                           Text(
 
                             "Red roses",
-                            style: Theme.of(context).textTheme.titleMedium?.
-                            copyWith(color:AppColors.black ),
+                            style: Theme.of(context).textTheme.bodySmall,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                           ),
                           const SizedBox(height: 4),
                           Text(
-                            "${orders.totalPrice}",
+                            "EGP ${orders.totalPrice}",
                             style: Theme.of(
                               context,
-                            ).textTheme.bodyMedium?.copyWith(color: AppColors.black ),
+                            ).textTheme.headlineSmall
+                                  ?.copyWith(color: AppColors.black ),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                           ),
                           const SizedBox(height: 4),
                           Text(
+                            maxLines: 1,
                             overflow:TextOverflow.ellipsis ,
-                              "${orders.orderNumber}",
-                            style: Theme.of(context).textTheme.bodyMedium
+                              "Order number ${orders.orderNumber}",
+                            style: Theme.of(context).textTheme.bodySmall
                                 ?.copyWith(color: AppColors.gray),
                           ),
                           const SizedBox(height: 4),
@@ -71,11 +74,11 @@ class OrderWidget extends StatelessWidget {
                         ],
                       ),
                       SizedBox(
-                        height: 30,
-                        width: 130,
+                        height: 30.h,
+                        width: 152.w,
                         child: CustomButton(
                           textStyle: const TextStyle(color: Colors.white),
-                          buttonColor: Colors.pink,
+                          buttonColor: AppColors.mainColor,
                           text: "Track Order",
                           onButtonClicked: () {},
                         ),

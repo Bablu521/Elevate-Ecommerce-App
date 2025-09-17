@@ -5,23 +5,29 @@ class LoginState extends Equatable {
   final String? errorMessage;
   final LoginEntity? loginEntity;
   final bool loading;
+  final bool rememberMe;
 
-  const LoginState({this.errorMessage, this.loginEntity, this.loading = false});
-
-  LoginState initial() => const LoginState();
+  const LoginState({
+    this.errorMessage,
+    this.loginEntity,
+    this.loading = false,
+    this.rememberMe = false,
+  });
 
   LoginState copyWith({
     String? errorMessage,
     LoginEntity? loginEntity,
     bool? loading,
+    bool? rememberMe,
   }) {
     return LoginState(
-      errorMessage: errorMessage ?? "",
-      loginEntity: loginEntity,
-      loading: loading ?? false,
+      errorMessage: errorMessage ?? this.errorMessage,
+      loginEntity: loginEntity ?? this.loginEntity,
+      loading: loading ?? this.loading,
+      rememberMe: rememberMe ?? this.rememberMe,
     );
   }
 
   @override
-  List<Object?> get props => [errorMessage, loginEntity, loading];
+  List<Object?> get props => [errorMessage, loginEntity, loading, rememberMe];
 }

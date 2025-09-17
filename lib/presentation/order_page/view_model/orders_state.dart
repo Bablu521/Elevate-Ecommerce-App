@@ -1,5 +1,4 @@
-
-import 'package:elevate_ecommerce_app/domin/models/response/order_page/orders_page.dart';
+import 'package:elevate_ecommerce_app/domin/entities/orders_page_entity.dart';
 import 'package:equatable/equatable.dart';
 
 
