@@ -17,6 +17,7 @@ import 'package:elevate_ecommerce_app/domin/entities/auth/response/forget_passwo
 import 'package:elevate_ecommerce_app/domin/entities/auth/response/reset_password_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/auth/response/verify_reset_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/change_password_entity.dart';
+import 'package:elevate_ecommerce_app/domin/entities/logout_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/profile_info_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/register_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/requests/register_request_entity.dart';
@@ -166,5 +167,12 @@ class AuthRepoImpl implements AuthRepo {
     VerifyResetRequestEntity request,
   ) {
     return _authRemoteDataSource.verifyResetCode(request);
+  }
+
+  @override
+  Future<ApiResult<LogoutEntity>> logout() async {
+    final response = await _authRemoteDataSource.logout();
+    await _authLocalDataSource.userLogout();
+    return response;
   }
 }

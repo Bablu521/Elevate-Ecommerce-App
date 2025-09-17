@@ -4,7 +4,6 @@ import 'package:elevate_ecommerce_app/domin/entities/category_entity.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../data/data_source/categories_remote_data_source.dart';
-import '../mapper/categories/category_mapper.dart';
 
 @Injectable(as: CategoriesRemoteDataSource)
 class CategoriesRemoteDataSourceImpl implements CategoriesRemoteDataSource {

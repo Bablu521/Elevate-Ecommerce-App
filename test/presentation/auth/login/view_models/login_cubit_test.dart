@@ -20,7 +20,7 @@ void main() {
     late MockLoginUseCase mockLoginUseCase;
     late LoginRequestModel loginRequestModel;
     late MockGuestLoginUseCase mockGuestLoginUseCase;
-    late LoginEntity loginEntity;
+    final loginEntity = LoginTestFixtures.fakeLoginEntity();
     late LoginState state;
     late ApiErrorResult<LoginEntity> expectedError;
     late ApiSuccessResult<LoginEntity> expectedResult;
@@ -28,8 +28,8 @@ void main() {
     setUp(() {
       mockLoginUseCase = MockLoginUseCase();
       mockGuestLoginUseCase = MockGuestLoginUseCase();
-      loginEntity = LoginTestFixtures.fakeLoginEntity();
       loginRequestModel = LoginTestFixtures.fakeLoginRequest();
+      state = const LoginState();
       state = const LoginState();
       expectedError = ApiErrorResult<LoginEntity>("Server Error");
       expectedResult = ApiSuccessResult<LoginEntity>(loginEntity);

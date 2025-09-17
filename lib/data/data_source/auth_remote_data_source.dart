@@ -4,7 +4,8 @@ import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/updat
 import 'package:elevate_ecommerce_app/api/models/responses/profile/change_password_response/change_password_response_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/profile/profile_info_response/profile_info_response_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/profile/update_profile_info_response/update_profile_info_response_dto.dart';
-import 'package:elevate_ecommerce_app/api/models/responses/profile/upload_image_response/upload_image_response_dto.dart';import '../../api/models/requestes/login_requests/login_request.dart';
+import 'package:elevate_ecommerce_app/api/models/responses/profile/upload_image_response/upload_image_response_dto.dart';
+import 'package:elevate_ecommerce_app/domin/entities/logout_entity.dart';import '../../api/models/requestes/login_requests/login_request.dart';
 import '../../api/models/responses/login_response/login_response_dto.dart';
 import '../../core/api_result/api_result.dart';
 import '../../domin/entities/auth/request/forget_password_request_entity.dart';
@@ -43,4 +44,5 @@ abstract interface class AuthRemoteDataSource {
   Future<ApiResult<ResetPasswordEntity>> resetPassword(
     ResetPasswordRequestEntity request,
   );
+  Future<ApiResult<LogoutEntity>> logout();
 }

@@ -2,6 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/change_password_request/change_password_request.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/update_profile_info_request/update_profile_info_request.dart';
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
+import 'package:elevate_ecommerce_app/domin/entities/logout_entity.dart';
+import 'package:elevate_ecommerce_app/domin/entities/profile_info_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/change_password_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/profile_info_entity.dart';
 
@@ -40,7 +42,6 @@ abstract interface class AuthRepo {
   Future<ApiResult<UploadImageEntity>> uploadImageProfile({
     required MultipartFile photo,
   });
-
   Future<ApiResult<ForgetPasswordEntity>> forgetPassword(
     ForgetPasswordRequestEntity request,
   );
@@ -52,4 +53,5 @@ abstract interface class AuthRepo {
   Future<ApiResult<ResetPasswordEntity>> resetPassword(
     ResetPasswordRequestEntity request,
   );
+  Future<ApiResult<LogoutEntity>> logout();
 }

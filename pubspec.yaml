@@ -56,6 +56,12 @@ dependencies:
   shared_preferences: ^2.5.3
   pinput: ^5.0.1
   provider: ^6.1.5+1
+  flutter_switch: ^0.3.2
+  smooth_page_indicator: ^1.2.1
+  carousel_slider: ^5.1.1
+  google_maps_flutter: ^2.13.1
+  geolocator: ^14.0.2
+
   http_mock_adapter: ^0.6.1
   image_picker: ^1.2.0
 
@@ -67,8 +73,9 @@ dev_dependencies:
   injectable_generator: ^2.6.1
   retrofit_generator: ^10.0.2
   json_serializable: ^6.8.0
-  mockito: ^5.4.2
   bloc_test: ^10.0.0
+  mockito: ^5.5.0
+  http_mock_adapter: ^0.6.1
 
 
   # The "flutter_lints" package below contains a set of recommended lints to
@@ -87,6 +94,7 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  generate: true 
 
   # To add assets to your application, add an assets section, like this:
   assets:
@@ -95,6 +103,8 @@ flutter:
     - assets/animation/success.json
     - assets/images/
     - assets/icons/
+    - assets/files/cities.json
+    - assets/files/states.json
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
   # For details regarding adding assets from package dependencies, see
@@ -131,3 +141,7 @@ flutter:
 flutter_intl:
   enabled: true
   class_name: AppLocalizations
+  arb_dir: lib/l10n        # مسار ملفات ARB
+  output_dir: lib/generated   # مسار الملفات المولدة
+  template_arbs:
+    - intl_en.arb  

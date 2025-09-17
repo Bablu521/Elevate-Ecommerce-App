@@ -34,12 +34,11 @@ class _OccasionViewBodyState extends State<OccasionViewBody> {
           state.occasionListErrorMessage == null &&
           !state.productListIsLoading) {
         final occasionList = state.occasionListSuccess;
-        final index =
-            widget.occasionId != null
-                ? occasionList.indexWhere(
-                  (occasion) => occasion.id == widget.occasionId,
-                )
-                : 0;
+        final index = widget.occasionId != null
+            ? occasionList.indexWhere(
+                (occasion) => occasion.id == widget.occasionId,
+              )
+            : 0;
         setState(() {
           if (index != -1) {
             selectedIndex = index;
@@ -92,72 +91,68 @@ class _OccasionViewBodyState extends State<OccasionViewBody> {
                         tabAlignment: TabAlignment.start,
                         indicatorColor: Colors.transparent,
                         dividerColor: Colors.transparent,
-                        tabs:
-                            occasionList.map((occasion) {
-                              final isSelected = selectedIndex == occasionList.indexOf(occasion);
-                              return Container(
-                                padding: EdgeInsets.symmetric(vertical: 10.h),
-                                decoration: BoxDecoration(
-                                  border: Border(
-                                    bottom: BorderSide(
-                                      width: 3.w,
-                                      color:
-                                          isSelected
-                                              ? AppColors.mainColor
-                                              : Colors.grey,
-                                    ),
-                                  ),
+                        tabs: occasionList.map((occasion) {
+                          final isSelected =
+                              selectedIndex == occasionList.indexOf(occasion);
+                          return Container(
+                            padding: EdgeInsets.symmetric(vertical: 10.h),
+                            decoration: BoxDecoration(
+                              border: Border(
+                                bottom: BorderSide(
+                                  width: 3.w,
+                                  color: isSelected
+                                      ? AppColors.mainColor
+                                      : Colors.grey,
                                 ),
-                                child: Text(
-                                  occasion.name ?? AppLocalizations.of(context).occasion,
-                                  style: Theme.of(
-                                    context,
-                                  ).textTheme.bodyMedium!.copyWith(
-                                    color:
-                                        isSelected
-                                            ? AppColors.mainColor
-                                            : AppColors.gray,
+                              ),
+                            ),
+                            child: Text(
+                              occasion.name ??
+                                  AppLocalizations.of(context).occasion,
+                              style: Theme.of(context).textTheme.bodyMedium!
+                                  .copyWith(
+                                    color: isSelected
+                                        ? AppColors.mainColor
+                                        : AppColors.gray,
                                   ),
-                                ),
-                              );
-                            }).toList(),
+                            ),
+                          );
+                        }).toList(),
                       ),
                       SizedBox(height: 16.h),
                       Expanded(
-                        child:
-                            state.productListIsLoading
-                                ? const Center(
-                                  child: CircularProgressIndicator(),
-                                )
-                                : state.productListErrorMessage != null
-                                ? Center(
-                                  child: Text(state.productListErrorMessage!),
-                                )
-                                : TabBarView(
-                                  children:
-                                      occasionList.map((occasion) {
-                                        final products =
-                                            state.productListSuccess;
-                                        return Padding(
-                                          padding: EdgeInsets.only(
-                                            top: 16.h,
-                                            left: 16.w,
-                                            right: 16.w,
+                        child: state.productListIsLoading
+                            ? const Center(child: CircularProgressIndicator())
+                            : state.productListErrorMessage != null
+                            ? Center(
+                                child: Text(state.productListErrorMessage!),
+                              )
+                            : TabBarView(
+                                children: occasionList.map((occasion) {
+                                  final products = state.productListSuccess;
+                                  return Padding(
+                                    padding: EdgeInsets.only(
+                                      top: 16.h,
+                                      left: 16.w,
+                                      right: 16.w,
+                                    ),
+                                    child: products.isEmpty
+                                        ? Center(
+                                            child: Text(
+                                              AppLocalizations.of(
+                                                context,
+                                              ).noProductsAvailable,
+                                            ),
+                                          )
+                                        : OccasionProductsGridView(
+                                            products: products,
+                                            occasionViewModel:
+                                                occasionViewModel,
+                                            state: state,
                                           ),
-                                          child:
-                                              products.isEmpty
-                                                  ? Center(
-                                                    child: Text(
-                                                      AppLocalizations.of(
-                                                        context,
-                                                      ).noProductsAvailable,
-                                                    ),
-                                                  )
-                                                  : 
-                                                  OccasionProductsGridView(products: products)
-                                        );
-                                      }).toList(),
-                                ),
+                                  );
+                                }).toList(),
+                              ),
                       ),
                     ],
                   ),
@@ -170,4 +165,3 @@ class _OccasionViewBodyState extends State<OccasionViewBody> {
     );
   }
 }
-
