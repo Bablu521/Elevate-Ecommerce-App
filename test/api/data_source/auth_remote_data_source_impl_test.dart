@@ -1,17 +1,23 @@
 import 'package:elevate_ecommerce_app/api/client/api_client.dart';
 import 'package:elevate_ecommerce_app/api/data_source/auth_remote_data_source_impl.dart';
 import 'package:elevate_ecommerce_app/api/mapper/auth/forget_password_mapper.dart';
+import 'package:dio/dio.dart';
 import 'package:elevate_ecommerce_app/api/models/register_dto.dart';
+import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/change_password_request/change_password_request.dart';
+import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/update_profile_info_request/update_profile_info_request.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/auth/forget_password_request.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/auth/reset_password_request.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/auth/verify_reset_request.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/login_requests/login_request.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/register_request_dto/register_request_dto.dart';
+import 'package:elevate_ecommerce_app/api/models/responses/profile/change_password_response/change_password_response_dto.dart';
+import 'package:elevate_ecommerce_app/api/models/responses/profile/profile_info_response/profile_info_response_dto.dart';
+import 'package:elevate_ecommerce_app/api/models/responses/profile/update_profile_info_response/update_profile_info_response_dto.dart';
+import 'package:elevate_ecommerce_app/api/models/responses/profile/upload_image_response/upload_image_response_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/auth/forget_password_response.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/auth/reset_password_response.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/auth/verify_reset_response.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/login_response/login_response_dto.dart';
-import 'package:elevate_ecommerce_app/api/models/responses/profile/profile_info_response/profile_info_response_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/register_response_dto/register_response_dto.dart';
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/domin/entities/auth/request/forget_password_request_entity.dart';
@@ -25,9 +31,9 @@ import 'package:elevate_ecommerce_app/domin/entities/requests/register_request_e
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+import '../../fixtures/profile_fixtures.dart';
 
 import '../../fixtures/login_fixtures.dart';
-import '../../fixtures/profile_fixtures.dart';
 import 'auth_remote_data_source_impl_test.mocks.dart';
 
 @GenerateMocks([ApiClient])
@@ -323,6 +329,150 @@ void main() {
       ///Assert
       expect(result, isA<ProfileInfoResponseDto>());
       expect(result.message, equals(profileInfoResponseDto.message));
+    });
+    test("update user info ApiClient success", () async {
+      ///AAA
+      ///Arrange
+      final UpdateProfileInfoRequest updateProfileInfoRequest =
+          ProfileFixtures.fakeUpdateProfileRequest;
+      final UpdateProfileInfoResponseDto updateProfileInfoResponseDto =
+          ProfileFixtures.fakeUpdateProfileResponse;
+      when(
+        mockedApiClient.updateProfileData(updateProfileInfoRequest),
+      ).thenAnswer((_) async => updateProfileInfoResponseDto);
+
+      ///Act
+      final result = await mockedApiClient.updateProfileData(
+        updateProfileInfoRequest,
+      );
+
+      ///Assert
+      expect(result, isA<UpdateProfileInfoResponseDto>());
+      expect(
+        result.user?.email,
+        equals(updateProfileInfoResponseDto.user?.email),
+      );
+    });
+    test("upload profile image ApiClient success", () async {
+      ///AAA
+      ///Arrange
+      final MultipartFile request = MultipartFile.fromString(
+        'dummy data',
+        filename: 'profile.png',
+      );
+      final UploadImageResponseDto response =
+          ProfileFixtures.fakeUploadImageResponse;
+      when(
+        mockedApiClient.uploadImageProfile(request),
+      ).thenAnswer((_) async => response);
+
+      ///Act
+      final result = await mockedApiClient.uploadImageProfile(request);
+
+      ///Assert
+      expect(result, isA<UploadImageResponseDto>());
+      expect(result.message, equals(response.message));
+    });
+    test("change password ApiClient success", () async {
+      ///AAA
+      ///Arrange
+      final ChangePasswordRequest request =
+          ProfileFixtures.fakeChangePasswordRequest;
+      final ChangePasswordResponseDto response =
+          ProfileFixtures.fakeChangePasswordResponse;
+      when(
+        mockedApiClient.changePassword(request),
+      ).thenAnswer((_) async => response);
+
+      ///Act
+      final result = await mockedApiClient.changePassword(request);
+
+      ///Assert
+      expect(result, isA<ChangePasswordResponseDto>());
+      expect(result.token, equals(response.token));
+    });
+  });
+  group("profile functionality success call", () {
+    late MockApiClient mockedApiClient;
+    setUp(() {
+      mockedApiClient = MockApiClient();
+    });
+    test("get user info ApiClient success", () async {
+      ///AAA
+      ///Arrange
+      final ProfileInfoResponseDto profileInfoResponseDto =
+          ProfileFixtures.fakeProfileInfoResponse;
+      when(
+        mockedApiClient.getProfileData(),
+      ).thenAnswer((_) async => profileInfoResponseDto);
+
+      ///Act
+      final result = await mockedApiClient.getProfileData();
+
+      ///Assert
+      expect(result, isA<ProfileInfoResponseDto>());
+      expect(result.message, equals(profileInfoResponseDto.message));
+    });
+    test("update user info ApiClient success", () async {
+      ///AAA
+      ///Arrange
+      final UpdateProfileInfoRequest updateProfileInfoRequest =
+          ProfileFixtures.fakeUpdateProfileRequest;
+      final UpdateProfileInfoResponseDto updateProfileInfoResponseDto =
+          ProfileFixtures.fakeUpdateProfileResponse;
+      when(
+        mockedApiClient.updateProfileData(updateProfileInfoRequest),
+      ).thenAnswer((_) async => updateProfileInfoResponseDto);
+
+      ///Act
+      final result = await mockedApiClient.updateProfileData(
+        updateProfileInfoRequest,
+      );
+
+      ///Assert
+      expect(result, isA<UpdateProfileInfoResponseDto>());
+      expect(
+        result.user?.email,
+        equals(updateProfileInfoResponseDto.user?.email),
+      );
+    });
+    test("upload profile image ApiClient success", () async {
+      ///AAA
+      ///Arrange
+      final MultipartFile request = MultipartFile.fromString(
+        'dummy data',
+        filename: 'profile.png',
+      );
+      final UploadImageResponseDto response =
+          ProfileFixtures.fakeUploadImageResponse;
+      when(
+        mockedApiClient.uploadImageProfile(request),
+      ).thenAnswer((_) async => response);
+
+      ///Act
+      final result = await mockedApiClient.uploadImageProfile(request);
+
+      ///Assert
+      expect(result, isA<UploadImageResponseDto>());
+      expect(result.message, equals(response.message));
+    });
+    test("change password ApiClient success", () async {
+      ///AAA
+      ///Arrange
+      final ChangePasswordRequest request =
+          ProfileFixtures.fakeChangePasswordRequest;
+      final ChangePasswordResponseDto response =
+          ProfileFixtures.fakeChangePasswordResponse;
+      when(
+        mockedApiClient.changePassword(request),
+      ).thenAnswer((_) async => response);
+
+      ///Act
+      final result = await mockedApiClient.changePassword(request);
+
+      ///Assert
+      expect(result, isA<ChangePasswordResponseDto>());
+      expect(result.token, equals(response.token));
     });
   });
 }

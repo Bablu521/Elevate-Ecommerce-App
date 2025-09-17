@@ -20,7 +20,7 @@ void main() {
     late RegisterViewModel registerViewModel;
     late RegisterStates state;
     late RegisterRequestEntity registerRequestEntity;
-    
+
     setUp(() {
       mockedRegisterUseCase = MockRegisterUseCase();
       registerViewModel = RegisterViewModel(mockedRegisterUseCase);
@@ -35,8 +35,6 @@ void main() {
         phone: "fake-phone",
         gender: Gender.male.name,
       );
-
-      
     });
 
     final RegisterEntity expectedEntity = const RegisterEntity(
@@ -74,11 +72,10 @@ void main() {
         registerViewModel.selectedGender = Gender.male;
         return registerViewModel.doIntent(OnSignUpClickEvent());
       },
-      expect:
-          () => [
-            state.copyWith(isLoading: true),
-            state.copyWith(isLoading: false, data: expectedEntity),
-          ],
+      expect: () => [
+        state.copyWith(isLoading: true),
+        state.copyWith(isLoading: false, data: expectedEntity),
+      ],
       verify: (_) {
         verify(mockedRegisterUseCase.call(registerRequestEntity)).called(1);
       },
@@ -100,11 +97,10 @@ void main() {
         registerViewModel.selectedGender = Gender.male;
         return registerViewModel.doIntent(OnSignUpClickEvent());
       },
-      expect:
-          () => [
-            state.copyWith(isLoading: true),
-            state.copyWith(isLoading: false, errorMessage: errorMsg),
-          ],
+      expect: () => [
+        state.copyWith(isLoading: true),
+        state.copyWith(isLoading: false, errorMessage: errorMsg),
+      ],
       verify: (_) {
         verify(mockedRegisterUseCase.call(registerRequestEntity)).called(1);
       },

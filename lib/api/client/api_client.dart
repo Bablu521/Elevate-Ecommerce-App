@@ -18,6 +18,12 @@ import 'package:elevate_ecommerce_app/api/models/responses/occasions_reponse_dto
 import 'package:elevate_ecommerce_app/api/models/responses/products_reponse_dto/products_reponse_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/profile/profile_info_response/profile_info_response_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/register_response_dto/register_response_dto.dart';
+import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/change_password_request/change_password_request.dart';
+import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/update_profile_info_request/update_profile_info_request.dart';
+import 'package:elevate_ecommerce_app/api/models/responses/profile/change_password_response/change_password_response_dto.dart';
+import 'package:elevate_ecommerce_app/api/models/responses/profile/update_profile_info_response/update_profile_info_response_dto.dart';
+import 'package:elevate_ecommerce_app/api/models/responses/profile/upload_image_response/upload_image_response_dto.dart';
+import 'package:elevate_ecommerce_app/core/constants/const_keys.dart';
 import 'package:elevate_ecommerce_app/core/constants/end_points.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/add_product_to_cart_request_dto/add_product_to_cart_request_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/cart_response_dto/cart_response_dto.dart';
@@ -79,7 +85,20 @@ abstract class ApiClient {
 
   @GET(Endpoints.products)
   Future<ProductsReponseDto> getProductsByCategory(
-    @Query(Endpoints.categoryQuery) String categoryId,
+      @Query(Endpoints.categoryQuery) String categoryId,
+      );
+  @PATCH(Endpoints.changePassword)
+  Future<ChangePasswordResponseDto> changePassword(
+    @Body() ChangePasswordRequest request,
+  );
+  @PUT(Endpoints.editProfileData)
+  Future<UpdateProfileInfoResponseDto> updateProfileData(
+    @Body() UpdateProfileInfoRequest request,
+  );
+  @PUT(Endpoints.uploadProfileImage)
+  @MultiPart()
+  Future<UploadImageResponseDto> uploadImageProfile(
+    @Part(name: ConstKeys.queryPhoto) MultipartFile photo,
   );
 
   @GET(Endpoints.products)

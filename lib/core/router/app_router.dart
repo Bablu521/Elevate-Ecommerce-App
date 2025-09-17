@@ -8,6 +8,8 @@ import 'package:elevate_ecommerce_app/presentation/notifications/view/notificati
 import 'package:elevate_ecommerce_app/presentation/occasion/views/screen/occasion_view.dart';
 import 'package:elevate_ecommerce_app/presentation/product_details/view/screen/product_details_view.dart';
 
+import 'package:elevate_ecommerce_app/presentation/profile/views/change_password_view.dart';
+import 'package:elevate_ecommerce_app/presentation/profile/views/edit_profile_view.dart';
 import 'package:flutter/material.dart';
 import '../../presentation/address/views/screens/saved_address_view.dart';
 import '../../presentation/address/views/screens/add_address_view.dart';
@@ -28,6 +30,10 @@ abstract class AppRouter {
           builder: (_) => const CartPage(),
           settings: settings,
         );
+      case RouteNames.changePassword:
+        return MaterialPageRoute(builder: (_) => const ChangePasswordView());
+      case RouteNames.editProfile:
+        return MaterialPageRoute(builder: (_) => const EditProfileView());
       case RouteNames.forgetPassword:
         return MaterialPageRoute(builder: (_) => const ForgetPasswordScreen());
       case RouteNames.occasion:

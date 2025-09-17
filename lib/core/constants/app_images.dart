@@ -11,6 +11,7 @@ abstract final class AppImages {
   static const String filterIcon = '$_rootImages/filter_ic.svg';
   static const String bottomFilterIcon = '$_rootImages/bottom_filter_ic.svg';
   static const String lockAccessImage = '$_rootImages/heart-lock.png';
+  static const String profileImageTest = '$_rootImages/profile_test_image.jpg';
   static const String fakeImgUrl =
       "https://flower.elevateegy.com/uploads/fefa790a-f0c1-42a0-8699-34e8fc065812-cover_image.png";
   static const String locationIconImage = '$_rootImages/locationIcon.png';
