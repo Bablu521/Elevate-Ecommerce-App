@@ -62,6 +62,7 @@ dependencies:
   google_maps_flutter: ^2.13.1
   geolocator: ^14.0.2
   image_picker: ^1.2.0
+  webview_flutter: ^4.13.0
 
 dev_dependencies:
   flutter_test:
@@ -90,7 +91,7 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-  generate: true
+  generate: true 
 
   # To add assets to your application, add an assets section, like this:
   assets:
@@ -137,7 +138,7 @@ flutter:
 flutter_intl:
   enabled: true
   class_name: AppLocalizations
-  arb_dir: lib/l10n 
-  output_dir: lib/generated 
+  arb_dir: lib/l10n       
+  output_dir: lib/generated
   template_arbs:
-    - intl_en.arb
+    - intl_en.arb  

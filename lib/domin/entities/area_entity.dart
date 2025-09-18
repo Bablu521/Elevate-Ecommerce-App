@@ -12,7 +12,8 @@ class AreaEntity extends Equatable{
     required this.nameEn,
     required this.nameAr,
   });
-  
+
   @override
   List<Object?> get props => [id,cityId,nameEn,nameAr];
 }
+

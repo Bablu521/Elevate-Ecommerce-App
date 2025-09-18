@@ -4,13 +4,13 @@ import 'package:elevate_ecommerce_app/api/models/requestes/auth/forget_password_
 import 'package:elevate_ecommerce_app/api/models/requestes/auth/reset_password_request.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/auth/verify_reset_request.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/login_requests/login_request.dart';
+import 'package:elevate_ecommerce_app/api/models/requestes/orders/order_request.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/register_request_dto/register_request_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/addresses_response_dto/address_response_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/addresses_response_dto/addresses_response_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/auth/forget_password_response.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/auth/reset_password_response.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/auth/verify_reset_response.dart';
-import 'package:elevate_ecommerce_app/api/models/responses/best_seller/best_seller_response_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/categories/categories_response.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/login_response/login_response_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/logout/logout_model.dart';
@@ -18,6 +18,8 @@ import 'package:elevate_ecommerce_app/api/models/responses/occasions_reponse_dto
 import 'package:elevate_ecommerce_app/api/models/responses/products_reponse_dto/products_reponse_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/profile/profile_info_response/profile_info_response_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/order_page/orders_page.dart';
+import 'package:elevate_ecommerce_app/api/models/responses/orders/cash_order_response.dart';
+import 'package:elevate_ecommerce_app/api/models/responses/orders/credit_order_response.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/register_response_dto/register_response_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/change_password_request/change_password_request.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/update_profile_info_request/update_profile_info_request.dart';
@@ -26,10 +28,11 @@ import 'package:elevate_ecommerce_app/api/models/responses/profile/update_profil
 import 'package:elevate_ecommerce_app/api/models/responses/profile/upload_image_response/upload_image_response_dto.dart';
 import 'package:elevate_ecommerce_app/core/constants/const_keys.dart';
 import 'package:elevate_ecommerce_app/core/constants/end_points.dart';
-import 'package:elevate_ecommerce_app/api/models/requestes/add_product_to_cart_request_dto/add_product_to_cart_request_dto.dart';
-import 'package:elevate_ecommerce_app/api/models/responses/cart_response_dto/cart_response_dto.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
+import '../models/requestes/add_product_to_cart_request_dto/add_product_to_cart_request_dto.dart';
+import '../models/responses/best_seller/best_seller_response_dto.dart';
+import '../models/responses/cart_response_dto/cart_response_dto.dart';
 
 part 'api_client.g.dart';
 
@@ -111,6 +114,7 @@ abstract class ApiClient {
   @GET(Endpoints.categories)
   Future<CategoriesResponse> getAllCategories();
 
+
   @GET(Endpoints.bestSeller)
   Future<BestSellerResponseDto> getBestSeller();
 
@@ -133,4 +137,14 @@ abstract class ApiClient {
   
   @GET(Endpoints.logout)
   Future<LogoutModel> logout();
+
+  @POST(Endpoints.checkoutCashOrder)
+  Future<CashOrderResponse> checkoutCashOrder(
+    @Body() OrderRequest orderRequest,
+  );
+
+  @POST(Endpoints.checkoutCreditOrder)
+  Future<CreditOrderResponse> checkoutCreditOrder(
+    @Body() OrderRequest orderRequest,
+  );
 }

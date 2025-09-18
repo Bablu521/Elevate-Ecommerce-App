@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import '../../presentation/address/views/screens/saved_address_view.dart';
 import '../../presentation/address/views/screens/add_address_view.dart';
 import '../../presentation/auth/login/views/login_view.dart';
+import '../../presentation/checkout/views/screen/checkout_screen.dart';
 import '../../presentation/main_home/view/main_home.dart';
 import '../../presentation/order_page/views/orders_page.dart';
 
@@ -60,7 +61,8 @@ abstract class AppRouter {
         return MaterialPageRoute(
           builder: (_) => ProductDetailsView(productEntity: productEntity),
         );
-
+      case RouteNames.checkOut:
+        return MaterialPageRoute(builder: (_) => const CheckoutScreen());
         case RouteNames.ordersPage:
         return MaterialPageRoute(builder: (_) => const OrdersPage());
 

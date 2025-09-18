@@ -6,7 +6,8 @@ class CityEntity extends Equatable {
   final String? nameAr;
 
   const CityEntity({required this.id, required this.nameEn, required this.nameAr});
-  
+
   @override
   List<Object?> get props => [id,nameEn,nameAr];
 }
+

@@ -1,20 +1,24 @@
+import 'package:elevate_ecommerce_app/api/mapper/orders/orders_mapper.dart';
 import 'package:elevate_ecommerce_app/domin/entities/orders_page_entity.dart';
+import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
+import 'package:elevate_ecommerce_app/domin/entities/requests/orders/shipping_address_entity.dart';
+import 'package:elevate_ecommerce_app/domin/entities/responses/orders/cash_order_entity.dart';
+import 'package:elevate_ecommerce_app/domin/entities/responses/orders/credit_order_entity.dart';
 import 'package:injectable/injectable.dart';
-import '../../core/api_result/api_result.dart';
 import '../../data/data_source/orders_remote_data_source.dart';
 import '../client/api_client.dart';
 import '../mapper/order/order_page_mapper.dart';
 
 @Injectable(as:OrdersRemoteDataSource)
 class OrdersRemoteDataSourceImpl extends OrdersRemoteDataSource{
-  ApiClient apiClient;
-  OrdersRemoteDataSourceImpl({required this.apiClient,});
+  final ApiClient _apiClient;
+  OrdersRemoteDataSourceImpl(this._apiClient);
 
 
   @override
   Future<ApiResult<OrdersPageEntity>> getOrders() async {
     try{
-      final response = await apiClient.getOrders(
+      final response = await _apiClient.getOrders(
       );
       final  responseEntity=OrderPageMapper.toOrdersPageEntity(orderdto: response);
       return ApiSuccessResult(responseEntity );
@@ -24,9 +28,26 @@ class OrdersRemoteDataSourceImpl extends OrdersRemoteDataSource{
     }
   }
 
+  @override
+  Future<ApiResult<CashOrderEntity>> checkoutCashOrder(
+    ShippingAddressEntity shippingAddressEntity,
+  ) {
+    return safeApiCall(
+      () => _apiClient.checkoutCashOrder(shippingAddressEntity.toOrderRequest()),
+      (response) => response.toEntity(),
+    );
+  }
 
-
-
-
-
+  @override
+  Future<ApiResult<CreditOrderEntity>> checkoutCreditOrder(
+    ShippingAddressEntity shippingAddressEntity,
+  ) {
+    return safeApiCall(
+      () => _apiClient.checkoutCreditOrder(shippingAddressEntity.toOrderRequest()),
+      (response) => response.toEntity(),
+    );
+  }
 }
+
+
+
