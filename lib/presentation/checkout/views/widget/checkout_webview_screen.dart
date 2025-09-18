@@ -10,6 +10,12 @@ class CheckoutWebviewScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: InkWell(
+          onTap: Navigator.of(context).maybePop,
+          child: const Icon(Icons.arrow_back_ios),
+        ),
+      ),
       body: WebViewWidget(controller: checkoutViewModel.webViewController),
     );
   }
