@@ -1,8 +1,8 @@
 import 'package:elevate_ecommerce_app/core/router/route_names.dart';
+import 'package:elevate_ecommerce_app/presentation/address/views/screens/add_address_view.dart';
 import 'package:elevate_ecommerce_app/presentation/checkout/view_models/checkout_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../core/constants/app_colors.dart';
 import '../../../../generated/l10n.dart';
 import '../../view_models/checkout_events.dart';
@@ -152,14 +152,14 @@ class CheckoutDeliveryAddressSection extends StatelessWidget {
                   size: 20.w,
                 ),
                 onTap: () {
-                  /*Navigator.of(context).push(
+                  Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => AddAddressView(
                         addressEntity:
                             checkoutViewModel.state.addressesList![index],
                       )
                     )
-                  );*/
+                  );
                 },
               ),
             ),

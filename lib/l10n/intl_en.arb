@@ -157,5 +157,20 @@
   "DoYouSureLogout": "Do you sure you want to logout?",
   "trackOrder": "Track order",
   "active": "Active",
-  "completed": "Completed"
+  "completed": "Completed",
+  "checkout": "Checkout",
+  "deliveryTime": "Delivery Time",
+  "schedule": "Schedule",
+  "instant": "Instant",
+  "arriveBy": "Arrivce By",
+  "deliveryAddress": "Delivery Address",
+  "payment": "Payment",
+  "addNew": "Add New",
+  "paymentMethod": "Payment Method",
+  "placeOrder": "Place Order",
+  "itIsAGift": "It is a gift",
+  "name": "Name",
+  "enterTheName": "Enter the name",
+  "cashOnDelivery": "Cash On Delivery",
+  "creditCard": "Credit Card"
 }
