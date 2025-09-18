@@ -7,12 +7,15 @@ import 'package:elevate_ecommerce_app/presentation/cart/views/screen/cart_page.d
 import 'package:elevate_ecommerce_app/presentation/notifications/view/notifications_view.dart';
 import 'package:elevate_ecommerce_app/presentation/occasion/views/screen/occasion_view.dart';
 import 'package:elevate_ecommerce_app/presentation/product_details/view/screen/product_details_view.dart';
+import 'package:elevate_ecommerce_app/presentation/profile/views/change_password_view.dart';
+import 'package:elevate_ecommerce_app/presentation/profile/views/edit_profile_view.dart';
 import 'package:flutter/material.dart';
-
-import '../../presentation/address/views/screens/add_address_view.dart';
 import '../../presentation/address/views/screens/saved_address_view.dart';
+import '../../presentation/address/views/screens/add_address_view.dart';
 import '../../presentation/auth/login/views/login_view.dart';
+import '../../presentation/checkout/views/screen/checkout_screen.dart';
 import '../../presentation/main_home/view/main_home.dart';
+import '../../presentation/order_page/views/orders_page.dart';
 
 abstract class AppRouter {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
@@ -28,6 +31,10 @@ abstract class AppRouter {
           builder: (_) => const CartPage(),
           settings: settings,
         );
+      case RouteNames.changePassword:
+        return MaterialPageRoute(builder: (_) => const ChangePasswordView());
+      case RouteNames.editProfile:
+        return MaterialPageRoute(builder: (_) => const EditProfileView());
       case RouteNames.forgetPassword:
         return MaterialPageRoute(builder: (_) => const ForgetPasswordScreen());
       case RouteNames.occasion:
@@ -54,6 +61,10 @@ abstract class AppRouter {
         return MaterialPageRoute(
           builder: (_) => ProductDetailsView(productEntity: productEntity),
         );
+      case RouteNames.checkOut:
+        return MaterialPageRoute(builder: (_) => const CheckoutScreen());
+      case RouteNames.ordersPage:
+        return MaterialPageRoute(builder: (_) => const OrdersPage());
 
       default:
         return MaterialPageRoute(builder: (_) => const LoginView());

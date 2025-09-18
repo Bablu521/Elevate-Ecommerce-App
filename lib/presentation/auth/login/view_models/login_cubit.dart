@@ -10,7 +10,8 @@ import 'package:injectable/injectable.dart';
 
 @injectable
 class LoginCubit extends Cubit<LoginState> {
-  LoginCubit(this._loginUseCase, this._guestLoginUseCase) : super(const LoginState());
+  LoginCubit(this._loginUseCase, this._guestLoginUseCase)
+    : super(const LoginState());
   final LoginUseCase _loginUseCase;
   final GuestLoginUseCase _guestLoginUseCase;
   bool rememberMe = false;
@@ -28,7 +29,7 @@ class LoginCubit extends Cubit<LoginState> {
 
   void _rememberMeRebuild(bool isRememberMe) {
     rememberMe = isRememberMe;
-    emit(state.initial());
+    emit(state.copyWith(rememberMe: isRememberMe));
   }
 
   Future<void> _guestLogin() async {

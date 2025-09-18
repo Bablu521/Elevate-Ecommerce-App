@@ -31,5 +31,4 @@ class AddressLocalDataSourceImpl implements AddressLocalDataSource{
       throw Exception(e);
     }
   }
-
 }

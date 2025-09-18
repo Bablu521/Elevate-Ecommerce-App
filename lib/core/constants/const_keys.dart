@@ -9,4 +9,10 @@ abstract final class ConstKeys {
   static const String outfitFont = "Outfit";
   static const String interFont = "Inter";
   static const String imFellEnglishFont = "IMFellEnglish";
+  static const String queryPhoto = "photo";
+  static const String local = "local";
+  static const String kEnglishLanguage = "en";
+  static const String kArabicLanguage = "ar";
+  static const String kMale = "male";
+  static const String kFemale = "female";
 }
