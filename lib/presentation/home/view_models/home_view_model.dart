@@ -1,5 +1,5 @@
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
-import 'package:elevate_ecommerce_app/domin/use_cases/home/get_home_use_case.dart';
+import 'package:elevate_ecommerce_app/domin/use_cases/get_home_use_case.dart';
 import 'package:elevate_ecommerce_app/presentation/home/view_models/home_states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';

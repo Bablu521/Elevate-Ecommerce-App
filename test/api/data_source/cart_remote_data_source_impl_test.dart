@@ -1,8 +1,8 @@
+import 'package:elevate_ecommerce_app/api/models/product_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/add_product_to_cart_request_dto/add_product_to_cart_request_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/cart_response_dto/cart_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/cart_response_dto/cart_item_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/cart_response_dto/cart_response_dto.dart';
-import 'package:elevate_ecommerce_app/api/models/responses/cart_response_dto/product_dto.dart';
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/domin/entities/cart_response_entity/cart_response_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/requests/add_product_to_cart_request_entity.dart';

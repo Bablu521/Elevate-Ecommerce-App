@@ -1,10 +1,10 @@
+import 'package:elevate_ecommerce_app/domin/entities/product_entity.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:elevate_ecommerce_app/presentation/cart/view_models/cart_view_model.dart';
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/domin/entities/cart_response_entity/cart_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/cart_response_entity/cart_item_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/cart_response_entity/cart_response_entity.dart';
-import 'package:elevate_ecommerce_app/domin/entities/cart_response_entity/product_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/requests/add_product_to_cart_request_entity.dart';
 import 'package:elevate_ecommerce_app/presentation/cart/view_models/cart_events.dart';
 import 'package:elevate_ecommerce_app/presentation/cart/view_models/cart_states.dart';

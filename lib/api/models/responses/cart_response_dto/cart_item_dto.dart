@@ -2,7 +2,7 @@ import 'package:elevate_ecommerce_app/domin/entities/cart_response_entity/cart_i
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'product_dto.dart';
+import '../../product_dto.dart';
 
 part 'cart_item_dto.g.dart';
 
