@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/constants/app_colors.dart';
 
-class CheckoutDeliveryTimeWidget extends StatelessWidget {
-  const CheckoutDeliveryTimeWidget({super.key});
+class CheckoutDeliveryTimeSection extends StatelessWidget {
+  const CheckoutDeliveryTimeSection({super.key});
 
   @override
   Widget build(BuildContext context) {

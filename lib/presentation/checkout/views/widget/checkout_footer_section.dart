@@ -6,10 +6,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../view_models/checkout_events.dart';
 
-class CheckoutFooterWidget extends StatelessWidget {
+class CheckoutFooterSection extends StatelessWidget {
   final CheckoutViewModel checkoutViewModel;
 
-  const CheckoutFooterWidget({super.key, required this.checkoutViewModel});
+  const CheckoutFooterSection({super.key, required this.checkoutViewModel});
 
   @override
   Widget build(BuildContext context) {
@@ -71,10 +71,6 @@ class CheckoutFooterWidget extends StatelessWidget {
           SizedBox(height: 40.h),
           ElevatedButton(
             onPressed: () {
-              if (checkoutViewModel.selectedPaymentIndex.value == 1 &&
-                  !checkoutViewModel.formKey.currentState!.validate()) {
-                return;
-              }
               checkoutViewModel.doIntent(CheckoutOrderEvent());
             },
             child: Text(AppLocalizations.of(context).placeOrder),

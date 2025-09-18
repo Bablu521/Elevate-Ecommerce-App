@@ -7,10 +7,10 @@ import '../../../../core/constants/app_colors.dart';
 import '../../../../generated/l10n.dart';
 import '../../view_models/checkout_events.dart';
 
-class CheckoutDeliveryAddressWidget extends StatelessWidget {
+class CheckoutDeliveryAddressSection extends StatelessWidget {
   final CheckoutViewModel checkoutViewModel;
 
-  const CheckoutDeliveryAddressWidget({super.key, required this.checkoutViewModel});
+  const CheckoutDeliveryAddressSection({super.key, required this.checkoutViewModel});
 
   @override
   Widget build(BuildContext context) {

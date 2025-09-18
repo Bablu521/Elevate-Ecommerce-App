@@ -365,8 +365,6 @@ class InvoiceData {
   final dynamic footer;
   @JsonKey(name: "issuer")
   final dynamic issuer;
-  /*@JsonKey(name: "metadata")
-  final Metadata? metadata;*/
   @JsonKey(name: "rendering_options")
   final dynamic renderingOptions;
 
@@ -376,7 +374,6 @@ class InvoiceData {
     this.description,
     this.footer,
     this.issuer,
-    /*this.metadata,*/
     this.renderingOptions,
   });
 
@@ -388,21 +385,6 @@ class InvoiceData {
     return _$InvoiceDataToJson(this);
   }
 }
-
-/*@JsonSerializable()
-class Metadata {
-
-  Metadata ({
-  });
-
-  factory Metadata.fromJson(Map<String, dynamic> json) {
-    return _$MetadataFromJson(json);
-  }
-
-  Map<String, dynamic> toJson() {
-    return _$MetadataToJson(this);
-  }
-}*/
 
 @JsonSerializable()
 class Metadata {

@@ -8,10 +8,10 @@ import '../../domin/repositories/orders_repo.dart';
 import '../data_source/orders_remote_data_source.dart';
 
 @Injectable(as:OrdersRepo)
-class OrdersRepoImp implements OrdersRepo {
+class OrdersRepoImpl implements OrdersRepo {
   final OrdersRemoteDataSource _ordersRemoteDataSource;
 
-  OrdersRepoImp(this._ordersRemoteDataSource);
+  OrdersRepoImpl(this._ordersRemoteDataSource);
 
 
 

@@ -204,9 +204,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i490.RegisterViewModel>(
       () => _i490.RegisterViewModel(gh<_i638.RegisterUseCase>()),
     );
-    gh.factory<_i555.OrdersRepo>(
-      () => _i688.OrdersRepoImp(gh<_i107.OrdersRemoteDataSource>()),
-    );
     gh.factory<_i84.CategoriesRemoteDataSource>(
       () => _i451.CategoriesRemoteDataSourceImpl(gh<_i508.ApiClient>()),
     );
@@ -269,9 +266,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i135.BestSellerRepo>(
       () => _i663.BestSellerRepoImpl(gh<_i702.BestSellerRemoteDataSource>()),
     );
-    gh.factory<_i33.GetOrdersUseCase>(
-      () => _i33.GetOrdersUseCase(repo: gh<_i555.OrdersRepo>()),
-    );
     gh.factory<_i5.ProductDetailsViewModelCubit>(
       () =>
           _i5.ProductDetailsViewModelCubit(gh<_i449.AddProductToCartUseCase>()),
@@ -287,6 +281,9 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i950.ClearUserCartUseCase>(),
         gh<_i799.GetUserStatusUseCase>(),
       ),
+    );
+    gh.factory<_i555.OrdersRepo>(
+      () => _i688.OrdersRepoImpl(gh<_i107.OrdersRemoteDataSource>()),
     );
     gh.factory<_i983.CategoriesRepo>(
       () => _i1008.CategoriesRepoImpl(gh<_i84.CategoriesRemoteDataSource>()),
@@ -332,8 +329,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i81.GetAllCategoriesUseCase>(
       () => _i81.GetAllCategoriesUseCase(gh<_i983.CategoriesRepo>()),
     );
-    gh.factory<_i644.OrderViewModel>(
-      () => _i644.OrderViewModel(gh<_i33.GetOrdersUseCase>()),
+    gh.factory<_i33.GetOrdersUseCase>(
+      () => _i33.GetOrdersUseCase(repo: gh<_i555.OrdersRepo>()),
     );
     gh.factory<_i206.BestSellerViewModelCubit>(
       () => _i206.BestSellerViewModelCubit(
@@ -361,6 +358,9 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i512.GetAllProductsUseCase>(),
         gh<_i449.AddProductToCartUseCase>(),
       ),
+    );
+    gh.factory<_i644.OrderViewModel>(
+      () => _i644.OrderViewModel(gh<_i33.GetOrdersUseCase>()),
     );
     gh.factory<_i979.OccasionViewModel>(
       () => _i979.OccasionViewModel(

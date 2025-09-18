@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:elevate_ecommerce_app/api/mapper/orders/orders_mapper.dart';
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/domin/entities/address_entity.dart';
@@ -35,11 +37,10 @@ class CheckoutViewModel extends Cubit<CheckoutState> {
   ValueNotifier<int> selectedAddressIndex = ValueNotifier<int>(0);
   ValueNotifier<int> selectedPaymentIndex = ValueNotifier<int>(0);
 
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
   TextEditingController nameController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
 
-  WebViewController webViewController = WebViewController();
+  late WebViewController webViewController;
 
   int deliveryFee = 10;
 
@@ -99,7 +100,7 @@ class CheckoutViewModel extends Cubit<CheckoutState> {
       final result = await _checkoutCreditOrderUseCase(body);
       switch (result) {
         case ApiSuccessResult<CreditOrderEntity>():
-          _initWebView(result.data.url!);
+          _initWebView(result.data.url ?? "");
           emit(state.copyWith(isSuccessCreditOrder: true));
         case ApiErrorResult<CreditOrderEntity>():
           emit(state.copyWith(errorMessage: result.errorMessage));
@@ -116,7 +117,10 @@ class CheckoutViewModel extends Cubit<CheckoutState> {
   }
 
   void _initWebView(String url) {
-    webViewController
+    if (Platform.environment.containsKey('FLUTTER_TEST')) {
+      return;
+    }
+    webViewController = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..setNavigationDelegate(
         NavigationDelegate(

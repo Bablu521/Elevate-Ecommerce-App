@@ -6,10 +6,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../view_models/checkout_events.dart';
 
-class CheckoutPaymentMethodWidget extends StatelessWidget {
+class CheckoutPaymentMethodSection extends StatelessWidget {
   final CheckoutViewModel checkoutViewModel;
 
-  const CheckoutPaymentMethodWidget({super.key, required this.checkoutViewModel});
+  const CheckoutPaymentMethodSection({super.key, required this.checkoutViewModel});
 
   @override
   Widget build(BuildContext context) {
