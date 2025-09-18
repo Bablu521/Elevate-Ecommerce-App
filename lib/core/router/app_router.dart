@@ -63,7 +63,7 @@ abstract class AppRouter {
         );
       case RouteNames.checkOut:
         return MaterialPageRoute(builder: (_) => const CheckoutScreen());
-        case RouteNames.ordersPage:
+      case RouteNames.ordersPage:
         return MaterialPageRoute(builder: (_) => const OrdersPage());
 
       default:

@@ -42,6 +42,6 @@ class ProductDetailsViewModelCubit extends Cubit<ProductDetailsViewModelState> {
   }
 
   void _initialUI(int currentIndex) {
-    emit(state.copyWith(currentIndex: currentIndex));
+    emit(state.copyWith(currentIndex: currentIndex, addToCartState: null));
   }
 }

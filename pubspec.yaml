@@ -63,6 +63,7 @@ dependencies:
   geolocator: ^14.0.2
   image_picker: ^1.2.0
   webview_flutter: ^4.13.0
+  firebase_core: ^4.1.0
 
 dev_dependencies:
   flutter_test:
@@ -121,6 +122,9 @@ flutter:
     - family: Outfit
       fonts:
         - asset: assets/fonts/Outfit.ttf
+    - family: IMFellEnglish
+      fonts:
+        - asset: assets/fonts/IMFellEnglish.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:

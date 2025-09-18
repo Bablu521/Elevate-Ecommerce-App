@@ -21,4 +21,5 @@ abstract class Endpoints {
   static const String getOrders = "api/v1/orders";
   static const String checkoutCashOrder = "api/v1/orders";
   static const String checkoutCreditOrder = "api/v1/orders/checkout?url=http://localhost:3000";
+  static const String home = "api/v1/home";
 }

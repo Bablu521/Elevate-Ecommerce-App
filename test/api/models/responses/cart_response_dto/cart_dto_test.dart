@@ -1,5 +1,5 @@
+import 'package:elevate_ecommerce_app/api/models/product_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/cart_response_dto/cart_item_dto.dart';
-import 'package:elevate_ecommerce_app/api/models/responses/cart_response_dto/product_dto.dart';
 import 'package:elevate_ecommerce_app/domin/entities/cart_response_entity/cart_entity.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/cart_response_dto/cart_dto.dart';

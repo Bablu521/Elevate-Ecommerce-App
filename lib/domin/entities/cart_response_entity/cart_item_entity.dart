@@ -1,5 +1,6 @@
-import 'package:elevate_ecommerce_app/domin/entities/cart_response_entity/product_entity.dart';
 import 'package:equatable/equatable.dart';
+
+import '../product_entity.dart';
 
 class CartItemEntity extends Equatable {
 	final ProductEntity? product;

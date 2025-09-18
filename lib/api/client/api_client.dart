@@ -33,6 +33,7 @@ import 'package:retrofit/retrofit.dart';
 import '../models/requestes/add_product_to_cart_request_dto/add_product_to_cart_request_dto.dart';
 import '../models/responses/best_seller/best_seller_response_dto.dart';
 import '../models/responses/cart_response_dto/cart_response_dto.dart';
+import '../models/responses/home_response_dto/home_response_dto.dart';
 
 part 'api_client.g.dart';
 
@@ -50,8 +51,8 @@ abstract class ApiClient {
 
   @POST(Endpoints.cart)
   Future<CartResponseDto> addProductToCart(
-    @Body() AddProductToCartRequestDto addProductToCartRequestDto,
-  );
+      @Body() AddProductToCartRequestDto addProductToCartRequestDto,
+      );
 
   @DELETE('${Endpoints.cart}/{id}')
   Future<CartResponseDto> deleteSpecificCartItem(@Path("id") String productId);
@@ -61,24 +62,24 @@ abstract class ApiClient {
 
   @POST(Endpoints.register)
   Future<RegisterResponseDto> register(
-    @Body() RegisterRequestDto registerRequestDto,
-  );
+      @Body() RegisterRequestDto registerRequestDto,
+      );
 
   @POST(Endpoints.signIn)
   Future<LoginResponseDto> login(@Body() LoginRequestModel loginRequestModel);
 
   @POST(Endpoints.forgetPassword)
   Future<ForgetPasswordResponse> forgetPassword(
-    @Body() ForgetPasswordRequest body,
-  );
+      @Body() ForgetPasswordRequest body,
+      );
 
   @POST(Endpoints.verifyReset)
   Future<VerifyResetResponse> verifyResetCode(@Body() VerifyResetRequest body);
 
   @PUT(Endpoints.resetPassword)
   Future<ResetPasswordResponse> resetPassword(
-    @Body() ResetPasswordRequest body,
-  );
+      @Body() ResetPasswordRequest body,
+      );
   @GET(Endpoints.profileData)
   Future<ProfileInfoResponseDto> getProfileData();
 
@@ -87,8 +88,8 @@ abstract class ApiClient {
 
   @GET(Endpoints.products)
   Future<ProductsReponseDto> getProductsByOccasion(
-    @Query(Endpoints.occasionQuery) String occasionId,
-  );
+      @Query(Endpoints.occasionQuery) String occasionId,
+      );
 
   @GET(Endpoints.products)
   Future<ProductsReponseDto> getProductsByCategory(
@@ -96,17 +97,17 @@ abstract class ApiClient {
       );
   @PATCH(Endpoints.changePassword)
   Future<ChangePasswordResponseDto> changePassword(
-    @Body() ChangePasswordRequest request,
-  );
+      @Body() ChangePasswordRequest request,
+      );
   @PUT(Endpoints.editProfileData)
   Future<UpdateProfileInfoResponseDto> updateProfileData(
-    @Body() UpdateProfileInfoRequest request,
-  );
+      @Body() UpdateProfileInfoRequest request,
+      );
   @PUT(Endpoints.uploadProfileImage)
   @MultiPart()
   Future<UploadImageResponseDto> uploadImageProfile(
-    @Part(name: ConstKeys.queryPhoto) MultipartFile photo,
-  );
+      @Part(name: ConstKeys.queryPhoto) MultipartFile photo,
+      );
 
   @GET(Endpoints.products)
   Future<ProductsReponseDto> getAllProducts();
@@ -123,28 +124,31 @@ abstract class ApiClient {
 
   @PATCH(Endpoints.address)
   Future<AddressResponseDto> addAddress(
-    @Body() AddressRequestDto addressRequestDto,
-  );
+      @Body() AddressRequestDto addressRequestDto,
+      );
 
   @PATCH('${Endpoints.address}/{id}')
   Future<AddressesResponseDto> updateAddress(
-    @Body() AddressRequestDto addressRequestDto,
-    @Path("id") String addressId,
-  );
+      @Body() AddressRequestDto addressRequestDto,
+      @Path("id") String addressId,
+      );
 
   @DELETE('${Endpoints.address}/{id}')
   Future<AddressResponseDto> removeAddress(@Path("id") String addressId);
-  
+
   @GET(Endpoints.logout)
   Future<LogoutModel> logout();
 
   @POST(Endpoints.checkoutCashOrder)
   Future<CashOrderResponse> checkoutCashOrder(
-    @Body() OrderRequest orderRequest,
-  );
+      @Body() OrderRequest orderRequest,
+      );
 
   @POST(Endpoints.checkoutCreditOrder)
   Future<CreditOrderResponse> checkoutCreditOrder(
-    @Body() OrderRequest orderRequest,
-  );
+      @Body() OrderRequest orderRequest,
+      );
+
+  @GET(Endpoints.home)
+  Future<HomeDto>getHome();
 }

@@ -104,6 +104,8 @@ abstract class AppTheme {
         fontWeight: FontWeight.w500,
       ),
     ),
+
+    
   );
 
   static InputBorder getOutlineInputBorder({required Color color}) {

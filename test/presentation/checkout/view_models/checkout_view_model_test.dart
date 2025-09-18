@@ -5,7 +5,7 @@ import 'package:elevate_ecommerce_app/domin/entities/address_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/cart_response_entity/cart_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/cart_response_entity/cart_item_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/cart_response_entity/cart_response_entity.dart';
-import 'package:elevate_ecommerce_app/domin/entities/cart_response_entity/product_entity.dart';
+import 'package:elevate_ecommerce_app/domin/entities/product_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/responses/orders/cash_order_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/responses/orders/credit_order_entity.dart';
 import 'package:elevate_ecommerce_app/domin/use_cases/checkout_cash_order_use_case.dart';

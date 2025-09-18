@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/data/repositories/best_seller_repo_impl.dart';
-import 'package:elevate_ecommerce_app/domin/entities/best_seller_entity.dart';
+import 'package:elevate_ecommerce_app/domin/entities/best_seller_product_entity.dart';
 import 'package:elevate_ecommerce_app/domin/use_cases/get_best_seller_use_case.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
