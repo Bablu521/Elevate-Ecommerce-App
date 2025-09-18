@@ -158,7 +158,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         itemCount: state.bestSellerListSuccess.length,
                         itemBuilder: (context, index) {
                           final categories =
-                          state.bestSellerListSuccess[index]; //
+                          state.bestSellerListSuccess[index];
                           return ProductItem(
                             imageUrl: categories.imgCover ?? "",
                             title: categories.title ?? "",
