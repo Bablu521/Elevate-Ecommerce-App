@@ -1,7 +1,7 @@
-import 'package:bloc/bloc.dart';
 import 'package:elevate_ecommerce_app/presentation/search/view_models/search_events.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../core/api_result/api_result.dart';
