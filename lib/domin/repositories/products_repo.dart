@@ -7,4 +7,10 @@ abstract interface class ProductsRepo {
   Future<ApiResult<List<ProductEntity>>> getProductsByCategory(String categoryId);
 
   Future<ApiResult<List<ProductEntity>>> getProductsByOccasion(String occasionId);
+
+
+  Future<ApiResult<List<ProductEntity>>> fetchAllProducts
+      ({String? sort,String? search});
+
+
 }

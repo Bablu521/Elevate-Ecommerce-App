@@ -38,4 +38,13 @@ class ProductsRemoteDataSourceImpl implements ProductsRemoteDataSource {
       (response) => response.products!.map((dto) => dto.toProductEntity()).toList(),
     );
   }
+
+  @override
+  Future<ApiResult<List<ProductEntity>>> fetchAllProducts({String? sort, String? search}) {
+    return safeApiCall(
+        ()=>_apiClient.fetchAllProducts(sort, search),
+
+        (response)=>response.products!.map((dto)=>dto.toProductEntity()).toList(),
+    );
+  }
 }

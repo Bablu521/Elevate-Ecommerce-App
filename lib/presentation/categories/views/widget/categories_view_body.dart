@@ -5,10 +5,12 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_images.dart';
+import '../../../../core/router/route_names.dart';
 import '../../../../generated/l10n.dart';
 import '../../view_models/categories_view_model.dart';
 import 'categories_tab_bar.dart';
 import 'categories_tab_bar_view.dart';
+import 'custom_filter_buttom_sheet.dart';
 
 class CategoriesViewBody extends StatelessWidget {
   final CategoriesViewModel categoriesViewModel;
@@ -23,7 +25,15 @@ class CategoriesViewBody extends StatelessWidget {
           spacing: 16.h,
           children: [
             SizedBox(height: 16.h),
-            CategoriesSearchSection(categoriesViewModel: categoriesViewModel),
+
+
+
+    InkWell(
+        onTap: (){
+          Navigator.pushNamed(context,RouteNames.searchScreen );
+        },
+        child: CategoriesSearchSection(categoriesViewModel: categoriesViewModel)),
+
             ValueListenableBuilder(
               valueListenable: categoriesViewModel.selectedTabIndex,
               builder: (BuildContext context, selectedIndex, Widget? child) {
@@ -33,7 +43,8 @@ class CategoriesViewBody extends StatelessWidget {
               },
             ),
             Expanded(
-              child: Builder(
+              child:
+              Builder(
                 builder: (_) {
                   if (categoriesViewModel.state.isProductsLoading) {
                     return const Center(child: CircularProgressIndicator());
@@ -69,7 +80,11 @@ class CategoriesViewBody extends StatelessWidget {
           child: Align(
             alignment: Alignment.bottomCenter,
             child: ElevatedButton.icon(
-              onPressed: () {},
+              onPressed: () {
+                showModalBottomSheet(
+                    context: context,
+                    builder: (_) => CustomButtonSheet(categoriesViewModel:  categoriesViewModel, ));
+              },
               icon: SvgPicture.asset(AppImages.bottomFilterIcon),
               label: Text(
                 AppLocalizations.of(context).filter,

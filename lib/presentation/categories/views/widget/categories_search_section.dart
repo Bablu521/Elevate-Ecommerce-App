@@ -23,18 +23,23 @@ class CategoriesSearchSection extends StatelessWidget {
           Expanded(
             flex: 4,
             child: TextFormField(
+
+              enabled: false,
               controller: categoriesViewModel.searchController,
               style: Theme.of(context).textTheme.bodySmall,
               textInputAction: TextInputAction.search,
               decoration: InputDecoration(
+                disabledBorder: searchOutlineInputBorder(),
                 prefixIcon: Icon(Icons.search, color: AppColors.white[70]),
                 hintText: AppLocalizations.of(context).search,
                 border: searchOutlineInputBorder(),
                 focusedBorder: searchOutlineInputBorder(),
                 enabledBorder: searchOutlineInputBorder(),
               ),
-              onChanged: (_) {
-                categoriesViewModel.doIntent(ProductsSearchEvent());
+              onChanged: (value) {
+                categoriesViewModel.doIntent(ProductsSearchEvent(
+                  search: value
+                ));
               },
             ),
           ),

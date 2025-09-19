@@ -7,4 +7,7 @@ abstract interface class ProductsRemoteDataSource {
   Future<ApiResult<List<ProductEntity>>> getProductsByCategory(String category);
 
   Future<ApiResult<List<ProductEntity>>> getProductsByOccasion(String occasion);
+
+  Future<ApiResult<List<ProductEntity>>> fetchAllProducts
+      ({String? sort,String? search});
 }

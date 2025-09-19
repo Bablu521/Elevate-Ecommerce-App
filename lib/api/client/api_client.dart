@@ -12,11 +12,9 @@ import 'package:elevate_ecommerce_app/api/models/responses/register_response_dto
 import 'package:elevate_ecommerce_app/core/constants/end_points.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
-
 import '../models/responses/auth/forget_password_response.dart';
 import '../models/responses/occasions_reponse_dto/occasions_reponse_dto.dart';
 import '../models/responses/products_reponse_dto/products_reponse_dto.dart';
-
 part 'api_client.g.dart';
 
 @injectable
@@ -24,6 +22,15 @@ part 'api_client.g.dart';
 abstract class ApiClient {
   @factoryMethod
   factory ApiClient(Dio dio) = _ApiClient;
+
+  
+
+  @GET('api/v1/products')
+  Future<ProductsReponseDto>
+  fetchAllProducts(
+      @Query("sort") String? sort  ,
+      @Query("keyword") String? search
+      );
 
   @POST(Endpoints.register)
   Future<RegisterResponseDto> register(

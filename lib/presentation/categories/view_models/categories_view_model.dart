@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../domin/use_cases/get_products_by_category_use_case.dart';
+import '../../../domin/use_cases/sort_use_case.dart';
 
 part 'categories_state.dart';
 
@@ -19,10 +20,13 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
   final GetAllProductsUseCase _getAllProductsUseCase;
   final GetProductsByCategoryUseCase _getProductsByCategoryUseCase;
 
+  final FetchAllProductsUseCase _fetchAllProductsUseCase;
+
   CategoriesViewModel(
     this._getAllCategoriesUseCase,
     this._getProductsByCategoryUseCase,
     this._getAllProductsUseCase,
+      this._fetchAllProductsUseCase
   ) : super(CategoriesState());
 
   late final String categoryId;
@@ -41,8 +45,11 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
         _getAllProducts();
       case GetProductsByCategoryEvent():
         _getProductsByCategory();
-      case ProductsSearchEvent():
-        _productsSearch();
+      case ProductsSearchEvent( : final search):
+        _productsSearch(search:search);
+      case ProductsFilterEvent( : final sort):
+        _productsFilter(sort: sort);
+
       case InitTabBarEvent():
         _initTabBarController();
     }
@@ -92,23 +99,46 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
     }
   }
 
-  void _productsSearch() {
-    emit(state.copyWith(isProductsLoading: true));
-    List<ProductEntity> tempList;
-    if (searchController.text.isNotEmpty) {
-      tempList =
-          productsList!
-              .where(
-                (product) => product.title!.toLowerCase().contains(
-                  searchController.text.toLowerCase(),
-                ),
-              )
-              .toList();
-      emit(state.copyWith(productsList: tempList, isProductsLoading: false));
-    } else {
-      emit(state.copyWith(productsList: productsList, isProductsLoading: false));
-    }
+ Future <void> _productsSearch({String? search}) async {
+    emit(state.copyWith(isProductsLoading: true,errorMessage: null));
+   final  result = await _fetchAllProductsUseCase.call(
+     search: search
+   );
+   switch(result){
+     case ApiSuccessResult<List<ProductEntity>>():
+       productsList=result.data;
+
+       emit(state.copyWith(productsList: result.data,
+       isLoading: false,
+       ));
+     case ApiErrorResult<List<ProductEntity>>():
+       emit(
+         state.copyWith(
+           errorMessage: result.errorMessage,
+           isProductsLoading: false,),);
+   }
   }
+
+
+Future<void> _productsFilter({String? sort}) async {
+  emit(state.copyWith(isProductsLoading: true, errorMessage: null));
+  final result = await _fetchAllProductsUseCase.call(
+    sort: sort
+  );
+
+  switch (result) {
+    case ApiSuccessResult<List<ProductEntity>>():
+      productsList = result.data;
+      emit(state.copyWith(productsList: result.data, isProductsLoading: false));
+    case ApiErrorResult<List<ProductEntity>>():
+      emit(
+        state.copyWith(
+          errorMessage: result.errorMessage,
+          isProductsLoading: false,
+        ),
+      );
+  }
+}
 
   void _initTabBarController() {
     tabController = TabController(
@@ -140,4 +170,19 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
       _getProductsByCategory();
     }
   }
+
 }
+
+// if (searchController.text.isNotEmpty) {
+//   tempList =
+//       productsList!
+//           .where(
+//             (product) => product.title!.toLowerCase().contains(
+//               searchController.text.toLowerCase(),
+//             ),
+//           )
+//           .toList();
+//   emit(state.copyWith(productsList: tempList, isProductsLoading: false));
+// } else {
+//   emit(state.copyWith(productsList: productsList, isProductsLoading: false));
+// }

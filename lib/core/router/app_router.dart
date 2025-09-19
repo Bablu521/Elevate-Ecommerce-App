@@ -1,5 +1,6 @@
 import 'package:elevate_ecommerce_app/core/router/route_names.dart';
 import 'package:elevate_ecommerce_app/presentation/auth/register/views/screen/register_view.dart';
+import 'package:elevate_ecommerce_app/presentation/categories/views/widget/search_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../presentation/auth/forget_password/views/screen/forget_password_screen.dart';
@@ -23,6 +24,11 @@ abstract class AppRouter {
           builder: (_) => const OccasionView(),
           settings: settings,
         );
+        // case RouteNames.searchScreen:
+        // return MaterialPageRoute(
+        //   builder: (_) => const SearchScreen(),
+        //
+        // );
       default:
         return MaterialPageRoute(builder: (_) => const LoginView());
     }

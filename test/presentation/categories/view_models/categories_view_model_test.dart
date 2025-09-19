@@ -5,6 +5,7 @@ import 'package:elevate_ecommerce_app/domin/entities/product_entity.dart';
 import 'package:elevate_ecommerce_app/domin/use_cases/get_all_categories_use_case.dart';
 import 'package:elevate_ecommerce_app/domin/use_cases/get_all_products_use_case.dart';
 import 'package:elevate_ecommerce_app/domin/use_cases/get_products_by_category_use_case.dart';
+import 'package:elevate_ecommerce_app/domin/use_cases/sort_use_case.dart';
 import 'package:elevate_ecommerce_app/presentation/categories/view_models/categories_events.dart';
 import 'package:elevate_ecommerce_app/presentation/categories/view_models/categories_view_model.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -17,16 +18,20 @@ import 'categories_view_model_test.mocks.dart';
   GetAllCategoriesUseCase,
   GetAllProductsUseCase,
   GetProductsByCategoryUseCase,
+  FetchAllProductsUseCase
 ])
 void main() {
   group("test CategoriesViewModel", () {
     late MockGetAllCategoriesUseCase mockGetAllCategoriesUseCase;
     late MockGetAllProductsUseCase mockGetAllProductsUseCase;
     late MockGetProductsByCategoryUseCase mockGetProductsByCategoryUseCase;
+    late MockFetchAllProductsUseCase mockFetchAllProductsUseCase;
     late CategoriesViewModel categoriesViewModel;
+
     late CategoriesState state;
 
     setUp(() {
+      mockFetchAllProductsUseCase =MockFetchAllProductsUseCase();
       mockGetAllCategoriesUseCase = MockGetAllCategoriesUseCase();
       mockGetAllProductsUseCase = MockGetAllProductsUseCase();
       mockGetProductsByCategoryUseCase = MockGetProductsByCategoryUseCase();
@@ -34,6 +39,8 @@ void main() {
         mockGetAllCategoriesUseCase,
         mockGetProductsByCategoryUseCase,
         mockGetAllProductsUseCase,
+        mockFetchAllProductsUseCase
+
       );
       state = CategoriesState();
     });
@@ -325,5 +332,123 @@ void main() {
         },
       );
     });
+
+    group("test FetchAllProductsUseCase", () {
+      var expectedList = [
+        const ProductEntity(
+          rateAvg: 1,
+          rateCount: 1,
+          id: "1",
+          title: "Product 1",
+          slug: "product-1",
+          description: "Desc 1",
+          imgCover: "img1",
+          images: ["img1"],
+          price: 100,
+          priceAfterDiscount: 90,
+          quantity: 10,
+          category: "cat1",
+          v: 1,
+          isSuperAdmin: false,
+          sold: 0,
+
+        ),
+      ];
+      provideDummy<ApiResult<ProductEntity>>(
+        ApiSuccessResult(const ProductEntity(
+          rateAvg: 1,
+          rateCount: 1,
+          id: "1",
+          title: "Product 1",
+          slug: "product-1",
+          description: "Desc 1",
+          imgCover: "img1",
+          images: ["img1"],
+          price: 100,
+          priceAfterDiscount: 90,
+          quantity: 10,
+          category: "cat1",
+          v: 1,
+          isSuperAdmin: false,
+          sold: 0,
+        ))
+      );
+
+      var expectedSuccessResult = ApiSuccessResult<List<ProductEntity>>(expectedList);
+      var expectedErrorResult = ApiErrorResult<List<ProductEntity>>("Server Error");
+
+      blocTest<CategoriesViewModel, CategoriesState>(
+        'call doIntent with ProductsSearchEvent then load and succeed',
+        build: () {
+          when(
+            mockFetchAllProductsUseCase(search: "test", sort: null),
+          ).thenAnswer(
+                (_) async => ApiSuccessResult<List<ProductEntity>>([
+              const ProductEntity(
+                rateAvg: 1,
+                rateCount: 1,
+                id: "1",
+                title: "Product 1",
+                slug: "product-1",
+                description: "Desc 1",
+                imgCover: "img1",
+                images: ["img1"],
+                price: 100,
+                priceAfterDiscount: 90,
+                quantity: 10,
+                category: "cat1",
+                occasion: "occasion1",
+                v: 1,
+                isSuperAdmin: false,
+                sold: 0,
+              ),
+            ]),
+          );
+          return categoriesViewModel;
+        },
+        act: (bloc) => bloc.doIntent(
+          ProductsSearchEvent(search: "test"),
+        ),
+        expect: () => [
+          // أول state أثناء التحميل
+          state.copyWith(isProductsLoading: true, errorMessage: null),
+          // state بعد النجاح
+          state.copyWith(
+            isProductsLoading: false,
+            productsList: [
+              const ProductEntity(
+                rateAvg: 1,
+                rateCount: 1,
+                id: "1",
+                title: "Product 1",
+                slug: "product-1",
+                description: "Desc 1",
+                imgCover: "img1",
+                images: ["img1"],
+                price: 100,
+                priceAfterDiscount: 90,
+                quantity: 10,
+                category: "cat1",
+                occasion: "occasion1",
+                v: 1,
+                isSuperAdmin: false,
+                sold: 0,
+              ),
+            ],
+          ),
+        ],
+        verify: (_) {
+          verify(mockFetchAllProductsUseCase(search: "test", sort: null)).called(1);
+        },
+      );
+
+    });
+
+
+
   });
+
+
+
+
 }

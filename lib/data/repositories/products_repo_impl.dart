@@ -29,4 +29,9 @@ class ProductsRepoImpl implements ProductsRepo {
   ) {
     return _productsRemoteDataSource.getProductsByOccasion(occasionId);
   }
+
+  @override
+  Future<ApiResult<List<ProductEntity>>> fetchAllProducts({String? sort, String? search}) {
+    return _productsRemoteDataSource.fetchAllProducts( sort: sort,search: search);
+  }
 }

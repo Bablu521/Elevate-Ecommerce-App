@@ -42,52 +42,54 @@ class CustomProductItems extends StatelessWidget {
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 13.5),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      overflow: TextOverflow.ellipsis,
-                      style: Theme.of(
-                        context,
-                      ).textTheme.bodySmall!.copyWith(fontSize: 12.sp),
-                    ),
-                    const SizedBox(height: 4),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width / 4,
-                      child: Wrap(
-                        children: [
-                          Text(
-                            overflow: TextOverflow.ellipsis,
-                            "EGP ${priceAfterDiscount.toString()}",
-                            style: theme.textTheme.bodySmall?.copyWith(
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          Text(
-                            price.toString(),
-                            overflow: TextOverflow.ellipsis,
-                            style: theme.textTheme.bodySmall?.copyWith(
-                              fontSize: 12.sp,
-                              fontWeight: FontWeight.w400,
-                              color: AppColors.gray,
-                              decoration: TextDecoration.lineThrough,
-                              decorationColor: AppColors.gray,
-                            ),
-                          ),
-                          Text(
-                            "${((price - priceAfterDiscount) / price * 100).toInt()}%",
-                            overflow: TextOverflow.ellipsis,
-                            style: theme.textTheme.bodySmall?.copyWith(
-                              fontSize: 12.sp,
-                              fontWeight: FontWeight.w400,
-                              color: AppColors.green,
-                            ),
-                          ),
-                        ],
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(
+                          context,
+                        ).textTheme.bodySmall!.copyWith(fontSize: 12.sp),
                       ),
-                    ),
-                  ],
+                      const SizedBox(height: 4),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width / 4,
+                        child: Wrap(
+                          children: [
+                            Text(
+                              overflow: TextOverflow.ellipsis,
+                              "EGP ${priceAfterDiscount.toString()}",
+                              style: theme.textTheme.bodySmall?.copyWith(
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            Text(
+                              price.toString(),
+                              overflow: TextOverflow.ellipsis,
+                              style: theme.textTheme.bodySmall?.copyWith(
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w400,
+                                color: AppColors.gray,
+                                decoration: TextDecoration.lineThrough,
+                                decorationColor: AppColors.gray,
+                              ),
+                            ),
+                            Text(
+                              "${((price - priceAfterDiscount) / price * 100).toInt()}%",
+                              overflow: TextOverflow.ellipsis,
+                              style: theme.textTheme.bodySmall?.copyWith(
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w400,
+                                color: AppColors.green,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
