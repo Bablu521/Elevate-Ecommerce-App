@@ -79,7 +79,7 @@
   "all": "All",
   "filter": "Filter",
   "sortBy": "Sort by",
-  "lowesPrice": "Lowes Price",
+  "lowestPrice": "Lowest Price",
   "highestPrice": "Highest Price",
   "newWord": "New",
   "old": "Old",
@@ -174,5 +174,6 @@
   "update": "Update",
   "currentPassword": "Current password",
   "changeLanguage": "Change Language",
-  "arabic": "Arabic"
+  "arabic": "Arabic",
+  "searchForAnyProductYouWant": "Search for any product you want"
 }

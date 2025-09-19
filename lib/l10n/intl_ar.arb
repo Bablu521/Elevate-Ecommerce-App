@@ -79,7 +79,7 @@
   "all": "الكل",
   "filter": "تصفية",
   "sortBy": "ترتيب حسب",
-  "lowesPrice": "الأقل سعرًا",
+  "lowestPrice": "الأقل سعرًا",
   "highestPrice": "الأعلى سعرًا",
   "newWord": "جديد",
   "old": "قديم",
@@ -174,5 +174,6 @@
   "update": "تحديث",
   "currentPassword": "كلمة المرور الحالية",
   "changeLanguage": "تغيير اللغة",
-  "arabic": "العربية"
+  "arabic": "العربية",
+  "searchForAnyProductYouWant": "ابحث عن أي منتج تريده"
 }
