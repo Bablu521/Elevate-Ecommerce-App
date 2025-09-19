@@ -5,6 +5,8 @@ import 'package:elevate_ecommerce_app/api/models/requestes/auth/reset_password_r
 import 'package:elevate_ecommerce_app/api/models/requestes/auth/verify_reset_request.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/login_requests/login_request.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/orders/order_request.dart';
+import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/change_password_request/change_password_request.dart';
+import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/update_profile_info_request/update_profile_info_request.dart';
 import 'package:elevate_ecommerce_app/api/models/requestes/register_request_dto/register_request_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/addresses_response_dto/address_response_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/addresses_response_dto/addresses_response_dto.dart';
@@ -15,21 +17,20 @@ import 'package:elevate_ecommerce_app/api/models/responses/categories/categories
 import 'package:elevate_ecommerce_app/api/models/responses/login_response/login_response_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/logout/logout_model.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/occasions_reponse_dto/occasions_reponse_dto.dart';
-import 'package:elevate_ecommerce_app/api/models/responses/products_reponse_dto/products_reponse_dto.dart';
-import 'package:elevate_ecommerce_app/api/models/responses/profile/profile_info_response/profile_info_response_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/order_page/orders_page.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/orders/cash_order_response.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/orders/credit_order_response.dart';
-import 'package:elevate_ecommerce_app/api/models/responses/register_response_dto/register_response_dto.dart';
-import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/change_password_request/change_password_request.dart';
-import 'package:elevate_ecommerce_app/api/models/requestes/profile_request/update_profile_info_request/update_profile_info_request.dart';
+import 'package:elevate_ecommerce_app/api/models/responses/products_reponse_dto/products_reponse_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/profile/change_password_response/change_password_response_dto.dart';
+import 'package:elevate_ecommerce_app/api/models/responses/profile/profile_info_response/profile_info_response_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/profile/update_profile_info_response/update_profile_info_response_dto.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/profile/upload_image_response/upload_image_response_dto.dart';
+import 'package:elevate_ecommerce_app/api/models/responses/register_response_dto/register_response_dto.dart';
 import 'package:elevate_ecommerce_app/core/constants/const_keys.dart';
 import 'package:elevate_ecommerce_app/core/constants/end_points.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
+
 import '../models/requestes/add_product_to_cart_request_dto/add_product_to_cart_request_dto.dart';
 import '../models/responses/best_seller/best_seller_response_dto.dart';
 import '../models/responses/cart_response_dto/cart_response_dto.dart';
@@ -51,8 +52,8 @@ abstract class ApiClient {
 
   @POST(Endpoints.cart)
   Future<CartResponseDto> addProductToCart(
-      @Body() AddProductToCartRequestDto addProductToCartRequestDto,
-      );
+    @Body() AddProductToCartRequestDto addProductToCartRequestDto,
+  );
 
   @DELETE('${Endpoints.cart}/{id}')
   Future<CartResponseDto> deleteSpecificCartItem(@Path("id") String productId);
@@ -62,24 +63,25 @@ abstract class ApiClient {
 
   @POST(Endpoints.register)
   Future<RegisterResponseDto> register(
-      @Body() RegisterRequestDto registerRequestDto,
-      );
+    @Body() RegisterRequestDto registerRequestDto,
+  );
 
   @POST(Endpoints.signIn)
   Future<LoginResponseDto> login(@Body() LoginRequestModel loginRequestModel);
 
   @POST(Endpoints.forgetPassword)
   Future<ForgetPasswordResponse> forgetPassword(
-      @Body() ForgetPasswordRequest body,
-      );
+    @Body() ForgetPasswordRequest body,
+  );
 
   @POST(Endpoints.verifyReset)
   Future<VerifyResetResponse> verifyResetCode(@Body() VerifyResetRequest body);
 
   @PUT(Endpoints.resetPassword)
   Future<ResetPasswordResponse> resetPassword(
-      @Body() ResetPasswordRequest body,
-      );
+    @Body() ResetPasswordRequest body,
+  );
+
   @GET(Endpoints.profileData)
   Future<ProfileInfoResponseDto> getProfileData();
 
@@ -88,33 +90,38 @@ abstract class ApiClient {
 
   @GET(Endpoints.products)
   Future<ProductsReponseDto> getProductsByOccasion(
-      @Query(Endpoints.occasionQuery) String occasionId,
-      );
+    @Query(Endpoints.occasionQuery) String occasionId,
+  );
 
   @GET(Endpoints.products)
   Future<ProductsReponseDto> getProductsByCategory(
-      @Query(Endpoints.categoryQuery) String categoryId,
-      );
+    @Query(Endpoints.categoryQuery) String categoryId,
+  );
+
   @PATCH(Endpoints.changePassword)
   Future<ChangePasswordResponseDto> changePassword(
-      @Body() ChangePasswordRequest request,
-      );
+    @Body() ChangePasswordRequest request,
+  );
+
   @PUT(Endpoints.editProfileData)
   Future<UpdateProfileInfoResponseDto> updateProfileData(
-      @Body() UpdateProfileInfoRequest request,
-      );
+    @Body() UpdateProfileInfoRequest request,
+  );
+
   @PUT(Endpoints.uploadProfileImage)
   @MultiPart()
   Future<UploadImageResponseDto> uploadImageProfile(
-      @Part(name: ConstKeys.queryPhoto) MultipartFile photo,
-      );
+    @Part(name: ConstKeys.queryPhoto) MultipartFile photo,
+  );
 
   @GET(Endpoints.products)
-  Future<ProductsReponseDto> getAllProducts();
+  Future<ProductsReponseDto> getAllProducts({
+    @Query(Endpoints.searchQuery) String? search,
+    @Query(Endpoints.sortQuery) String? sort,
+  });
 
   @GET(Endpoints.categories)
   Future<CategoriesResponse> getAllCategories();
-
 
   @GET(Endpoints.bestSeller)
   Future<BestSellerResponseDto> getBestSeller();
@@ -124,14 +131,14 @@ abstract class ApiClient {
 
   @PATCH(Endpoints.address)
   Future<AddressResponseDto> addAddress(
-      @Body() AddressRequestDto addressRequestDto,
-      );
+    @Body() AddressRequestDto addressRequestDto,
+  );
 
   @PATCH('${Endpoints.address}/{id}')
   Future<AddressesResponseDto> updateAddress(
-      @Body() AddressRequestDto addressRequestDto,
-      @Path("id") String addressId,
-      );
+    @Body() AddressRequestDto addressRequestDto,
+    @Path("id") String addressId,
+  );
 
   @DELETE('${Endpoints.address}/{id}')
   Future<AddressResponseDto> removeAddress(@Path("id") String addressId);
@@ -141,14 +148,14 @@ abstract class ApiClient {
 
   @POST(Endpoints.checkoutCashOrder)
   Future<CashOrderResponse> checkoutCashOrder(
-      @Body() OrderRequest orderRequest,
-      );
+    @Body() OrderRequest orderRequest,
+  );
 
   @POST(Endpoints.checkoutCreditOrder)
   Future<CreditOrderResponse> checkoutCreditOrder(
-      @Body() OrderRequest orderRequest,
-      );
+    @Body() OrderRequest orderRequest,
+  );
 
   @GET(Endpoints.home)
-  Future<HomeDto>getHome();
+  Future<HomeDto> getHome();
 }

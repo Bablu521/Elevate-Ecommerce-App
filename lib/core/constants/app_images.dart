@@ -28,4 +28,5 @@ abstract final class AppImages {
   static const String languageIcon = '$_rootIcons/ax_vector.png';
   static const String orderImage = '$_rootImages/kTestFlower.png';
   static const String floweryIcon = '$_rootImages/flowery_ic.svg';
+  static const String searchIcon = '$_rootImages/search_ic.svg';
 }

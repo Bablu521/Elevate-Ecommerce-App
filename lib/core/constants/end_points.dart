@@ -22,4 +22,11 @@ abstract class Endpoints {
   static const String checkoutCashOrder = "api/v1/orders";
   static const String checkoutCreditOrder = "api/v1/orders/checkout?url=http://localhost:3000";
   static const String home = "api/v1/home";
+  static const String searchQuery = "search";
+  static const String sortQuery = "sort";
+  static const String sortByLowestPrice = "price";
+  static const String sortByHighestPrice = "-price";
+  static const String sortByNewest = "new";
+  static const String sortByOldest = "old";
+  static const String sortByDiscount = "discount";
 }

@@ -2,6 +2,7 @@ import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
 import 'package:elevate_ecommerce_app/domin/entities/product_entity.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../core/enums/product_sort_enum.dart';
 import '../../domin/repositories/products_repo.dart';
 import '../data_source/products_remote_data_source.dart';
 
@@ -12,8 +13,8 @@ class ProductsRepoImpl implements ProductsRepo {
   ProductsRepoImpl(this._productsRemoteDataSource);
 
   @override
-  Future<ApiResult<List<ProductEntity>>> getAllProducts() {
-    return _productsRemoteDataSource.getAllProducts();
+  Future<ApiResult<List<ProductEntity>>> getAllProducts({String? search, ProductSortEnum? sort}) {
+    return _productsRemoteDataSource.getAllProducts(search: search, sort: sort);
   }
 
   @override

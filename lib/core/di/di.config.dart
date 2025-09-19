@@ -116,6 +116,7 @@ import '../../presentation/profile/profile_view_model/edit_profile_view_model/ed
     as _i633;
 import '../../presentation/profile/profile_view_model/main_profile_view_model/main_profile_view_model.dart'
     as _i641;
+import '../../presentation/search/view_models/search_view_model.dart' as _i125;
 import '../module/secure_storage_module.dart' as _i260;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -274,6 +275,12 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i135.BestSellerRepo>(
       () => _i663.BestSellerRepoImpl(gh<_i702.BestSellerRemoteDataSource>()),
+    );
+    gh.factory<_i125.SearchViewModel>(
+      () => _i125.SearchViewModel(
+        gh<_i512.GetAllProductsUseCase>(),
+        gh<_i449.AddProductToCartUseCase>(),
+      ),
     );
     gh.factory<_i5.ProductDetailsViewModelCubit>(
       () =>

@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../core/enums/product_sort_enum.dart';
 import '../../../domin/use_cases/get_products_by_category_use_case.dart';
 
 part 'categories_state.dart';
@@ -23,6 +24,7 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
   final GetAllProductsUseCase _getAllProductsUseCase;
   final GetProductsByCategoryUseCase _getProductsByCategoryUseCase;
   final AddProductToCartUseCase _addProductToCartUseCase;
+
   CategoriesViewModel(
     this._getAllCategoriesUseCase,
     this._getProductsByCategoryUseCase,
@@ -33,8 +35,10 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
   late final String categoryId;
   late final TickerProvider tabControllerVsync;
   TabController? tabController;
-  final TextEditingController searchController = TextEditingController();
-  final ValueNotifier<int> selectedTabIndex = ValueNotifier<int>(0);
+  final ValueNotifier<int> selectedTabIndex = ValueNotifier(0);
+  final ValueNotifier<ProductSortEnum?> selectedFilterIndex = ValueNotifier(
+    null,
+  );
   List<ProductEntity>? productsList;
   List<CategoryEntity>? categoriesList;
 
@@ -46,12 +50,14 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
         _getAllProducts();
       case GetProductsByCategoryEvent():
         _getProductsByCategory();
-      case ProductsSearchEvent():
-        _productsSearch();
       case InitTabBarEvent():
         _initTabBarController();
       case CategoriesAddToCartEvent():
         _addToCart(events.productId);
+      case ChangeSelectedFilterEvent():
+        _changeSelectedFilter(events.sort);
+      case ProductsSortEvent():
+        _productsSort();
     }
   }
 
@@ -69,9 +75,9 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
     }
   }
 
-  Future<void> _getAllProducts() async {
+  Future<void> _getAllProducts({ProductSortEnum? sort}) async {
     emit(state.copyWith(isProductsLoading: true, errorMessage: null));
-    final result = await _getAllProductsUseCase();
+    final result = await _getAllProductsUseCase(sort: sort);
     switch (result) {
       case ApiSuccessResult<List<ProductEntity>>():
         productsList = result.data;
@@ -109,33 +115,14 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
     }
   }
 
-  void _productsSearch() {
-    emit(state.copyWith(isProductsLoading: true));
-    List<ProductEntity> tempList;
-    if (searchController.text.isNotEmpty) {
-      tempList = productsList!
-          .where(
-            (product) => product.title!.toLowerCase().contains(
-              searchController.text.toLowerCase(),
-            ),
-          )
-          .toList();
-      emit(state.copyWith(productsList: tempList, isProductsLoading: false));
-    } else {
-      emit(
-        state.copyWith(productsList: productsList, isProductsLoading: false),
-      );
-    }
-  }
-
   void _initTabBarController() {
     tabController = TabController(
       length: categoriesList!.length + 1,
       vsync: tabControllerVsync,
     );
     tabController!.addListener(() {
-      searchController.text = "";
       selectedTabIndex.value = tabController!.index;
+      selectedFilterIndex.value = null;
       if (tabController!.index == 0) {
         _getAllProducts();
       } else {
@@ -188,5 +175,13 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
           ),
         );
     }
+  }
+
+  void _changeSelectedFilter(ProductSortEnum? sort) {
+    selectedFilterIndex.value = sort;
+  }
+
+  void _productsSort() {
+    _getAllProducts(sort: selectedFilterIndex.value);
   }
 }

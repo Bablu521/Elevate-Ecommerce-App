@@ -1,6 +1,7 @@
 import 'package:injectable/injectable.dart';
 
 import '../../core/api_result/api_result.dart';
+import '../../core/enums/product_sort_enum.dart';
 import '../entities/product_entity.dart';
 import '../repositories/products_repo.dart';
 
@@ -10,7 +11,7 @@ class GetAllProductsUseCase {
 
   GetAllProductsUseCase(this._productsRepo);
 
-  Future<ApiResult<List<ProductEntity>>> call() async {
-    return await _productsRepo.getAllProducts();
+  Future<ApiResult<List<ProductEntity>>> call({String? search, ProductSortEnum? sort}) async {
+    return await _productsRepo.getAllProducts(search: search, sort: sort);
   }
 }
