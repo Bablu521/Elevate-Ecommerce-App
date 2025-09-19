@@ -37,11 +37,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
         body: BlocBuilder<HomeViewModel, HomeStates>(
           builder: (context, state) {
-            if (state.homeListIsLoading){
+            if (state.homeListIsLoading) {
               return const Center(
                 child: Center(child: CircularProgressIndicator()),
               );
-            }else{
+            } else {
               return SingleChildScrollView(
                 padding: const EdgeInsets.only(left: 10),
                 child: Column(
@@ -65,32 +65,42 @@ class _HomeScreenState extends State<HomeScreen> {
                             AppLocalizations.of(context).flowery,
                             style: Theme.of(context).textTheme.bodyLarge
                                 ?.copyWith(
-                              color: AppColors.mainColor,
-                              fontWeight: FontWeight.w400,
-                              fontFamily: ConstKeys.imFellEnglishFont,
-                            ),
+                                  color: AppColors.mainColor,
+                                  fontWeight: FontWeight.w400,
+                                  fontFamily: ConstKeys.imFellEnglishFont,
+                                ),
                           ),
                           SizedBox(width: 16.w),
                           Expanded(
-                            child: TextField(
-                              decoration: InputDecoration(
-                                hintText: AppLocalizations.of(context).search,
-                                prefixIcon: Padding(
-                                  padding: EdgeInsets.only(left: 5.w),
-                                  child: Icon(
-                                    Icons.search,
-                                    color: AppColors.white[70],
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.pushNamed(context, RouteNames.search);
+                              },
+                              child: TextField(
+                                enabled: false,
+                                decoration: InputDecoration(
+                                  hintText: AppLocalizations.of(context).search,
+                                  prefixIcon: Padding(
+                                    padding: EdgeInsets.only(left: 5.w),
+                                    child: Icon(
+                                      Icons.search,
+                                      color: AppColors.white[70],
+                                    ),
                                   ),
+                                  prefixIconConstraints: BoxConstraints(
+                                    minWidth: 20.w,
+                                    minHeight: 30.h,
+                                  ),
+                                  disabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(8.r),
+                                    borderSide: BorderSide(
+                                      color: AppColors.white[70]!,
+                                      width: 1.w,
+                                    ),
+                                  ),
+                                  contentPadding: EdgeInsets.zero,
+                                  isDense: true,
                                 ),
-                                prefixIconConstraints: BoxConstraints(
-                                  minWidth: 20.w,
-                                  minHeight: 30.h,
-                                ),
-                                border: buildSearchOutlineInputBorder(),
-                                enabledBorder: buildSearchOutlineInputBorder(),
-                                focusedBorder: buildSearchOutlineInputBorder(),
-                                contentPadding: EdgeInsets.zero,
-                                isDense: true,
                               ),
                             ),
                           ),
@@ -122,7 +132,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     SectionHeader(
                       title: AppLocalizations.of(context).categories,
                       onTap: () {
-                        context.read<ControllerHomeProvider>().openCategory(null);
+                        context.read<ControllerHomeProvider>().openCategory(
+                          null,
+                        );
                       },
                     ),
                     SizedBox(
@@ -136,9 +148,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             image: categories.image ?? "",
                             label: categories.name ?? "",
                             onTap: () {
-                              context.read<ControllerHomeProvider>().openCategory(
-                                categories.id,
-                              );
+                              context
+                                  .read<ControllerHomeProvider>()
+                                  .openCategory(categories.id);
                             },
                           );
                         },
@@ -157,8 +169,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         scrollDirection: Axis.horizontal,
                         itemCount: state.bestSellerListSuccess.length,
                         itemBuilder: (context, index) {
-                          final categories =
-                          state.bestSellerListSuccess[index];
+                          final categories = state.bestSellerListSuccess[index];
                           return ProductItem(
                             imageUrl: categories.imgCover ?? "",
                             title: categories.title ?? "",
@@ -215,13 +226,6 @@ class _HomeScreenState extends State<HomeScreen> {
           },
         ),
       ),
-    );
-  }
-
-  InputBorder buildSearchOutlineInputBorder() {
-    return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(8.r),
-      borderSide: BorderSide(color: AppColors.white[70]!, width: 1.w),
     );
   }
 }
