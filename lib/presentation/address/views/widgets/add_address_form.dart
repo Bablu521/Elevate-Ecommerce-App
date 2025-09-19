@@ -35,6 +35,7 @@ class AddAddressForm extends StatelessWidget {
           SizedBox(height: 24.h),
           TextFormField(
             controller: addressViewModel.phoneNumberContoller,
+            keyboardType: TextInputType.phone,
             validator: Validations.validatePhoneNumber,
             style: Theme.of(context).textTheme.bodySmall,
             decoration: InputDecoration(

@@ -1,3 +1,4 @@
+import 'package:elevate_ecommerce_app/core/router/route_names.dart';
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +26,7 @@ class EditProfileHeader extends StatelessWidget {
         const Spacer(),
         GestureDetector(
           onTap: () {
-            // Navigator.pushNamed(context, RouteNames.notifications);
+            Navigator.pushNamed(context, RouteNames.notifications);
           },
           child: const Icon(Icons.notifications_outlined),
         ),

@@ -1,3 +1,4 @@
+import 'package:elevate_ecommerce_app/core/constants/app_colors.dart';
 import 'package:elevate_ecommerce_app/core/utils/loaders/loaders.dart';
 import 'package:elevate_ecommerce_app/domin/entities/requests/add_product_to_cart_request_entity.dart';
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
@@ -34,6 +35,12 @@ class ButtonAddCart extends StatelessWidget {
               },
               builder: (context, state) {
                 return ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.symmetric(horizontal: 8.w),
+                    backgroundColor: state.addToCartState?.data == null
+                        ? theme.colorScheme.primary
+                        : AppColors.green,
+                  ),
                   onPressed: () {
                     context.read<ProductDetailsViewModelCubit>().doIntent(
                       ProductDetailsAddToCartEvent(

@@ -1,3 +1,4 @@
+import 'package:elevate_ecommerce_app/core/router/route_names.dart';
 import 'package:elevate_ecommerce_app/core/utils/helper_function.dart';
 import 'package:elevate_ecommerce_app/core/utils/loaders/loaders.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/profile_view_model/change_password_view_model/change_password_view_model_cubit.dart';
@@ -23,7 +24,7 @@ class _ChangePasswordBodyState extends State<ChangePasswordBody> {
       ChangePasswordViewModelCubit,
       ChangePasswordViewModelState
     >(
-      listener: (context, state) {
+      listener: (context, state) async {
         if (state.isLoading) {
           showDialog(
             context: context,
@@ -37,6 +38,16 @@ class _ChangePasswordBodyState extends State<ChangePasswordBody> {
             context: context,
           );
           _clearControllers();
+
+        
+Future.delayed(const Duration(seconds: 1), () {
+            if (!mounted) return;
+            Navigator.pushNamedAndRemoveUntil(
+              context,
+              RouteNames.login,
+              (route) => false,
+            );
+          });
         } else if (state.errorMessage != null) {
           HelperFunction.dismissDialog(context);
           Loaders.showErrorMessage(
