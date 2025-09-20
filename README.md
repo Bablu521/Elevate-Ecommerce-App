@@ -132,8 +132,7 @@ flutter run
 
 ## 🌐 Live Demo
 
-| <iframe allow="fullscreen;autoplay" allowfullscreen height="600" src="https://streamable.com/e/bnycta?autoplay=1" width="300" style="border:none;"></iframe> |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+Try the app here: [Live Demo](https://drive.google.com/file/d/1X5v7OPYi1_Uk5agNxaOFL8F9VSrBAxK6/view)
 
 ---
 
