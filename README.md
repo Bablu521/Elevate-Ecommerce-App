@@ -88,6 +88,13 @@ Users can browse flower collections, view product details, and enjoy a seamless 
 
 ---
 
+### 📂 Folder Structure
+Due to the large size of the tree, the full folder structure is documented separately for clarity.  
+
+📄 [View Full Folder Structure](https://drive.google.com/file/d/1AO1xTWL6YNzNpkHtxJ2tDiwuJpk6Egxq/view?usp=drive_link)
+
+---
+
 ## 🚀 Installation & Run
 Clone the repository and run:
 
