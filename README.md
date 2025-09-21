@@ -9,7 +9,7 @@ Users can browse flower collections, view product details, and enjoy a seamless 
 - **Framework:** Flutter  
 - **State Management:** Cubit / Provider  
 - **Architecture:** Clean Architecture (Data – Domain – Presentation – API)  
-- **Backend:** Mock API  
+- **Backend:** API  
 - **Database:** Flutter Secure Storage  
 - **Unit Tests:** Supported  
 
