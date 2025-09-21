@@ -88,6 +88,13 @@ Users can browse flower collections, view product details, and enjoy a seamless 
 
 ---
 
+### 📂 Folder Structure
+For the **complete folder structure with all files and submodules**, please refer to the full documentation here:  
+
+📄 [View Full Folder Structure](https://drive.google.com/file/d/1AO1xTWL6YNzNpkHtxJ2tDiwuJpk6Egxq/view?usp=drive_link)
+
+---
+
 ## 🚀 Installation & Run
 Clone the repository and run:
 
