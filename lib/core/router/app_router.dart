@@ -10,6 +10,7 @@ import 'package:elevate_ecommerce_app/presentation/product_details/view/screen/p
 import 'package:elevate_ecommerce_app/presentation/profile/views/change_password_view.dart';
 import 'package:elevate_ecommerce_app/presentation/profile/views/edit_profile_view.dart';
 import 'package:elevate_ecommerce_app/presentation/search/views/screen/search_screen.dart';
+import 'package:elevate_ecommerce_app/presentation/track_order/view/screen/track_order_view.dart';
 import 'package:flutter/material.dart';
 import '../../presentation/address/views/screens/saved_address_view.dart';
 import '../../presentation/address/views/screens/add_address_view.dart';
@@ -68,6 +69,8 @@ abstract class AppRouter {
         return MaterialPageRoute(builder: (_) => const OrdersPage());
       case RouteNames.search:
         return MaterialPageRoute(builder: (_) => const SearchScreen());
+      case RouteNames.trackOrder:
+        return MaterialPageRoute(builder: (_) => const TrackOrderView());
       default:
         return MaterialPageRoute(builder: (_) => const LoginView());
     }

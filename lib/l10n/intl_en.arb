@@ -175,5 +175,12 @@
   "currentPassword": "Current password",
   "changeLanguage": "Change Language",
   "arabic": "Arabic",
-  "searchForAnyProductYouWant": "Search for any product you want"
+  "searchForAnyProductYouWant": "Search for any product you want",
+  "receivedYourOrder": "Received your order",
+  "preparingYourOrder": "Preparing your order",
+  "outForDelivery": "Out for delivery",
+  "delivered": "Delivered",
+  "showMap": "Show map",
+  "estimatedArrival": "Estimated arrival",
+  "isYourDeliveryHeroForToday": "Is your delivery hero for today"
 }
