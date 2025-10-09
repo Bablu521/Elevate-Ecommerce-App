@@ -9,6 +9,7 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:cloud_firestore/cloud_firestore.dart' as _i974;
 import 'package:dio/dio.dart' as _i361;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i558;
 import 'package:get_it/get_it.dart' as _i174;
@@ -16,6 +17,7 @@ import 'package:injectable/injectable.dart' as _i526;
 
 import '../../api/client/api_client.dart' as _i508;
 import '../../api/client/api_module.dart' as _i272;
+import '../../api/client/firebase_module.dart' as _i769;
 import '../../api/data_source/address_local_data_source_impl.dart' as _i734;
 import '../../api/data_source/address_remote_data_source_impl.dart' as _i576;
 import '../../api/data_source/auth_local_data_source_impl.dart' as _i914;
@@ -70,6 +72,7 @@ import '../../domin/use_cases/get_best_seller_use_case.dart' as _i706;
 import '../../domin/use_cases/get_home_use_case.dart' as _i758;
 import '../../domin/use_cases/get_logged_user_addresses_use_case.dart' as _i705;
 import '../../domin/use_cases/get_logged_user_cart_use_case.dart' as _i193;
+import '../../domin/use_cases/get_order_from_firestore_use_case.dart' as _i454;
 import '../../domin/use_cases/get_orders_use_case.dart' as _i33;
 import '../../domin/use_cases/get_products_by_category_use_case.dart' as _i688;
 import '../../domin/use_cases/get_products_by_occasion_use_case.dart' as _i176;
@@ -85,6 +88,8 @@ import '../../domin/use_cases/occasion_use_case.dart' as _i1046;
 import '../../domin/use_cases/register_use_case.dart' as _i638;
 import '../../domin/use_cases/remove_address_use_case.dart' as _i1049;
 import '../../domin/use_cases/reset_password_use_case.dart' as _i670;
+import '../../domin/use_cases/stream_order_from_firestore_use_case.dart'
+    as _i958;
 import '../../domin/use_cases/update_address_use_case.dart' as _i238;
 import '../../domin/use_cases/update_profile_info_use_case.dart' as _i981;
 import '../../domin/use_cases/upload_profile_image_use_case.dart' as _i603;
@@ -127,8 +132,10 @@ extension GetItInjectableX on _i174.GetIt {
   }) {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
     final apiModule = _$ApiModule();
+    final firebaseModule = _$FirebaseModule();
     final secureStorageModule = _$SecureStorageModule();
     gh.singleton<_i361.Dio>(() => apiModule.provideDio());
+    gh.lazySingleton<_i974.FirebaseFirestore>(() => firebaseModule.firestore);
     gh.lazySingleton<_i558.FlutterSecureStorage>(
       () => secureStorageModule.secureStorage,
     );
@@ -191,7 +198,10 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i643.VerifyResetCodeUseCase(gh<_i340.AuthRepo>()),
     );
     gh.factory<_i107.OrdersRemoteDataSource>(
-      () => _i898.OrdersRemoteDataSourceImpl(gh<_i508.ApiClient>()),
+      () => _i898.OrdersRemoteDataSourceImpl(
+        gh<_i508.ApiClient>(),
+        gh<_i974.FirebaseFirestore>(),
+      ),
     );
     gh.factory<_i441.LoginCubit>(
       () => _i441.LoginCubit(
@@ -333,6 +343,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i200.CheckoutCreditOrderUseCase>(
       () => _i200.CheckoutCreditOrderUseCase(gh<_i555.OrdersRepo>()),
     );
+    gh.factory<_i454.GetOrderFromFirestoreUseCase>(
+      () => _i454.GetOrderFromFirestoreUseCase(gh<_i555.OrdersRepo>()),
+    );
+    gh.factory<_i958.StreamOrderFromFirestoreUseCase>(
+      () => _i958.StreamOrderFromFirestoreUseCase(gh<_i555.OrdersRepo>()),
+    );
     gh.factory<_i657.OccasionRepo>(
       () => _i847.OccasionRepoImpl(gh<_i802.OccasionRemoteDataSource>()),
     );
@@ -401,5 +417,7 @@ extension GetItInjectableX on _i174.GetIt {
 }
 
 class _$ApiModule extends _i272.ApiModule {}
+
+class _$FirebaseModule extends _i769.FirebaseModule {}
 
 class _$SecureStorageModule extends _i260.SecureStorageModule {}
