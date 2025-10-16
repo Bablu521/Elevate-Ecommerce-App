@@ -1,4 +1,5 @@
 import 'package:elevate_ecommerce_app/core/api_result/api_result.dart';
+import 'package:elevate_ecommerce_app/domin/entities/firestore/order_firestore_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/orders_page_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/requests/orders/shipping_address_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/responses/orders/cash_order_entity.dart';
@@ -37,6 +38,16 @@ class OrdersRepoImpl implements OrdersRepo {
     ShippingAddressEntity shippingAddressEntity,
   ) {
     return _ordersRemoteDataSource.checkoutCreditOrder(shippingAddressEntity);
+  }
+
+  @override
+  Future<ApiResult<OrderFirestoreEntity>> getFirestoreOrder(String orderId) {
+    return _ordersRemoteDataSource.getFirestoreOrder(orderId);
+  }
+
+  @override
+  Stream<ApiResult<OrderFirestoreEntity>> streamFirestoreOrder(String orderId) {
+    return _ordersRemoteDataSource.streamFirestoreOrder(orderId);
   }
 }
 

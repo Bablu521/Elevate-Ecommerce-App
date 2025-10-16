@@ -4,6 +4,8 @@ import 'package:elevate_ecommerce_app/domin/entities/requests/orders/shipping_ad
 import 'package:elevate_ecommerce_app/domin/entities/responses/orders/cash_order_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/responses/orders/credit_order_entity.dart';
 
+import '../../domin/entities/firestore/order_firestore_entity.dart';
+
 abstract class OrdersRemoteDataSource{
   Future<ApiResult<OrdersPageEntity>>  getOrders();
 
@@ -15,6 +17,9 @@ abstract class OrdersRemoteDataSource{
     ShippingAddressEntity shippingAddressEntity,
   );
 
+  Future<ApiResult<OrderFirestoreEntity>> getFirestoreOrder(String orderId);
+
+  Stream<ApiResult<OrderFirestoreEntity>> streamFirestoreOrder(String orderId);
 }
 
   

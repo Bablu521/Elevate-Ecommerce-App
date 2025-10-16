@@ -182,5 +182,8 @@
   "delivered": "Delivered",
   "showMap": "Show map",
   "estimatedArrival": "Estimated arrival",
-  "isYourDeliveryHeroForToday": "Is your delivery hero for today"
+  "isYourDeliveryHeroForToday": "Is your delivery hero for today",
+  "pending": "Pending",
+  "picked": "Picked",
+  "arrived": "Arrived"
 }

@@ -1,0 +1,34 @@
+import 'package:equatable/equatable.dart';
+
+import 'driver_entity.dart';
+import 'live_location_entity.dart';
+import 'order_entity.dart';
+
+class OrderFirestoreEntity extends Equatable {
+  final DriverEntity? driver;
+  final OrderEntity? order;
+  final LiveLocationEntity? location;
+
+  const OrderFirestoreEntity({this.driver, this.order, this.location});
+
+  Map<String, dynamic> toMap() {
+    return {
+      'driver': driver?.toMap(),
+      'order': order?.toMap(),
+      'location': location?.toMap(),
+    };
+  }
+
+  factory OrderFirestoreEntity.fromMap(Map<String, dynamic> map) {
+    return OrderFirestoreEntity(
+      driver: DriverEntity.fromMap(Map<String, dynamic>.from(map['driver'])),
+      order: OrderEntity.fromMap(Map<String, dynamic>.from(map['order'])),
+      location: LiveLocationEntity.fromMap(
+        Map<String, dynamic>.from(map['location']),
+      ),
+    );
+  }
+
+  @override
+  List<Object?> get props => [driver, order, location];
+}

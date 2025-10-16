@@ -4,6 +4,8 @@ import 'package:elevate_ecommerce_app/domin/entities/requests/orders/shipping_ad
 import 'package:elevate_ecommerce_app/domin/entities/responses/orders/cash_order_entity.dart';
 import 'package:elevate_ecommerce_app/domin/entities/responses/orders/credit_order_entity.dart';
 
+import '../entities/firestore/order_firestore_entity.dart';
+
 abstract interface class OrdersRepo {
   Future<ApiResult<CashOrderEntity>> checkoutCashOrder(
     ShippingAddressEntity shippingAddressEntity,
@@ -14,6 +16,8 @@ abstract interface class OrdersRepo {
   );
 
   Future<ApiResult<OrdersPageEntity>> getOrders();
+
+  Future<ApiResult<OrderFirestoreEntity>> getFirestoreOrder(String orderId);
+
+  Stream<ApiResult<OrderFirestoreEntity>> streamFirestoreOrder(String orderId);
 }
-
-

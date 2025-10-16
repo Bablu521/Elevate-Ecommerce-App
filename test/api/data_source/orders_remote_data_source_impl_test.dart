@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:elevate_ecommerce_app/api/client/api_client.dart';
 import 'package:elevate_ecommerce_app/api/data_source/orders_remote_data_source_impl.dart';
 import 'package:elevate_ecommerce_app/api/models/responses/order_page/order_data.dart';
@@ -19,15 +20,17 @@ import 'package:mockito/mockito.dart';
 
 import 'orders_remote_data_source_impl_test.mocks.dart';
 
-@GenerateMocks([ApiClient])
+@GenerateMocks([ApiClient, FirebaseFirestore])
 void main() {
   group("test OrdersRemoteDataSourceImpl", () {
     late MockApiClient mockApiClient;
+    late MockFirebaseFirestore mockFirebaseFirestore;
     late OrdersRemoteDataSourceImpl ordersRemoteDataSourceImpl;
 
     setUp(() {
       mockApiClient = MockApiClient();
-      ordersRemoteDataSourceImpl = OrdersRemoteDataSourceImpl(mockApiClient);
+      mockFirebaseFirestore = MockFirebaseFirestore();
+      ordersRemoteDataSourceImpl = OrdersRemoteDataSourceImpl(mockApiClient, mockFirebaseFirestore);
     });
 
     test('should return success when getOrders is success', () async {

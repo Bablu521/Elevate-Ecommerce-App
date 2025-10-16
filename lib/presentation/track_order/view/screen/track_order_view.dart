@@ -1,6 +1,10 @@
+import 'package:elevate_ecommerce_app/core/di/di.dart';
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
 import 'package:elevate_ecommerce_app/presentation/track_order/view/widgets/track_order_body.dart';
+import 'package:elevate_ecommerce_app/presentation/track_order/view_model/track_order_view_model_cubit.dart';
+import 'package:elevate_ecommerce_app/presentation/track_order/view_model/track_order_view_model_event.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TrackOrderView extends StatelessWidget {
   const TrackOrderView({super.key});
@@ -23,7 +27,15 @@ class TrackOrderView extends StatelessWidget {
         ),
         centerTitle: false,
       ),
-      body: const TrackOrderBody(),
+      body: BlocProvider(
+        create: (context) => getIt.get<TrackOrderViewModelCubit>()
+          ..doIntent(
+            TrackOrderViewModelGetOrderFromFireBaseEvent(
+              orderId: "68efde9d7fee68a4c2ec2e18",
+            ),
+          ),
+        child: const TrackOrderBody(),
+      ),
     );
   }
 }

@@ -65,4 +65,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'fir-app-distribution-33bfe.firebasestorage.app',
     iosBundleId: 'com.example.elevateEcommerceApp',
   );
+
 }
