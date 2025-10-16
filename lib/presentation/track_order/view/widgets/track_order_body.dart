@@ -1,5 +1,4 @@
 import 'package:elevate_ecommerce_app/core/constants/app_colors.dart';
-import 'package:elevate_ecommerce_app/core/constants/app_images.dart';
 import 'package:elevate_ecommerce_app/core/utils/widgets/custom_cached_network_image.dart';
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
 import 'package:elevate_ecommerce_app/presentation/track_order/view/widgets/custom_driver_info.dart';
