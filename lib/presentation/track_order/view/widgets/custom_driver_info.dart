@@ -1,6 +1,5 @@
 import 'package:elevate_ecommerce_app/core/constants/app_colors.dart';
 import 'package:elevate_ecommerce_app/core/constants/app_images.dart';
-import 'package:elevate_ecommerce_app/core/utils/widgets/custom_cached_network_image.dart';
 import 'package:elevate_ecommerce_app/domin/entities/firestore/driver_entity.dart';
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
 import 'package:elevate_ecommerce_app/presentation/track_order/view_model/track_order_view_model_cubit.dart';
@@ -12,7 +11,9 @@ import 'package:provider/provider.dart';
 
 class CustomDriverInfo extends StatelessWidget {
   const CustomDriverInfo({super.key, required this.driverEntity});
+
   final DriverEntity? driverEntity;
+
   @override
   Widget build(BuildContext context) {
     final local = AppLocalizations.of(context);
@@ -23,11 +24,7 @@ class CustomDriverInfo extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SvgPicture.asset(
-            AppImages.deliveryBoy,
-            height: 36.w,
-            width: 36.w,
-          ),
+          SvgPicture.asset(AppImages.deliveryBoy, height: 36.w, width: 36.w),
 
           SizedBox(width: 16.w),
           Expanded(
