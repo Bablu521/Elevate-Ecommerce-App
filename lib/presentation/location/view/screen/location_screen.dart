@@ -1,12 +1,6 @@
-import 'package:elevate_ecommerce_app/core/constants/app_colors.dart';
-import 'package:elevate_ecommerce_app/core/constants/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import '../../../../core/constants/app_icons.dart';
 import '../../../../core/custom_widget/custom_dialog.dart';
 import '../../../../core/di/di.dart';
 import '../../../../generated/l10n.dart';
