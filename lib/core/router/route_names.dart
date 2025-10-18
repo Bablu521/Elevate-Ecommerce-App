@@ -15,5 +15,6 @@ abstract class RouteNames {
   static const String notifications = "/notifications";
   static const String ordersPage = "/ordersPage";
   static const String search = "/search";
+  static const String trackOrder = "/trackOrder";
   static const String locationScreen = "/locationScreen";
 }

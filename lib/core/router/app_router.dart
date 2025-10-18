@@ -72,6 +72,8 @@ abstract class AppRouter {
         return MaterialPageRoute(builder: (_) => const SearchScreen());
       case RouteNames.locationScreen:
         return MaterialPageRoute(builder: (_) => const LocationScreen());
+      case RouteNames.trackOrder:
+        return MaterialPageRoute(builder: (_) => const TrackOrderView());
       default:
         return MaterialPageRoute(builder: (_) => const LoginView());
     }

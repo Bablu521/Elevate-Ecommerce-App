@@ -180,5 +180,15 @@
   "isYourDeliveryHeroForToday": "Is your delivery hero for today",
   "orderDetails": "Order details",
   "apartment": "Apartment",
-  "liveLocation": "Live location"
+  "liveLocation": "Live location",
+  "receivedYourOrder": "Received your order",
+  "preparingYourOrder": "Preparing your order",
+  "outForDelivery": "Out for delivery",
+  "delivered": "Delivered",
+  "showMap": "Show map",
+  "estimatedArrival": "Estimated arrival",
+  "isYourDeliveryHeroForToday": "Is your delivery hero for today",
+  "pending": "Pending",
+  "picked": "Picked",
+  "arrived": "Arrived"
 }

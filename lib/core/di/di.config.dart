@@ -124,6 +124,8 @@ import '../../presentation/profile/profile_view_model/edit_profile_view_model/ed
 import '../../presentation/profile/profile_view_model/main_profile_view_model/main_profile_view_model.dart'
     as _i641;
 import '../../presentation/search/view_models/search_view_model.dart' as _i125;
+import '../../presentation/track_order/view_model/track_order_view_model_cubit.dart'
+    as _i1009;
 import '../module/secure_storage_module.dart' as _i260;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -353,6 +355,11 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i657.OccasionRepo>(
       () => _i847.OccasionRepoImpl(gh<_i802.OccasionRemoteDataSource>()),
+    );
+    gh.factory<_i1009.TrackOrderViewModelCubit>(
+      () => _i1009.TrackOrderViewModelCubit(
+        gh<_i958.StreamOrderFromFirestoreUseCase>(),
+      ),
     );
     gh.factory<_i123.CheckoutViewModel>(
       () => _i123.CheckoutViewModel(

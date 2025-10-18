@@ -29,6 +29,8 @@ abstract final class AppImages {
   static const String orderImage = '$_rootImages/kTestFlower.png';
   static const String floweryIcon = '$_rootImages/flowery_ic.svg';
   static const String searchIcon = '$_rootImages/search_ic.svg';
+  static const String carTestImage = '$_rootImages/car_test.png';
+  static const String whatsAppIcon = '$_rootIcons/whatsapp_icon.svg';
   static const String deliveryBoy = '$_rootImages/delivery_boy.svg';
   static const String apartmentImage = '$_rootImages/apartment.png';
   static const String floweryImage = '$_rootImages/flowery.png';
