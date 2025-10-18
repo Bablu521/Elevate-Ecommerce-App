@@ -35,4 +35,5 @@ abstract final class AppImages {
   static const String apartmentImage = '$_rootImages/apartment.png';
   static const String floweryImage = '$_rootImages/flowery.png';
   static const String motorcycleDeliveryImage = '$_rootImages/motorcycle_delivery.png';
+  static const String carImage = '$_rootImages/car.svg';
 }

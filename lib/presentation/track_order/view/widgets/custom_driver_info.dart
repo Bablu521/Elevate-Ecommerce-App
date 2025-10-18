@@ -23,10 +23,10 @@ class CustomDriverInfo extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CustomCachedNetworkImage(
+          SvgPicture.asset(
+            AppImages.deliveryBoy,
+            height: 36.w,
             width: 36.w,
-            height: 36.h,
-            imageUrl: driverEntity?.photo ?? "",
           ),
 
           SizedBox(width: 16.w),

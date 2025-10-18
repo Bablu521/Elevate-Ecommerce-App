@@ -1,5 +1,4 @@
 import 'package:elevate_ecommerce_app/core/constants/app_colors.dart';
-import 'package:elevate_ecommerce_app/core/utils/widgets/custom_cached_network_image.dart';
 import 'package:elevate_ecommerce_app/generated/l10n.dart';
 import 'package:elevate_ecommerce_app/presentation/track_order/view/widgets/custom_driver_info.dart';
 import 'package:elevate_ecommerce_app/presentation/track_order/view/widgets/custom_time_line.dart';
@@ -7,8 +6,10 @@ import 'package:elevate_ecommerce_app/presentation/track_order/view_model/track_
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 
+import '../../../../core/constants/app_images.dart';
 import '../../../../core/router/route_names.dart';
 
 class TrackOrderBody extends StatelessWidget {
@@ -72,12 +73,10 @@ class TrackOrderBody extends StatelessWidget {
                 ),
                 SizedBox(height: 40.h),
                 Center(
-                  child: CustomCachedNetworkImage(
-                    imageUrl:
-                        state.orderFromFireBase?.data?.driver?.vehicleLicense ??
-                        "",
-                    width: 213.w,
-                    height: 83.h,
+                  child: SvgPicture.asset(
+                    AppImages.carImage,
+                    height: 213.w,
+                    width: 83.h,
                   ),
                 ),
                 SizedBox(height: 40.h),
