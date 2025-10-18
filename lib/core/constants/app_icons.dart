@@ -13,4 +13,6 @@ class AppIcons {
   static const String localeIcon = '$_rootIcons/local_icon.png';
   static const String noProfilePhoto =
       '$_rootIcons/man-user-circle-black-icon.png';
+  static const String iconCall = "assets/icons/call.png";
+  static const String iconWhatsapp = "assets/icons/whatsapp.png";
 }

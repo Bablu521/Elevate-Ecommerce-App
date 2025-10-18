@@ -175,5 +175,10 @@
   "currentPassword": "Current password",
   "changeLanguage": "Change Language",
   "arabic": "Arabic",
-  "searchForAnyProductYouWant": "Search for any product you want"
+  "searchForAnyProductYouWant": "Search for any product you want",
+  "estimatedArrival": "Estimated arrival",
+  "isYourDeliveryHeroForToday": "Is your delivery hero for today",
+  "orderDetails": "Order details",
+  "apartment": "Apartment",
+  "liveLocation": "Live location"
 }

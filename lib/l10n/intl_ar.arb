@@ -175,5 +175,10 @@
   "currentPassword": "كلمة المرور الحالية",
   "changeLanguage": "تغيير اللغة",
   "arabic": "العربية",
-  "searchForAnyProductYouWant": "ابحث عن أي منتج تريده"
+  "searchForAnyProductYouWant": "ابحث عن أي منتج تريده",
+  "estimatedArrival": "الوقت المتوقع للوصول",
+  "isYourDeliveryHeroForToday": "هو بطل توصيلك اليوم",
+  "orderDetails": "تفاصيل الطلب",
+  "apartment": "المنزل",
+  "liveLocation": "الموقع المباشر"
 }

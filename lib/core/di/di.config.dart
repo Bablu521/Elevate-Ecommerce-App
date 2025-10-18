@@ -109,6 +109,8 @@ import '../../presentation/categories/view_models/categories_view_model.dart'
 import '../../presentation/checkout/view_models/checkout_view_model.dart'
     as _i123;
 import '../../presentation/home/view_models/home_view_model.dart' as _i479;
+import '../../presentation/location/view_model/location_view_model.dart'
+    as _i1004;
 import '../../presentation/occasion/view_models/occasion_view_model.dart'
     as _i979;
 import '../../presentation/order_page/view_model/order_view_model.dart'
@@ -362,6 +364,10 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i706.GetBestSellerUseCase>(
       () => _i706.GetBestSellerUseCase(gh<_i135.BestSellerRepo>()),
+    );
+    gh.factory<_i1004.LocationViewModel>(
+      () =>
+          _i1004.LocationViewModel(gh<_i958.StreamOrderFromFirestoreUseCase>()),
     );
     gh.factory<_i81.GetAllCategoriesUseCase>(
       () => _i81.GetAllCategoriesUseCase(gh<_i983.CategoriesRepo>()),
