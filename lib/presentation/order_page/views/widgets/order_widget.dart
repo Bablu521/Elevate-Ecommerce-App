@@ -3,6 +3,7 @@ import 'package:elevate_ecommerce_app/core/constants/app_images.dart';
 import 'package:elevate_ecommerce_app/domin/entities/orders_page_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../core/router/route_names.dart';
 import '../../../../core/utils/widgets/custom_widget.dart';
 
 class OrderWidget extends StatelessWidget {
@@ -80,7 +81,13 @@ class OrderWidget extends StatelessWidget {
                           textStyle: const TextStyle(color: Colors.white),
                           buttonColor: AppColors.mainColor,
                           text: "Track Order",
-                          onButtonClicked: () {},
+                          onButtonClicked: () {
+                            Navigator.pushNamed(
+                              context,
+                              RouteNames.trackOrder,
+                              arguments: orders.id,
+                            );
+                          },
                         ),
                       ),
                     ],

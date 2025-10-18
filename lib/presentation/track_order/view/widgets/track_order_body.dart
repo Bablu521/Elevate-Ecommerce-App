@@ -9,6 +9,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 
+import '../../../../core/router/route_names.dart';
+
 class TrackOrderBody extends StatelessWidget {
   const TrackOrderBody({super.key});
 
@@ -86,7 +88,14 @@ class TrackOrderBody extends StatelessWidget {
                   width: double.infinity,
                   height: 50.h,
                   child: ElevatedButton(
-                    onPressed: () async {},
+                    onPressed: () {
+                      Navigator.pushNamed(
+                        context,
+                        RouteNames.locationScreen,
+                        arguments:
+                            state.orderFromFireBase?.data?.order?.id ?? "",
+                      );
+                    },
                     child: Text(
                       local.showMap,
                       style: theme.textTheme.headlineMedium?.copyWith(

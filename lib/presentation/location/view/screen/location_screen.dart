@@ -9,7 +9,8 @@ import '../../view_model/location_view_model.dart';
 import '../widget/location_view_body.dart';
 
 class LocationScreen extends StatefulWidget {
-  const LocationScreen({super.key});
+  final String orderId;
+  const LocationScreen({super.key, required this.orderId});
 
   @override
   State<LocationScreen> createState() => _LocationScreenState();
@@ -23,7 +24,7 @@ class _LocationScreenState extends State<LocationScreen> {
     super.initState();
     locationViewModel = getIt<LocationViewModel>();
     locationViewModel.doIntent(
-      GetOrderLocationEvent("68efde9d7fee68a4c2ec2e18"),
+      GetOrderLocationEvent(widget.orderId),
     );
   }
 

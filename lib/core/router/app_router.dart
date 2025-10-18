@@ -19,6 +19,7 @@ import '../../presentation/checkout/views/screen/checkout_screen.dart';
 import '../../presentation/location/view/screen/location_screen.dart';
 import '../../presentation/main_home/view/main_home.dart';
 import '../../presentation/order_page/views/orders_page.dart';
+import '../../presentation/track_order/view/screen/track_order_view.dart';
 
 abstract class AppRouter {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
@@ -71,9 +72,15 @@ abstract class AppRouter {
       case RouteNames.search:
         return MaterialPageRoute(builder: (_) => const SearchScreen());
       case RouteNames.locationScreen:
-        return MaterialPageRoute(builder: (_) => const LocationScreen());
+        final String orderId = settings.arguments as String;
+        return MaterialPageRoute(
+          builder: (_) => LocationScreen(orderId: orderId),
+        );
       case RouteNames.trackOrder:
-        return MaterialPageRoute(builder: (_) => const TrackOrderView());
+        final String orderId = settings.arguments as String;
+        return MaterialPageRoute(
+          builder: (_) => TrackOrderView(orderId: orderId),
+        );
       default:
         return MaterialPageRoute(builder: (_) => const LoginView());
     }

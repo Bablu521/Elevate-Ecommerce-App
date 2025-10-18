@@ -7,7 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TrackOrderView extends StatelessWidget {
-  const TrackOrderView({super.key});
+  final String orderId;
+  const TrackOrderView({super.key, required this.orderId});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,7 @@ class TrackOrderView extends StatelessWidget {
         create: (context) => getIt.get<TrackOrderViewModelCubit>()
           ..doIntent(
             TrackOrderViewModelGetOrderFromFireBaseEvent(
-              orderId: "68efde9d7fee68a4c2ec2e18",
+              orderId: orderId,
             ),
           ),
         child: const TrackOrderBody(),

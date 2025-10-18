@@ -96,7 +96,9 @@ class LocationInfoWidget extends StatelessWidget {
             width: double.infinity,
             height: 50.h,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context);
+              },
               child: Text(
                 AppLocalizations.of(context).orderDetails,
                 style: Theme.of(context).textTheme.headlineMedium?.copyWith(
