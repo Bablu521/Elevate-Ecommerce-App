@@ -30,14 +30,14 @@ void main() {
     });
     test("user status login failure", () async {
       // Arrange
-      when( mockAuthRepoImpl.getUserStatus()).thenThrow(Exception());
+      when(mockAuthRepoImpl.getUserStatus()).thenThrow(Exception());
 
       // Act & Assert
       expect(
         () async => await getUserStatusUseCase.call(),
         throwsA(isA<Exception>()),
       );
-      verify( mockAuthRepoImpl.getUserStatus()).called(1);
+      verify(mockAuthRepoImpl.getUserStatus()).called(1);
     });
   });
 }

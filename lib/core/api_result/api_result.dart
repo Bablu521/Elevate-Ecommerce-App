@@ -20,6 +20,7 @@ class ApiErrorResult<T> extends ApiResult<T> {
   }
 }
 
+
 Future<ApiResult<TOut>> safeApiCall<TIn, TOut>(
   Future<TIn> Function() apiCall,
   TOut Function(TIn) transform,
@@ -31,4 +32,3 @@ Future<ApiResult<TOut>> safeApiCall<TIn, TOut>(
     return ApiErrorResult(e);
   }
 }
-

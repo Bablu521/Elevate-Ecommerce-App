@@ -5,9 +5,10 @@ import 'package:injectable/injectable.dart';
 
 @Injectable(as: AuthLocalDataSource)
 class AuthLocalDataSourceImpl implements AuthLocalDataSource {
-  final FlutterSecureStorage secureStorage;
+final FlutterSecureStorage secureStorage;
 
-  AuthLocalDataSourceImpl({required this.secureStorage});
+  AuthLocalDataSourceImpl(this.secureStorage);
+
   Future<void> _saveValue({required String key, required String value}) async {
     await secureStorage.write(key: key, value: value);
   }
@@ -32,10 +33,8 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
 
   @override
   Future<bool> getUserStatus() async {
-    final bool userLogin =
-        await secureStorage.read(key: ConstKeys.keyUserStatus) ==
-        ConstKeys.kUserLogin;
-    return userLogin;
+    final status = await secureStorage.read(key: ConstKeys.keyUserStatus);
+    return status == ConstKeys.kUserLogin;
   }
 
   @override
@@ -44,3 +43,4 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
     await secureStorage.delete(key: ConstKeys.keyRememberMe);
   }
 }
+

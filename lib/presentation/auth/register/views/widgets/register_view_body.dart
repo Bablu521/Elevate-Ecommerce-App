@@ -52,8 +52,7 @@ class RegisterViewBody extends StatelessWidget {
               height: 48.h,
               child: ElevatedButton(
                 onPressed: () {
-                  if (registerViewModel.formKey.currentState!
-                      .validate()) {
+                  if (registerViewModel.formKey.currentState!.validate()) {
                     registerViewModel.doIntent(OnSignUpClickEvent());
                   }
                 },

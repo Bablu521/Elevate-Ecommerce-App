@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RegisterForm extends StatelessWidget {
   final RegisterViewModel registerViewModel;
-  const RegisterForm({super.key , required this.registerViewModel});
+  const RegisterForm({super.key, required this.registerViewModel});
 
   @override
   Widget build(BuildContext context) {

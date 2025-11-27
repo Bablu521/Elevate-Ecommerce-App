@@ -19,7 +19,8 @@ class RegisterViewModel extends Cubit<RegisterStates> {
   final TextEditingController lastNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
   final TextEditingController phoneNumberController = TextEditingController();
   Gender? selectedGender;
 

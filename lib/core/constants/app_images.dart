@@ -2,10 +2,35 @@ abstract final class AppImages {
   AppImages._();
 
   static const String _rootImages = 'assets/images';
+  static const String _rootIcons = 'assets/icons';
   static const String productDetailsTestImage = "assets/Images/prodcutTest.png";
   static const String loading = "assets/animations/eYr0JZUKw0.json";
   static const String logo = '$_rootImages/Logo_flower.png';
   static const String productTest = '$_rootImages/prodcutTest.png';
   static const String productTestImage = '$_rootImages/prodeuctTestImage.png';
+  static const String filterIcon = '$_rootImages/filter_ic.svg';
+  static const String bottomFilterIcon = '$_rootImages/bottom_filter_ic.svg';
   static const String lockAccessImage = '$_rootImages/heart-lock.png';
+  static const String profileImageTest = '$_rootImages/profile_test_image.jpg';
+  static const String fakeImgUrl =
+      "https://flower.elevateegy.com/uploads/fefa790a-f0c1-42a0-8699-34e8fc065812-cover_image.png";
+  static const String locationIconImage = '$_rootImages/locationIcon.png';
+  static const String deleteIconImage = '$_rootImages/deleteIcon.png';
+  static const String editIconImage = '$_rootImages/editIcon.png';
+  static const String markerIconImage = '$_rootImages/markerIcon.png';
+  static const String kNotificationImage = '$_rootImages/Heart-eyes.png';
+  static const String penImage = '$_rootImages/noto-v1_pen.png';
+  static const String profileImageEmpty =
+      '$_rootImages/profile_empty_photo.jpg';
+  static const String profileLogoIcon = '$_rootIcons/Vector.png';
+  static const String transactionOrder =
+      '$_rootIcons/Transaction-order (交易清单).png';
+  static const String languageIcon = '$_rootIcons/ax_vector.png';
+  static const String orderImage = '$_rootImages/kTestFlower.png';
+  static const String floweryIcon = '$_rootImages/flowery_ic.svg';
+  static const String searchIcon = '$_rootImages/search_ic.svg';
+  static const String deliveryBoy = '$_rootImages/delivery_boy.svg';
+  static const String apartmentImage = '$_rootImages/apartment.png';
+  static const String floweryImage = '$_rootImages/flowery.png';
+  static const String motorcycleDeliveryImage = '$_rootImages/motorcycle_delivery.png';
 }

@@ -6,9 +6,8 @@ class RegisterStates extends Equatable {
   final RegisterEntity? data;
   final String? errorMessage;
 
-  const RegisterStates({this.isLoading = false, this.data, this.errorMessage,});
+  const RegisterStates({this.isLoading = false, this.data, this.errorMessage});
 
-   
   @override
   List<Object?> get props => [isLoading, data, errorMessage];
 
@@ -20,10 +19,7 @@ class RegisterStates extends Equatable {
     return RegisterStates(
       isLoading: isLoading ?? this.isLoading,
       data: data,
-      errorMessage: errorMessage ,
+      errorMessage: errorMessage,
     );
   }
- 
 }
-
-
