@@ -7,7 +7,7 @@ plugins {
 android {
     namespace = "com.example.elevate_ecommerce_app"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = "25.2.9519653"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
